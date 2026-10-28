@@ -96,6 +96,22 @@
   )
 }
 
+// neutral: black in the light theme, white in the dark theme
+@mixin buttonVariantNeutral(
+  $root,
+) {
+  @include button-variants-builder.buildButtonFilledVariant(
+    $root,
+
+    $background: var(--button-neutral),
+    $background_disabled: var(--states-button-neutral-disabled),
+    $background_hovered: var(--states-button-neutral-hover),
+    $background_pressed: var(--states-button-neutral-pressed),
+    $foreground: var(--text-primary-inverse),
+    $foreground_disabled: var(--text-primary-inverse),
+  )
+}
+
 // destructive
 @mixin buttonVariantDestructive(
   $root,

@@ -19,6 +19,8 @@ export const getIconButtonSpinnerAppearance = (iconButtonVariant: IconButtonVari
     case 'secondary':
     case 'ghost':
       return 'primary';
+    case 'neutral':
+      return 'contrast';
     case 'primary-contrast':
     case 'secondary-contrast':
       return 'primary-static';

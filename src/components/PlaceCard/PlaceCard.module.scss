@@ -124,45 +124,54 @@
   justify-content: space-between;
 }
 
-.PlaceCard__count {
-  display: inline-flex;
-}
-
 .PlaceCard__save {
   flex-shrink: 0;
   margin-left: auto;
 }
 
-// [Appearance] Minimal: flat surface, hairline border, no header band,
-// icon-only actions without background and one quiet action by the meta line.
+// [Appearance] Minimal: flat surface with a hairline border, tag and save icon at the top,
+// a divider before the text and pill actions at the bottom right.
 .PlaceCard_appearance_minimal {
-  border: 1px solid var(--divider-primary);
+  border: 1px solid var(--divider-secondary);
   background-color: var(--background-primary);
 
   .PlaceCard__header {
-    align-items: flex-start;
-    padding: var(--spacing-size2xl) var(--spacing-size-m) 0 var(--spacing-size2xl);
+    padding: var(--spacing-size2xl) var(--spacing-size-xl) var(--spacing-size-xl) var(--spacing-size2xl);
     background-color: transparent;
   }
 
   .PlaceCard__headerActions {
     display: flex;
+    align-items: center;
     flex-shrink: 0;
-    margin-top: calc(-1 * var(--spacing-size-xs));
-    color: var(--icon-tertiary);
+    gap: var(--spacing-size-xs);
+  }
+
+  .PlaceCard__tag {
+    @include typography.detail;
+    padding: var(--spacing-size2xs) var(--spacing-size-l);
+    border-radius: var(--size-border-radius-semantic-border-radius-rounded);
+    background-color: var(--background-tertiary);
+    color: var(--text-primary);
+    white-space: nowrap;
   }
 
   .PlaceCard__body {
-    padding: var(--spacing-size-xl) var(--spacing-size2xl) 0;
-  }
-
-  .PlaceCard__text {
-    color: var(--text-secondary);
+    margin: 0 var(--spacing-size2xl);
+    padding: var(--spacing-size-xl) 0 0;
+    border-top: 1px solid var(--divider-secondary);
   }
 
   .PlaceCard__footer {
     justify-content: space-between;
-    padding: var(--spacing-size-m) var(--spacing-size-m) var(--spacing-size-m) var(--spacing-size2xl);
+    padding: var(--spacing-size-xl) var(--spacing-size2xl) var(--spacing-size2xl);
+  }
+
+  .PlaceCard__footerActions {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-size-m);
+    flex-shrink: 0;
   }
 
   .PlaceCard__action {
@@ -170,7 +179,18 @@
     max-width: none;
   }
 
+  // Full pills, as in the clean reference
+  .PlaceCard__footerActions > * {
+    border-radius: var(--size-border-radius-semantic-border-radius-rounded);
+  }
+
+  .PlaceCard__subtitle .PlaceCard__handle {
+    @include typography.description;
+    color: inherit;
+  }
+
   .PlaceCard__save {
     margin-left: 0;
+    color: var(--text-secondary);
   }
 }

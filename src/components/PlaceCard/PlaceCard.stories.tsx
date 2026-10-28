@@ -5,7 +5,7 @@ import { Avatar } from '../Avatar';
 import { PlaceCard, type PlaceCardProps } from './PlaceCard';
 
 const avatar = (
-  <Avatar.Container size={40}>
+  <Avatar.Container size={40} form="squircle">
     <Avatar.Text>RB</Avatar.Text>
   </Avatar.Container>
 );
@@ -95,7 +95,7 @@ export const List: Story = {
 
 /** Clean variant: flat surface, hairline border and quiet actions. */
 export const Minimal: Story = {
-  args: { appearance: 'minimal' },
+  args: { appearance: 'minimal', tag: 'Aberto' },
   render: (args) => (
     <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
       <WithSave {...args} />
@@ -105,7 +105,8 @@ export const Minimal: Story = {
         handle="@flordebuzios"
         subtitle="Padarias & Confeitarias"
         text="Cozinha artesanal com pão de queijo saindo a toda hora."
-        meta="Aberto agora · fecha às 19h"
+        meta="Fecha às 19h"
+        tag="Aberto"
         action={{ label: 'Conversar', onClick: () => {} }}
       />
     </div>
@@ -117,7 +118,7 @@ export const Compare: Story = {
   render: (args) => (
     <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
       <WithSave {...args} appearance="default" />
-      <WithSave {...args} appearance="minimal" />
+      <WithSave {...args} appearance="minimal" tag="Aberto" />
     </div>
   )
 };

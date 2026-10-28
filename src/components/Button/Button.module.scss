@@ -92,6 +92,10 @@
   @include button-variants.buttonVariantOverlay('Button');
 }
 
+.Button_variant_neutral {
+  @include button-variants.buttonVariantNeutral('Button');
+}
+
 .Button_variant_destructive {
   @include button-variants.buttonVariantDestructive('Button');
 }

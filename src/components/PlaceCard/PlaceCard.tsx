@@ -19,6 +19,7 @@ export type PlaceCardInnerElementKey =
   | 'body'
   | 'text'
   | 'meta'
+  | 'tag'
   | 'footer';
 
 export interface PlaceCardAction {
@@ -53,6 +54,8 @@ interface PlaceCardOwnProps {
   text?: ReactNode
   /** Small line under the text, such as "2 min ago" or "Open now". */
   meta?: ReactNode
+  /** Small pill at the top right, such as "Open" or "New". Shown in the minimal appearance. */
+  tag?: ReactNode
   /** Opens the place. Makes the header (avatar and title) a button. */
   onOpen?: MouseEventHandler<HTMLButtonElement>
   /** Round button at the top right, for example "new conversation". */
@@ -63,7 +66,8 @@ interface PlaceCardOwnProps {
   save?: PlaceCardToggle
   /**
    * `default`: header band, filled buttons. `minimal`: flat surface with a hairline border,
-   * icon-only actions without background and a single quiet action next to the meta line.
+   * a tag and the save icon at the top, a divider, and pill actions at the bottom right
+   * (secondary round "+" and the neutral main action), with the meta line on the left.
    */
   appearance?: PlaceCardAppearance
   innerClassNames?: InnerClassNamesProp<PlaceCardInnerElementKey>
@@ -81,6 +85,7 @@ export const PlaceCard = forwardRef<HTMLElement, PlaceCardProps>((props, forward
     subtitle,
     text,
     meta,
+    tag,
     onOpen,
     headerAction,
     action,
@@ -90,6 +95,22 @@ export const PlaceCard = forwardRef<HTMLElement, PlaceCardProps>((props, forward
     innerClassNames,
     ...rest
   } = props;
+
+  const isMinimal = appearance === 'minimal';
+
+  // The minimal card keeps the title row for the name only; the handle joins the subtitle line.
+  const handleNode = hasReactNode(handle) && (
+    <span className={clsx(styles.PlaceCard__handle, innerClassNames?.handle)}>{handle}</span>
+  );
+  const subtitleLine = isMinimal && handleNode
+    ? (
+      <>
+        {subtitle}
+        {hasReactNode(subtitle) && ' · '}
+        {handleNode}
+      </>
+    )
+    : subtitle;
 
   const identityContent = (
     <>
@@ -102,20 +123,17 @@ export const PlaceCard = forwardRef<HTMLElement, PlaceCardProps>((props, forward
       <span className={styles.PlaceCard__names}>
         <span className={styles.PlaceCard__titleRow}>
           <span className={clsx(styles.PlaceCard__title, innerClassNames?.title)}>{title}</span>
-          {hasReactNode(handle) && (
-            <span className={clsx(styles.PlaceCard__handle, innerClassNames?.handle)}>{handle}</span>
-          )}
+          {!isMinimal && handleNode}
         </span>
-        {hasReactNode(subtitle) && (
-          <span className={clsx(styles.PlaceCard__subtitle, innerClassNames?.subtitle)}>{subtitle}</span>
+        {hasReactNode(subtitleLine) && (
+          <span className={clsx(styles.PlaceCard__subtitle, innerClassNames?.subtitle)}>{subtitleLine}</span>
         )}
       </span>
     </>
   );
 
   const identityClassName = clsx(styles.PlaceCard__identity, innerClassNames?.identity);
-  const isMinimal = appearance === 'minimal';
-  const iconVariant = isMinimal ? 'ghost' : 'secondary';
+  const saveVariant = isMinimal ? 'ghost' : 'secondary';
   const showCount = action?.count !== undefined && action.count > 0;
 
   const identity = onOpen
@@ -129,7 +147,7 @@ export const PlaceCard = forwardRef<HTMLElement, PlaceCardProps>((props, forward
   const saveButton = save && (
     <IconButton
       size="small"
-      variant={iconVariant}
+      variant={saveVariant}
       className={styles.PlaceCard__save}
       aria-label={save.label}
       aria-pressed={save.pressed}
@@ -142,7 +160,7 @@ export const PlaceCard = forwardRef<HTMLElement, PlaceCardProps>((props, forward
   const headerButton = headerAction && (
     <IconButton
       size="small"
-      variant={iconVariant}
+      variant="secondary"
       aria-label={headerAction.label}
       onClick={headerAction.onClick}
     >
@@ -153,18 +171,13 @@ export const PlaceCard = forwardRef<HTMLElement, PlaceCardProps>((props, forward
   const textNode = hasReactNode(text) && <p className={clsx(styles.PlaceCard__text, innerClassNames?.text)}>{text}</p>;
   const metaNode = hasReactNode(meta) && <span className={clsx(styles.PlaceCard__meta, innerClassNames?.meta)}>{meta}</span>;
 
-  // In the minimal card the counter sits on the card surface, so it keeps its own
-  // contrast colour instead of the one the Button injects for its variant.
-  const counter = <Counter value={action?.count ?? 0} rounded variant={isMinimal ? 'default' : 'static'} />;
-  const countIndicator = isMinimal ? <span className={styles.PlaceCard__count}>{counter}</span> : counter;
-
   const actionButton = action && (
     <Button
-      size={isMinimal ? 'xsmall' : 'small'}
-      variant={isMinimal ? 'ghost' : 'secondary'}
+      size="small"
+      variant={isMinimal ? 'neutral' : 'secondary'}
       className={styles.PlaceCard__action}
       onClick={action.onClick}
-      indicator={showCount ? countIndicator : undefined}
+      indicator={showCount ? <Counter value={action.count ?? 0} rounded /> : undefined}
     >
       {action.label}
     </Button>
@@ -178,8 +191,8 @@ export const PlaceCard = forwardRef<HTMLElement, PlaceCardProps>((props, forward
         <div className={clsx(styles.PlaceCard__header, innerClassNames?.header)}>
           {identity}
           <div className={styles.PlaceCard__headerActions}>
+            {hasReactNode(tag) && <span className={clsx(styles.PlaceCard__tag, innerClassNames?.tag)}>{tag}</span>}
             {saveButton}
-            {headerButton}
           </div>
         </div>
 
@@ -187,10 +200,13 @@ export const PlaceCard = forwardRef<HTMLElement, PlaceCardProps>((props, forward
           <div className={clsx(styles.PlaceCard__body, innerClassNames?.body)}>{textNode}</div>
         )}
 
-        {(hasReactNode(meta) || action) && (
+        {(hasReactNode(meta) || action || headerAction) && (
           <div className={clsx(styles.PlaceCard__footer, innerClassNames?.footer)}>
-            {metaNode}
-            {actionButton}
+            {metaNode || <span />}
+            <div className={styles.PlaceCard__footerActions}>
+              {headerButton}
+              {actionButton}
+            </div>
           </div>
         )}
       </article>
