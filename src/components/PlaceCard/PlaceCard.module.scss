@@ -61,6 +61,9 @@
 
 .PlaceCard__title {
   @include typography.bodyStrong;
+  // The name wins the space; the handle shrinks first.
+  flex: 0 1 auto;
+  min-width: 0;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -68,7 +71,7 @@
 
 .PlaceCard__handle {
   @include typography.detail;
-  flex-shrink: 1;
+  flex: 0 100 auto;
   min-width: 0;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -121,7 +124,53 @@
   justify-content: space-between;
 }
 
+.PlaceCard__count {
+  display: inline-flex;
+}
+
 .PlaceCard__save {
   flex-shrink: 0;
   margin-left: auto;
+}
+
+// [Appearance] Minimal: flat surface, hairline border, no header band,
+// icon-only actions without background and one quiet action by the meta line.
+.PlaceCard_appearance_minimal {
+  border: 1px solid var(--divider-primary);
+  background-color: var(--background-primary);
+
+  .PlaceCard__header {
+    align-items: flex-start;
+    padding: var(--spacing-size2xl) var(--spacing-size-m) 0 var(--spacing-size2xl);
+    background-color: transparent;
+  }
+
+  .PlaceCard__headerActions {
+    display: flex;
+    flex-shrink: 0;
+    margin-top: calc(-1 * var(--spacing-size-xs));
+    color: var(--icon-tertiary);
+  }
+
+  .PlaceCard__body {
+    padding: var(--spacing-size-xl) var(--spacing-size2xl) 0;
+  }
+
+  .PlaceCard__text {
+    color: var(--text-secondary);
+  }
+
+  .PlaceCard__footer {
+    justify-content: space-between;
+    padding: var(--spacing-size-m) var(--spacing-size-m) var(--spacing-size-m) var(--spacing-size2xl);
+  }
+
+  .PlaceCard__action {
+    flex-grow: 0;
+    max-width: none;
+  }
+
+  .PlaceCard__save {
+    margin-left: 0;
+  }
 }

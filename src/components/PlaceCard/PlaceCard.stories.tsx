@@ -23,6 +23,9 @@ const meta = {
     headerAction: { label: 'Nova conversa', onClick: () => {} },
     action: { label: 'Ver mensagens', count: 3, onClick: () => {} }
   },
+  argTypes: {
+    appearance: { control: 'inline-radio', options: ['default', 'minimal'] }
+  },
   decorators: [
     (Story) => (
       <div style={{ maxWidth: 390 }}>
@@ -86,6 +89,35 @@ export const List: Story = {
     <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
       <WithSave {...args} />
       <WithSave {...args} title="Boutique Ossos" handle="@ossos" subtitle="Moda praia" />
+    </div>
+  )
+};
+
+/** Clean variant: flat surface, hairline border and quiet actions. */
+export const Minimal: Story = {
+  args: { appearance: 'minimal' },
+  render: (args) => (
+    <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
+      <WithSave {...args} />
+      <WithSave
+        {...args}
+        title="Padaria Flor de Búzios"
+        handle="@flordebuzios"
+        subtitle="Padarias & Confeitarias"
+        text="Cozinha artesanal com pão de queijo saindo a toda hora."
+        meta="Aberto agora · fecha às 19h"
+        action={{ label: 'Conversar', onClick: () => {} }}
+      />
+    </div>
+  )
+};
+
+/** Both appearances side by side, for comparison. */
+export const Compare: Story = {
+  render: (args) => (
+    <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
+      <WithSave {...args} appearance="default" />
+      <WithSave {...args} appearance="minimal" />
     </div>
   )
 };

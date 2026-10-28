@@ -61,8 +61,15 @@ interface PlaceCardOwnProps {
   action?: PlaceCardAction
   /** Save toggle (bookmark) in the footer. */
   save?: PlaceCardToggle
+  /**
+   * `default`: header band, filled buttons. `minimal`: flat surface with a hairline border,
+   * icon-only actions without background and a single quiet action next to the meta line.
+   */
+  appearance?: PlaceCardAppearance
   innerClassNames?: InnerClassNamesProp<PlaceCardInnerElementKey>
 }
+
+export type PlaceCardAppearance = 'default' | 'minimal';
 
 export type PlaceCardProps = MergeProps<ComponentProps<'article'>, PlaceCardOwnProps>;
 
@@ -78,6 +85,7 @@ export const PlaceCard = forwardRef<HTMLElement, PlaceCardProps>((props, forward
     headerAction,
     action,
     save,
+    appearance = 'default',
     className,
     innerClassNames,
     ...rest
@@ -106,66 +114,110 @@ export const PlaceCard = forwardRef<HTMLElement, PlaceCardProps>((props, forward
   );
 
   const identityClassName = clsx(styles.PlaceCard__identity, innerClassNames?.identity);
-  const hasBody = hasReactNode(text) || hasReactNode(meta);
-  const hasFooter = Boolean(action) || Boolean(save);
+  const isMinimal = appearance === 'minimal';
+  const iconVariant = isMinimal ? 'ghost' : 'secondary';
   const showCount = action?.count !== undefined && action.count > 0;
 
-  return (
-    <article ref={forwardedRef} className={clsx(styles.PlaceCard, className)} {...rest}>
-      <div className={clsx(styles.PlaceCard__header, innerClassNames?.header)}>
-        {onOpen
-          ? (
-            <button type="button" className={clsx(identityClassName, styles.PlaceCard__identity_clickable)} onClick={onOpen}>
-              {identityContent}
-            </button>
-          )
-          : <div className={identityClassName}>{identityContent}</div>}
+  const identity = onOpen
+    ? (
+      <button type="button" className={clsx(identityClassName, styles.PlaceCard__identity_clickable)} onClick={onOpen}>
+        {identityContent}
+      </button>
+    )
+    : <div className={identityClassName}>{identityContent}</div>;
 
-        {headerAction && (
-          <IconButton
-            size="small"
-            variant="secondary"
-            aria-label={headerAction.label}
-            onClick={headerAction.onClick}
-          >
-            <Icon24Plus />
-          </IconButton>
+  const saveButton = save && (
+    <IconButton
+      size="small"
+      variant={iconVariant}
+      className={styles.PlaceCard__save}
+      aria-label={save.label}
+      aria-pressed={save.pressed}
+      onClick={() => { save.onPressedChange(!save.pressed); }}
+    >
+      {save.pressed ? <Icon24BookmarkFilled /> : <Icon24BookmarkOutline />}
+    </IconButton>
+  );
+
+  const headerButton = headerAction && (
+    <IconButton
+      size="small"
+      variant={iconVariant}
+      aria-label={headerAction.label}
+      onClick={headerAction.onClick}
+    >
+      <Icon24Plus />
+    </IconButton>
+  );
+
+  const textNode = hasReactNode(text) && <p className={clsx(styles.PlaceCard__text, innerClassNames?.text)}>{text}</p>;
+  const metaNode = hasReactNode(meta) && <span className={clsx(styles.PlaceCard__meta, innerClassNames?.meta)}>{meta}</span>;
+
+  // In the minimal card the counter sits on the card surface, so it keeps its own
+  // contrast colour instead of the one the Button injects for its variant.
+  const counter = <Counter value={action?.count ?? 0} rounded variant={isMinimal ? 'default' : 'static'} />;
+  const countIndicator = isMinimal ? <span className={styles.PlaceCard__count}>{counter}</span> : counter;
+
+  const actionButton = action && (
+    <Button
+      size={isMinimal ? 'xsmall' : 'small'}
+      variant={isMinimal ? 'ghost' : 'secondary'}
+      className={styles.PlaceCard__action}
+      onClick={action.onClick}
+      indicator={showCount ? countIndicator : undefined}
+    >
+      {action.label}
+    </Button>
+  );
+
+  const rootClassName = clsx(styles.PlaceCard, styles[`PlaceCard_appearance_${appearance}`], className);
+
+  if (isMinimal) {
+    return (
+      <article ref={forwardedRef} className={rootClassName} {...rest}>
+        <div className={clsx(styles.PlaceCard__header, innerClassNames?.header)}>
+          {identity}
+          <div className={styles.PlaceCard__headerActions}>
+            {saveButton}
+            {headerButton}
+          </div>
+        </div>
+
+        {hasReactNode(text) && (
+          <div className={clsx(styles.PlaceCard__body, innerClassNames?.body)}>{textNode}</div>
         )}
+
+        {(hasReactNode(meta) || action) && (
+          <div className={clsx(styles.PlaceCard__footer, innerClassNames?.footer)}>
+            {metaNode}
+            {actionButton}
+          </div>
+        )}
+      </article>
+    );
+  }
+
+  const hasBody = hasReactNode(text) || hasReactNode(meta);
+  const hasFooter = Boolean(action) || Boolean(save);
+
+  return (
+    <article ref={forwardedRef} className={rootClassName} {...rest}>
+      <div className={clsx(styles.PlaceCard__header, innerClassNames?.header)}>
+        {identity}
+        {headerButton}
       </div>
 
       {hasBody && (
         <div className={clsx(styles.PlaceCard__body, innerClassNames?.body)}>
-          {hasReactNode(text) && <p className={clsx(styles.PlaceCard__text, innerClassNames?.text)}>{text}</p>}
-          {hasReactNode(meta) && <span className={clsx(styles.PlaceCard__meta, innerClassNames?.meta)}>{meta}</span>}
+          {textNode}
+          {metaNode}
         </div>
       )}
 
       {hasFooter && (
         <div className={clsx(styles.PlaceCard__footer, innerClassNames?.footer)}>
-          {action && (
-            <Button
-              size="small"
-              variant="secondary"
-              className={styles.PlaceCard__action}
-              onClick={action.onClick}
-              indicator={showCount ? <Counter value={action.count ?? 0} rounded variant="default" /> : undefined}
-            >
-              {action.label}
-            </Button>
-          )}
-
-          {save && (
-            <IconButton
-              size="small"
-              variant="secondary"
-              className={styles.PlaceCard__save}
-              aria-label={save.label}
-              aria-pressed={save.pressed}
-              onClick={() => { save.onPressedChange(!save.pressed); }}
-            >
-              {save.pressed ? <Icon24BookmarkFilled /> : <Icon24BookmarkOutline />}
-            </IconButton>
-          )}
+          {actionButton}
+          {saveButton}
         </div>
       )}
     </article>
