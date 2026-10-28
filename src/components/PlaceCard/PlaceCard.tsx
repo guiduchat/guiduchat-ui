@@ -66,8 +66,8 @@ interface PlaceCardOwnProps {
   save?: PlaceCardToggle
   /**
    * `default`: header band, filled buttons. `minimal`: flat surface with a hairline border,
-   * a tag and the save icon at the top, a divider, and pill actions at the bottom right
-   * (secondary round "+" and the neutral main action), with the meta line on the left.
+   * a tag at the top, a divider, the text with the meta line right under it, and pill
+   * actions at the bottom right (save, "+" and the neutral main action).
    */
   appearance?: PlaceCardAppearance
   innerClassNames?: InnerClassNamesProp<PlaceCardInnerElementKey>
@@ -186,27 +186,28 @@ export const PlaceCard = forwardRef<HTMLElement, PlaceCardProps>((props, forward
   const rootClassName = clsx(styles.PlaceCard, styles[`PlaceCard_appearance_${appearance}`], className);
 
   if (isMinimal) {
+    const hasMinimalBody = hasReactNode(text) || hasReactNode(meta);
+    const hasMinimalFooter = Boolean(save) || Boolean(headerAction) || Boolean(action);
+
     return (
       <article ref={forwardedRef} className={rootClassName} {...rest}>
         <div className={clsx(styles.PlaceCard__header, innerClassNames?.header)}>
           {identity}
-          <div className={styles.PlaceCard__headerActions}>
-            {hasReactNode(tag) && <span className={clsx(styles.PlaceCard__tag, innerClassNames?.tag)}>{tag}</span>}
-            {saveButton}
-          </div>
+          {hasReactNode(tag) && <span className={clsx(styles.PlaceCard__tag, innerClassNames?.tag)}>{tag}</span>}
         </div>
 
-        {hasReactNode(text) && (
-          <div className={clsx(styles.PlaceCard__body, innerClassNames?.body)}>{textNode}</div>
+        {hasMinimalBody && (
+          <div className={clsx(styles.PlaceCard__body, innerClassNames?.body)}>
+            {textNode}
+            {metaNode}
+          </div>
         )}
 
-        {(hasReactNode(meta) || action || headerAction) && (
+        {hasMinimalFooter && (
           <div className={clsx(styles.PlaceCard__footer, innerClassNames?.footer)}>
-            {metaNode || <span />}
-            <div className={styles.PlaceCard__footerActions}>
-              {headerButton}
-              {actionButton}
-            </div>
+            {saveButton}
+            {headerButton}
+            {actionButton}
           </div>
         )}
       </article>

@@ -129,27 +129,41 @@
   margin-left: auto;
 }
 
-// [Appearance] Minimal: flat surface with a hairline border, tag and save icon at the top,
-// a divider before the text and pill actions at the bottom right.
+// [Appearance] Minimal: flat surface with a hairline border, tag at the top, a divider,
+// the text with its meta line, and pill actions at the bottom right. Slightly larger type
+// and roomier spacing than the default card.
 .PlaceCard_appearance_minimal {
   border: 1px solid var(--divider-secondary);
   background-color: var(--background-primary);
 
   .PlaceCard__header {
-    padding: var(--spacing-size2xl) var(--spacing-size-xl) var(--spacing-size-xl) var(--spacing-size2xl);
+    align-items: flex-start;
+    gap: var(--spacing-size-xl);
+    padding: var(--spacing-size3xl) var(--spacing-size3xl) var(--spacing-size2xl);
     background-color: transparent;
   }
 
-  .PlaceCard__headerActions {
-    display: flex;
-    align-items: center;
-    flex-shrink: 0;
+  .PlaceCard__names {
     gap: var(--spacing-size-xs);
+  }
+
+  .PlaceCard__title {
+    @include typography.title;
+  }
+
+  .PlaceCard__subtitle,
+  .PlaceCard__subtitle .PlaceCard__handle {
+    @include typography.detail;
+  }
+
+  .PlaceCard__subtitle .PlaceCard__handle {
+    color: inherit;
   }
 
   .PlaceCard__tag {
     @include typography.detail;
-    padding: var(--spacing-size2xs) var(--spacing-size-l);
+    flex-shrink: 0;
+    padding: var(--spacing-size-xs) var(--spacing-size-xl);
     border-radius: var(--size-border-radius-semantic-border-radius-rounded);
     background-color: var(--background-tertiary);
     color: var(--text-primary);
@@ -157,21 +171,29 @@
   }
 
   .PlaceCard__body {
-    margin: 0 var(--spacing-size2xl);
-    padding: var(--spacing-size-xl) 0 0;
+    gap: var(--spacing-size-s);
+    margin: 0 var(--spacing-size3xl);
+    padding: var(--spacing-size2xl) 0 0;
     border-top: 1px solid var(--divider-secondary);
   }
 
-  .PlaceCard__footer {
-    justify-content: space-between;
-    padding: var(--spacing-size-xl) var(--spacing-size2xl) var(--spacing-size2xl);
+  .PlaceCard__text {
+    line-height: 1.5rem;
   }
 
-  .PlaceCard__footerActions {
-    display: flex;
-    align-items: center;
+  .PlaceCard__meta {
+    @include typography.detail;
+  }
+
+  .PlaceCard__footer {
+    justify-content: flex-end;
     gap: var(--spacing-size-m);
-    flex-shrink: 0;
+    padding: var(--spacing-size2xl) var(--spacing-size3xl) var(--spacing-size3xl);
+  }
+
+  // Full pills, as in the clean reference
+  .PlaceCard__footer > * {
+    border-radius: var(--size-border-radius-semantic-border-radius-rounded);
   }
 
   .PlaceCard__action {
@@ -179,18 +201,7 @@
     max-width: none;
   }
 
-  // Full pills, as in the clean reference
-  .PlaceCard__footerActions > * {
-    border-radius: var(--size-border-radius-semantic-border-radius-rounded);
-  }
-
-  .PlaceCard__subtitle .PlaceCard__handle {
-    @include typography.description;
-    color: inherit;
-  }
-
   .PlaceCard__save {
     margin-left: 0;
-    color: var(--text-secondary);
   }
 }
