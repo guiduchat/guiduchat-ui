@@ -1,0 +1,127 @@
+@use '../../styles/shared-mixins/typography';
+@use '../../styles/shared-mixins/reset-clickable';
+
+.PlaceCard {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
+  border-radius: var(--size-border-radius-semantic-border-radius-promo);
+  background-color: var(--background-card);
+  color: var(--text-primary);
+}
+
+// [Parts] Header: avatar, names and the round action
+.PlaceCard__header {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-size-xl);
+  padding: var(--spacing-size-xl) var(--spacing-size-xl) var(--spacing-size-xl) var(--spacing-size2xl);
+  background-color: var(--background-tertiary);
+}
+
+.PlaceCard__identity {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-size-xl);
+  flex-grow: 1;
+  min-width: 0;
+}
+
+.PlaceCard__identity_clickable {
+  @include reset-clickable.resetClickable;
+  cursor: pointer;
+  border-radius: var(--size-border-radius-semantic-border-radius);
+
+  &:focus-visible {
+    outline: 2px solid var(--icon-themed);
+    outline-offset: 2px;
+  }
+}
+
+.PlaceCard__avatar {
+  display: flex;
+  flex-shrink: 0;
+}
+
+.PlaceCard__names {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  gap: var(--spacing-size2xs);
+}
+
+.PlaceCard__titleRow {
+  display: flex;
+  align-items: baseline;
+  gap: var(--spacing-size-m);
+  min-width: 0;
+}
+
+.PlaceCard__title {
+  @include typography.bodyStrong;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.PlaceCard__handle {
+  @include typography.detail;
+  flex-shrink: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: var(--text-secondary);
+}
+
+.PlaceCard__subtitle {
+  @include typography.description;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: var(--text-secondary);
+}
+
+// [Parts] Body: text and meta line
+.PlaceCard__body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-size-xs);
+  padding: var(--spacing-size-xl) var(--spacing-size2xl) 0;
+}
+
+.PlaceCard__text {
+  @include typography.body;
+  margin: 0;
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+}
+
+.PlaceCard__meta {
+  @include typography.description;
+  color: var(--text-tertiary);
+}
+
+// [Parts] Footer: main action and the save toggle
+.PlaceCard__footer {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-size-xl);
+  padding: var(--spacing-size-xl) var(--spacing-size-xl) var(--spacing-size-xl) var(--spacing-size2xl);
+}
+
+.PlaceCard__action {
+  flex-grow: 1;
+  max-width: 280px;
+  justify-content: space-between;
+}
+
+.PlaceCard__save {
+  flex-shrink: 0;
+  margin-left: auto;
+}
