@@ -1,0 +1,207 @@
+@use '../../styles/shared-mixins/typography';
+@use '../../styles/shared-mixins/reset-clickable';
+
+.PlaceCard {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
+  border-radius: var(--size-border-radius-semantic-border-radius-promo);
+  background-color: var(--background-card);
+  color: var(--text-primary);
+}
+
+// [Parts] Header: avatar, names and the round action
+.PlaceCard__header {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-size-xl);
+  padding: var(--spacing-size-xl) var(--spacing-size-xl) var(--spacing-size-xl) var(--spacing-size2xl);
+  background-color: var(--background-tertiary);
+}
+
+.PlaceCard__identity {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-size-xl);
+  flex-grow: 1;
+  min-width: 0;
+}
+
+.PlaceCard__identity_clickable {
+  @include reset-clickable.resetClickable;
+  cursor: pointer;
+  border-radius: var(--size-border-radius-semantic-border-radius);
+
+  &:focus-visible {
+    outline: 2px solid var(--icon-themed);
+    outline-offset: 2px;
+  }
+}
+
+.PlaceCard__avatar {
+  display: flex;
+  flex-shrink: 0;
+}
+
+.PlaceCard__names {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  gap: var(--spacing-size2xs);
+}
+
+.PlaceCard__titleRow {
+  display: flex;
+  align-items: baseline;
+  gap: var(--spacing-size-m);
+  min-width: 0;
+}
+
+.PlaceCard__title {
+  @include typography.bodyStrong;
+  // The name wins the space; the handle shrinks first.
+  flex: 0 1 auto;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.PlaceCard__handle {
+  @include typography.detail;
+  flex: 0 100 auto;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: var(--text-secondary);
+}
+
+.PlaceCard__subtitle {
+  @include typography.description;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: var(--text-secondary);
+}
+
+// [Parts] Body: text and meta line
+.PlaceCard__body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-size-xs);
+  padding: var(--spacing-size-xl) var(--spacing-size2xl) 0;
+}
+
+.PlaceCard__text {
+  @include typography.body;
+  margin: 0;
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+}
+
+.PlaceCard__meta {
+  @include typography.description;
+  color: var(--text-tertiary);
+}
+
+// [Parts] Footer: main action and the save toggle
+.PlaceCard__footer {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-size-xl);
+  padding: var(--spacing-size-xl) var(--spacing-size-xl) var(--spacing-size-xl) var(--spacing-size2xl);
+}
+
+.PlaceCard__action {
+  flex-grow: 1;
+  max-width: 280px;
+  justify-content: space-between;
+}
+
+.PlaceCard__save {
+  flex-shrink: 0;
+  margin-left: auto;
+}
+
+// [Appearance] Minimal: flat surface with a hairline border, tag at the top, a divider,
+// the text with its meta line, and pill actions at the bottom right. Slightly larger type
+// and roomier spacing than the default card.
+.PlaceCard_appearance_minimal {
+  border: 1px solid var(--divider-secondary);
+  background-color: var(--background-primary);
+
+  .PlaceCard__header {
+    align-items: flex-start;
+    gap: var(--spacing-size-xl);
+    padding: var(--spacing-size3xl) var(--spacing-size3xl) var(--spacing-size2xl);
+    background-color: transparent;
+  }
+
+  .PlaceCard__names {
+    gap: var(--spacing-size-xs);
+  }
+
+  .PlaceCard__title {
+    @include typography.title;
+  }
+
+  .PlaceCard__subtitle,
+  .PlaceCard__subtitle .PlaceCard__handle {
+    @include typography.detail;
+  }
+
+  .PlaceCard__subtitle .PlaceCard__handle {
+    color: inherit;
+  }
+
+  .PlaceCard__tag {
+    @include typography.detail;
+    flex-shrink: 0;
+    padding: var(--spacing-size-xs) var(--spacing-size-xl);
+    border-radius: var(--size-border-radius-semantic-border-radius-rounded);
+    background-color: var(--background-tertiary);
+    color: var(--text-primary);
+    white-space: nowrap;
+  }
+
+  .PlaceCard__body {
+    gap: var(--spacing-size-s);
+    margin: 0 var(--spacing-size3xl);
+    padding: var(--spacing-size2xl) 0 0;
+    border-top: 1px solid var(--divider-secondary);
+  }
+
+  .PlaceCard__text {
+    line-height: 1.5rem;
+  }
+
+  .PlaceCard__meta {
+    @include typography.detail;
+  }
+
+  .PlaceCard__footer {
+    justify-content: flex-end;
+    gap: var(--spacing-size-m);
+    padding: var(--spacing-size2xl) var(--spacing-size3xl) var(--spacing-size3xl);
+  }
+
+  // Full pills, as in the clean reference
+  .PlaceCard__footer > * {
+    border-radius: var(--size-border-radius-semantic-border-radius-rounded);
+  }
+
+  .PlaceCard__action {
+    flex-grow: 0;
+    max-width: none;
+  }
+
+  .PlaceCard__save {
+    margin-left: 0;
+  }
+}

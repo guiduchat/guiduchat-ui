@@ -86,6 +86,10 @@
   @include button-variants.buttonVariantOverlay('IconButton');
 }
 
+.IconButton_variant_neutral {
+  @include button-variants.buttonVariantNeutral('IconButton');
+}
+
 .IconButton_variant_destructive {
   @include button-variants.buttonVariantDestructive('IconButton');
 }

@@ -45,6 +45,7 @@
   --button-negative: rgb(255 48 60);
   --button-ghost: rgb(0 0 0 / 0);
   --button-overlay: rgb(12 13 14 / 0.32);
+  --button-neutral: rgb(12 13 14);
 
   // Controls
   --controls-active: rgb(0 122 255);
@@ -87,6 +88,9 @@
   --states-button-overlay-hover: rgb(12 13 14 / 0.48);
   --states-button-overlay-pressed: rgb(12 13 14 / 0.56);
   --states-button-overlay-disabled: rgb(12 13 14 / 0.2);
+  --states-button-neutral-hover: rgb(44 45 49);
+  --states-button-neutral-pressed: rgb(0 0 0);
+  --states-button-neutral-disabled: rgb(12 13 14 / 0.32);
   --states-text-primary-disabled: rgb(111 114 118 / 0.64);
   --states-text-secondary-disabled: rgb(111 114 118 / 0.64);
   --states-text-tertiary-disabled: rgb(111 114 118 / 0.64);
@@ -168,6 +172,7 @@
   --button-negative: rgb(206 66 87);
   --button-ghost: rgb(0 0 0 / 0);
   --button-overlay: rgb(46 51 56 / 0.45);
+  --button-neutral: rgb(255 255 255);
 
   // Controls
   --controls-active: rgb(0 122 255);
@@ -210,6 +215,9 @@
   --states-button-overlay-hover: rgb(46 51 56 / 0.64);
   --states-button-overlay-pressed: rgb(46 51 56 / 0.72);
   --states-button-overlay-disabled: rgb(13 13 13 / 0.32);
+  --states-button-neutral-hover: rgb(228 229 232);
+  --states-button-neutral-pressed: rgb(206 208 212);
+  --states-button-neutral-disabled: rgb(255 255 255 / 0.32);
   --states-text-primary-disabled: rgb(255 255 255 / 0.28);
   --states-text-secondary-disabled: rgb(255 255 255 / 0.28);
   --states-text-tertiary-disabled: rgb(255 255 255 / 0.28);

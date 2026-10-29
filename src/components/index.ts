@@ -11,6 +11,7 @@ export * from './Counter';
 export * from './GuiduUI';
 export * from './IconButton';
 export * from './Input';
+export * from './PlaceCard';
 export * from './Radio';
 export * from './Segmented';
 export * from './Select';
