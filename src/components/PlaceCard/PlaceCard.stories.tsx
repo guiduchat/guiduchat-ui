@@ -95,7 +95,7 @@ export const List: Story = {
 
 /** Clean variant: flat surface, hairline border and quiet actions. */
 export const Minimal: Story = {
-  args: { appearance: 'minimal', tag: 'Aberto' },
+  args: { appearance: 'minimal', tag: 'Aberto', tagTone: 'positive', action: { label: 'Ver mensagens', count: 126, onClick: () => {} } },
   render: (args) => (
     <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
       <WithSave {...args} />
@@ -105,9 +105,10 @@ export const Minimal: Story = {
         handle="@flordebuzios"
         subtitle="Padarias & Confeitarias"
         text="Cozinha artesanal com pão de queijo saindo a toda hora."
-        meta="Fecha às 19h"
-        tag="Aberto"
-        action={{ label: 'Conversar', onClick: () => {} }}
+        meta="Abre às 7h"
+        tag="Fechado"
+        tagTone="neutral"
+        action={{ label: 'Enviar mensagem', onClick: () => {} }}
       />
     </div>
   )
@@ -118,7 +119,7 @@ export const Compare: Story = {
   render: (args) => (
     <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
       <WithSave {...args} appearance="default" />
-      <WithSave {...args} appearance="minimal" tag="Aberto" />
+      <WithSave {...args} appearance="minimal" tag="Aberto" tagTone="positive" />
     </div>
   )
 };
