@@ -17,14 +17,18 @@ export const GuiduUI = forwardRef<HTMLDivElement, GuiduUIProps>((props, ref) => 
     children,
     className,
     colorScheme: colorSchemeProp,
-    platform = isIos() ? 'ios' : 'android',
+    platform: platformProp,
     resetBody = false
   } = props;
 
+  // Tema e plataforma vindos do servidor (props) não são detectados no
+  // navegador: evita a tela piscar e a diferença entre servidor e cliente.
   const systemColorScheme = useSystemColorScheme({
+    enabled: !colorSchemeProp,
     listenChanges: !colorSchemeProp
   });
   const colorScheme = colorSchemeProp ?? systemColorScheme;
+  const platform = platformProp ?? (isIos() ? 'ios' : 'android');
 
   const config = useMemo<GuiduUIContextInterface>(() => ({
     colorScheme,

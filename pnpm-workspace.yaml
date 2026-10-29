@@ -1,0 +1,10 @@
+# Versão exata e só depois de 14 dias publicada, como no guidu-chat. O pnpm
+# 12 lê estas opções daqui, não do .npmrc.
+saveExact: true
+minimumReleaseAge: 20160
+
+allowBuilds:
+  # Do Storybook; baixa o binário da plataforma. O console também autoriza.
+  esbuild: true
+  # Do sass (modo watch); traz binário pronto como dependência opcional.
+  "@parcel/watcher": false

@@ -95,8 +95,8 @@
   --letter-spacing-action-small: -0.009375rem;
   --letter-spacing-action-xsmall: -0.009375rem;
 
-  --family-base: -apple-system, system-ui, "Helvetica Neue", Roboto, sans-serif;
-  --family-headers: -apple-system, system-ui, "Helvetica Neue", Roboto, sans-serif;
+  --family-base: Outfit, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --family-headers: Outfit, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
 }
 
 @mixin androidTypography {
@@ -118,6 +118,6 @@
   --letter-spacing-action-small: 0.009375rem;
   --letter-spacing-action-xsmall: 0.009375rem;
 
-  --family-base: Roboto, sans-serif;
-  --family-headers: Roboto, sans-serif;
+  --family-base: Outfit, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --family-headers: Outfit, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
 }

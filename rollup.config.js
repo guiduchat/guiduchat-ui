@@ -6,11 +6,22 @@ import peerDepsExternal from 'rollup-plugin-peer-deps-external';
 import postcss from 'rollup-plugin-postcss';
 
 export default {
-  input: 'src/index.ts',
+  // Dois pontos de entrada: os componentes (com "use client" para o
+  // Next.js) e os tokens em TypeScript puro, sem DOM (@guiduchat/ui/tokens),
+  // que o app Expo e o servidor importam.
+  input: {
+    index: 'src/index.ts',
+    tokens: 'src/tokens/index.ts'
+  },
   output: {
     dir: 'dist',
     format: 'esm',
-    sourcemap: true
+    sourcemap: true,
+    entryFileNames: '[name].js',
+    // Os componentes usam hooks e o navegador: o pacote principal inteiro é
+    // de cliente no Next.js. O banner entra antes do terser; o terser
+    // está configurado para não descartar a diretiva.
+    banner: (chunk) => (chunk.name === 'index' ? "'use client';" : '')
   },
   plugins: [
     svgr(),
@@ -30,6 +41,7 @@ export default {
         generateScopedName: '[local]__[hash:base64:3]'
       }
     }),
-    terser()
+    // directives: false mantém o 'use client' do banner.
+    terser({ compress: { directives: false } })
   ]
 };
