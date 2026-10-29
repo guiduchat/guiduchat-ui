@@ -1,0 +1,82 @@
+@use '../../styles/shared-mixins/a11y';
+
+.NavBar {
+  display: grid;
+  grid-template-columns: minmax(44px, 1fr) auto minmax(44px, 1fr);
+  align-items: center;
+  min-height: 52px;
+  padding: 4px;
+  padding-top: calc(4px + env(safe-area-inset-top, 0));
+  box-sizing: border-box;
+  background-color: var(--background-primary);
+  color: var(--text-primary);
+}
+
+// Android: título à esquerda, logo depois do voltar.
+.NavBar_platform_android {
+  grid-template-columns: auto 1fr auto;
+  column-gap: 4px;
+}
+
+.NavBar__before {
+  display: flex;
+  align-items: center;
+  justify-self: start;
+}
+
+.NavBar__after {
+  display: flex;
+  align-items: center;
+  justify-self: end;
+  gap: 4px;
+}
+
+.NavBar__title {
+  margin: 0;
+  min-width: 0;
+  overflow: hidden;
+  font-size: var(--font-size-title);
+  line-height: var(--line-height-title);
+  font-weight: var(--font-weight-title);
+  text-align: center;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+
+  .NavBar_platform_android & {
+    padding-inline-start: 8px;
+    text-align: start;
+  }
+}
+
+.NavBarBackButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  // Alvo de toque de 44 px.
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  color: var(--icon-primary);
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+
+  @include a11y.focusRing(0);
+
+  @media (hover: hover) {
+    &:hover {
+      background-color: var(--states-background-hovered-transparent);
+    }
+  }
+
+  &:active {
+    background-color: var(--states-background-pressed-transparent);
+  }
+
+  svg {
+    width: 24px;
+    height: 24px;
+  }
+}

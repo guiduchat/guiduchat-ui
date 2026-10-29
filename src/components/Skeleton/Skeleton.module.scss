@@ -1,0 +1,40 @@
+.Skeleton {
+  display: block;
+  background-color: var(--background-tertiary);
+  border-radius: 8px;
+  animation: Skeleton_pulse 1.4s ease-in-out infinite;
+}
+
+.Skeleton_shape_circle {
+  border-radius: 50%;
+}
+
+.Skeleton_shape_text {
+  height: 0.875em;
+  border-radius: 4px;
+
+  & + & {
+    margin-top: 0.5em;
+  }
+}
+
+.SkeletonGroup {
+  display: block;
+}
+
+@keyframes Skeleton_pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.45;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .Skeleton {
+    animation: none;
+  }
+}

@@ -3,7 +3,27 @@ import axe from 'axe-core';
 import type { ReactNode } from 'react';
 import { describe, expect, it } from 'vitest';
 
-import { Avatar, Button, Counter, GuiduUI, HeaderCard, MenuTabs, PlaceCard, Switch } from './index';
+import {
+  Avatar,
+  Button,
+  Counter,
+  EmptyState,
+  GuiduUI,
+  HeaderCard,
+  Icon20WifiSlash,
+  Icon24ChatFilled,
+  Icon24ChatOutline,
+  Icon24CompassOutline,
+  MenuTabs,
+  NavBar,
+  NavBarBackButton,
+  Notice,
+  PlaceCard,
+  Skeleton,
+  Switch,
+  TabBar,
+  TabBarItem
+} from './index';
 
 // Acessibilidade com o axe nos componentes, nos dois temas. Componente novo
 // entra nesta lista (U7 do guidu-chat).
@@ -27,6 +47,45 @@ const cases: Array<[string, ReactNode]> = [
       action={{ label: 'Ver mensagens', count: 2 }}
       save={{ label: 'Salvar', pressed: false, onPressedChange: () => {} }}
     />
+  ],
+  [
+    'TabBar',
+    <TabBar key="t" aria-label="Menu principal">
+      <TabBarItem href="/descubra" icon={<Icon24CompassOutline />}>Descubra</TabBarItem>
+      <TabBarItem
+        href="/conversas"
+        active
+        icon={<Icon24ChatOutline />}
+        activeIcon={<Icon24ChatFilled />}
+        count={3}
+        countLabel="3 não lidas"
+      >
+        Conversas
+      </TabBarItem>
+    </TabBar>
+  ],
+  ['NavBar', <NavBar key="n" title="Locais" before={<NavBarBackButton label="Voltar" />} />],
+  [
+    'Skeleton',
+    <div key="k" aria-busy="true">
+      <Skeleton shape="text" lines={2} />
+    </div>
+  ],
+  [
+    'EmptyState',
+    <EmptyState
+      key="e"
+      icon={<Icon20WifiSlash />}
+      title="Não deu para carregar"
+      description="Confira a conexão."
+      action={<Button>Tentar de novo</Button>}
+    />
+  ],
+  [
+    'Notice',
+    <Notice key="o" tone="warning" icon={<Icon20WifiSlash />} action={<Button size="small">Tentar de novo</Button>}>
+      Sem conexão.
+    </Notice>
   ],
   [
     'HeaderCard',
