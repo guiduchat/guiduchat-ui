@@ -25,7 +25,8 @@
     ".storybook/**/*.tsx",
     ".storybook/**/*.js",
     "rollup.config.js",
-    "vitest.config.ts"
+    "vitest.config.ts",
+    "vitest.setup.ts"
   ],
   "files": ["src/env.d.ts"],
   "exclude": ["dist"]

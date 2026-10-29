@@ -53,6 +53,10 @@ import { brand, fontFamily, palette } from '@guiduchat/ui/tokens';
 
 Sobre a cor principal (`brand.accent`, `#e1fb40`), o texto é sempre o escuro (`brand.onAccent`). Para texto, ícone e controle "da marca" sobre fundo claro, use `brand.accentStrong`: o limão sobre branco não tem contraste.
 
+### Ícones
+
+Os ícones das abas (Descubra, Locais, Conversas, Conta), voltar, sem conexão, aviso e informação são da [Phosphor Icons](https://phosphoricons.com) (MIT, `src/icons/LICENSE-phosphor`), copiados para o kit sem dependência.
+
 ## Desenvolvimento
 
 ```shell

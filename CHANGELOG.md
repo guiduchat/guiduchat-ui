@@ -1,5 +1,17 @@
 # Changelog do @guiduchat/ui
 
+## 0.3.0 (componentes do shell)
+
+Os componentes que destravam o shell do guidu.chat (etapa 3) e a lista de Locais.
+
+- **TabBar** e **TabBarItem**: rodapé com ícone em contorno na aba inativa e preenchido na ativa, rótulo embaixo e contador da marca. A aba ativa recebe `aria-current="page"`; o contador tem texto para leitor de tela (`countLabel`). Com `asChild`, cada aba vira o `<Link>` do app. Alvo de toque de 56 px.
+- **NavBar** e **NavBarBackButton**: título (`h1`), voltar e ação; título no centro no iOS e à esquerda no Android. Voltar com 44 px e `asChild`.
+- **Skeleton**: retângulo, círculo e linhas de texto; só visual, sem animação com movimento reduzido.
+- **EmptyState**: ícone, título, explicação e ação (vazio e erro com "Tentar de novo").
+- **Notice**: faixa de aviso (info, atenção, perigo) com `role="status"` e ação.
+- **Ícones** (Phosphor, MIT): Descubra, Locais, Conversas e Conta em contorno e preenchido, voltar, sem conexão, aviso e informação.
+- Testes de comportamento e de acessibilidade (axe) dos cinco nos dois temas; histórias no Storybook.
+
 ## 0.2.0 (UI0)
 
 Primeira versão publicada, no GitHub Packages como `@guiduchat/ui`.

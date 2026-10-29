@@ -1,0 +1,85 @@
+@use '../../styles/shared-mixins/a11y';
+
+.TabBar {
+  display: flex;
+  align-items: stretch;
+  width: 100%;
+  box-sizing: border-box;
+  padding-bottom: env(safe-area-inset-bottom, 0);
+  background-color: var(--background-primary);
+  border-top: 1px solid var(--divider-secondary);
+}
+
+.TabBarItem {
+  position: relative;
+  display: flex;
+  flex: 1 1 0;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  min-width: 0;
+  // Alvo de toque bem acima de 44 px.
+  min-height: 56px;
+  padding: 6px 2px;
+  box-sizing: border-box;
+  border-radius: 12px;
+  color: var(--text-secondary);
+  text-decoration: none;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+
+  @include a11y.focusRing(-4px);
+
+  @media (hover: hover) {
+    &:hover {
+      color: var(--text-primary);
+    }
+  }
+}
+
+.TabBarItem_active {
+  color: var(--text-primary);
+}
+
+.TabBarItem__icon {
+  position: relative;
+  display: flex;
+  width: 24px;
+  height: 24px;
+  color: var(--icon-tertiary);
+
+  .TabBarItem_active & {
+    color: var(--icon-primary);
+  }
+
+  svg {
+    width: 24px;
+    height: 24px;
+  }
+}
+
+.TabBarItem__badge {
+  position: absolute;
+  top: -6px;
+  inset-inline-start: 14px;
+}
+
+.TabBarItem__label {
+  max-width: 100%;
+  overflow: hidden;
+  font-size: var(--font-size-label);
+  line-height: var(--line-height-label);
+  font-weight: var(--font-weight-label);
+  letter-spacing: var(--letter-spacing-label);
+  white-space: nowrap;
+  text-overflow: ellipsis;
+
+  .TabBarItem_active & {
+    font-weight: var(--font-weight-label-strong);
+  }
+}
+
+.TabBarItem__countLabel {
+  @include a11y.visuallyHidden;
+}
