@@ -151,13 +151,9 @@
     @include typography.title;
   }
 
-  .PlaceCard__subtitle,
   .PlaceCard__subtitle .PlaceCard__handle {
     @include typography.detail;
-  }
-
-  .PlaceCard__subtitle .PlaceCard__handle {
-    color: inherit;
+    color: var(--text-secondary);
   }
 
   .PlaceCard__tag {
@@ -170,11 +166,15 @@
     white-space: nowrap;
   }
 
+  .PlaceCard__tag_positive {
+    background-color: color-mix(in srgb, var(--icon-positive) 18%, transparent);
+    color: var(--text-positive);
+  }
+
   .PlaceCard__body {
     gap: var(--spacing-size-s);
     margin: 0 var(--spacing-size3xl);
-    padding: var(--spacing-size2xl) 0 0;
-    border-top: 1px solid var(--divider-secondary);
+    padding: 0;
   }
 
   .PlaceCard__text {
@@ -203,5 +203,9 @@
 
   .PlaceCard__save {
     margin-left: 0;
+  }
+
+  .PlaceCard__count {
+    display: inline-flex;
   }
 }
