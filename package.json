@@ -54,7 +54,7 @@
     "@storybook/addon-docs": "10.5.10",
     "@storybook/addon-links": "10.5.10",
     "@storybook/addon-onboarding": "10.5.10",
-    "@storybook/react-vite": "10.5.10",
+    "@storybook/react-vite": "10.6.4",
     "@stylistic/eslint-plugin": "5.10.0",
     "@svgr/rollup": "8.1.0",
     "@types/node": "26.2.0",
