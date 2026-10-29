@@ -56,6 +56,8 @@ interface PlaceCardOwnProps {
   meta?: ReactNode
   /** Small pill at the top right, such as "Open" or "New". Shown in the minimal appearance. */
   tag?: ReactNode
+  /** Colour of the tag: `positive` (green, such as "Open") or `neutral` (grey). */
+  tagTone?: PlaceCardTagTone
   /** Opens the place. Makes the header (avatar and title) a button. */
   onOpen?: MouseEventHandler<HTMLButtonElement>
   /** Round button at the top right, for example "new conversation". */
@@ -65,15 +67,17 @@ interface PlaceCardOwnProps {
   /** Save toggle (bookmark) in the footer. */
   save?: PlaceCardToggle
   /**
-   * `default`: header band, filled buttons. `minimal`: flat surface with a hairline border,
-   * a tag at the top, a divider, the text with the meta line right under it, and pill
-   * actions at the bottom right (save, "+" and the neutral main action).
+   * `default`: header band, filled buttons. `minimal`: flat surface, name and handle next to
+   * the avatar, a tag at the top right, the text with the meta line under it, and only two
+   * pill actions at the bottom right: save and the main action. `headerAction` and `subtitle`
+   * are not shown in the minimal card.
    */
   appearance?: PlaceCardAppearance
   innerClassNames?: InnerClassNamesProp<PlaceCardInnerElementKey>
 }
 
 export type PlaceCardAppearance = 'default' | 'minimal';
+export type PlaceCardTagTone = 'neutral' | 'positive';
 
 export type PlaceCardProps = MergeProps<ComponentProps<'article'>, PlaceCardOwnProps>;
 
@@ -86,6 +90,7 @@ export const PlaceCard = forwardRef<HTMLElement, PlaceCardProps>((props, forward
     text,
     meta,
     tag,
+    tagTone = 'neutral',
     onOpen,
     headerAction,
     action,
@@ -98,19 +103,11 @@ export const PlaceCard = forwardRef<HTMLElement, PlaceCardProps>((props, forward
 
   const isMinimal = appearance === 'minimal';
 
-  // The minimal card keeps the title row for the name only; the handle joins the subtitle line.
+  // The minimal card shows only the name and, under it, the handle.
   const handleNode = hasReactNode(handle) && (
     <span className={clsx(styles.PlaceCard__handle, innerClassNames?.handle)}>{handle}</span>
   );
-  const subtitleLine = isMinimal && handleNode
-    ? (
-      <>
-        {subtitle}
-        {hasReactNode(subtitle) && ' · '}
-        {handleNode}
-      </>
-    )
-    : subtitle;
+  const subtitleLine = isMinimal ? handleNode : subtitle;
 
   const identityContent = (
     <>
@@ -133,7 +130,7 @@ export const PlaceCard = forwardRef<HTMLElement, PlaceCardProps>((props, forward
   );
 
   const identityClassName = clsx(styles.PlaceCard__identity, innerClassNames?.identity);
-  const saveVariant = isMinimal ? 'ghost' : 'secondary';
+  const saveVariant = isMinimal ? 'neutral' : 'secondary';
   const showCount = action?.count !== undefined && action.count > 0;
 
   const identity = onOpen
@@ -171,13 +168,19 @@ export const PlaceCard = forwardRef<HTMLElement, PlaceCardProps>((props, forward
   const textNode = hasReactNode(text) && <p className={clsx(styles.PlaceCard__text, innerClassNames?.text)}>{text}</p>;
   const metaNode = hasReactNode(meta) && <span className={clsx(styles.PlaceCard__meta, innerClassNames?.meta)}>{meta}</span>;
 
+  // In the minimal card the counter is a grey pill on the neutral button; the wrapper keeps
+  // the Button from replacing its colours.
+  const countIndicator = isMinimal
+    ? <span className={styles.PlaceCard__count}><Counter value={action?.count ?? 0} rounded variant="menu" /></span>
+    : <Counter value={action?.count ?? 0} rounded />;
+
   const actionButton = action && (
     <Button
       size="small"
       variant={isMinimal ? 'neutral' : 'secondary'}
       className={styles.PlaceCard__action}
       onClick={action.onClick}
-      indicator={showCount ? <Counter value={action.count ?? 0} rounded /> : undefined}
+      indicator={showCount ? countIndicator : undefined}
     >
       {action.label}
     </Button>
@@ -187,13 +190,17 @@ export const PlaceCard = forwardRef<HTMLElement, PlaceCardProps>((props, forward
 
   if (isMinimal) {
     const hasMinimalBody = hasReactNode(text) || hasReactNode(meta);
-    const hasMinimalFooter = Boolean(save) || Boolean(headerAction) || Boolean(action);
+    const hasMinimalFooter = Boolean(save) || Boolean(action);
 
     return (
       <article ref={forwardedRef} className={rootClassName} {...rest}>
         <div className={clsx(styles.PlaceCard__header, innerClassNames?.header)}>
           {identity}
-          {hasReactNode(tag) && <span className={clsx(styles.PlaceCard__tag, innerClassNames?.tag)}>{tag}</span>}
+          {hasReactNode(tag) && (
+            <span className={clsx(styles.PlaceCard__tag, styles[`PlaceCard__tag_${tagTone}`], innerClassNames?.tag)}>
+              {tag}
+            </span>
+          )}
         </div>
 
         {hasMinimalBody && (
@@ -206,7 +213,6 @@ export const PlaceCard = forwardRef<HTMLElement, PlaceCardProps>((props, forward
         {hasMinimalFooter && (
           <div className={clsx(styles.PlaceCard__footer, innerClassNames?.footer)}>
             {saveButton}
-            {headerButton}
             {actionButton}
           </div>
         )}

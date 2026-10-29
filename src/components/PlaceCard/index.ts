@@ -5,5 +5,6 @@ export {
   type PlaceCardIconAction,
   type PlaceCardInnerElementKey,
   type PlaceCardProps,
+  type PlaceCardTagTone,
   type PlaceCardToggle
 } from './PlaceCard';
