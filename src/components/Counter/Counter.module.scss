@@ -21,7 +21,7 @@
 }
 
 .Counter_variant_primary {
-  @include textColorPrimary;
+  color: var(--text-on-accent);
   background-color: var(--counter-themed);
 }
 .Counter_variant_primary-contrast {

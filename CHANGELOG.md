@@ -1,3 +1,19 @@
+# Changelog do @guiduchat/ui
+
+## 0.2.0 (UI0)
+
+Primeira versão publicada, no GitHub Packages como `@guiduchat/ui`.
+
+- **Nome e registro:** `@guiduchat/ui` (antes `@guidu/ui`, privado), publicado por tag pelo CI.
+- **Marca guidu.chat:** cor principal `#e1fb40` com texto escuro (`#0b0c0d`) por cima; `#566600` para texto, ícone e controle da marca no tema claro; fonte Outfit. Saem as cores do MAX.
+- **Novo token** `--text-on-accent`: texto do botão principal e do contador, escuro sobre a cor da marca.
+- **`@guiduchat/ui/tokens`:** cores da marca, fonte e tokens de tema em TypeScript puro.
+- **Next.js:** pacote principal com `'use client'`; `GuiduUI` renderiza no servidor e, com `colorScheme` e `platform` por prop, não consulta o navegador.
+- **Peer dependencies:** `react` e `react-dom` `^19.2.0`.
+- **Ferramentas:** pnpm 12, Node 24, versões exatas publicadas há 14 dias ou mais, CI com lint, typecheck, testes de componente e de acessibilidade (axe) e build; Storybook no GitHub Pages.
+
+---
+
 > Histórico herdado do `@maxhub/max-ui` até a versão 0.7.0, base deste projeto. As versões do Guidu UI recomeçam em 0.1.0.
 
 # Changelog

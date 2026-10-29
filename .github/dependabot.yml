@@ -3,19 +3,16 @@ updates:
   - package-ecosystem: "npm"
     directory: "/"
     schedule:
-      interval: "daily"
+      interval: "weekly"
     allow:
       - dependency-type: "direct"
-    reviewers:
-      - "max-messenger/developers"
-      - "max-messenger/security"
+    # Regra das duas semanas (AGENTS.md do guidu-chat).
+    cooldown:
+      default-days: 14
 
   - package-ecosystem: "github-actions"
-    # Workflow files stored in the
-    # default location of `.github/workflows`
     directory: "/"
     schedule:
-      interval: "daily"
-    reviewers:
-      - "max-messenger/developers"
-      - "max-messenger/security"
+      interval: "weekly"
+    cooldown:
+      default-days: 14

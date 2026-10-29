@@ -16,7 +16,7 @@
   --icon-primary-static: rgb(6 7 8 / 0.84);
   --icon-primary-inverse: rgb(255 255 255);
   --icon-primary-inverse-static: rgb(255 255 255);
-  --icon-themed: rgb(0 122 255);
+  --icon-themed: #566600;
   --icon-positive: rgb(26 190 67);
   --icon-negative: rgb(255 48 60);
 
@@ -27,10 +27,13 @@
   --text-primary-static: rgb(6 7 8);
   --text-primary-inverse: rgb(255 255 255);
   --text-primary-inverse-static: rgb(255 255 255);
-  --text-themed: rgb(0 122 255);
+  --text-themed: #566600;
   --text-negative: rgb(255 48 60);
   --text-positive: rgba(26, 190, 67, 1);
   --text-attention: rgb(228 96 39);
+  // Texto e ícone sobre a cor da marca (botão principal, contador).
+  --text-on-accent: #0b0c0d;
+  --states-text-on-accent-disabled: rgb(11 12 13 / 0.48);
 
 
   // Divider
@@ -38,7 +41,7 @@
   --divider-secondary: rgb(12 13 14 / 0.06);
 
   // Button
-  --button-primary: rgb(0 122 255);
+  --button-primary: #e1fb40;
   --button-secondary: rgb(233 235 241);
   --button-primary-contrast: rgb(255 255 255);
   --button-secondary-contrast: rgb(32 54 110 / 0.1);
@@ -48,7 +51,7 @@
   --button-neutral: rgb(12 13 14);
 
   // Controls
-  --controls-active: rgb(0 122 255);
+  --controls-active: #566600;
   --controls-inactive: rgb(9 9 9 / 0.08);
   --controls-key: #fff;
 
@@ -58,7 +61,7 @@
   // Counter
   --counter-attention: rgb(255 48 60);
   --counter-mute: rgb(6 7 8 / 0.12);
-  --counter-themed: rgb(0 122 255);
+  --counter-themed: #e1fb40;
   --counter-default: rgb(23 24 28);
   --counter-mirage: rgb(23 24 28);
   --counter-contrast: rgb(255 255 255);
@@ -68,9 +71,9 @@
   --states-background-card-disabled: rgb(255 255 255 / 0.4);
   --states-icon-primary-disabled: rgb(111 114 118 / 0.64);
   --states-icon-tertiary-hover: rgb(12 13 14 / 0.64);
-  --states-button-primary-hover: rgb(71 159 255);
-  --states-button-primary-pressed: rgb(0 110 229);
-  --states-button-primary-disabled: rgb(0 122 255 / 0.48);
+  --states-button-primary-hover: #e8fc6c;
+  --states-button-primary-pressed: #cde52e;
+  --states-button-primary-disabled: rgb(225 251 64 / 0.48);
   --states-button-secondary-hover: rgb(238 239 244);
   --states-button-secondary-pressed: rgb(223 227 234);
   --states-button-secondary-disabled: rgb(233 235 241);
@@ -96,9 +99,9 @@
   --states-text-tertiary-disabled: rgb(111 114 118 / 0.64);
   --states-text-primary-static-disabled: rgb(111 114 118 / 0.64);
   --states-text-primary-inverse-static-disabled: rgb(255 255 255 / 0.72);
-  --states-text-themed-disabled: rgb(0 122 255 / 0.6);
+  --states-text-themed-disabled: rgb(86 102 0 / 0.6);
   --states-text-negative-disabled: rgb(229 77 86 / 0.64);
-  --states-controls-active-disabled: rgb(0 122 255 / 0.48);
+  --states-controls-active-disabled: rgb(86 102 0 / 0.48);
   --states-controls-inactive-disabled: rgb(9 9 9 / 0.04);
   --states-counter-contrast-disabled: rgb(255 255 255 / 0.4);
   --states-counter-default-disabled: rgb(135 137 143);
@@ -115,8 +118,8 @@
   --gradients-loading-icon-primary-transparent: rgb(6 7 8 / 0);
   --gradients-loading-icon-primary-static-filled: rgb(6 7 8 / 0.84);
   --gradients-loading-icon-primary-static-transparent: rgb(6 7 8 / 0);
-  --gradients-loading-icon-themed-filled: rgb(0 122 255);
-  --gradients-loading-icon-themed-transparent: rgb(0 122 255 / 0);
+  --gradients-loading-icon-themed-filled: #566600;
+  --gradients-loading-icon-themed-transparent: rgb(86 102 0 / 0);
     // Устаревшие токены maxUI, для которых не найдено подтверждённого аналога в Color.General.
   --icon-quaternary: rgb(188 189 190);
   --states-background-hovered-transparent: rgb(13 13 13 / 0.04);
@@ -144,7 +147,7 @@
   --icon-primary-static: rgb(6 7 8 / 0.84);
   --icon-primary-inverse: rgb(6 7 8 / 0.84);
   --icon-primary-inverse-static: rgb(255 255 255);
-  --icon-themed: rgb(0 122 255);
+  --icon-themed: #e1fb40;
   --icon-positive: rgb(43 198 68);
   --icon-negative: rgb(206 66 87);
 
@@ -155,17 +158,20 @@
   --text-primary-static: rgb(6 7 8);
   --text-primary-inverse: rgb(6 7 8);
   --text-primary-inverse-static: rgb(255 255 255);
-  --text-themed: rgb(0 122 255);
+  --text-themed: #e1fb40;
   --text-negative: rgb(206 66 87);
   --text-positive: rgba(43, 198, 68, 1);
   --text-attention: rgb(228 96 39);
+  // Texto e ícone sobre a cor da marca (botão principal, contador).
+  --text-on-accent: #0b0c0d;
+  --states-text-on-accent-disabled: rgb(11 12 13 / 0.48);
 
   // Divider
   --divider-primary: rgb(255 255 255 / 0.12);
   --divider-secondary: rgb(255 255 255 / 0.06);
 
   // Button
-  --button-primary: rgb(0 122 255);
+  --button-primary: #e1fb40;
   --button-secondary: rgb(67 68 85);
   --button-primary-contrast: rgb(255 255 255);
   --button-secondary-contrast: rgb(191 194 246 / 0.26);
@@ -175,7 +181,7 @@
   --button-neutral: rgb(255 255 255);
 
   // Controls
-  --controls-active: rgb(0 122 255);
+  --controls-active: #e1fb40;
   --controls-inactive: rgb(255 255 255 / 0.09);
   --controls-key: rgba(255, 255, 255, 0.27);
 
@@ -185,7 +191,7 @@
   // Counter
   --counter-attention: rgb(206 66 87);
   --counter-mute: rgb(255 255 255 / 0.28);
-  --counter-themed: rgb(0 122 255);
+  --counter-themed: #e1fb40;
   --counter-default: rgb(23 24 28);
   --counter-mirage: rgb(255 255 255);
   --counter-contrast: rgb(255 255 255);
@@ -195,9 +201,9 @@
   --states-background-card-disabled: rgb(30 30 30 / 0.4);
   --states-icon-primary-disabled: rgb(255 255 255 / 0.24);
   --states-icon-tertiary-hover: rgb(231 231 231 / 0.64);
-  --states-button-primary-hover: rgb(71 159 255);
-  --states-button-primary-pressed: rgb(0 110 229);
-  --states-button-primary-disabled: rgb(255 255 255 / 0.12);
+  --states-button-primary-hover: #e8fc6c;
+  --states-button-primary-pressed: #cde52e;
+  --states-button-primary-disabled: rgb(225 251 64 / 0.32);
   --states-button-secondary-hover: rgb(77 78 98);
   --states-button-secondary-pressed: rgb(60 62 76);
   --states-button-secondary-disabled: rgb(75 76 94);
@@ -238,14 +244,14 @@
   --gradients-loading-icon-contrast-static-transparent: rgb(255 255 255 / 0);
   --gradients-loading-icon-negative-filled: rgb(206 66 87);
   --gradients-loading-icon-negative-transparent: rgb(206 66 87 / 0);
-  --gradients-loading-icon-neutral-themed-filled: rgb(0 122 255);
-  --gradients-loading-icon-neutral-themed-transparent: rgb(0 122 255 / 0);
+  --gradients-loading-icon-neutral-themed-filled: #e1fb40;
+  --gradients-loading-icon-neutral-themed-transparent: rgb(225 251 64 / 0);
   --gradients-loading-icon-primary-filled: rgb(255 255 255);
   --gradients-loading-icon-primary-transparent: rgb(255 255 255 / 0);
   --gradients-loading-icon-primary-static-filled: rgb(6 7 8 / 0.84);
   --gradients-loading-icon-primary-static-transparent: rgb(6 7 8 / 0);
-  --gradients-loading-icon-themed-filled: rgb(0 122 255);
-  --gradients-loading-icon-themed-transparent: rgb(0 122 255 / 0);
+  --gradients-loading-icon-themed-filled: #e1fb40;
+  --gradients-loading-icon-themed-transparent: rgb(225 251 64 / 0);
     // Устаревшие токены maxUI, для которых не найдено подтверждённого аналога в Color.General.
   --icon-quaternary: rgb(255 255 255 / 0.28);
   --states-background-hovered-transparent: rgb(231 231 231 / 0.04);

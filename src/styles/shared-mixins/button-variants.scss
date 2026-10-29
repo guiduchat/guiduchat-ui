@@ -11,8 +11,8 @@
     $background_disabled: var(--states-button-primary-disabled),
     $background_hovered: var(--states-button-primary-hover),
     $background_pressed: var(--states-button-primary-pressed),
-    $foreground: var(--text-primary-inverse-static),
-    $foreground_disabled: var(--states-text-primary-inverse-static-disabled),
+    $foreground: var(--text-on-accent),
+    $foreground_disabled: var(--states-text-on-accent-disabled),
   )
 }
 

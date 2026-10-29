@@ -1,0 +1,47 @@
+# Publica o @guiduchat/ui no GitHub Packages quando uma tag vX.Y.Z é criada
+# (RELEASING.md). A versão da tag precisa ser a do package.json.
+name: Publish
+
+on:
+  push:
+    tags: ['v*.*.*']
+
+permissions:
+  contents: read
+  packages: write
+
+env:
+  NODE_VERSION: 24.10.0
+
+jobs:
+  publish:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v5
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 12.10.1
+          run_install: false
+      - uses: actions/setup-node@v6
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: pnpm
+          registry-url: https://npm.pkg.github.com
+          scope: '@guiduchat'
+      - name: A tag é a versão do package.json
+        shell: bash
+        run: |
+          version="$(node -p "require('./package.json').version")"
+          if [[ "v$version" != "$GITHUB_REF_NAME" ]]; then
+            echo "::error::Tag $GITHUB_REF_NAME diferente da versão $version do package.json"
+            exit 1
+          fi
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm lint
+      - run: pnpm typecheck
+      - run: pnpm test
+      - run: pnpm build
+      - run: pnpm publish --no-git-checks
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
