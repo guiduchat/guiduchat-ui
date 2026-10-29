@@ -1,0 +1,38 @@
+@use '../../styles/shared-mixins/typography';
+
+// Full pill with equal tabs. The active tab is the card surface on the tinted track,
+// so it reads darker on the dark theme and lighter on the light theme.
+.MenuTabs[role='tablist'] {
+  gap: var(--spacing-size-xs);
+  padding: var(--spacing-size-xs);
+  box-sizing: border-box;
+  // Tinted track over a solid surface, so the page never shows through.
+  background: linear-gradient(var(--background-tertiary), var(--background-tertiary)), var(--background-primary);
+  border-radius: var(--size-border-radius-semantic-border-radius-rounded);
+}
+
+// Nested so it wins over the base Segmented styles regardless of CSS order.
+.MenuTabs .MenuTabs__item {
+  @include typography.detail;
+  flex: 1 1 0;
+  min-width: 0;
+  min-height: 40px;
+  padding: var(--spacing-size-m) var(--spacing-size-s);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  border-radius: var(--size-border-radius-semantic-border-radius-rounded);
+  color: var(--text-secondary);
+  transition: background-color 0.15s ease, color 0.15s ease;
+
+  &[aria-selected='true'] {
+    background-color: var(--background-primary);
+    box-shadow: none;
+    color: var(--text-primary);
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--icon-themed);
+    outline-offset: 2px;
+  }
+}
