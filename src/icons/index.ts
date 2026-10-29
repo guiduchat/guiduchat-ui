@@ -15,6 +15,7 @@ import Icon24ChatOutline from './24-chat-outline.svg';
 import Icon24CloseAndroid from './24-close-android.svg';
 import Icon24CompassFilled from './24-compass-filled.svg';
 import Icon24CompassOutline from './24-compass-outline.svg';
+import Icon24Filter from './24-filter.svg';
 import Icon24Plus from './24-plus.svg';
 import Icon24StorefrontFilled from './24-storefront-filled.svg';
 import Icon24StorefrontOutline from './24-storefront-outline.svg';
@@ -41,6 +42,7 @@ export {
   Icon24CloseAndroid,
   Icon24CompassFilled,
   Icon24CompassOutline,
+  Icon24Filter,
   Icon24Plus,
   Icon24StorefrontFilled,
   Icon24StorefrontOutline,

@@ -9,6 +9,7 @@ Os componentes que destravam o shell do guidu.chat (etapa 3) e a lista de Locais
 - **Skeleton**: retângulo, círculo e linhas de texto; só visual, sem animação com movimento reduzido.
 - **EmptyState**: ícone, título, explicação e ação (vazio e erro com "Tentar de novo").
 - **Notice**: faixa de aviso (info, atenção, perigo) com `role="status"` e ação.
+- **HeaderCard** e **MenuTabs** (PR #21): topo da página Locais, com saudação, busca, filtros e as abas Favoritos, Todos e Recomendados.
 - **Ícones** (Phosphor, MIT): Descubra, Locais, Conversas e Conta em contorno e preenchido, voltar, sem conexão, aviso e informação.
 - Testes de comportamento e de acessibilidade (axe) dos cinco nos dois temas; histórias no Storybook.
 

@@ -1,0 +1,72 @@
+@use '../../styles/shared-mixins/typography';
+
+// Page header card: greeting, a large sentence and a search pill with the filter button.
+// Same clean style as the minimal PlaceCard: flat surface and hairline border.
+.HeaderCard {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-size-xl);
+  width: 100%;
+  box-sizing: border-box;
+  padding: var(--spacing-size3xl);
+  border: 1px solid var(--divider-secondary);
+  border-radius: var(--size-border-radius-semantic-border-radius-promo);
+  background-color: var(--background-primary);
+  color: var(--text-primary);
+}
+
+.HeaderCard__top {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-size-xl);
+}
+
+.HeaderCard__avatar {
+  display: flex;
+  flex-shrink: 0;
+}
+
+.HeaderCard__greeting {
+  @include typography.detail;
+  color: var(--text-secondary);
+}
+
+.HeaderCard__title {
+  @include typography.header;
+  margin: 0;
+  // Large but light, as in the clean reference.
+  font-weight: var(--font-weight-body);
+}
+
+// The pill holds the input and the filter button side by side, so the button is not
+// inside the input label.
+.HeaderCard__search {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-size-xs);
+  margin-top: var(--spacing-size-xs);
+  padding: var(--spacing-size-xs) var(--spacing-size-xs) var(--spacing-size-xs) 0;
+  border-radius: var(--size-border-radius-semantic-border-radius-rounded);
+  background-color: var(--background-tertiary);
+}
+
+.HeaderCard__inputContainer {
+  flex-grow: 1;
+  min-width: 0;
+}
+
+.HeaderCard .HeaderCard__input {
+  background-color: transparent;
+  border: none;
+  box-shadow: none;
+  border-radius: var(--size-border-radius-semantic-border-radius-rounded);
+
+  input::-webkit-search-cancel-button {
+    appearance: none;
+  }
+}
+
+.HeaderCard__filter {
+  flex-shrink: 0;
+  border-radius: var(--size-border-radius-semantic-border-radius-rounded);
+}

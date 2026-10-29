@@ -14,9 +14,11 @@ export interface SegmentedProps {
   activeItem: string,
   onClick: (id: string) => void,
   innerClassNames?: InnerClassNamesProp<SegmentedElementKey>
+  /** Accessible name of the tab list, read by screen readers. */
+  'aria-label'?: string
 }
 
-export const Segmented = ({items, activeItem, onClick, innerClassNames}: SegmentedProps) => {
+export const Segmented = ({items, activeItem, onClick, innerClassNames, 'aria-label': ariaLabel}: SegmentedProps) => {
   const handleClick = (itemId: string): MouseEventHandler<HTMLButtonElement> => (event) => {
     onClick(itemId);
     event.currentTarget.scrollIntoView({inline: 'nearest', block: 'nearest', behavior: 'smooth'});
@@ -57,7 +59,7 @@ export const Segmented = ({items, activeItem, onClick, innerClassNames}: Segment
   const isActive = (id: string): boolean => id === activeItem;
 
   return (
-    <div className={clsx(styles.segmented, innerClassNames?.list)} role="tablist">
+    <div className={clsx(styles.segmented, innerClassNames?.list)} role="tablist" aria-label={ariaLabel}>
       {items.map((item, index) => (
         <button
           key={item.id}

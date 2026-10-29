@@ -4,14 +4,17 @@ import type { ReactNode } from 'react';
 import { describe, expect, it } from 'vitest';
 
 import {
+  Avatar,
   Button,
   Counter,
   EmptyState,
   GuiduUI,
+  HeaderCard,
   Icon20WifiSlash,
   Icon24ChatFilled,
   Icon24ChatOutline,
   Icon24CompassOutline,
+  MenuTabs,
   NavBar,
   NavBarBackButton,
   Notice,
@@ -83,6 +86,35 @@ const cases: Array<[string, ReactNode]> = [
     <Notice key="o" tone="warning" icon={<Icon20WifiSlash />} action={<Button size="small">Tentar de novo</Button>}>
       Sem conexão.
     </Notice>
+  ],
+  [
+    'HeaderCard',
+    <HeaderCard
+      key="h"
+      avatar={(
+        <Avatar.Container size={32} form="squircle">
+          <Avatar.Text gradient="blue">J</Avatar.Text>
+        </Avatar.Container>
+      )}
+      greeting="Olá, João!"
+      title="Encontre novos locais ou continue a conversa."
+      search={{ label: 'Buscar locais', placeholder: 'Buscar por nome ou categoria' }}
+      filter={{ label: 'Filtros', onClick: () => {} }}
+    />
+  ],
+  [
+    'MenuTabs',
+    <MenuTabs
+      key="m"
+      items={[
+        { id: 'favorites', title: 'Favoritos' },
+        { id: 'all', title: 'Todos' },
+        { id: 'recommended', title: 'Recomendados' }
+      ]}
+      activeItem="favorites"
+      onChange={() => {}}
+      aria-label="Filtrar locais"
+    />
   ]
 ];
 
