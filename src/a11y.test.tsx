@@ -3,7 +3,7 @@ import axe from 'axe-core';
 import type { ReactNode } from 'react';
 import { describe, expect, it } from 'vitest';
 
-import { Button, Counter, GuiduUI, PlaceCard, Switch } from './index';
+import { Avatar, Button, Counter, GuiduUI, HeaderCard, MenuTabs, PlaceCard, Switch } from './index';
 
 // Acessibilidade com o axe nos componentes, nos dois temas. Componente novo
 // entra nesta lista (U7 do guidu-chat).
@@ -26,6 +26,35 @@ const cases: Array<[string, ReactNode]> = [
       text="Chegou a coleção nova."
       action={{ label: 'Ver mensagens', count: 2 }}
       save={{ label: 'Salvar', pressed: false, onPressedChange: () => {} }}
+    />
+  ],
+  [
+    'HeaderCard',
+    <HeaderCard
+      key="h"
+      avatar={(
+        <Avatar.Container size={32} form="squircle">
+          <Avatar.Text gradient="blue">J</Avatar.Text>
+        </Avatar.Container>
+      )}
+      greeting="Olá, João!"
+      title="Encontre novos locais ou continue a conversa."
+      search={{ label: 'Buscar locais', placeholder: 'Buscar por nome ou categoria' }}
+      filter={{ label: 'Filtros', onClick: () => {} }}
+    />
+  ],
+  [
+    'MenuTabs',
+    <MenuTabs
+      key="m"
+      items={[
+        { id: 'favorites', title: 'Favoritos' },
+        { id: 'all', title: 'Todos' },
+        { id: 'recommended', title: 'Recomendados' }
+      ]}
+      activeItem="favorites"
+      onChange={() => {}}
+      aria-label="Filtrar locais"
     />
   ]
 ];
