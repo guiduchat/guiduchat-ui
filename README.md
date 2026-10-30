@@ -55,7 +55,18 @@ Sobre a cor principal (`brand.accent`, `#e1fb40`), o texto é sempre o escuro (`
 
 ### Ícones
 
-Os ícones das abas (Descubra, Locais, Conversas, Conta), voltar, sem conexão, aviso e informação são da [Phosphor Icons](https://phosphoricons.com) (MIT, `src/icons/LICENSE-phosphor`), copiados para o kit sem dependência.
+Os ícones são da **Hugeicons, versão gratuita** (MIT, `THIRD_PARTY_LICENSES.md`), estilo de traço arredondado. O kit tem **um catálogo só** (`src/icons/catalog.ts`), com nomes por função (`search`, `cart`, `back`, `discover`...), que serve ao web e ao app nativo.
+
+```tsx
+import { Icon, icons } from '@guiduchat/ui';
+
+<Icon icon={icons.search} />                 // 24 px, traço 1,5, cor do texto em volta
+<Icon icon={icons.cart} label="Carrinho" />  // com nome para o leitor de tela
+```
+
+No app nativo, o catálogo vem da entrada `@guiduchat/ui/icons` (dados puros, sem DOM) e quem desenha é o `@hugeicons/react-native`.
+
+**Acrescentar um ícone:** ache o nome na [Hugeicons](https://hugeicons.com) (filtro *Free*), importe **pelo caminho do ícone** em `catalog.ts` (`import X from '@hugeicons/core-free-icons/X'`) e dê um nome pela função. Nunca importe do índice `@hugeicons/core-free-icons`: ele traz os 6.000 ícones (o lint proíbe, e o `pnpm check:icons` confere o pacote). A versão Pro (estilos preenchidos) é uma decisão futura; trocar para ela muda só o catálogo.
 
 ## Desenvolvimento
 
@@ -75,3 +86,4 @@ Versões exatas e publicadas há pelo menos 14 dias (`pnpm-workspace.yaml`). Com
 - Traduzir os comentários do código e o `docs/MIGRATION.md` (não bloqueia).
 - Equipes no `CODEOWNERS` quando a organização `guiduchat` tiver times.
 - Paleta final quando o design entregar a identidade completa (só tokens).
+- Hugeicons Pro (estilos preenchidos, como o ícone da aba ativa), se o Marcelo assinar.

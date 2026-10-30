@@ -1,74 +1,32 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import type { CSSProperties, ReactElement } from 'react';
 
-import * as icons from './index';
+import { Icon } from '../components/Icon';
+import { type IconName, icons } from './catalog';
 
-interface IconsGalleryProps {
-  color: string
-  size: number
-}
+const meta = {
+  title: 'Icons/Catálogo',
+  parameters: {
+    docs: {
+      description: {
+        component: 'Ícones do guidu.chat: Hugeicons gratuita (traço 1,5, 24 px). Nomes por função; o app usa `<Icon icon={icons.nome} />`.'
+      }
+    }
+  }
+} satisfies Meta;
 
-const cellStyle: CSSProperties = {
-  display: 'flex',
-  flexDirection: 'column',
-  alignItems: 'center',
-  justifyContent: 'center',
-  gap: 12,
-  padding: 16,
-  borderRadius: 12,
-  background: 'rgba(0, 0, 0, 0.04)'
-};
-const nameStyle: CSSProperties = {
-  fontSize: 12,
-  color: '#000'
-};
-const containerStyle: CSSProperties = {
-  display: 'flex',
-  gap: 16,
-  padding: 24,
-  flexWrap: 'wrap'
-};
+export default meta;
+type Story = StoryObj;
 
-function IconsGallery ({ color, size }: IconsGalleryProps): ReactElement {
-  const iconWrapperStyle: CSSProperties = {
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    height: size,
-    minHeight: 24,
-    color
-  };
-
-  return (
-    <div style={containerStyle}>
-      {Object.entries(icons).map(([name, Icon]) => (
-        <div key={name} style={cellStyle}>
-          <span style={iconWrapperStyle}>
-            <Icon width={size} height={size} />
-          </span>
-          <span style={nameStyle}>{name}</span>
+export const Catalog: Story = {
+  name: 'Catálogo',
+  render: () => (
+    <div style={{ width: 520, maxWidth: '100%', display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(96px, 1fr))', gap: 16 }}>
+      {(Object.keys(icons) as IconName[]).map((name) => (
+        <div key={name} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 8, fontSize: 12 }}>
+          <Icon icon={icons[name]} />
+          <code>{name}</code>
         </div>
       ))}
     </div>
-  );
-}
-
-const meta = {
-  title: 'Foundations/Icons',
-  component: IconsGallery,
-  argTypes: {
-    color: { control: 'color' },
-    size: { control: { type: 'range', min: 8, max: 64, step: 1 } }
-  },
-  args: {
-    color: '#000000',
-    size: 24
-  }
-} satisfies Meta<IconsGalleryProps>;
-
-export default meta;
-type Story = StoryObj<IconsGalleryProps>;
-
-export const Playground: Story = {
-  render: ({ ...args }) => <IconsGallery {...args} />
+  )
 };

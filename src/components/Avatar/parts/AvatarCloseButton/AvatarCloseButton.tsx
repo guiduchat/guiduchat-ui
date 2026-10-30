@@ -1,8 +1,9 @@
 import { clsx } from 'clsx';
 import { type ComponentProps, forwardRef, type MouseEventHandler } from 'react';
 
-import { Icon20CloseFilled } from '../../../../icons';
+import { icons } from '../../../../icons/catalog';
 import { SvgButton } from '../../../../internal/SvgButton';
+import { Icon } from '../../../Icon';
 import { useAvatarContainerContext } from '../AvatarContainer/AvatarContainerContext';
 import styles from './AvatarCloseButton.module.scss';
 import { getButtonSize } from './helpers';
@@ -34,7 +35,7 @@ export const AvatarCloseButton = forwardRef<HTMLButtonElement, AvatarCloseButton
       onClick={clickHandler}
       {...rest}
     >
-      <Icon20CloseFilled width={buttonSize} height={buttonSize} />
+      <Icon icon={icons.closeCircle} size={buttonSize} />
     </SvgButton>
   );
 });

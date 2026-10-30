@@ -1,10 +1,11 @@
 import {clsx} from "clsx";
 import {KeyboardEventHandler, MouseEventHandler} from "react";
 
-import {Icon16CloseIos} from "../../icons";
+import { icons } from '../../icons/catalog';
 import {SvgButton} from "../../internal";
 import type {InnerClassNamesProp} from "../../types";
 import {Counter} from "../Counter";
+import { Icon } from '../Icon';
 import styles from "./Tabs.module.scss";
 
 export type TabsElementKey = 'list' | 'item' | 'indicator' | 'closeButton';
@@ -93,7 +94,7 @@ export const Tabs = ({items, activeItem, onCancel, onClick, innerClassNames}: Ta
               onClick={handleClose(item.id)}
               aria-label="Close"
             >
-              <Icon16CloseIos />
+              <Icon icon={icons.close} size={16} />
             </SvgButton>
           )}
         </div>

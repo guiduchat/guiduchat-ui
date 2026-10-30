@@ -3,8 +3,9 @@ import { clsx } from 'clsx';
 import { type FocusEvent, forwardRef, type KeyboardEvent, type MouseEvent } from 'react';
 
 import { hasReactNode, mergeRefs } from '../../../../helpers';
-import { Icon16Chevron } from '../../../../icons';
+import { icons } from '../../../../icons/catalog';
 import { Tappable } from '../../../../internal';
+import { Icon } from '../../../Icon';
 import { useContextMenu, useContextMenuLevel } from '../../context';
 import { type ContextMenuItem } from '../../types';
 import styles from './ContextMenuRow.module.scss';
@@ -114,7 +115,9 @@ export const ContextMenuRow = forwardRef<HTMLElement, ContextMenuRowProps>((prop
       )}
 
       {hasSubmenu && (
-        <Icon16Chevron
+        <Icon
+          icon={icons.chevronRight}
+          size={16}
           className={clsx(
             styles.ContextMenuRow__chevron,
             styles[`ContextMenuRow__chevron_${mode}`],

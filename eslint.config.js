@@ -150,4 +150,29 @@ export default [
       ...storybookPlugin.configs.recommended.rules,
     },
   },
+  {
+    // Ícones: só pelo catálogo (src/icons/catalog.ts), um import por ícone.
+    // O índice '@hugeicons/core-free-icons' puxa os 6.000 ícones.
+    files: ['**/*.ts', '**/*.tsx'],
+    ignores: ['src/icons/catalog.ts'],
+    rules: {
+      'no-restricted-imports': ['error', {
+        patterns: [{
+          group: ['@hugeicons/core-free-icons', '@hugeicons/core-free-icons/*'],
+          message: 'Use o catálogo: import { icons } from src/icons e <Icon icon={icons.nome} />.'
+        }]
+      }]
+    }
+  },
+  {
+    files: ['src/icons/catalog.ts'],
+    rules: {
+      'no-restricted-imports': ['error', {
+        paths: [{
+          name: '@hugeicons/core-free-icons',
+          message: 'Importe ícone por ícone: @hugeicons/core-free-icons/<Nome>.'
+        }]
+      }]
+    }
+  },
 ];

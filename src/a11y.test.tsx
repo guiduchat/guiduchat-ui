@@ -10,11 +10,8 @@ import {
   EmptyState,
   GuiduUI,
   HeaderCard,
-  Icon20WifiSlash,
-  Icon24Cart,
-  Icon24ChatFilled,
-  Icon24ChatOutline,
-  Icon24CompassOutline,
+  Icon,
+  icons,
   MenuTabs,
   NavBar,
   NavBarBackButton,
@@ -54,12 +51,11 @@ const cases: Array<[string, ReactNode]> = [
   [
     'TabBar',
     <TabBar key="t" aria-label="Menu principal">
-      <TabBarItem href="/descubra" icon={<Icon24CompassOutline />}>Descubra</TabBarItem>
+      <TabBarItem href="/descubra" icon={<Icon icon={icons.discover} />}>Descubra</TabBarItem>
       <TabBarItem
         href="/conversas"
         active
-        icon={<Icon24ChatOutline />}
-        activeIcon={<Icon24ChatFilled />}
+        icon={<Icon icon={icons.chats} />}
         count={3}
         countLabel="3 não lidas"
       >
@@ -67,7 +63,7 @@ const cases: Array<[string, ReactNode]> = [
       </TabBarItem>
     </TabBar>
   ],
-  ['NavBar', <NavBar key="n" title="Locais" before={<NavBarBackButton label="Voltar" />} after={<NavBarButton label="Carrinho" variant="accent" icon={<Icon24Cart />} />} />],
+  ['NavBar', <NavBar key="n" title="Locais" before={<NavBarBackButton label="Voltar" />} after={<NavBarButton label="Carrinho" variant="accent" icon={<Icon icon={icons.cart} />} />} />],
   [
     'NavBarPill',
     <NavBar key="np" before={<NavBarBackButton label="Voltar" />} center={<NavBarPill avatar={<Avatar.Container size={32}><Avatar.Text gradient="orange">RB</Avatar.Text></Avatar.Container>}>Restaurante Buzin</NavBarPill>} />
@@ -82,7 +78,7 @@ const cases: Array<[string, ReactNode]> = [
     'EmptyState',
     <EmptyState
       key="e"
-      icon={<Icon20WifiSlash />}
+      icon={<Icon icon={icons.offline} size={20} />}
       title="Não deu para carregar"
       description="Confira a conexão."
       action={<Button>Tentar de novo</Button>}
@@ -90,7 +86,7 @@ const cases: Array<[string, ReactNode]> = [
   ],
   [
     'Notice',
-    <Notice key="o" tone="warning" icon={<Icon20WifiSlash />} action={<Button size="small">Tentar de novo</Button>}>
+    <Notice key="o" tone="warning" icon={<Icon icon={icons.offline} size={20} />} action={<Button size="small">Tentar de novo</Button>}>
       Sem conexão.
     </Notice>
   ],

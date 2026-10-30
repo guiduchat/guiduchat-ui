@@ -2,8 +2,9 @@ import { clsx } from 'clsx';
 import { type ComponentPropsWithoutRef, forwardRef, useEffect, useRef } from 'react';
 
 import { mergeRefs } from '../../../../helpers';
-import { Icon16CloseIos, Icon16SearchOutline } from '../../../../icons';
+import { icons } from '../../../../icons/catalog';
 import { SvgButton } from '../../../../internal';
+import { Icon } from '../../../Icon';
 import { useSelect } from '../../context';
 import styles from './SelectSearch.module.scss';
 
@@ -34,7 +35,7 @@ export const SelectSearch = forwardRef<HTMLInputElement, SelectSearchProps>((pro
 
   return (
     <div className={clsx(styles.SelectSearch, className, innerClassNames?.search)}>
-      <Icon16SearchOutline className={styles.SelectSearch__icon} />
+      <Icon icon={icons.search} size={16} className={styles.SelectSearch__icon} />
 
       <input
         ref={mergeRefs<HTMLInputElement>(inputRef, forwardedRef)}
@@ -69,7 +70,7 @@ export const SelectSearch = forwardRef<HTMLInputElement, SelectSearchProps>((pro
             setQuery('');
           }}
         >
-          <Icon16CloseIos />
+          <Icon icon={icons.close} size={16} />
         </SvgButton>
       )}
     </div>

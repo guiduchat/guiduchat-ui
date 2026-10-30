@@ -1,7 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
-import { Icon24Cart } from '../../icons';
+import { icons } from '../../icons';
 import { Avatar } from '../Avatar';
+import { Icon } from '../Icon';
 import { NavBar, NavBarBackButton, NavBarButton, NavBarPill, type NavBarProps } from './NavBar';
 
 const meta = {
@@ -29,7 +30,7 @@ export const Playground: Story = {
       <NavBar
         {...args}
         before={<NavBarBackButton label="Voltar" />}
-        after={<NavBarButton label="Carrinho" variant="accent" icon={<Icon24Cart />} />}
+        after={<NavBarButton label="Carrinho" variant="accent" icon={<Icon icon={icons.cart} />} />}
       />
     </div>
   )
@@ -52,7 +53,7 @@ export const Chat: Story = {
             Restaurante Buzin
           </NavBarPill>
         )}
-        after={<NavBarButton label="Carrinho" variant="accent" icon={<Icon24Cart />} />}
+        after={<NavBarButton label="Carrinho" variant="accent" icon={<Icon icon={icons.cart} />} />}
       />
     </div>
   )
@@ -76,7 +77,7 @@ export const LongTitle: Story = {
       <NavBar
         {...args}
         before={<NavBarBackButton label="Voltar" />}
-        after={<NavBarButton label="Carrinho" icon={<Icon24Cart />} />}
+        after={<NavBarButton label="Carrinho" icon={<Icon icon={icons.cart} />} />}
       />
     </div>
   )
