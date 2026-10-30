@@ -4,6 +4,7 @@
 
 - **ShortcutCard** (novo): cartão de atalho com pílula ou título, texto e botão redondo; com `asChild`, vira o link do app.
 - **Ícones** no catálogo: `arrowUpRight`, `orders` e `heart`.
+- **CellSimple e demais componentes com `Tappable`:** a limpeza de estilo do `Tappable` apagava a margem interna e o fundo definidos pelo componente. As linhas de lista passam a ter a margem prevista.
 - História "Configurações".
 
 ## 0.8.0 (entrada e cadastro)

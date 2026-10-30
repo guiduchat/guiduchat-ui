@@ -1,8 +1,12 @@
 @use '../../styles/shared-mixins/reset-clickable';
 
-.Tappable {
+// Sem peso de seletor (:where): a limpeza do botão e do link não pode apagar a
+// margem e o fundo de quem usa o Tappable, como o CellSimple.
+:where(.Tappable) {
   @include reset-clickable.resetClickable;
+}
 
+.Tappable {
   position: relative;
   overflow: hidden;
 }
