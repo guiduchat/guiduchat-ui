@@ -1,5 +1,10 @@
 # Changelog do @guiduchat/ui
 
+## 0.4.0
+
+- **HeaderCard** (ajustes do Marcelo, 30/10/2026): cantos de 24 px; pílula da busca com 48 px de altura e 4 px de espaçamento interno; botão de filtros com fundo redondo de 40 px e ícone de 16 px.
+- **HeaderCard**: o título passa a ser `h2` por padrão (o `h1` da página fica no `NavBar`), com `titleAs` para trocar. **Muda o padrão:** quem dependia do `h1` passa `titleAs="h1"`.
+
 ## 0.3.0 (componentes do shell)
 
 Os componentes que destravam o shell do guidu.chat (etapa 3) e a lista de Locais.
