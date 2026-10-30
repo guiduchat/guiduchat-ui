@@ -11,12 +11,15 @@ import {
   GuiduUI,
   HeaderCard,
   Icon20WifiSlash,
+  Icon24Cart,
   Icon24ChatFilled,
   Icon24ChatOutline,
   Icon24CompassOutline,
   MenuTabs,
   NavBar,
   NavBarBackButton,
+  NavBarButton,
+  NavBarPill,
   Notice,
   PlaceCard,
   Skeleton,
@@ -64,7 +67,11 @@ const cases: Array<[string, ReactNode]> = [
       </TabBarItem>
     </TabBar>
   ],
-  ['NavBar', <NavBar key="n" title="Locais" before={<NavBarBackButton label="Voltar" />} />],
+  ['NavBar', <NavBar key="n" title="Locais" before={<NavBarBackButton label="Voltar" />} after={<NavBarButton label="Carrinho" variant="accent" icon={<Icon24Cart />} />} />],
+  [
+    'NavBarPill',
+    <NavBar key="np" before={<NavBarBackButton label="Voltar" />} center={<NavBarPill avatar={<Avatar.Container size={32}><Avatar.Text gradient="orange">RB</Avatar.Text></Avatar.Container>}>Restaurante Buzin</NavBarPill>} />
+  ],
   [
     'Skeleton',
     <div key="k" aria-busy="true">

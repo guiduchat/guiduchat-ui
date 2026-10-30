@@ -1,34 +1,38 @@
 @use '../../styles/shared-mixins/a11y';
 
+// Cabeçalho de 60 px: botão à esquerda, título (ou pílula) no centro e ações
+// à direita. Igual no iOS e no Android.
 .NavBar {
   display: grid;
-  grid-template-columns: minmax(44px, 1fr) auto minmax(44px, 1fr);
+  grid-template-columns: minmax(40px, 1fr) auto minmax(40px, 1fr);
   align-items: center;
-  min-height: 52px;
-  padding: 4px;
-  padding-top: calc(4px + env(safe-area-inset-top, 0));
+  column-gap: 8px;
+  min-height: 60px;
+  padding: 10px 12px;
+  padding-top: calc(10px + env(safe-area-inset-top, 0));
   box-sizing: border-box;
   background-color: var(--background-primary);
   color: var(--text-primary);
-}
-
-// Android: título à esquerda, logo depois do voltar.
-.NavBar_platform_android {
-  grid-template-columns: auto 1fr auto;
-  column-gap: 4px;
 }
 
 .NavBar__before {
   display: flex;
   align-items: center;
   justify-self: start;
+  gap: 8px;
+}
+
+.NavBar__center {
+  display: flex;
+  justify-content: center;
+  min-width: 0;
 }
 
 .NavBar__after {
   display: flex;
   align-items: center;
   justify-self: end;
-  gap: 4px;
+  gap: 8px;
 }
 
 .NavBar__title {
@@ -41,42 +45,109 @@
   text-align: center;
   white-space: nowrap;
   text-overflow: ellipsis;
-
-  .NavBar_platform_android & {
-    padding-inline-start: 8px;
-    text-align: start;
-  }
 }
 
-.NavBarBackButton {
+// Botão redondo de 40 px com fundo (voltar, carrinho, menu).
+.NavBarButton {
+  position: relative;
   display: inline-flex;
+  flex: none;
   align-items: center;
   justify-content: center;
-  // Alvo de toque de 44 px.
-  width: 44px;
-  height: 44px;
+  width: 40px;
+  height: 40px;
   padding: 0;
   border: 0;
   border-radius: 50%;
-  background: transparent;
+  background-color: var(--button-secondary);
   color: var(--icon-primary);
+  text-decoration: none;
   cursor: pointer;
   -webkit-tap-highlight-color: transparent;
 
-  @include a11y.focusRing(0);
+  @include a11y.focusRing(2px);
+
+  // Alvo de toque de 44 px, maior que o círculo.
+  &::before {
+    content: '';
+    position: absolute;
+    inset: -2px;
+  }
 
   @media (hover: hover) {
     &:hover {
-      background-color: var(--states-background-hovered-transparent);
+      background-color: var(--states-button-secondary-hover);
     }
   }
 
   &:active {
-    background-color: var(--states-background-pressed-transparent);
+    background-color: var(--states-button-secondary-pressed);
   }
 
   svg {
-    width: 24px;
-    height: 24px;
+    width: 20px;
+    height: 20px;
   }
+}
+
+.NavBarButton_variant_accent {
+  background-color: var(--button-primary);
+  color: var(--text-on-accent);
+
+  @media (hover: hover) {
+    &:hover {
+      background-color: var(--states-button-primary-hover);
+    }
+  }
+
+  &:active {
+    background-color: var(--states-button-primary-pressed);
+  }
+}
+
+// Pílula do chat: avatar e nome do estabelecimento no lugar do título.
+.NavBarPill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  max-width: 100%;
+  min-width: 0;
+  height: 40px;
+  padding: 4px 16px 4px 4px;
+  box-sizing: border-box;
+  border: 0;
+  border-radius: 20px;
+  background-color: var(--button-secondary);
+  color: var(--text-primary);
+  font: inherit;
+  text-decoration: none;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+
+  @include a11y.focusRing(2px);
+
+  @media (hover: hover) {
+    &:hover {
+      background-color: var(--states-button-secondary-hover);
+    }
+  }
+
+  &:active {
+    background-color: var(--states-button-secondary-pressed);
+  }
+}
+
+.NavBarPill__avatar {
+  display: flex;
+  flex: none;
+}
+
+.NavBarPill__label {
+  min-width: 0;
+  overflow: hidden;
+  font-size: var(--font-size-body);
+  line-height: var(--line-height-body);
+  font-weight: var(--font-weight-body-strong);
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }

@@ -1,5 +1,5 @@
 import { clsx } from 'clsx';
-import { type ChangeEventHandler, type ComponentProps, type FormEventHandler, forwardRef, type MouseEventHandler, type ReactNode } from 'react';
+import { type ChangeEventHandler, type ComponentProps, type ElementType, type FormEventHandler, forwardRef, type MouseEventHandler, type ReactNode } from 'react';
 
 import { hasReactNode } from '../../helpers';
 import { Icon16SearchOutline, Icon24Filter } from '../../icons';
@@ -36,6 +36,11 @@ interface HeaderCardOwnProps {
   greeting?: ReactNode
   /** Main sentence of the page, such as "Encontre novos locais ou continue a conversa." */
   title: ReactNode
+  /**
+   * Element of the title. `h2` by default: the page title (`h1`) is usually in the
+   * `NavBar` above the card.
+   */
+  titleAs?: ElementType
   search?: HeaderCardSearch
   filter?: HeaderCardFilter
   innerClassNames?: InnerClassNamesProp<HeaderCardInnerElementKey>
@@ -44,7 +49,7 @@ interface HeaderCardOwnProps {
 export type HeaderCardProps = MergeProps<ComponentProps<'section'>, HeaderCardOwnProps>;
 
 export const HeaderCard = forwardRef<HTMLElement, HeaderCardProps>((props, forwardedRef) => {
-  const { avatar, greeting, title, search, filter, className, innerClassNames, ...rest } = props;
+  const { avatar, greeting, title, titleAs: Title = 'h2', search, filter, className, innerClassNames, ...rest } = props;
 
   const handleSubmit: FormEventHandler<HTMLFormElement> = (event) => {
     event.preventDefault();
@@ -61,7 +66,7 @@ export const HeaderCard = forwardRef<HTMLElement, HeaderCardProps>((props, forwa
         </div>
       )}
 
-      <h1 className={clsx(styles.HeaderCard__title, innerClassNames?.title)}>{title}</h1>
+      <Title className={clsx(styles.HeaderCard__title, innerClassNames?.title)}>{title}</Title>
 
       {(search || filter) && (
         <form
@@ -96,7 +101,7 @@ export const HeaderCard = forwardRef<HTMLElement, HeaderCardProps>((props, forwa
               aria-pressed={filter.active ?? false}
               onClick={filter.onClick}
             >
-              <Icon24Filter />
+              <Icon24Filter width={16} height={16} />
             </IconButton>
           )}
         </form>
