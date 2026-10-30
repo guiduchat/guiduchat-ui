@@ -142,12 +142,36 @@
   flex: none;
 }
 
+// Uma ou duas linhas (quem fala e a loja), dentro dos 40 px da pílula.
+.NavBarPill__text {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  text-align: start;
+}
+
 .NavBarPill__label {
   min-width: 0;
   overflow: hidden;
   font-size: var(--font-size-body);
   line-height: var(--line-height-body);
   font-weight: var(--font-weight-body-strong);
+  white-space: nowrap;
+  text-overflow: ellipsis;
+
+  // Com a segunda linha, as duas cabem nos 40 px da pílula.
+  .NavBarPill__text:has(.NavBarPill__subtitle) & {
+    font-size: var(--font-size-detail);
+    line-height: 18px;
+  }
+}
+
+.NavBarPill__subtitle {
+  min-width: 0;
+  overflow: hidden;
+  font-size: var(--font-size-label);
+  line-height: 14px;
+  color: var(--text-secondary);
   white-space: nowrap;
   text-overflow: ellipsis;
 }

@@ -1,0 +1,132 @@
+@use '../../styles/shared-mixins/a11y';
+
+// Caixa de mensagem no estilo dos chats de IA: superfície arredondada com o
+// texto em cima e a barra de ações embaixo.
+.Composer {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 12px 12px 10px;
+  border: 1px solid var(--background-tertiary);
+  border-radius: 28px;
+  background-color: var(--background-secondary);
+  color: var(--text-primary);
+}
+
+.Composer__input {
+  width: 100%;
+  min-height: 24px;
+  max-height: 140px;
+  margin: 0;
+  padding: 4px 6px;
+  box-sizing: border-box;
+  border: 0;
+  outline: none;
+  resize: none;
+  overflow-y: auto;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  font-size: var(--font-size-body);
+  line-height: 24px;
+
+  &::placeholder {
+    color: var(--text-tertiary);
+  }
+}
+
+.Composer__bar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.Composer__spacer {
+  flex: 1 1 auto;
+}
+
+// Botões redondos de 40 px, como os do cabeçalho.
+.Composer__button {
+  display: inline-flex;
+  flex: none;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background-color: var(--button-secondary);
+  color: var(--icon-primary);
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+
+  @include a11y.focusRing(2px);
+
+  @media (hover: hover) {
+    &:hover:not(:disabled) {
+      background-color: var(--states-button-secondary-hover);
+    }
+  }
+
+  &:active:not(:disabled) {
+    background-color: var(--states-button-secondary-pressed);
+  }
+}
+
+.Composer__send {
+  background-color: var(--button-primary);
+  color: var(--text-on-accent);
+
+  @media (hover: hover) {
+    &:hover:not(:disabled) {
+      background-color: var(--states-button-primary-hover);
+    }
+  }
+
+  &:active:not(:disabled) {
+    background-color: var(--states-button-primary-pressed);
+  }
+
+  &:disabled {
+    background-color: var(--states-button-primary-disabled);
+    color: var(--states-text-on-accent-disabled);
+    cursor: default;
+  }
+}
+
+// Chave de modos compacta ("chat | guidu bot").
+.Composer .Composer__modes[role='tablist'] {
+  display: inline-flex;
+  // Só a largura das opções: o Segmented base ocupa a linha toda.
+  flex: 0 1 auto;
+  width: auto;
+  min-width: 0;
+  overflow: visible;
+  gap: 2px;
+  padding: 3px;
+  border-radius: 20px;
+  background-color: var(--background-tertiary);
+}
+
+.Composer .Composer__mode {
+  flex: 0 0 auto;
+  min-height: 34px;
+  padding: 0 14px;
+  border-radius: 17px;
+  font-size: var(--font-size-description);
+  color: var(--text-secondary);
+  white-space: nowrap;
+
+  // Como nas abas de Locais: o fundo da página sobre a trilha.
+  &[aria-selected='true'] {
+    background-color: var(--background-primary);
+    box-shadow: none;
+    color: var(--text-primary);
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--text-primary);
+    outline-offset: 2px;
+  }
+}

@@ -12,6 +12,7 @@ import Alert02Icon from '@hugeicons/core-free-icons/Alert02Icon';
 import ArrowDown01Icon from '@hugeicons/core-free-icons/ArrowDown01Icon';
 import ArrowLeft02Icon from '@hugeicons/core-free-icons/ArrowLeft02Icon';
 import ArrowRight01Icon from '@hugeicons/core-free-icons/ArrowRight01Icon';
+import Attachment01Icon from '@hugeicons/core-free-icons/Attachment01Icon';
 import Bookmark01Icon from '@hugeicons/core-free-icons/Bookmark01Icon';
 import BookmarkCheck01Icon from '@hugeicons/core-free-icons/BookmarkCheck01Icon';
 import Cancel01Icon from '@hugeicons/core-free-icons/Cancel01Icon';
@@ -20,8 +21,11 @@ import Chat01Icon from '@hugeicons/core-free-icons/Chat01Icon';
 import DiscoverSquareIcon from '@hugeicons/core-free-icons/DiscoverSquareIcon';
 import FilterHorizontalIcon from '@hugeicons/core-free-icons/FilterHorizontalIcon';
 import InformationCircleIcon from '@hugeicons/core-free-icons/InformationCircleIcon';
+import Menu01Icon from '@hugeicons/core-free-icons/Menu01Icon';
+import Mic01Icon from '@hugeicons/core-free-icons/Mic01Icon';
 import PlusSignIcon from '@hugeicons/core-free-icons/PlusSignIcon';
 import Search01Icon from '@hugeicons/core-free-icons/Search01Icon';
+import SentIcon from '@hugeicons/core-free-icons/SentIcon';
 import ShoppingCart01Icon from '@hugeicons/core-free-icons/ShoppingCart01Icon';
 import Store01Icon from '@hugeicons/core-free-icons/Store01Icon';
 import Tick02Icon from '@hugeicons/core-free-icons/Tick02Icon';
@@ -45,6 +49,11 @@ export const icons = {
   add: PlusSignIcon,
   save: Bookmark01Icon,
   saved: BookmarkCheck01Icon,
+  // Chat (Composer e cabeçalho)
+  attach: Attachment01Icon,
+  mic: Mic01Icon,
+  send: SentIcon,
+  menu: Menu01Icon,
   // Avisos
   offline: WifiOff01Icon,
   warning: Alert02Icon,

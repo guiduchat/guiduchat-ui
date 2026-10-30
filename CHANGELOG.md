@@ -1,5 +1,12 @@
 # Changelog do @guiduchat/ui
 
+## 0.6.0 (chat)
+
+- **Composer** (novo): caixa de mensagem no estilo dos chats de IA, pedida pelo Marcelo em 30/10/2026. Texto em cima (cresce até cerca de cinco linhas) e, embaixo, anexo, chave de modos (`chat | guidu bot`), áudio e enviar. Enter envia, Shift+Enter quebra a linha; o enviar fica desligado com o campo vazio. Textos e ações vêm do app.
+- **MessageBubble** (novo): balões em pílula; os da pessoa na cor da marca, à direita, e os da loja e do guidu em cinza, à esquerda, com quem escreveu e a hora.
+- **NavBarPill**: `subtitle`, segunda linha menor (quem fala em cima, a loja embaixo), dentro dos 40 px.
+- **Ícones** no catálogo: `attach`, `mic`, `send` e `menu`.
+
 ## 0.5.2
 
 - **Ícones do rodapé** (escolha do Marcelo, 30/10/2026): `discover` → `DiscoverSquareIcon`, `chats` → `Chat01Icon`, `account` → `User02Icon`. Mesmos nomes no catálogo; quem usa o kit não muda nada.
