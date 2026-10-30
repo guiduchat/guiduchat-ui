@@ -1,5 +1,10 @@
 # Changelog do @guiduchat/ui
 
+## 0.4.2
+
+- **HeaderCard:** ícone de filtros com 20 px (era 16).
+- **HeaderCard** e **PlaceCard** (`minimal`): borda na mesma cor do fundo da busca (`--background-tertiary`), no lugar de `--divider-secondary`.
+
 ## 0.4.1
 
 - **Ícones cortados:** o build tirava o `viewBox` dos ícones de 24 px (SVGO), e o ícone desenhado em outro tamanho saía cortado, como o filtro de 16 px do `HeaderCard`. O build mantém o `viewBox`, e o CI confere o pacote (`pnpm check:icons`).

@@ -133,7 +133,8 @@
 // the text with its meta line, and pill actions at the bottom right. Slightly larger type
 // and roomier spacing than the default card.
 .PlaceCard_appearance_minimal {
-  border: 1px solid var(--divider-secondary);
+  // Borda na mesma cor do fundo da busca do HeaderCard.
+  border: 1px solid var(--background-tertiary);
   background-color: var(--background-primary);
 
   .PlaceCard__header {

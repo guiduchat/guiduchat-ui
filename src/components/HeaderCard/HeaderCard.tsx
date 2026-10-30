@@ -101,7 +101,7 @@ export const HeaderCard = forwardRef<HTMLElement, HeaderCardProps>((props, forwa
               aria-pressed={filter.active ?? false}
               onClick={filter.onClick}
             >
-              <Icon24Filter width={16} height={16} />
+              <Icon24Filter width={20} height={20} />
             </IconButton>
           )}
         </form>

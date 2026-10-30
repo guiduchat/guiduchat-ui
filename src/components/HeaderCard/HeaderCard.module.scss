@@ -9,7 +9,8 @@
   width: 100%;
   box-sizing: border-box;
   padding: var(--spacing-size3xl);
-  border: 1px solid var(--divider-secondary);
+  // Borda na mesma cor do fundo da busca.
+  border: 1px solid var(--background-tertiary);
   border-radius: 24px;
   background-color: var(--background-primary);
   color: var(--text-primary);
@@ -70,7 +71,7 @@
   }
 }
 
-// Fundo redondo de 40 px com o ícone de 16 px.
+// Fundo redondo de 40 px com o ícone de 20 px.
 .HeaderCard__filter {
   flex-shrink: 0;
   width: 40px;
@@ -78,7 +79,7 @@
   border-radius: 50%;
 
   svg {
-    width: 16px;
-    height: 16px;
+    width: 20px;
+    height: 20px;
   }
 }
