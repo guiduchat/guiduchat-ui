@@ -14,10 +14,10 @@ import ArrowLeft02Icon from '@hugeicons/core-free-icons/ArrowLeft02Icon';
 import ArrowRight01Icon from '@hugeicons/core-free-icons/ArrowRight01Icon';
 import Bookmark01Icon from '@hugeicons/core-free-icons/Bookmark01Icon';
 import BookmarkCheck01Icon from '@hugeicons/core-free-icons/BookmarkCheck01Icon';
-import BubbleChatIcon from '@hugeicons/core-free-icons/BubbleChatIcon';
 import Cancel01Icon from '@hugeicons/core-free-icons/Cancel01Icon';
 import CancelCircleIcon from '@hugeicons/core-free-icons/CancelCircleIcon';
-import DiscoverCircleIcon from '@hugeicons/core-free-icons/DiscoverCircleIcon';
+import Chat01Icon from '@hugeicons/core-free-icons/Chat01Icon';
+import DiscoverSquareIcon from '@hugeicons/core-free-icons/DiscoverSquareIcon';
 import FilterHorizontalIcon from '@hugeicons/core-free-icons/FilterHorizontalIcon';
 import InformationCircleIcon from '@hugeicons/core-free-icons/InformationCircleIcon';
 import PlusSignIcon from '@hugeicons/core-free-icons/PlusSignIcon';
@@ -25,18 +25,18 @@ import Search01Icon from '@hugeicons/core-free-icons/Search01Icon';
 import ShoppingCart01Icon from '@hugeicons/core-free-icons/ShoppingCart01Icon';
 import Store01Icon from '@hugeicons/core-free-icons/Store01Icon';
 import Tick02Icon from '@hugeicons/core-free-icons/Tick02Icon';
-import UserCircleIcon from '@hugeicons/core-free-icons/UserCircleIcon';
+import User02Icon from '@hugeicons/core-free-icons/User02Icon';
 import WifiOff01Icon from '@hugeicons/core-free-icons/WifiOff01Icon';
 
 /** Um ícone: a lista de traços do SVG (formato da Hugeicons). */
 export type IconData = readonly (readonly [string, { readonly [key: string]: string | number }])[];
 
 export const icons = {
-  // Rodapé (TabBar)
-  discover: DiscoverCircleIcon,
+  // Rodapé (TabBar), escolhidos pelo Marcelo em 30/10/2026
+  discover: DiscoverSquareIcon,
   places: Store01Icon,
-  chats: BubbleChatIcon,
-  account: UserCircleIcon,
+  chats: Chat01Icon,
+  account: User02Icon,
   // Cabeçalho e ações
   back: ArrowLeft02Icon,
   cart: ShoppingCart01Icon,
