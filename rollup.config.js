@@ -10,10 +10,14 @@ export default {
   // que o app Expo e o servidor importam.
   input: {
     index: 'src/index.ts',
-    tokens: 'src/tokens/index.ts',
+    // Cada entrada fica dentro da sua pasta (dist/tokens/index.js), ao lado
+    // dos tipos (dist/tokens/index.d.ts). Um dist/tokens.js com o mesmo nome
+    // da pasta faz o TypeScript resolver './tokens' para o .js, sem tipos.
+    'tokens/index': 'src/tokens/index.ts',
     // Catálogo de ícones (dados puros) para o app nativo e o servidor.
-    icons: 'src/icons/index.ts'
+    'icons/index': 'src/icons/index.ts'
   },
+
   output: {
     dir: 'dist',
     format: 'esm',

@@ -1,5 +1,10 @@
 # Changelog do @guiduchat/ui
 
+## 0.5.1
+
+- **Tipos de `icons` e `Icon` na entrada principal:** na 0.5.0 o pacote tinha `dist/icons.js` e a pasta `dist/icons/` com o mesmo nome, e o TypeScript resolvia `./icons` para o `.js`, sem tipos: `import { icons } from '@guiduchat/ui'` não compilava. As entradas `icons` e `tokens` passam a ficar dentro das pastas (`dist/icons/index.js`, `dist/tokens/index.js`), ao lado dos tipos. O `pnpm check:icons` passa a barrar esse conflito de nomes.
+- Os arquivos de teste deixam de gerar tipos no `dist`.
+
 ## 0.5.0 (Hugeicons)
 
 Os ícones passam a ser da **Hugeicons, versão gratuita** (MIT), decisão do Marcelo em 30/10/2026.
