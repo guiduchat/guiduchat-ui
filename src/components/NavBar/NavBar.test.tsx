@@ -44,4 +44,11 @@ describe('NavBar', () => {
     fireEvent.click(pill);
     expect(onOpen).toHaveBeenCalledOnce();
   });
+
+  it('a pílula mostra quem fala e, embaixo, a loja', () => {
+    render(<NavBarPill subtitle="Restaurante Buzin">Milly</NavBarPill>);
+    const pill = screen.getByRole('button');
+    expect(pill.textContent).toContain('Milly');
+    expect(pill.textContent).toContain('Restaurante Buzin');
+  });
 });

@@ -6,6 +6,7 @@ import { describe, expect, it } from 'vitest';
 import {
   Avatar,
   Button,
+  Composer,
   Counter,
   EmptyState,
   GuiduUI,
@@ -13,6 +14,7 @@ import {
   Icon,
   icons,
   MenuTabs,
+  MessageBubble,
   NavBar,
   NavBarBackButton,
   NavBarButton,
@@ -118,6 +120,31 @@ const cases: Array<[string, ReactNode]> = [
       onChange={() => {}}
       aria-label="Filtrar locais"
     />
+  ],
+  [
+    'Composer',
+    <Composer
+      key="c2"
+      label="Mensagem"
+      placeholder="Escreva sua mensagem"
+      sendLabel="Enviar"
+      onSend={() => {}}
+      attach={{ label: 'Anexar', onClick: () => {} }}
+      voice={{ label: 'Gravar áudio', onClick: () => {} }}
+      modes={{
+        label: 'Com quem conversar',
+        active: 'chat',
+        onChange: () => {},
+        items: [{ id: 'chat', title: 'chat' }, { id: 'guidu', title: 'guidu bot' }]
+      }}
+    />
+  ],
+  [
+    'MessageBubble',
+    <div key="mb">
+      <MessageBubble side="theirs" author="Milly" meta="14:30">Temos mesa às 20h.</MessageBubble>
+      <MessageBubble side="mine" meta="14:31">Quero sim!</MessageBubble>
+    </div>
   ]
 ];
 

@@ -97,6 +97,8 @@ NavBarBackButton.displayName = 'NavBarBackButton';
 interface NavBarPillOwnProps extends AsChildProp {
   /** Avatar do estabelecimento, em geral `Avatar.Container` de 32 px. */
   avatar?: ReactNode
+  /** Segunda linha, menor: por exemplo o nome da loja embaixo de quem fala. */
+  subtitle?: ReactNode
   /** Nome do estabelecimento. Com `asChild`, o nome é o conteúdo do filho. */
   children?: ReactNode
 }
@@ -108,7 +110,7 @@ export type NavBarPillProps = MergeProps<ComponentProps<'button'>, NavBarPillOwn
  * título. Tocar abre o que o app decidir (o perfil da loja, por exemplo).
  */
 export const NavBarPill = forwardRef<HTMLButtonElement, NavBarPillProps>((props, ref) => {
-  const { className, asChild = false, avatar, children, type, ...rest } = props;
+  const { className, asChild = false, avatar, subtitle, children, type, ...rest } = props;
   const Comp = asChild ? Slot : 'button';
 
   return (
@@ -126,7 +128,10 @@ export const NavBarPill = forwardRef<HTMLButtonElement, NavBarPillProps>((props,
               {hasReactNode(avatar) && (
                 <span className={styles.NavBarPill__avatar} aria-hidden>{avatar}</span>
               )}
-              <span className={styles.NavBarPill__label}>{label}</span>
+              <span className={styles.NavBarPill__text}>
+                <span className={styles.NavBarPill__label}>{label}</span>
+                {hasReactNode(subtitle) && <span className={styles.NavBarPill__subtitle}>{subtitle}</span>}
+              </span>
             </>
           )
         })}

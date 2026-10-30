@@ -34,8 +34,9 @@ describe('Icon', () => {
 describe('catálogo de ícones', () => {
   it('tem os nomes por função que o kit e os apps usam', () => {
     expect(Object.keys(icons).sort()).toEqual([
-      'account', 'add', 'back', 'cart', 'chats', 'check', 'chevronDown', 'chevronRight', 'close',
-      'closeCircle', 'discover', 'filter', 'info', 'offline', 'places', 'save', 'saved', 'search', 'warning'
+      'account', 'add', 'attach', 'back', 'cart', 'chats', 'check', 'chevronDown', 'chevronRight', 'close',
+      'closeCircle', 'discover', 'filter', 'info', 'menu', 'mic', 'offline', 'places', 'save', 'saved', 'search',
+      'send', 'warning'
     ]);
   });
 

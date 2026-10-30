@@ -1,0 +1,54 @@
+// Balões em pílula: os da pessoa na cor da marca, à direita; os da loja e do
+// guidu em cinza, à esquerda. O canto do lado de quem fala fica mais fechado.
+.MessageBubble {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  max-width: 80%;
+}
+
+.MessageBubble_side_mine {
+  align-self: flex-end;
+  align-items: flex-end;
+}
+
+.MessageBubble_side_theirs {
+  align-self: flex-start;
+  align-items: flex-start;
+}
+
+.MessageBubble__bubble {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 10px 16px;
+  border-radius: 22px;
+  font-size: var(--font-size-body);
+  line-height: 22px;
+  overflow-wrap: anywhere;
+  white-space: pre-wrap;
+
+  .MessageBubble_side_mine & {
+    border-bottom-right-radius: 6px;
+    background-color: var(--button-primary);
+    color: var(--text-on-accent);
+  }
+
+  .MessageBubble_side_theirs & {
+    border-bottom-left-radius: 6px;
+    background-color: var(--background-secondary);
+    color: var(--text-primary);
+  }
+}
+
+.MessageBubble__author {
+  font-size: var(--font-size-description);
+  font-weight: var(--font-weight-body-strong);
+  color: var(--text-secondary);
+}
+
+.MessageBubble__meta {
+  padding: 0 6px;
+  font-size: var(--font-size-label);
+  color: var(--text-tertiary);
+}
