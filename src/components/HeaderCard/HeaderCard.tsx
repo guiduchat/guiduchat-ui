@@ -2,8 +2,9 @@ import { clsx } from 'clsx';
 import { type ChangeEventHandler, type ComponentProps, type ElementType, type FormEventHandler, forwardRef, type MouseEventHandler, type ReactNode } from 'react';
 
 import { hasReactNode } from '../../helpers';
-import { Icon16SearchOutline, Icon24Filter } from '../../icons';
+import { icons } from '../../icons/catalog';
 import { type InnerClassNamesProp, type MergeProps } from '../../types';
+import { Icon } from '../Icon';
 import { IconButton } from '../IconButton';
 import { Input } from '../Input';
 import styles from './HeaderCard.module.scss';
@@ -85,7 +86,7 @@ export const HeaderCard = forwardRef<HTMLElement, HeaderCardProps>((props, forwa
               value={search.value}
               defaultValue={search.defaultValue}
               onChange={search.onChange}
-              iconBefore={<Icon16SearchOutline width={20} height={20} />}
+              iconBefore={<Icon icon={icons.search} size={20} />}
               className={styles.HeaderCard__input}
               innerClassNames={{ container: clsx(styles.HeaderCard__inputContainer, innerClassNames?.input) }}
             />
@@ -101,7 +102,7 @@ export const HeaderCard = forwardRef<HTMLElement, HeaderCardProps>((props, forwa
               aria-pressed={filter.active ?? false}
               onClick={filter.onClick}
             >
-              <Icon24Filter width={20} height={20} />
+              <Icon icon={icons.filter} size={20} />
             </IconButton>
           )}
         </form>

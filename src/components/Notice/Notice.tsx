@@ -2,15 +2,16 @@ import { clsx } from 'clsx';
 import { type ComponentProps, forwardRef, type ReactNode } from 'react';
 
 import { hasReactNode } from '../../helpers';
-import { Icon20Info, Icon20Warning } from '../../icons';
+import { icons } from '../../icons/catalog';
 import { type MergeProps } from '../../types';
+import { Icon } from '../Icon';
 import styles from './Notice.module.scss';
 
 export type NoticeTone = 'info' | 'warning' | 'danger';
 
 interface NoticeOwnProps {
   tone?: NoticeTone
-  /** Ícone no lugar do padrão do tom (ex.: `Icon20WifiSlash` no "sem conexão"). */
+  /** Ícone no lugar do padrão do tom (ex.: `<Icon icon={icons.offline} size={20} />` no "sem conexão"). */
   icon?: ReactNode
   /** Ação à direita, por exemplo "Tentar de novo". */
   action?: ReactNode
@@ -19,9 +20,9 @@ interface NoticeOwnProps {
 export type NoticeProps = MergeProps<ComponentProps<'div'>, NoticeOwnProps>;
 
 const defaultIcon: Record<NoticeTone, ReactNode> = {
-  info: <Icon20Info />,
-  warning: <Icon20Warning />,
-  danger: <Icon20Warning />
+  info: <Icon icon={icons.info} size={20} />,
+  warning: <Icon icon={icons.warning} size={20} />,
+  danger: <Icon icon={icons.warning} size={20} />
 };
 
 /**

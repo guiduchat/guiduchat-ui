@@ -3,9 +3,10 @@ import { clsx } from 'clsx';
 import { type ComponentProps, type ElementType, forwardRef, type ReactNode } from 'react';
 
 import { getSubtree, hasReactNode } from '../../helpers';
-import { Icon16Chevron } from '../../icons';
+import { icons } from '../../icons/catalog';
 import { Tappable } from '../../internal';
 import { type AsChildProp, type InnerClassNamesProp, type MergeProps } from '../../types';
+import { Icon } from '../Icon';
 import styles from './CellSimple.module.scss';
 
 export type CellSimpleHeight = 'compact' | 'normal';
@@ -133,7 +134,7 @@ export const CellSimple = forwardRef<HTMLDivElement, CellSimpleProps>((props, fo
       {(hasReactNode(after) || showChevron) && (
         <div className={clsx(styles.CellSimple__after, innerClassNames?.after)}>
           {after}
-          {showChevron && <Icon16Chevron className={clsx(styles.CellSimple__chevron, innerClassNames?.chevron)} />}
+          {showChevron && <Icon icon={icons.chevronRight} size={16} className={clsx(styles.CellSimple__chevron, innerClassNames?.chevron)} />}
         </div>
       )}
     </Tappable>

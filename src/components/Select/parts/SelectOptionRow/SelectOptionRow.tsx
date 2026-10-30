@@ -2,7 +2,8 @@ import { clsx } from 'clsx';
 import { type ComponentPropsWithoutRef, forwardRef, useEffect, useRef } from 'react';
 
 import { hasReactNode, mergeRefs } from '../../../../helpers';
-import { Icon16Check } from '../../../../icons';
+import { icons } from '../../../../icons/catalog';
+import { Icon } from '../../../Icon';
 import { useSelect } from '../../context';
 import { type SelectOption } from '../../types';
 import styles from './SelectOptionRow.module.scss';
@@ -95,7 +96,7 @@ export const SelectOptionRow = forwardRef<HTMLDivElement, SelectOptionRowProps>(
 
       {multiple && (
         <span className={clsx(styles.SelectOptionRow__check, innerClassNames?.optionCheck)}>
-          {selected && <Icon16Check />}
+          {selected && <Icon icon={icons.check} size={16} />}
         </span>
       )}
     </div>

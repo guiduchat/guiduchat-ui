@@ -2,9 +2,10 @@ import { clsx } from 'clsx';
 import { type ComponentPropsWithoutRef, forwardRef, type ReactNode } from 'react';
 
 import { hasReactNode } from '../../../../helpers';
-import { Icon16Chevron, Icon16CloseIos } from '../../../../icons';
+import { icons } from '../../../../icons/catalog';
 import { EllipsisText, SvgButton } from '../../../../internal';
 import { type InnerClassNamesProp } from '../../../../types';
+import { Icon } from '../../../Icon';
 import { type SelectElementKey, type SelectMode, type SelectSize } from '../../types';
 import styles from './SelectField.module.scss';
 
@@ -107,11 +108,13 @@ export const SelectField = forwardRef<HTMLDivElement, SelectFieldProps>((props, 
             onClear();
           }}
         >
-          <Icon16CloseIos />
+          <Icon icon={icons.close} size={16} />
         </SvgButton>
       )}
 
-      <Icon16Chevron
+      <Icon
+        icon={icons.chevronRight}
+        size={16}
         aria-hidden
         className={clsx(
           styles.SelectField__chevron,

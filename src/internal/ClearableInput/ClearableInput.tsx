@@ -1,8 +1,9 @@
 import { clsx } from 'clsx';
 import { type ComponentProps, forwardRef, useRef, useState } from 'react';
 
+import { Icon } from '../../components/Icon';
 import { dispatchChangeNativeEvent, mergeRefs } from '../../helpers';
-import { Icon16CloseIos } from '../../icons';
+import { icons } from '../../icons/catalog';
 import { type InnerClassNamesProp } from '../../types';
 import { SvgButton } from '../SvgButton';
 import styles from './ClearableInput.module.scss';
@@ -71,7 +72,7 @@ export const ClearableInput = forwardRef<HTMLInputElement, ClearableInputProps>(
           onClick={clearValue}
           aria-label="Очистить"
         >
-          <Icon16CloseIos />
+          <Icon icon={icons.close} size={16} />
         </SvgButton>
       )}
     </span>

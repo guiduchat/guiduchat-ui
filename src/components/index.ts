@@ -11,6 +11,7 @@ export * from './Counter';
 export * from './EmptyState';
 export * from './GuiduUI';
 export * from './HeaderCard';
+export * from './Icon';
 export * from './IconButton';
 export * from './Input';
 export * from './MenuTabs';

@@ -1,17 +1,18 @@
 import resolve from '@rollup/plugin-node-resolve';
 import terser from '@rollup/plugin-terser';
 import typescript from '@rollup/plugin-typescript';
-import svgr from '@svgr/rollup';
 import peerDepsExternal from 'rollup-plugin-peer-deps-external';
 import postcss from 'rollup-plugin-postcss';
 
 export default {
-  // Dois pontos de entrada: os componentes (com "use client" para o
+  // Pontos de entrada: os componentes (com "use client" para o
   // Next.js) e os tokens em TypeScript puro, sem DOM (@guiduchat/ui/tokens),
   // que o app Expo e o servidor importam.
   input: {
     index: 'src/index.ts',
-    tokens: 'src/tokens/index.ts'
+    tokens: 'src/tokens/index.ts',
+    // Catálogo de ícones (dados puros) para o app nativo e o servidor.
+    icons: 'src/icons/index.ts'
   },
   output: {
     dir: 'dist',
@@ -24,13 +25,6 @@ export default {
     banner: (chunk) => (chunk.name === 'index' ? "'use client';" : '')
   },
   plugins: [
-    // Mantém o viewBox: sem ele, um ícone de 24 px desenhado em outro tamanho
-    // (o filtro em 16 px, por exemplo) sai cortado em vez de reduzido.
-    svgr({
-      svgoConfig: {
-        plugins: [{ name: 'preset-default', params: { overrides: { removeViewBox: false } } }]
-      }
-    }),
     typescript({ tsconfig: './tsconfig.build.json' }),
     resolve(),
     peerDepsExternal(),

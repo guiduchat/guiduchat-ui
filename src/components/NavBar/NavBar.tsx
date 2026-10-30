@@ -3,8 +3,9 @@ import { clsx } from 'clsx';
 import { type ComponentProps, type ElementType, forwardRef, type ReactNode } from 'react';
 
 import { getSubtree, hasReactNode } from '../../helpers';
-import { Icon24ArrowLeft } from '../../icons';
+import { icons } from '../../icons/catalog';
 import { type AsChildProp, type MergeProps } from '../../types';
+import { Icon } from '../Icon';
 import styles from './NavBar.module.scss';
 
 interface NavBarOwnProps {
@@ -88,7 +89,7 @@ export type NavBarBackButtonProps = Omit<NavBarButtonProps, 'icon' | 'variant'> 
 /** Voltar do cabeçalho: `NavBarButton` com a seta. */
 export const NavBarBackButton = forwardRef<HTMLButtonElement, NavBarBackButtonProps>((props, ref) => {
   const { icon, ...rest } = props;
-  return <NavBarButton ref={ref} icon={icon ?? <Icon24ArrowLeft />} {...rest} />;
+  return <NavBarButton ref={ref} icon={icon ?? <Icon icon={icons.back} size={24} />} {...rest} />;
 });
 
 NavBarBackButton.displayName = 'NavBarBackButton';

@@ -2,10 +2,11 @@ import { clsx } from 'clsx';
 import { type ComponentProps, forwardRef, type MouseEventHandler, type ReactNode } from 'react';
 
 import { hasReactNode } from '../../helpers';
-import { Icon24BookmarkFilled, Icon24BookmarkOutline, Icon24Plus } from '../../icons';
+import { icons } from '../../icons/catalog';
 import { type InnerClassNamesProp, type MergeProps } from '../../types';
 import { Button } from '../Button';
 import { Counter } from '../Counter';
+import { Icon } from '../Icon';
 import { IconButton } from '../IconButton';
 import styles from './PlaceCard.module.scss';
 
@@ -150,7 +151,7 @@ export const PlaceCard = forwardRef<HTMLElement, PlaceCardProps>((props, forward
       aria-pressed={save.pressed}
       onClick={() => { save.onPressedChange(!save.pressed); }}
     >
-      {save.pressed ? <Icon24BookmarkFilled /> : <Icon24BookmarkOutline />}
+      {save.pressed ? <Icon icon={icons.saved} size={24} /> : <Icon icon={icons.save} size={24} />}
     </IconButton>
   );
 
@@ -161,7 +162,7 @@ export const PlaceCard = forwardRef<HTMLElement, PlaceCardProps>((props, forward
       aria-label={headerAction.label}
       onClick={headerAction.onClick}
     >
-      <Icon24Plus />
+      <Icon icon={icons.add} size={24} />
     </IconButton>
   );
 

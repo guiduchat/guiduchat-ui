@@ -1,7 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
-import { Icon20WifiSlash } from '../../icons';
+import { icons } from '../../icons';
 import { Button } from '../Button';
+import { Icon } from '../Icon';
 import { Notice, type NoticeProps } from './Notice';
 
 const meta = {
@@ -32,7 +33,7 @@ export const Offline: Story = {
   name: 'Sem conexão',
   args: {
     tone: 'warning',
-    icon: <Icon20WifiSlash />,
+    icon: <Icon icon={icons.offline} size={20} />,
     children: 'Sem conexão. Mostrando o que foi carregado às 14:32.',
     action: <Button size="small" variant="secondary">Tentar de novo</Button>
   }

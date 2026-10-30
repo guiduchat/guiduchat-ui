@@ -1,5 +1,17 @@
 # Changelog do @guiduchat/ui
 
+## 0.5.0 (Hugeicons)
+
+Os ícones passam a ser da **Hugeicons, versão gratuita** (MIT), decisão do Marcelo em 30/10/2026.
+
+- **Novo `Icon`**: `<Icon icon={icons.search} />`, 24 px, traço 1,5, cor do texto em volta; decorativo por padrão, `label` para ter nome.
+- **Novo catálogo `icons`** com nomes por função: `discover`, `places`, `chats`, `account`, `back`, `cart`, `search`, `filter`, `add`, `save`, `saved`, `offline`, `warning`, `info`, `close`, `closeCircle`, `check`, `chevronRight`, `chevronDown`.
+- **Nova entrada `@guiduchat/ui/icons`**: o catálogo em dados puros, sem DOM nem `'use client'`, para o app nativo (`@hugeicons/react-native`) e o servidor.
+- Todos os componentes usam o catálogo; o salvar marcado do `PlaceCard` passa a ser o marcador com check (`saved`), porque a versão gratuita não tem o preenchido.
+- **Quebra:** saem os `Icon16*`, `Icon20*` e `Icon24*` e os ícones da Phosphor. Troca: `Icon24CompassOutline` → `<Icon icon={icons.discover} />`, `Icon24StorefrontOutline` → `icons.places`, `Icon24ChatOutline` → `icons.chats`, `Icon24UserOutline` → `icons.account`, `Icon20WifiSlash` → `<Icon icon={icons.offline} size={20} />`, `Icon24Cart` → `icons.cart`, `Icon24ArrowLeft` → `icons.back`. Os `*Filled` não têm par na versão gratuita: a aba ativa usa o mesmo traço (`activeIcon` continua para a Pro).
+- **Lint**: ícone só pelo catálogo; o índice `@hugeicons/core-free-icons` é proibido. **`pnpm check:icons`** confere que o pacote traz só os ícones do catálogo e que `dist/icons.js` fica abaixo de 30 KB.
+- O build deixa de usar o `@svgr/rollup`. Pacote: `dist/index.js` 135 KB (era 152 KB) e `dist/icons.js` 12 KB.
+
 ## 0.4.2
 
 - **HeaderCard:** ícone de filtros com 20 px (era 16).
