@@ -1,0 +1,30 @@
+.RatingStars {
+  position: relative;
+  display: inline-flex;
+  flex-shrink: 0;
+  vertical-align: middle;
+}
+
+.RatingStars__empty,
+.RatingStars__filled {
+  display: flex;
+}
+
+.RatingStars__empty {
+  color: var(--icon-mute);
+}
+
+.RatingStars__filled {
+  position: absolute;
+  inset: 0 auto 0 0;
+  overflow: hidden;
+  color: var(--text-attention);
+
+  svg {
+    flex-shrink: 0;
+  }
+
+  path {
+    fill: currentColor;
+  }
+}

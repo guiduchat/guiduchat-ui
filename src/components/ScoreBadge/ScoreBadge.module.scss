@@ -1,0 +1,26 @@
+.ScoreBadge {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-size-xs);
+  min-width: 44px;
+  padding: var(--spacing-size-s);
+  box-sizing: border-box;
+  border-radius: 16px;
+  background-color: var(--background-card);
+  color: var(--text-primary);
+}
+
+.ScoreBadge__value {
+  font-size: var(--font-size-body);
+  font-weight: var(--font-weight-body-strong);
+  line-height: 20px;
+}
+
+.ScoreBadge__logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--font-size-label);
+  line-height: 14px;
+}

@@ -1,5 +1,19 @@
 # Changelog do @guiduchat/ui
 
+## 0.7.0 (perfil da loja)
+
+Componentes da página do local, a partir do modelo do Marcelo de 30/10/2026. Só apresentação: textos, números e ações vêm do app.
+
+- **StoreHero** e **ScoreBadge**: capa, logo sobreposta, nome, categoria, salvar e o selo da nota.
+- **QuickActions** e **QuickAction**: fileira de ações com ícone e rótulo; com `asChild`, viram links `tel:` e `mailto:`.
+- **StatStrip** e **StatStripItem**: quadro de colunas com rodapé opcional.
+- **BentoGrid**, **BentoImage** e **ActionTile**: mosaico de fotos e blocos com seta.
+- **InfoCard** e **InfoRow**: superfície com linhas de ícone, rótulo e valor (contato, redes sociais, informações úteis).
+- **OpeningHours**: hoje e, ao expandir, a semana inteira.
+- **RatingStars**: cinco estrelas com fração. A Hugeicons gratuita só tem traço, então o preenchimento vem do CSS.
+- **ReviewSummary**, **ReviewCard** e **ReviewRail**: avaliações por provedor, com a marca por prop.
+- **Ícones** no catálogo: `call`, `mail`, `more`, `share`, `map`, `location`, `website`, `clock`, `image`, `arrowForward`, `thumbsUp`, `thumbsDown`, `priceLevel`, `star`, `whatsapp`, `instagram`, `facebook`, `tiktok`, `google`, `accessible`, `parking`, `kids`, `card`, `contactless`, `food` e `drink`.
+
 ## 0.6.0 (chat)
 
 - **Composer** (novo): caixa de mensagem no estilo dos chats de IA, pedida pelo Marcelo em 30/10/2026. Texto em cima (cresce até cerca de cinco linhas) e, embaixo, anexo, chave de modos (`chat | guidu bot`), áudio e enviar. Enter envia, Shift+Enter quebra a linha; o enviar fica desligado com o campo vazio. Textos e ações vêm do app.

@@ -4,7 +4,10 @@ import type { ReactNode } from 'react';
 import { describe, expect, it } from 'vitest';
 
 import {
+  ActionTile,
   Avatar,
+  BentoGrid,
+  BentoImage,
   Button,
   Composer,
   Counter,
@@ -13,6 +16,8 @@ import {
   HeaderCard,
   Icon,
   icons,
+  InfoCard,
+  InfoRow,
   MenuTabs,
   MessageBubble,
   NavBar,
@@ -20,8 +25,19 @@ import {
   NavBarButton,
   NavBarPill,
   Notice,
+  OpeningHours,
   PlaceCard,
+  QuickAction,
+  QuickActions,
+  RatingStars,
+  ReviewCard,
+  ReviewRail,
+  ReviewSummary,
+  ScoreBadge,
   Skeleton,
+  StatStrip,
+  StatStripItem,
+  StoreHero,
   Switch,
   TabBar,
   TabBarItem
@@ -30,6 +46,65 @@ import {
 // Acessibilidade com o axe nos componentes, nos dois temas. Componente novo
 // entra nesta lista (U7 do guidu-chat).
 const cases: Array<[string, ReactNode]> = [
+  [
+    'StoreHero',
+    <StoreHero
+      key="sh"
+      accent="#c2410c"
+      avatar={<Avatar.Container size={96} form="squircle"><Avatar.Text gradient="orange">RB</Avatar.Text></Avatar.Container>}
+      title="Restaurante Buzin"
+      subtitle="Restaurante"
+      save={{ label: 'Salvar', pressed: false, onPressedChange: () => {} }}
+      badge={<ScoreBadge value="4,6" logo="Google" label="Nota 4,6 no Google" />}
+    />
+  ],
+  [
+    'QuickActions',
+    <QuickActions key="qa" aria-label="Ações">
+      <QuickAction asChild icon={<Icon icon={icons.call} />} label="Ligar"><a href="tel:+5522999998884" /></QuickAction>
+      <QuickAction disabled icon={<Icon icon={icons.mail} />} label="E-mail" />
+    </QuickActions>
+  ],
+  [
+    'StatStrip',
+    <StatStrip key="ss" footer={<a href="https://buzin.com.br">buzin.com.br</a>}>
+      <StatStripItem label="Avaliações" value="92%" onClick={() => {}} />
+      <StatStripItem label="Preço" value="$$" />
+    </StatStrip>
+  ],
+  [
+    'BentoGrid',
+    <BentoGrid key="bg" tall={<BentoImage src="data:," alt="Salão" />} wide={<BentoImage />}>
+      <ActionTile title="Horário" />
+      <ActionTile title="Social" />
+    </BentoGrid>
+  ],
+  [
+    'InfoCard',
+    <InfoCard key="ic" title="Contato">
+      <InfoRow icon={<Icon icon={icons.location} />} label="Endereço" value="Rua das Pedras, 10" />
+      <InfoRow asChild label="Telefone" value="+55 22 99999-8884"><a href="tel:+5522999998884" /></InfoRow>
+    </InfoCard>
+  ],
+  [
+    'OpeningHours',
+    <OpeningHours
+      key="oh"
+      title="Horário de funcionamento"
+      todayLabel="Horários de hoje"
+      todayHours={['11:30 – 14:30']}
+      status="Aberto agora"
+      expandLabel="Ver a semana"
+      week={[{ day: 'Segunda', hours: ['11:30 – 14:30'], today: true }]}
+    />
+  ],
+  [
+    'Review',
+    <ReviewRail key="rv" label="Avaliações">
+      <ReviewSummary logo="Google" count="12 avaliações" rating={<RatingStars value={4.6} label="Nota 4,6 de 5" />} />
+      <ReviewCard text="Muito bom." author="Joaquim" source="Google" rating={<RatingStars value={5} label="Nota 5 de 5" />} />
+    </ReviewRail>
+  ],
   ['Button', <Button key="b">Enviar pedido</Button>],
   [
     'Switch',

@@ -1,0 +1,123 @@
+@use '../../styles/shared-mixins/reset-clickable';
+
+.OpeningHours {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-size-xl);
+  width: 100%;
+  padding: var(--spacing-size-m);
+  box-sizing: border-box;
+  border-radius: 28px;
+  background-color: var(--background-secondary);
+  color: var(--text-primary);
+}
+
+.OpeningHours__title {
+  margin: var(--spacing-size-m) var(--spacing-size-xl) 0;
+  font-size: 20px;
+  font-weight: var(--font-weight-body-strong);
+  line-height: 26px;
+}
+
+.OpeningHours__body {
+  position: relative;
+  padding: var(--spacing-size-xl) var(--spacing-size2xl);
+  border-radius: 20px;
+  background-color: var(--background-card);
+}
+
+.OpeningHours__today {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-size2xs);
+  padding-right: 44px;
+  font-size: var(--font-size-body);
+  line-height: 22px;
+}
+
+.OpeningHours__label {
+  font-size: var(--font-size-label);
+  line-height: 14px;
+  color: var(--text-secondary);
+}
+
+.OpeningHours__status_positive {
+  color: var(--text-positive);
+}
+
+.OpeningHours__status_attention {
+  color: var(--text-attention);
+}
+
+.OpeningHours__status_negative {
+  color: var(--text-negative);
+}
+
+.OpeningHours__toggle {
+  @include reset-clickable.resetClickable;
+  position: absolute;
+  top: var(--spacing-size-s);
+  right: var(--spacing-size-s);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  color: var(--icon-primary);
+  cursor: pointer;
+  transition: transform 0.2s ease;
+
+  @media (prefers-reduced-motion: reduce) {
+    transition: none;
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--icon-themed);
+    outline-offset: 2px;
+  }
+}
+
+.OpeningHours__toggle_expanded {
+  transform: rotate(180deg);
+}
+
+.OpeningHours__week {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-size-m);
+  margin: var(--spacing-size-xl) 0 0;
+  padding-top: var(--spacing-size-xl);
+  border-top: 1px solid var(--divider-secondary);
+  font-size: var(--font-size-body);
+  line-height: 22px;
+
+  &[hidden] {
+    display: none;
+  }
+}
+
+.OpeningHours__day {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--spacing-size-xl);
+
+  dt,
+  dd {
+    margin: 0;
+  }
+
+  dd {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    color: var(--text-secondary);
+  }
+}
+
+.OpeningHours__day_today {
+  font-weight: var(--font-weight-body-strong);
+
+  dd {
+    color: inherit;
+  }
+}
