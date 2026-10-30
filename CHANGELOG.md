@@ -1,5 +1,9 @@
 # Changelog do @guiduchat/ui
 
+## 0.5.2
+
+- **Ícones do rodapé** (escolha do Marcelo, 30/10/2026): `discover` → `DiscoverSquareIcon`, `chats` → `Chat01Icon`, `account` → `User02Icon`. Mesmos nomes no catálogo; quem usa o kit não muda nada.
+
 ## 0.5.1
 
 - **Tipos de `icons` e `Icon` na entrada principal:** na 0.5.0 o pacote tinha `dist/icons.js` e a pasta `dist/icons/` com o mesmo nome, e o TypeScript resolvia `./icons` para o `.js`, sem tipos: `import { icons } from '@guiduchat/ui'` não compilava. As entradas `icons` e `tokens` passam a ficar dentro das pastas (`dist/icons/index.js`, `dist/tokens/index.js`), ao lado dos tipos. O `pnpm check:icons` passa a barrar esse conflito de nomes.
