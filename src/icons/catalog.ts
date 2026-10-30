@@ -24,6 +24,7 @@ import Cancel01Icon from '@hugeicons/core-free-icons/Cancel01Icon';
 import CancelCircleIcon from '@hugeicons/core-free-icons/CancelCircleIcon';
 import Chat01Icon from '@hugeicons/core-free-icons/Chat01Icon';
 import Clock01Icon from '@hugeicons/core-free-icons/Clock01Icon';
+import Coupon01Icon from '@hugeicons/core-free-icons/Coupon01Icon';
 import CreditCardIcon from '@hugeicons/core-free-icons/CreditCardIcon';
 import DeliveryBox01Icon from '@hugeicons/core-free-icons/DeliveryBox01Icon';
 import DiscoverSquareIcon from '@hugeicons/core-free-icons/DiscoverSquareIcon';
@@ -36,6 +37,7 @@ import FavouriteIcon from '@hugeicons/core-free-icons/FavouriteIcon';
 import FilterHorizontalIcon from '@hugeicons/core-free-icons/FilterHorizontalIcon';
 import Globe02Icon from '@hugeicons/core-free-icons/Globe02Icon';
 import GoogleIcon from '@hugeicons/core-free-icons/GoogleIcon';
+import Home01Icon from '@hugeicons/core-free-icons/Home01Icon';
 import Image01Icon from '@hugeicons/core-free-icons/Image01Icon';
 import InformationCircleIcon from '@hugeicons/core-free-icons/InformationCircleIcon';
 import InstagramIcon from '@hugeicons/core-free-icons/InstagramIcon';
@@ -53,6 +55,7 @@ import Search01Icon from '@hugeicons/core-free-icons/Search01Icon';
 import SentIcon from '@hugeicons/core-free-icons/SentIcon';
 import Share01Icon from '@hugeicons/core-free-icons/Share01Icon';
 import ShoppingCart01Icon from '@hugeicons/core-free-icons/ShoppingCart01Icon';
+import SparklesIcon from '@hugeicons/core-free-icons/SparklesIcon';
 import StarIcon from '@hugeicons/core-free-icons/StarIcon';
 import Store01Icon from '@hugeicons/core-free-icons/Store01Icon';
 import ThumbsDownIcon from '@hugeicons/core-free-icons/ThumbsDownIcon';
@@ -69,6 +72,8 @@ export type IconData = readonly (readonly [string, { readonly [key: string]: str
 
 export const icons = {
   // Rodapé (TabBar), escolhidos pelo Marcelo em 30/10/2026
+  home: Home01Icon,
+  forYou: SparklesIcon,
   discover: DiscoverSquareIcon,
   places: Store01Icon,
   chats: Chat01Icon,
@@ -120,6 +125,7 @@ export const icons = {
   eyeOff: EyeOffIcon,
   apple: AppleIcon,
   // Configurações
+  coupon: Coupon01Icon,
   arrowUpRight: ArrowUpRight01Icon,
   orders: DeliveryBox01Icon,
   heart: FavouriteIcon,

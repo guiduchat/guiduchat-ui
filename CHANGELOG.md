@@ -1,5 +1,9 @@
 # Changelog do @guiduchat/ui
 
+## 0.10.0
+
+- **Ícones** no catálogo: `home`, `forYou` e `coupon`, para o rodapé de quem tem conta e os cartões de Conta.
+
 ## 0.9.0 (configurações)
 
 - **ShortcutCard** (novo): cartão de atalho com pílula ou título, texto e botão redondo; com `asChild`, vira o link do app.
