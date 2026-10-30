@@ -36,4 +36,6 @@ jobs:
       # Testes de componente e de acessibilidade (axe) nos dois temas.
       - run: pnpm test
       - run: pnpm build
+      # Ícones do pacote com viewBox (o Storybook não mostra esse problema).
+      - run: pnpm check:icons
       - run: pnpm build-storybook
