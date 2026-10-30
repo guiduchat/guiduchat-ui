@@ -1,5 +1,17 @@
 # Changelog do @guiduchat/ui
 
+## 0.8.0 (entrada e cadastro)
+
+Componentes de login, cadastro, código e recuperação de senha, a partir do modelo aprovado pelo Marcelo em 30/10/2026. Textos e ações vêm do app.
+
+- **FormField**: rótulo, campo, ajuda e erro, ligados para o leitor de tela.
+- **PhoneInput**: telefone com seletor de país e busca; a lista de países vem do app.
+- **PasswordInput**: campo de senha com o olho.
+- **OtpInput**: código por dígito. É um campo só por cima dos quadrados, para colar, apagar e o preenchimento automático funcionarem.
+- **SocialButton**: Continuar com Google e com Apple.
+- **TextDivider**: linha com "ou".
+- **Ícones** no catálogo: `eye`, `eyeOff` e `apple`.
+
 ## 0.7.0 (perfil da loja)
 
 Componentes da página do local, a partir do modelo do Marcelo de 30/10/2026. Só apresentação: textos, números e ações vêm do app.

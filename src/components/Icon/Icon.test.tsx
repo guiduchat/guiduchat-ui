@@ -34,13 +34,12 @@ describe('Icon', () => {
 describe('catálogo de ícones', () => {
   it('tem os nomes por função que o kit e os apps usam', () => {
     expect(Object.keys(icons).sort()).toEqual([
-      'accessible', 'account', 'add', 'arrowForward', 'attach', 'back', 'call',
-      'card', 'cart', 'chats', 'check', 'chevronDown', 'chevronRight', 'clock',
-      'close', 'closeCircle', 'contactless', 'discover', 'drink', 'facebook',
-      'filter', 'food', 'google', 'image', 'info', 'instagram', 'kids',
-      'location', 'mail', 'map', 'menu', 'mic', 'more', 'offline', 'parking',
-      'places', 'priceLevel', 'save', 'saved', 'search', 'send', 'share', 'star',
-      'thumbsDown', 'thumbsUp', 'tiktok', 'warning', 'website', 'whatsapp'
+      'accessible', 'account', 'add', 'apple', 'arrowForward', 'attach', 'back', 'call', 'card',
+      'cart', 'chats', 'check', 'chevronDown', 'chevronRight', 'clock', 'close', 'closeCircle',
+      'contactless', 'discover', 'drink', 'eye', 'eyeOff', 'facebook', 'filter', 'food', 'google',
+      'image', 'info', 'instagram', 'kids', 'location', 'mail', 'map', 'menu', 'mic', 'more',
+      'offline', 'parking', 'places', 'priceLevel', 'save', 'saved', 'search', 'send', 'share',
+      'star', 'thumbsDown', 'thumbsUp', 'tiktok', 'warning', 'website', 'whatsapp'
     ]);
   });
 

@@ -1,0 +1,50 @@
+.OtpInput {
+  position: relative;
+  width: 100%;
+}
+
+.OtpInput__boxes {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: minmax(0, 1fr);
+  gap: var(--spacing-size-m);
+}
+
+.OtpInput__box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 52px;
+  box-sizing: border-box;
+  border: 2px solid transparent;
+  border-radius: var(--size-border-radius-action-large);
+  background-color: var(--background-tertiary);
+  color: var(--text-primary);
+  font-size: 20px;
+  font-weight: var(--font-weight-body-strong);
+}
+
+.OtpInput__box_active {
+  border-color: var(--icon-themed);
+}
+
+.OtpInput_invalid .OtpInput__box {
+  border-color: var(--text-negative);
+}
+
+// Transparente, mas de verdade por cima: é ele que recebe o toque e o teclado.
+.OtpInput__input {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  color: transparent;
+  caret-color: transparent;
+  font-size: 16px;
+  opacity: 0.01;
+}

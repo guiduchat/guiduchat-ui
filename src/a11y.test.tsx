@@ -12,6 +12,7 @@ import {
   Composer,
   Counter,
   EmptyState,
+  FormField,
   GuiduUI,
   HeaderCard,
   Icon,
@@ -26,6 +27,9 @@ import {
   NavBarPill,
   Notice,
   OpeningHours,
+  OtpInput,
+  PasswordInput,
+  PhoneInput,
   PlaceCard,
   QuickAction,
   QuickActions,
@@ -35,17 +39,41 @@ import {
   ReviewSummary,
   ScoreBadge,
   Skeleton,
+  SocialButton,
   StatStrip,
   StatStripItem,
   StoreHero,
   Switch,
   TabBar,
-  TabBarItem
+  TabBarItem,
+  TextDivider
 } from './index';
 
 // Acessibilidade com o axe nos componentes, nos dois temas. Componente novo
 // entra nesta lista (U7 do guidu-chat).
 const cases: Array<[string, ReactNode]> = [
+  [
+    'Formulário de entrada',
+    <form key="auth">
+      <FormField label="Telefone" error="Número inválido">
+        <PhoneInput
+          countries={[{ code: 'BR', name: 'Brasil', dialCode: '+55', flag: '🇧🇷' }]}
+          country="BR"
+          onCountryChange={() => {}}
+          countryLabel="País"
+        />
+      </FormField>
+      <FormField label="Senha">
+        <PasswordInput showLabel="Mostrar senha" hideLabel="Esconder senha" />
+      </FormField>
+      <FormField label="Código">
+        <OtpInput value="12" onChange={() => {}} />
+      </FormField>
+      <TextDivider>ou</TextDivider>
+      <SocialButton provider="google">Continuar com Google</SocialButton>
+      <SocialButton provider="apple">Continuar com Apple</SocialButton>
+    </form>
+  ],
   [
     'StoreHero',
     <StoreHero
