@@ -7,9 +7,11 @@ import Icon20CloseFilled from './20-close-filled.svg';
 import Icon20Info from './20-info.svg';
 import Icon20Warning from './20-warning.svg';
 import Icon20WifiSlash from './20-wifi-slash.svg';
+import Icon24ArrowLeft from './24-arrow-left.svg';
 import Icon24BookmarkFilled from './24-bookmark-filled.svg';
 import Icon24BookmarkOutline from './24-bookmark-outline.svg';
 import Icon24CaretLeft from './24-caret-left.svg';
+import Icon24Cart from './24-cart.svg';
 import Icon24ChatFilled from './24-chat-filled.svg';
 import Icon24ChatOutline from './24-chat-outline.svg';
 import Icon24CloseAndroid from './24-close-android.svg';
@@ -23,7 +25,7 @@ import Icon24UserFilled from './24-user-filled.svg';
 import Icon24UserOutline from './24-user-outline.svg';
 
 // Ícones das abas (contorno e preenchido), voltar, sem conexão, aviso e
-// informação: Phosphor Icons, MIT (LICENSE-phosphor).
+// informação, seta de voltar e carrinho: Phosphor Icons, MIT (LICENSE-phosphor).
 export {
   Icon16Check,
   Icon16Chevron,
@@ -34,9 +36,11 @@ export {
   Icon20Info,
   Icon20Warning,
   Icon20WifiSlash,
+  Icon24ArrowLeft,
   Icon24BookmarkFilled,
   Icon24BookmarkOutline,
   Icon24CaretLeft,
+  Icon24Cart,
   Icon24ChatFilled,
   Icon24ChatOutline,
   Icon24CloseAndroid,

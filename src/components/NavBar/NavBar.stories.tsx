@@ -1,8 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
-import { Icon24Plus } from '../../icons';
-import { IconButton } from '../IconButton';
-import { NavBar, NavBarBackButton, type NavBarProps } from './NavBar';
+import { Icon24Cart } from '../../icons';
+import { Avatar } from '../Avatar';
+import { NavBar, NavBarBackButton, NavBarButton, NavBarPill, type NavBarProps } from './NavBar';
 
 const meta = {
   title: 'Components/NavBar',
@@ -11,12 +11,12 @@ const meta = {
     layout: 'fullscreen',
     docs: {
       description: {
-        component: 'Barra do topo: voltar, título e ação. No iOS o título fica no centro; no Android, à esquerda.'
+        component: 'Cabeçalho de 60 px: voltar, título centralizado (ou a pílula do chat) e ações em botões redondos de 40 px. Igual no iOS e no Android.'
       }
     }
   },
   args: {
-    title: 'Boutique da Praia'
+    title: 'Meus Locais'
   }
 } satisfies Meta<NavBarProps>;
 
@@ -29,11 +29,30 @@ export const Playground: Story = {
       <NavBar
         {...args}
         before={<NavBarBackButton label="Voltar" />}
-        after={(
-          <IconButton aria-label="Nova conversa" variant="ghost">
-            <Icon24Plus />
-          </IconButton>
+        after={<NavBarButton label="Carrinho" variant="accent" icon={<Icon24Cart />} />}
+      />
+    </div>
+  )
+};
+
+export const Chat: Story = {
+  name: 'Chat: pílula da loja',
+  render: () => (
+    <div style={{ width: 390, maxWidth: '100%' }}>
+      <NavBar
+        before={<NavBarBackButton label="Voltar" />}
+        center={(
+          <NavBarPill
+            avatar={(
+              <Avatar.Container size={32} form="circle">
+                <Avatar.Text gradient="orange">RB</Avatar.Text>
+              </Avatar.Container>
+            )}
+          >
+            Restaurante Buzin
+          </NavBarPill>
         )}
+        after={<NavBarButton label="Carrinho" variant="accent" icon={<Icon24Cart />} />}
       />
     </div>
   )
@@ -54,7 +73,11 @@ export const LongTitle: Story = {
   args: { title: 'Pousada Vista do Mar e Restaurante da Orla de Búzios' },
   render: (args) => (
     <div style={{ width: 390, maxWidth: '100%' }}>
-      <NavBar {...args} before={<NavBarBackButton label="Voltar" />} />
+      <NavBar
+        {...args}
+        before={<NavBarBackButton label="Voltar" />}
+        after={<NavBarButton label="Carrinho" icon={<Icon24Cart />} />}
+      />
     </div>
   )
 };

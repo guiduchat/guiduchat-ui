@@ -3,6 +3,11 @@
 ## 0.4.0
 
 - **HeaderCard** (ajustes do Marcelo, 30/10/2026): cantos de 24 px; pílula da busca com 48 px de altura e 4 px de espaçamento interno; botão de filtros com fundo redondo de 40 px e ícone de 16 px.
+- **NavBar** (padrão do Marcelo, 30/10/2026): 60 px de altura, título sempre centralizado (iOS e Android); `center` para pôr outra coisa no lugar do título.
+- **NavBarButton** (novo): botão redondo de 40 px com fundo, variantes `neutral` (voltar, menu) e `accent` (cor da marca, ex.: carrinho); `asChild` para link. **NavBarBackButton** passa a ser um `NavBarButton` com a seta.
+- **NavBarPill** (novo): pílula do chat com o avatar e o nome do estabelecimento, no lugar do título.
+- **Ícones** `Icon24ArrowLeft` e `Icon24Cart` (Phosphor, MIT).
+- **NavBar**: no Android o título não fica mais à esquerda. **Muda o padrão.**
 - **HeaderCard**: o título passa a ser `h2` por padrão (o `h1` da página fica no `NavBar`), com `titleAs` para trocar. **Muda o padrão:** quem dependia do `h1` passa `titleAs="h1"`.
 
 ## 0.3.0 (componentes do shell)
