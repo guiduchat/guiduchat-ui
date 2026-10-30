@@ -34,6 +34,7 @@ export * from './Review';
 export * from './ScoreBadge';
 export * from './Segmented';
 export * from './Select';
+export * from './ShortcutCard';
 export * from './Skeleton';
 export * from './Snackbar';
 export * from './SocialButton';

@@ -14,6 +14,7 @@ import ArrowDown01Icon from '@hugeicons/core-free-icons/ArrowDown01Icon';
 import ArrowLeft02Icon from '@hugeicons/core-free-icons/ArrowLeft02Icon';
 import ArrowRight01Icon from '@hugeicons/core-free-icons/ArrowRight01Icon';
 import ArrowRight02Icon from '@hugeicons/core-free-icons/ArrowRight02Icon';
+import ArrowUpRight01Icon from '@hugeicons/core-free-icons/ArrowUpRight01Icon';
 import Attachment01Icon from '@hugeicons/core-free-icons/Attachment01Icon';
 import Baby01Icon from '@hugeicons/core-free-icons/Baby01Icon';
 import Bookmark01Icon from '@hugeicons/core-free-icons/Bookmark01Icon';
@@ -24,12 +25,14 @@ import CancelCircleIcon from '@hugeicons/core-free-icons/CancelCircleIcon';
 import Chat01Icon from '@hugeicons/core-free-icons/Chat01Icon';
 import Clock01Icon from '@hugeicons/core-free-icons/Clock01Icon';
 import CreditCardIcon from '@hugeicons/core-free-icons/CreditCardIcon';
+import DeliveryBox01Icon from '@hugeicons/core-free-icons/DeliveryBox01Icon';
 import DiscoverSquareIcon from '@hugeicons/core-free-icons/DiscoverSquareIcon';
 import Dish01Icon from '@hugeicons/core-free-icons/Dish01Icon';
 import DrinkIcon from '@hugeicons/core-free-icons/DrinkIcon';
 import EyeIcon from '@hugeicons/core-free-icons/EyeIcon';
 import EyeOffIcon from '@hugeicons/core-free-icons/EyeOffIcon';
 import Facebook01Icon from '@hugeicons/core-free-icons/Facebook01Icon';
+import FavouriteIcon from '@hugeicons/core-free-icons/FavouriteIcon';
 import FilterHorizontalIcon from '@hugeicons/core-free-icons/FilterHorizontalIcon';
 import Globe02Icon from '@hugeicons/core-free-icons/Globe02Icon';
 import GoogleIcon from '@hugeicons/core-free-icons/GoogleIcon';
@@ -116,6 +119,10 @@ export const icons = {
   eye: EyeIcon,
   eyeOff: EyeOffIcon,
   apple: AppleIcon,
+  // Configurações
+  arrowUpRight: ArrowUpRight01Icon,
+  orders: DeliveryBox01Icon,
+  heart: FavouriteIcon,
   // Avisos
   offline: WifiOff01Icon,
   warning: Alert02Icon,
