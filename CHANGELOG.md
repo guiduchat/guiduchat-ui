@@ -1,5 +1,11 @@
 # Changelog do @guiduchat/ui
 
+## 0.9.0 (configurações)
+
+- **ShortcutCard** (novo): cartão de atalho com pílula ou título, texto e botão redondo; com `asChild`, vira o link do app.
+- **Ícones** no catálogo: `arrowUpRight`, `orders` e `heart`.
+- História "Configurações".
+
 ## 0.8.0 (entrada e cadastro)
 
 Componentes de login, cadastro, código e recuperação de senha, a partir do modelo aprovado pelo Marcelo em 30/10/2026. Textos e ações vêm do app.

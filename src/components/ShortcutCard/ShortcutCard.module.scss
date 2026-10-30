@@ -1,0 +1,64 @@
+@use '../../styles/shared-mixins/reset-clickable';
+
+.ShortcutCard {
+  @include reset-clickable.resetClickable;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: var(--spacing-size-xl);
+  min-width: 0;
+  min-height: 116px;
+  padding: var(--spacing-size-xl);
+  box-sizing: border-box;
+  border-radius: 24px;
+  background-color: var(--background-secondary);
+  color: var(--text-primary);
+  text-align: left;
+  text-decoration: none;
+  cursor: pointer;
+
+  &:focus-visible {
+    outline: 2px solid var(--icon-themed);
+    outline-offset: 2px;
+  }
+}
+
+.ShortcutCard__top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--spacing-size-m);
+}
+
+.ShortcutCard__badge {
+  padding: var(--spacing-size-xs) var(--spacing-size-xl);
+  border-radius: 999px;
+  background-color: var(--button-secondary);
+  font-size: var(--font-size-description);
+  line-height: 20px;
+}
+
+.ShortcutCard__title {
+  min-width: 0;
+  font-size: var(--font-size-description);
+  line-height: 20px;
+}
+
+.ShortcutCard__icon {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  margin-left: auto;
+  border-radius: 50%;
+  background-color: var(--button-primary);
+  color: var(--text-on-accent);
+}
+
+.ShortcutCard__text {
+  font-size: var(--font-size-description);
+  line-height: 20px;
+  color: var(--text-secondary);
+}

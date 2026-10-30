@@ -38,6 +38,7 @@ import {
   ReviewRail,
   ReviewSummary,
   ScoreBadge,
+  ShortcutCard,
   Skeleton,
   SocialButton,
   StatStrip,
@@ -52,6 +53,15 @@ import {
 // Acessibilidade com o axe nos componentes, nos dois temas. Componente novo
 // entra nesta lista (U7 do guidu-chat).
 const cases: Array<[string, ReactNode]> = [
+  [
+    'ShortcutCard',
+    <div key="sc">
+      <ShortcutCard badge="Novo" text="Ofertas especiais para você." icon={<Icon icon={icons.arrowUpRight} />} />
+      <ShortcutCard asChild title="Pedidos recentes" text="Acompanhe seus últimos pedidos." icon={<Icon icon={icons.orders} />}>
+        <a href="/conta?aba=pedidos" />
+      </ShortcutCard>
+    </div>
+  ],
   [
     'Formulário de entrada',
     <form key="auth">
