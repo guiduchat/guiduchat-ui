@@ -36,11 +36,11 @@ describe('catálogo de ícones', () => {
     expect(Object.keys(icons).sort()).toEqual([
       'accessible', 'account', 'add', 'apple', 'arrowForward', 'arrowUpRight', 'attach', 'back',
       'call', 'card', 'cart', 'chats', 'check', 'chevronDown', 'chevronRight', 'clock', 'close',
-      'closeCircle', 'contactless', 'discover', 'drink', 'eye', 'eyeOff', 'facebook', 'filter',
-      'food', 'google', 'heart', 'image', 'info', 'instagram', 'kids', 'location', 'mail', 'map',
-      'menu', 'mic', 'more', 'offline', 'orders', 'parking', 'places', 'priceLevel', 'save',
-      'saved', 'search', 'send', 'share', 'star', 'thumbsDown', 'thumbsUp', 'tiktok', 'warning',
-      'website', 'whatsapp'
+      'closeCircle', 'contactless', 'coupon', 'discover', 'drink', 'eye', 'eyeOff', 'facebook',
+      'filter', 'food', 'forYou', 'google', 'heart', 'home', 'image', 'info', 'instagram', 'kids',
+      'location', 'mail', 'map', 'menu', 'mic', 'more', 'offline', 'orders', 'parking', 'places',
+      'priceLevel', 'save', 'saved', 'search', 'send', 'share', 'star', 'thumbsDown', 'thumbsUp',
+      'tiktok', 'warning', 'website', 'whatsapp'
     ]);
   });
 
