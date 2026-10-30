@@ -24,7 +24,13 @@ export default {
     banner: (chunk) => (chunk.name === 'index' ? "'use client';" : '')
   },
   plugins: [
-    svgr(),
+    // Mantém o viewBox: sem ele, um ícone de 24 px desenhado em outro tamanho
+    // (o filtro em 16 px, por exemplo) sai cortado em vez de reduzido.
+    svgr({
+      svgoConfig: {
+        plugins: [{ name: 'preset-default', params: { overrides: { removeViewBox: false } } }]
+      }
+    }),
     typescript({ tsconfig: './tsconfig.build.json' }),
     resolve(),
     peerDepsExternal(),
