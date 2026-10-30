@@ -1,0 +1,78 @@
+@use '../../styles/shared-mixins/reset-clickable';
+
+.StoreHero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  color: var(--text-primary);
+}
+
+.StoreHero__cover {
+  position: relative;
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+  border-radius: 28px;
+  background-color: var(--background-secondary);
+}
+
+.StoreHero__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.StoreHero__save {
+  @include reset-clickable.resetClickable;
+  position: absolute;
+  top: var(--spacing-size-xl);
+  right: var(--spacing-size-xl);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background-color: var(--button-primary);
+  color: var(--text-on-accent);
+  cursor: pointer;
+
+  &:focus-visible {
+    outline: 2px solid var(--icon-themed);
+    outline-offset: 2px;
+  }
+}
+
+.StoreHero__badge {
+  position: absolute;
+  right: var(--spacing-size-xl);
+  bottom: var(--spacing-size-xl);
+}
+
+// A logo fica metade sobre a capa, com um contorno da cor da página.
+.StoreHero__avatar {
+  display: flex;
+  margin-top: -56px;
+  padding: 4px;
+  border-radius: 28px;
+  background-color: var(--background-primary);
+  position: relative;
+}
+
+.StoreHero__title {
+  margin: var(--spacing-size-xl) 0 0;
+  font-size: 26px;
+  font-weight: var(--font-weight-body-strong);
+  line-height: 32px;
+  text-align: center;
+  overflow-wrap: anywhere;
+}
+
+.StoreHero__subtitle {
+  margin: var(--spacing-size2xs) 0 0;
+  font-size: var(--font-size-body);
+  line-height: 22px;
+  text-align: center;
+  color: var(--text-secondary);
+}

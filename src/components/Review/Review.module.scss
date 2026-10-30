@@ -1,0 +1,104 @@
+.ReviewRail {
+  display: flex;
+  gap: var(--spacing-size-xl);
+  width: 100%;
+  overflow-x: auto;
+  scroll-snap-type: x proximity;
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--icon-themed);
+    outline-offset: 2px;
+  }
+
+  > * {
+    flex-shrink: 0;
+    scroll-snap-align: start;
+  }
+}
+
+.ReviewSummary {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-size-xs);
+  width: 116px;
+  min-height: 116px;
+  padding: var(--spacing-size-xl) var(--spacing-size-m);
+  box-sizing: border-box;
+  border-radius: 24px;
+  background-color: var(--background-secondary);
+  color: var(--text-primary);
+  text-align: center;
+}
+
+.ReviewSummary__logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 28px;
+  font-size: var(--font-size-description);
+  font-weight: var(--font-weight-body-strong);
+}
+
+.ReviewSummary__count {
+  font-size: var(--font-size-label);
+  line-height: 14px;
+  color: var(--text-secondary);
+}
+
+.ReviewCard {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: var(--spacing-size-xl);
+  width: 260px;
+  min-height: 116px;
+  padding: var(--spacing-size-xl) var(--spacing-size2xl);
+  box-sizing: border-box;
+  border-radius: 24px;
+  background-color: var(--background-secondary);
+  color: var(--text-primary);
+}
+
+.ReviewCard__text {
+  display: -webkit-box;
+  margin: 0;
+  overflow: hidden;
+  font-size: var(--font-size-description);
+  line-height: 20px;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+}
+
+.ReviewCard__footer {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-size-m);
+}
+
+.ReviewCard__avatar {
+  display: flex;
+  flex-shrink: 0;
+}
+
+.ReviewCard__meta {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-size2xs);
+  min-width: 0;
+}
+
+.ReviewCard__author {
+  overflow: hidden;
+  font-size: var(--font-size-label);
+  line-height: 14px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: var(--text-secondary);
+}
