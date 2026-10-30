@@ -9,6 +9,7 @@
 // - Nomes por função, não pelo desenho: trocar de ícone, de coleção ou para a
 //   Hugeicons Pro muda só este arquivo.
 import Alert02Icon from '@hugeicons/core-free-icons/Alert02Icon';
+import AppleIcon from '@hugeicons/core-free-icons/AppleIcon';
 import ArrowDown01Icon from '@hugeicons/core-free-icons/ArrowDown01Icon';
 import ArrowLeft02Icon from '@hugeicons/core-free-icons/ArrowLeft02Icon';
 import ArrowRight01Icon from '@hugeicons/core-free-icons/ArrowRight01Icon';
@@ -26,6 +27,8 @@ import CreditCardIcon from '@hugeicons/core-free-icons/CreditCardIcon';
 import DiscoverSquareIcon from '@hugeicons/core-free-icons/DiscoverSquareIcon';
 import Dish01Icon from '@hugeicons/core-free-icons/Dish01Icon';
 import DrinkIcon from '@hugeicons/core-free-icons/DrinkIcon';
+import EyeIcon from '@hugeicons/core-free-icons/EyeIcon';
+import EyeOffIcon from '@hugeicons/core-free-icons/EyeOffIcon';
 import Facebook01Icon from '@hugeicons/core-free-icons/Facebook01Icon';
 import FilterHorizontalIcon from '@hugeicons/core-free-icons/FilterHorizontalIcon';
 import Globe02Icon from '@hugeicons/core-free-icons/Globe02Icon';
@@ -109,6 +112,10 @@ export const icons = {
   contactless: NfcIcon,
   food: Dish01Icon,
   drink: DrinkIcon,
+  // Entrada e cadastro
+  eye: EyeIcon,
+  eyeOff: EyeOffIcon,
+  apple: AppleIcon,
   // Avisos
   offline: WifiOff01Icon,
   warning: Alert02Icon,

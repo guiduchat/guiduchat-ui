@@ -1,0 +1,17 @@
+.TextDivider {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-size-xl);
+  width: 100%;
+  font-size: var(--font-size-description);
+  line-height: 20px;
+  color: var(--text-secondary);
+
+  &::before,
+  &::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background-color: var(--divider-primary);
+  }
+}

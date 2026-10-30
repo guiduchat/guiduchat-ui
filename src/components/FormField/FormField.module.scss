@@ -1,0 +1,23 @@
+.FormField {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-size-s);
+  width: 100%;
+  color: var(--text-primary);
+}
+
+.FormField__label {
+  font-size: var(--font-size-description);
+  font-weight: var(--font-weight-body-strong);
+  line-height: 20px;
+}
+
+.FormField__note {
+  font-size: var(--font-size-description);
+  line-height: 20px;
+  color: var(--text-secondary);
+}
+
+.FormField__note_error {
+  color: var(--text-negative);
+}

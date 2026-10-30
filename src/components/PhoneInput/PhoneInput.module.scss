@@ -1,0 +1,15 @@
+.PhoneInput {
+  display: flex;
+  gap: var(--spacing-size-m);
+  width: 100%;
+}
+
+.PhoneInput__country {
+  flex: 0 0 116px;
+  min-width: 0;
+}
+
+.PhoneInput__number {
+  flex: 1;
+  min-width: 0;
+}

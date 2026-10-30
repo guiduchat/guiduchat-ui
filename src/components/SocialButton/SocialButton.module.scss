@@ -1,0 +1,8 @@
+// A Hugeicons gratuita só tem traço: o logo da Apple é preenchido por CSS.
+.SocialButton__apple {
+  display: flex;
+
+  path {
+    fill: currentColor;
+  }
+}
