@@ -8,10 +8,10 @@
   gap: var(--spacing-size-xl);
   width: 100%;
   box-sizing: border-box;
-  padding: var(--spacing-size3xl);
+  padding: var(--spacing-size-xl);
   // Borda na mesma cor do fundo da busca.
   border: 1px solid var(--background-tertiary);
-  border-radius: 24px;
+  border-radius: var(--size-border-radius-semantic-border-radius-surface);
   background-color: var(--background-primary);
   color: var(--text-primary);
 }

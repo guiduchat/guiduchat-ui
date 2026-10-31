@@ -23,6 +23,7 @@ export * from './MessageBubble';
 export * from './NavBar';
 export * from './Notice';
 export * from './OpeningHours';
+export * from './OrderSummaryCard';
 export * from './OtpInput';
 export * from './PasswordInput';
 export * from './PhoneInput';

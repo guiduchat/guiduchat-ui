@@ -5,9 +5,9 @@
   flex-direction: column;
   gap: var(--spacing-size-xl);
   width: 100%;
-  padding: var(--spacing-size-m);
+  padding: var(--spacing-size-xl);
   box-sizing: border-box;
-  border-radius: 28px;
+  border-radius: var(--size-border-radius-semantic-border-radius-surface);
   background-color: var(--background-secondary);
   color: var(--text-primary);
 }
@@ -22,7 +22,7 @@
 .OpeningHours__body {
   position: relative;
   padding: var(--spacing-size-xl) var(--spacing-size2xl);
-  border-radius: 20px;
+  border-radius: var(--size-border-radius-semantic-border-radius-promo);
   background-color: var(--background-card);
 }
 
