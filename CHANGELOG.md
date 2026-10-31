@@ -1,5 +1,19 @@
 # Changelog do @guiduchat/ui
 
+## 0.15.0 (detalhes da oferta e cupom com QR)
+
+Peças da página "Detalhes da Oferta" e da folha do cupom, a partir do desenho do Marcelo de 31/10/2026. Só apresentação: todo texto (rótulos, validade, preços formatados) vem do app. **Nenhum token novo nem alterado**: usam `--background-coupon`, `--button-primary`, `--text-on-accent`, `--text-themed` e os demais já existentes. Nada quebra: `hero` e `footer` são opcionais e, sem eles, o `BottomSheet` fica igual.
+
+- **QrCode** (novo): `value`, `aria-label` (obrigatório) e `size`. SVG com `role="img"`, gerado no aparelho com a dependência nova `uqr` 0.1.3 (MIT, sem dependências, embutida no `dist/`; licença em `THIRD_PARTY_LICENSES.md`), correção de erro média e margem de silêncio de 4 módulos. **Sempre módulos escuros sobre branco, nos dois temas**: o leitor de QR precisa disso, por isso é a única exceção às cores de tema, restrita a este componente. O valor não sai do aparelho e não vai para log nem para atributo `data-*`.
+- **BottomSheet:** props opcionais `hero` (bloco de ponta a ponta no topo, sem a margem interna, com o raio superior da folha e a alça sobreposta) e `footer` (fixo embaixo, com a margem interna normal). Os dois ficam fora da área rolável `.content`; o Tab continua preso na folha, incluindo os focáveis deles. Sem as props, o DOM e o visual não mudam. A alça sobre o `hero` usa o tom escuro estático.
+- **WeekdayAvailability** (novo): lista de dias (`key`, `label`, `fullLabel`, `available`) em círculos (disponível preenchido com o verde da marca, indisponível só contorno), `aria-label` da lista, `legend` opcional e `availableLabel`/`unavailableLabel` (textos do app) para o estado não depender só de cor: cada item lê "Segunda-feira: disponível para uso".
+- **OfferHero** (novo): foto com o raio do cartão externo (24 px) e `save` no mesmo formato de `OfferCard`/`StoreHero`. Sem `image`, fundo de token.
+- **OfferPrice** (novo): `price` em destaque (`--text-themed`: verde-limão no escuro, tom forte da marca no claro, para manter o contraste) e `originalPrice` riscado (`<s>`) e menor, com `originalPriceLabel` lido pelo leitor de tela.
+- **ValidityBanner** (novo): faixa de largura total sobre `--background-coupon`.
+- **Ícones** no catálogo: `copy` e `print`. O catálogo passou a ter 70 ícones.
+- **Dependências:** `uqr` 0.1.3 (produção) e `jsqr` 1.4.0 (só desenvolvimento, para o teste que decodifica o SVG do QR de volta para o valor).
+
+
 ## 0.14.0 (BottomSheet: saída garantida e diálogo acessível)
 
 Props novas e mudança de comportamento padrão, por isso minor. Atende Ofertas, `orders/[id]` e `places`. Visual igual. **Muda por padrão:** sem `handleLabel`, a alça do `BottomSheet` deixa de ser botão (fica oculta ao leitor de tela e fora do Tab), e sem `regionLabel` o `Snackbar` perde o `role="region"` e o nome. Quem dependia deles passa as props novas.

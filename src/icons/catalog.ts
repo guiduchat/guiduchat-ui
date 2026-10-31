@@ -25,6 +25,7 @@ import Cancel01Icon from '@hugeicons/core-free-icons/Cancel01Icon';
 import CancelCircleIcon from '@hugeicons/core-free-icons/CancelCircleIcon';
 import Chat01Icon from '@hugeicons/core-free-icons/Chat01Icon';
 import Clock01Icon from '@hugeicons/core-free-icons/Clock01Icon';
+import Copy01Icon from '@hugeicons/core-free-icons/Copy01Icon';
 import Coupon01Icon from '@hugeicons/core-free-icons/Coupon01Icon';
 import CreditCardIcon from '@hugeicons/core-free-icons/CreditCardIcon';
 import DeliveryBox01Icon from '@hugeicons/core-free-icons/DeliveryBox01Icon';
@@ -55,6 +56,7 @@ import NfcIcon from '@hugeicons/core-free-icons/NfcIcon';
 import NoteEditIcon from '@hugeicons/core-free-icons/NoteEditIcon';
 import ParkingAreaCircleIcon from '@hugeicons/core-free-icons/ParkingAreaCircleIcon';
 import PlusSignIcon from '@hugeicons/core-free-icons/PlusSignIcon';
+import PrinterIcon from '@hugeicons/core-free-icons/PrinterIcon';
 import Search01Icon from '@hugeicons/core-free-icons/Search01Icon';
 import SentIcon from '@hugeicons/core-free-icons/SentIcon';
 import Share01Icon from '@hugeicons/core-free-icons/Share01Icon';
@@ -151,6 +153,9 @@ export const icons = {
   travel: Airplane01Icon,
   health: StethoscopeIcon,
   otherCategory: GridViewIcon,
+  // Cupom
+  copy: Copy01Icon,
+  print: PrinterIcon,
   // Avisos
   offline: WifiOff01Icon,
   warning: Alert02Icon,

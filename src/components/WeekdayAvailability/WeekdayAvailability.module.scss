@@ -1,0 +1,66 @@
+@use '../../styles/shared-mixins/typography';
+
+.WeekdayAvailability {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-size2xl);
+  width: 100%;
+  color: var(--text-primary);
+}
+
+.WeekdayAvailability__list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-size-m);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.WeekdayAvailability__item {
+  position: relative;
+  display: flex;
+  flex: 1 1 0;
+  justify-content: center;
+  min-width: 0;
+}
+
+// Círculo: disponível = verde da marca com texto escuro; indisponível = só contorno e texto apagado.
+.WeekdayAvailability__day {
+  @include typography.tagStrong;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  width: 44px;
+  height: 44px;
+  border: 1px solid transparent;
+  border-radius: 50%;
+}
+
+.WeekdayAvailability__day_available {
+  background-color: var(--button-primary);
+  color: var(--text-on-accent);
+}
+
+.WeekdayAvailability__day_unavailable {
+  border-color: var(--text-tertiary);
+  color: var(--text-tertiary);
+}
+
+.WeekdayAvailability__sr {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.WeekdayAvailability__legend {
+  @include typography.description;
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-size-m);
+  color: var(--text-secondary);
+}

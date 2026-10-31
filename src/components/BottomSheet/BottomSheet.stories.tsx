@@ -2,7 +2,11 @@ import type { Meta, StoryObj } from '@storybook/react-vite';
 import { hideArgsControl } from '@storybook-config/shared';
 import { useState } from 'react';
 
+import { icons } from '../../icons/catalog';
 import { Button } from '../Button';
+import { Icon } from '../Icon';
+import { IconButton } from '../IconButton';
+import { QrCode } from '../QrCode';
 import { BottomSheet, type BottomSheetProps } from './BottomSheet';
 
 const meta = {
@@ -148,4 +152,40 @@ export const CouponSheet: Story = {
       </BottomSheet>
     );
   }
+};
+
+/**
+ * Folha do cupom com QR: bloco de ponta a ponta no topo (hero), conteúdo rolável
+ * e botão fixo embaixo (footer). A alça fica sobreposta ao bloco.
+ */
+export const CouponWithQr: Story = {
+  args: { title: undefined, 'aria-label': 'Cupom com QR code' },
+  render: ({ ...args }) => (
+    <BottomSheet
+      {...args}
+      hero={(
+        <div style={{ position: 'relative', display: 'flex', justifyContent: 'center', padding: '40px 16px 24px', background: 'var(--button-primary)' }}>
+          <div style={{ position: 'absolute', top: 12, right: 12 }}>
+            <IconButton variant="overlay" aria-label="Imprimir" onClick={() => {}}>
+              <Icon icon={icons.print} />
+            </IconButton>
+          </div>
+          <QrCode value="GUIDU-7K3Q-92XM" aria-label="QR code do cupom" size={192} />
+        </div>
+      )}
+      footer={(
+        <Button variant="primary" size="large" stretched iconAfter={<Icon icon={icons.copy} />}>
+          GUIDU-7K3Q-92XM
+        </Button>
+      )}
+    >
+      {Array.from({ length: 12 }, (_, index) => (
+        <p key={index} style={{ margin: 0 }}>
+          Regra
+          {index + 1}
+          : válido de segunda a sexta, mediante apresentação do código.
+        </p>
+      ))}
+    </BottomSheet>
+  )
 };

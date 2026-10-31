@@ -1,6 +1,7 @@
 import clsx from 'clsx';
 import {CSSProperties, type ReactNode, type TransitionEvent, useEffect, useId, useLayoutEffect, useRef, useState} from 'react';
 
+import { hasReactNode } from '../../helpers';
 import { useDrag } from '../../hooks';
 import {InnerClassNamesProp} from "../../types";
 import { Typography } from '../Typography';
@@ -11,6 +12,17 @@ export type BottomSheetProps = {
   title?: string
   onClose: () => void
   children: ReactNode
+  /**
+   * Área de ponta a ponta no topo da folha (por exemplo um bloco colorido com um QR):
+   * sem a margem interna, acompanhando o raio superior, com a alça sobreposta a ela.
+   * Fica fora da área rolável.
+   */
+  hero?: ReactNode
+  /**
+   * Área fixa no fim da folha (por exemplo o botão principal), com a margem interna normal.
+   * Fica fora da área rolável.
+   */
+  footer?: ReactNode
   /**
    * Минимальная высота шторки
    */
@@ -92,7 +104,7 @@ const prefersReducedMotion = () =>
   window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 export const BottomSheet = ({
-  open, title, onClose, children, minHeight = 'auto', innerClassNames, enableDrag = true,
+  open, title, onClose, children, hero, footer, minHeight = 'auto', innerClassNames, enableDrag = true,
   'aria-label': ariaLabel, handleLabel
 }: BottomSheetProps) => {
   const [status, setStatus] = useState<Status>(open ? 'open' : 'closed');
@@ -273,6 +285,7 @@ export const BottomSheet = ({
   }
 
   const exiting = status === 'exiting';
+  const hasHero = hasReactNode(hero);
   const transform = dragging
     ? `translateY(${dragOffset}px)`
     : `translateY(${exiting ? 100 : 0}%)`;
@@ -308,7 +321,7 @@ export const BottomSheet = ({
       >
         {enableDrag && (
           <div
-            className={clsx(styles.handle, innerClassNames?.handle)}
+            className={clsx(styles.handle, hasHero && styles.handle_overHero, innerClassNames?.handle)}
             {...(handleLabel
               ? { role: 'button', tabIndex: 0, 'aria-label': handleLabel }
               : { 'aria-hidden': true })}
@@ -324,6 +337,7 @@ export const BottomSheet = ({
             }}
           />
         )}
+        {hasHero && <div className={styles.hero}>{hero}</div>}
         {title && (
           <div className={clsx(styles.header, innerClassNames?.header)}>
             <Typography.Title id={titleId} variant="medium-strong">
@@ -334,6 +348,7 @@ export const BottomSheet = ({
         <div className={styles.content}>
           {children}
         </div>
+        {hasReactNode(footer) && <div className={styles.footer}>{footer}</div>}
       </div>
     </div>
   );
