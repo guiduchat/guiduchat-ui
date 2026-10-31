@@ -11,7 +11,7 @@ const meta = {
   parameters: {
     docs: {
       description: {
-        component: 'Нижняя шторка (bottom sheet). Открывается поверх оверлея, закрывается по клику на оверлей, кнопке, клавише Escape или перетаскиванием за ручку вниз.'
+        component: 'Folha inferior em diálogo modal (role="dialog", aria-modal). Fecha com toque na película, botão, Esc ou arrastando a alça para baixo. O foco entra na folha, o Tab fica preso nela e o foco volta ao gatilho. O nome vem do título (ou da prop aria-label); o rótulo da alça (handleLabel) vem do app, já traduzido. A saída é garantida por tempo limite, mesmo se fechar durante a animação de entrada.'
       }
     }
   },
@@ -19,7 +19,8 @@ const meta = {
     ...hideArgsControl(['children', 'onClose', 'open', 'innerClassNames'])
   },
   args: {
-    title: 'Заголовок шторки'
+    title: 'Título da folha',
+    handleLabel: 'Arraste para baixo para fechar'
   },
   decorators: [
     (Story, context) => {
@@ -32,7 +33,7 @@ const meta = {
             size="small"
             onClick={() => { setOpen(true); }}
           >
-            Открыть шторку
+            Abrir folha
           </Button>
           <Story
             args={{
@@ -56,7 +57,7 @@ export const Default: Story = {
     return (
       <BottomSheet {...args}>
         <Button variant="primary" size="medium" stretched onClick={args.onClose}>
-          Закрыть
+          Fechar
         </Button>
       </BottomSheet>
     );
@@ -68,8 +69,8 @@ export const WithText: Story = {
     return (
       <BottomSheet {...args}>
         <p style={{ margin: 0 }}>
-          Шторка закрывается по клику на затемнённый оверлей, по клавише Escape
-          или кнопке внутри содержимого.
+          A folha fecha com toque na película escurecida, com a tecla Esc
+          ou com o botão dentro do conteúdo.
         </p>
       </BottomSheet>
     );
@@ -78,13 +79,14 @@ export const WithText: Story = {
 
 export const WithoutTitle: Story = {
   args: {
-    title: undefined
+    title: undefined,
+    'aria-label': 'Detalhes'
   },
   render: ({ ...args }) => {
     return (
       <BottomSheet {...args}>
         <Button variant="secondary" size="medium" stretched onClick={args.onClose}>
-          Закрыть
+          Fechar
         </Button>
       </BottomSheet>
     );
@@ -99,7 +101,7 @@ export const WithMinHeight: Story = {
     return (
       <BottomSheet {...args}>
         <Button variant="primary" size="medium" stretched onClick={args.onClose}>
-          Закрыть
+          Fechar
         </Button>
       </BottomSheet>
     );
@@ -115,8 +117,34 @@ export const WithoutDrag: Story = {
     return (
       <BottomSheet {...args}>
         <Button variant="primary" size="medium" stretched onClick={args.onClose}>
-          Закрыть
+          Fechar
         </Button>
+      </BottomSheet>
+    );
+  }
+};
+
+/**
+ * Reproduz a folha de cupom da página de Ofertas: o foco vai para um elemento
+ * tabIndex={-1} antes do primeiro botão, e o Tab/Shift+Tab não pode sair da folha.
+ */
+export const CouponSheet: Story = {
+  args: {
+    title: 'Cupom de 10%'
+  },
+  render: ({ ...args }) => {
+    return (
+      <BottomSheet {...args}>
+        <div tabIndex={-1} data-testid="coupon-code" style={{ outline: 'none', marginBottom: 12 }}>
+          Código GUIDU10
+        </div>
+        <div style={{ display: 'flex', gap: 8 }}>
+          <Button variant="secondary" size="medium" stretched>Copiar</Button>
+          <Button variant="primary" size="medium" stretched onClick={args.onClose}>Fechar</Button>
+        </div>
+        <div tabIndex={-1} data-testid="coupon-note" style={{ outline: 'none', marginTop: 12 }}>
+          Válido até o fim do mês.
+        </div>
       </BottomSheet>
     );
   }

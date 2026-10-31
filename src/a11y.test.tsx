@@ -9,6 +9,7 @@ import {
   Avatar,
   BentoGrid,
   BentoImage,
+  BottomSheet,
   Button,
   Carousel,
   Composer,
@@ -326,6 +327,18 @@ const cases: Array<[string, ReactNode]> = [
       <MessageBubble side="theirs" author="Milly" meta="14:30">Temos mesa às 20h.</MessageBubble>
       <MessageBubble side="mine" meta="14:31">Quero sim!</MessageBubble>
     </div>
+  ],
+  [
+    'BottomSheet com título e alça rotulada',
+    <BottomSheet key="bs1" open title="Cupom" handleLabel="Arraste para baixo para fechar" onClose={() => {}}>
+      <Button>Fechar</Button>
+    </BottomSheet>
+  ],
+  [
+    'BottomSheet sem título, nomeado por aria-label',
+    <BottomSheet key="bs2" open aria-label="Detalhes" onClose={() => {}}>
+      <Button>Fechar</Button>
+    </BottomSheet>
   ]
 ];
 

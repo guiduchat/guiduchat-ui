@@ -1,5 +1,15 @@
 # Changelog do @guiduchat/ui
 
+## 0.14.0 (BottomSheet: saída garantida e diálogo acessível)
+
+Props novas e mudança de comportamento padrão, por isso minor. Atende Ofertas, `orders/[id]` e `places`. Visual igual. **Muda por padrão:** sem `handleLabel`, a alça do `BottomSheet` deixa de ser botão (fica oculta ao leitor de tela e fora do Tab), e sem `regionLabel` o `Snackbar` perde o `role="region"` e o nome. Quem dependia deles passa as props novas.
+
+- **Trava da saída:** fechar durante a animação de entrada gerava `animationcancel` e nenhum `transitionend`, e a folha ficava em `exiting` para sempre (película invisível de tela cheia e `body` com `overflow: hidden`). Agora um tempo limite de 300 ms desmonta a folha e tudo é limpo no unmount. Com `prefers-reduced-motion`, fecha na hora, e as animações são desligadas por CSS nesse caso. Se o app não fechar (`open` continua `true`) depois de um arrasto, a folha volta a `open` em vez de sumir.
+- **Diálogo:** `role="dialog"`, `aria-modal="true"`, nome pelo título (`aria-labelledby`) ou pela prop nova `aria-label` quando não há título. O foco entra na folha ao abrir (se um filho já o moveu para dentro, não é tirado), o Tab e o Shift+Tab ficam presos nela por um listener no `document` (vale também com o foco em `body` ou no fundo: Tab vai ao primeiro item e Shift+Tab ao último, ou à própria folha se não há itens; só com a folha aberta, não durante a saída). Com o foco dentro, a decisão é pela posição, inclusive num elemento `tabIndex={-1}`, e sem itens o foco não é movido, para as setas rolarem o conteúdo. A lista ignora `tabIndex` negativo, desativados, fieldset desativado (exceto o primeiro `legend`), ocultos (inclusive por `content-visibility`), `aria-hidden`, `inert` e rádios fora do marcado e o foco volta ao gatilho ao fechar.
+- **Textos:** o `aria-label` fixo em russo da alça saiu. Prop nova opcional `handleLabel` (texto traduzido pelo app); sem ela a alça fica oculta ao leitor de tela e fora do Tab (o teclado fecha com Esc). A região do `Snackbar` também tinha texto fixo em russo: prop nova opcional `regionLabel` no `SnackbarProvider` (`(placement) => string`); sem ela a região fica sem nome e sem `role="region"`. No `BottomSheet` e no `Snackbar` não há mais texto próprio em russo (restam outros componentes, como `ClearableInput` e `Select`, a tratar à parte).
+- **Arrasto curto:** abaixo de 80 px, a supressão do clique (`suppressClickRef`) ficava ligada e engolia o próximo toque na película. Agora ela é zerada no clique da folha e expira em 300 ms.
+- **App:** passe `handleLabel` (e `aria-label` nas folhas sem título) e, se usar `Snackbar`, `regionLabel`. Nenhuma é obrigatória.
+
 ## 0.13.0 (ofertas)
 
 Componentes da página de Ofertas, a partir do desenho do Marcelo de 31/10/2026. Só apresentação: textos, validade e ações vêm do app.
