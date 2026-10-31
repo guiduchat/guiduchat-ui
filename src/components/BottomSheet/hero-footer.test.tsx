@@ -73,6 +73,16 @@ describe('BottomSheet: hero e footer', () => {
     expect(dialog.children[1]!.className).toContain('content');
   });
 
+  it('com hero ou footer a folha inteira rola; sem eles, não', () => {
+    const { unmount } = render(<HeroHarness />);
+    openSheet();
+    expect(screen.getByRole('dialog').className).toContain('sheet_scroll');
+    unmount();
+    render(<HeroHarness withHero={false} withFooter={false} />);
+    openSheet();
+    expect(screen.getByRole('dialog').className).not.toContain('sheet_scroll');
+  });
+
   it('sem title, o nome do diálogo vem do aria-label', () => {
     render(<HeroHarness />);
     openSheet();

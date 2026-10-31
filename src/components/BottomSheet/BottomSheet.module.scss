@@ -63,6 +63,8 @@
   }
 }
 
+// Alça sobre o hero: escura e opaca (sem opacity no elemento, que diluiria o contorno de foco).
+// Supõe um hero de fundo claro, como o QrPanel (limão); sobre um hero escuro ela some.
 .handle_overHero {
   position: absolute;
   z-index: 1;
@@ -70,9 +72,7 @@
   left: 50%;
   margin: 0;
   transform: translateX(-50%);
-  // Sobre um bloco colorido a alça cinza some: usa o tom escuro estático, nos dois temas.
-  background-color: var(--text-primary-static);
-  opacity: 0.4;
+  background-color: var(--icon-primary-static);
 }
 
 .header {
@@ -85,6 +85,29 @@
 .footer {
   flex-shrink: 0;
   padding-top: 12px;
+}
+
+// Com hero ou footer a folha inteira rola (celular deitado: a área rolável só do conteúdo ficava com 0 px).
+// O footer fica colado embaixo (sticky) e continua alcançável; sem as props nada disto vale.
+.sheet_scroll {
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding-bottom: 0;
+
+  > * {
+    flex-shrink: 0;
+  }
+
+  .content {
+    overflow: visible;
+  }
+
+  .footer {
+    position: sticky;
+    bottom: 0;
+    padding-bottom: 20px;
+    background-color: var(--background-surface-secondary, #fff);
+  }
 }
 
 .content {

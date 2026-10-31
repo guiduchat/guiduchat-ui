@@ -1,0 +1,45 @@
+@use '../../styles/shared-mixins/reset-clickable';
+
+// Fundo da marca, igual ao Button primário. Texto e ícone estáticos e escuros: valem nos dois temas.
+.QrPanel {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  box-sizing: border-box;
+  width: 100%;
+  // Os 40 px de cima são o respiro da alça (sobreposta pelo BottomSheet).
+  padding: 40px var(--spacing-size2xl) var(--spacing-size3xl);
+  background-color: var(--button-primary);
+  color: var(--text-on-accent);
+}
+
+// O QR já traz a margem de silêncio branca; o quadrado só arredonda.
+.QrPanel__qr {
+  display: flex;
+  max-width: 100%;
+  overflow: hidden;
+  border-radius: var(--size-border-radius-semantic-border-radius-card);
+}
+
+// Botão escuro com ícone claro: contraste alto contra o limão e contra o próprio ícone.
+.QrPanel__action {
+  @include reset-clickable.resetClickable;
+  position: absolute;
+  z-index: 1;
+  top: var(--spacing-size-xl);
+  right: var(--spacing-size-xl);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background-color: var(--text-primary-static);
+  color: var(--icon-primary-inverse-static);
+  cursor: pointer;
+
+  &:focus-visible {
+    outline: 2px solid var(--text-primary-static);
+    outline-offset: 2px;
+  }
+}

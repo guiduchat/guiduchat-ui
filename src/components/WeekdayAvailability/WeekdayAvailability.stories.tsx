@@ -12,14 +12,6 @@ const days = [
   { key: 'sun', label: 'DOM', fullLabel: 'Domingo', available: false }
 ];
 
-// A bolinha da legenda é do app; aqui só ilustra o desenho.
-const legend = (
-  <>
-    <span aria-hidden="true" style={{ width: 10, height: 10, borderRadius: '50%', background: 'var(--button-primary)' }} />
-    disponível para uso
-  </>
-);
-
 const meta = {
   title: 'Components/WeekdayAvailability',
   component: WeekdayAvailability,
@@ -28,7 +20,7 @@ const meta = {
     'aria-label': 'Disponível para uso nos dias',
     availableLabel: 'disponível para uso',
     unavailableLabel: 'indisponível',
-    legend
+    legend: 'disponível para uso'
   },
   decorators: [(Story) => <div style={{ width: '100%', maxWidth: 390, padding: 12, boxSizing: 'border-box' }}><Story /></div>]
 } satisfies Meta<WeekdayAvailabilityProps>;
@@ -59,6 +51,11 @@ export const English: Story = {
   }
 };
 
+// 296 px: o círculo encolhe, mas continua redondo (largura = altura).
 export const NarrowScreen: Story = {
   decorators: [(Story) => <div style={{ width: 296 }}><Story /></div>]
+};
+
+export const VeryNarrowScreen: Story = {
+  decorators: [(Story) => <div style={{ width: 260 }}><Story /></div>]
 };

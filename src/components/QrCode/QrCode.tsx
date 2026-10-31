@@ -9,7 +9,11 @@ import styles from './QrCode.module.scss';
 const QUIET_ZONE = 4;
 
 interface QrCodeOwnProps {
-  /** Conteúdo do código. É gerado no aparelho: não sai dele, não vai para log nem para atributo `data-*`. */
+  /**
+   * Conteúdo do código. É gerado no aparelho: não sai dele, não vai para log nem para atributo `data-*`.
+   * Limite: 2.331 bytes em UTF-8 (versão 40 do QR, correção M). Acima disso o gerador lança "Data too long"
+   * na renderização; o app deve mandar um código curto ou um link, não o dado inteiro.
+   */
   value: string
   /** Nome para o leitor de tela, traduzido pelo app. Obrigatório. */
   'aria-label': string

@@ -286,6 +286,7 @@ export const BottomSheet = ({
 
   const exiting = status === 'exiting';
   const hasHero = hasReactNode(hero);
+  const hasFooter = hasReactNode(footer);
   const transform = dragging
     ? `translateY(${dragOffset}px)`
     : `translateY(${exiting ? 100 : 0}%)`;
@@ -299,7 +300,7 @@ export const BottomSheet = ({
         className={clsx(
           styles.sheet,
           innerClassNames?.sheet,
-          { [styles.sheet_dragging]: dragging, [styles.sheet_exiting]: exiting }
+          { [styles.sheet_dragging]: dragging, [styles.sheet_exiting]: exiting, [styles.sheet_scroll]: hasHero || hasFooter }
         )}
         style={{
           minHeight,
@@ -348,7 +349,7 @@ export const BottomSheet = ({
         <div className={styles.content}>
           {children}
         </div>
-        {hasReactNode(footer) && <div className={styles.footer}>{footer}</div>}
+        {hasFooter && <div className={styles.footer}>{footer}</div>}
       </div>
     </div>
   );

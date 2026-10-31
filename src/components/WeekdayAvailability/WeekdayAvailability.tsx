@@ -1,7 +1,6 @@
 import { clsx } from 'clsx';
-import { type ComponentProps, forwardRef, type ReactNode } from 'react';
+import { type ComponentProps, forwardRef } from 'react';
 
-import { hasReactNode } from '../../helpers';
 import { type MergeProps } from '../../types';
 import styles from './WeekdayAvailability.module.scss';
 
@@ -23,8 +22,8 @@ interface WeekdayAvailabilityOwnProps {
   availableLabel: string
   /** Texto lido junto ao dia indisponível, como "indisponível" (traduzido pelo app). */
   unavailableLabel: string
-  /** Legenda abaixo dos círculos, em geral a bolinha verde com "disponível para uso". */
-  legend?: ReactNode
+  /** Texto da legenda, como "disponível para uso" (traduzido pelo app). O kit desenha a bolinha verde antes dele. */
+  legend?: string
 }
 
 export type WeekdayAvailabilityProps = MergeProps<Omit<ComponentProps<'div'>, 'children'>, WeekdayAvailabilityOwnProps>;
@@ -56,7 +55,12 @@ export const WeekdayAvailability = forwardRef<HTMLDivElement, WeekdayAvailabilit
           </li>
         ))}
       </ul>
-      {hasReactNode(legend) && <div className={styles.WeekdayAvailability__legend}>{legend}</div>}
+      {legend && (
+        <div className={styles.WeekdayAvailability__legend}>
+          <span className={styles.WeekdayAvailability__dot} aria-hidden="true" />
+          {legend}
+        </div>
+      )}
     </div>
   );
 });

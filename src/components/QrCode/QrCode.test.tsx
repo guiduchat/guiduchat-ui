@@ -1,7 +1,7 @@
 import { render, screen } from '@testing-library/react';
 import jsQR from 'jsqr';
 import { encode } from 'uqr';
-import { describe, expect, it } from 'vitest';
+import { describe, expect, it, vi } from 'vitest';
 
 import { QrCode } from './QrCode';
 
@@ -62,6 +62,13 @@ describe('QrCode', () => {
     expect(svg.getAttribute('width')).toBe('160');
     expect(container.querySelector('rect')?.getAttribute('fill')).toBe('#fff');
     expect(container.querySelector('path')?.getAttribute('fill')).toBe('#000');
+  });
+
+  it('aceita até 2.331 bytes e lança erro acima disso (limite documentado)', () => {
+    expect(() => render(<QrCode value={'a'.repeat(2331)} aria-label="x" />)).not.toThrow();
+    const quiet = vi.spyOn(console, 'error').mockImplementation(() => {});
+    expect(() => render(<QrCode value={'a'.repeat(2332)} aria-label="x" />)).toThrow();
+    quiet.mockRestore();
   });
 
   it('não vaza o valor para atributos nem para texto', () => {

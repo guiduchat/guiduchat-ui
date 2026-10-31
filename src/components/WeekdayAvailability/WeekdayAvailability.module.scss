@@ -1,3 +1,4 @@
+@use '../../styles/shared-mixins/a11y';
 @use '../../styles/shared-mixins/typography';
 
 .WeekdayAvailability {
@@ -10,51 +11,49 @@
 
 .WeekdayAvailability__list {
   display: flex;
-  flex-wrap: wrap;
+  justify-content: space-between;
   gap: var(--spacing-size-m);
   margin: 0;
   padding: 0;
   list-style: none;
 }
 
+// O item encolhe com a tela (até 44 px); o círculo ocupa a largura dele e a altura acompanha (aspect-ratio).
 .WeekdayAvailability__item {
   position: relative;
   display: flex;
   flex: 1 1 0;
-  justify-content: center;
+  max-width: 44px;
   min-width: 0;
 }
 
-// Círculo: disponível = verde da marca com texto escuro; indisponível = só contorno e texto apagado.
+// Círculo: disponível = verde da marca com contorno e texto escuro; indisponível = só contorno e texto apagado.
 .WeekdayAvailability__day {
   @include typography.tagStrong;
   display: flex;
   align-items: center;
   justify-content: center;
   box-sizing: border-box;
-  width: 44px;
-  height: 44px;
+  width: 100%;
+  aspect-ratio: 1;
   border: 1px solid transparent;
   border-radius: 50%;
 }
 
+// O contorno em --text-themed (olive no claro, limão no escuro) mantém o círculo visível sobre fundo claro.
 .WeekdayAvailability__day_available {
+  border-color: var(--text-themed);
   background-color: var(--button-primary);
   color: var(--text-on-accent);
 }
 
 .WeekdayAvailability__day_unavailable {
-  border-color: var(--text-tertiary);
-  color: var(--text-tertiary);
+  border-color: var(--text-secondary);
+  color: var(--text-secondary);
 }
 
 .WeekdayAvailability__sr {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  overflow: hidden;
-  clip-path: inset(50%);
-  white-space: nowrap;
+  @include a11y.visuallyHidden;
 }
 
 .WeekdayAvailability__legend {
@@ -63,4 +62,15 @@
   align-items: center;
   gap: var(--spacing-size-m);
   color: var(--text-secondary);
+}
+
+// Bolinha da legenda: o mesmo verde e contorno do círculo disponível.
+.WeekdayAvailability__dot {
+  flex-shrink: 0;
+  box-sizing: border-box;
+  width: 12px;
+  height: 12px;
+  border: 1px solid var(--text-themed);
+  border-radius: 50%;
+  background-color: var(--button-primary);
 }

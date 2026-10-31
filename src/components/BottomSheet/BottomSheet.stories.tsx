@@ -5,8 +5,7 @@ import { useState } from 'react';
 import { icons } from '../../icons/catalog';
 import { Button } from '../Button';
 import { Icon } from '../Icon';
-import { IconButton } from '../IconButton';
-import { QrCode } from '../QrCode';
+import { QrPanel } from '../QrPanel';
 import { BottomSheet, type BottomSheetProps } from './BottomSheet';
 
 const meta = {
@@ -155,28 +154,25 @@ export const CouponSheet: Story = {
 };
 
 /**
- * Folha do cupom com QR: bloco de ponta a ponta no topo (hero), conteúdo rolável
- * e botão fixo embaixo (footer). A alça fica sobreposta ao bloco.
+ * Folha do cupom com QR: QrPanel de ponta a ponta no topo (hero), conteúdo e dois botões
+ * fixos embaixo (footer). A alça fica sobreposta ao bloco. Com hero ou footer a folha
+ * inteira rola, inclusive em celular deitado (use a janela de visualização do Storybook).
  */
 export const CouponWithQr: Story = {
   args: { title: undefined, 'aria-label': 'Cupom com QR code' },
   render: ({ ...args }) => (
     <BottomSheet
       {...args}
-      hero={(
-        <div style={{ position: 'relative', display: 'flex', justifyContent: 'center', padding: '40px 16px 24px', background: 'var(--button-primary)' }}>
-          <div style={{ position: 'absolute', top: 12, right: 12 }}>
-            <IconButton variant="overlay" aria-label="Imprimir" onClick={() => {}}>
-              <Icon icon={icons.print} />
-            </IconButton>
-          </div>
-          <QrCode value="GUIDU-7K3Q-92XM" aria-label="QR code do cupom" size={192} />
-        </div>
-      )}
+      hero={<QrPanel value="GUIDU-7K3Q-92XM" qrLabel="QR code do cupom" action={{ label: 'Imprimir', onClick: () => {} }} />}
       footer={(
-        <Button variant="primary" size="large" stretched iconAfter={<Icon icon={icons.copy} />}>
-          GUIDU-7K3Q-92XM
-        </Button>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
+          <Button variant="primary" size="large" stretched iconAfter={<Icon icon={icons.copy} />}>
+            GUIDU-7K3Q-92XM
+          </Button>
+          <Button variant="secondary" size="large" stretched onClick={args.onClose}>
+            Fechar
+          </Button>
+        </div>
       )}
     >
       {Array.from({ length: 12 }, (_, index) => (

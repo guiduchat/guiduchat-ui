@@ -41,6 +41,7 @@ export * from './PersonRow';
 export * from './PhoneInput';
 export * from './PlaceCard';
 export * from './QrCode';
+export * from './QrPanel';
 export * from './QuickActions';
 export * from './Radio';
 export * from './RatingStars';

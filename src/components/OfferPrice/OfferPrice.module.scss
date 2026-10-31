@@ -1,3 +1,4 @@
+@use '../../styles/shared-mixins/a11y';
 @use '../../styles/shared-mixins/typography';
 
 .OfferPrice {
@@ -17,15 +18,10 @@
 
 .OfferPrice__original {
   @include typography.body;
-  color: var(--text-tertiary);
+  color: var(--text-secondary);
 }
 
 // Só para o leitor de tela: o texto do app antes do preço antigo.
 .OfferPrice__label {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  overflow: hidden;
-  clip-path: inset(50%);
-  white-space: nowrap;
+  @include a11y.visuallyHidden;
 }
