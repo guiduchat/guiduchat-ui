@@ -3,7 +3,7 @@ import { readFileSync } from 'node:fs';
 
 import { describe, expect, it } from 'vitest';
 
-import { brand, fontFamily, palette } from './index';
+import { brand, coupon, fontFamily, palette } from './index';
 
 const read = (path: string): string =>
   readFileSync(new URL(path, import.meta.url), 'utf8');
@@ -45,6 +45,16 @@ describe('tokens da marca', () => {
     const families = [...typography.matchAll(/--family-(?:base|headers):\s*([^;]+);/g)].map(([, v]) => v);
     expect(families.length).toBeGreaterThan(0);
     for (const family of families) expect(family).toBe(fontFamily);
+  });
+
+  it("o texto escuro estático tem contraste AA sobre o cupom, nos dois temas", () => {
+    for (const bg of [coupon.ticket, coupon.photo]) {
+      expect(contrast("#060708", bg), bg).toBeGreaterThanOrEqual(4.5);
+    }
+    for (const scheme of ["light", "dark"] as const) {
+      expect(palette[scheme]["--background-coupon"]).toBe(coupon.ticket);
+      expect(palette[scheme]["--background-coupon-photo"]).toBe(coupon.photo);
+    }
   });
 
   it('tem contraste AA (4,5:1) para texto', () => {

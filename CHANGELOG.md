@@ -1,5 +1,15 @@
 # Changelog do @guiduchat/ui
 
+## 0.13.0 (ofertas)
+
+Componentes da página de Ofertas, a partir do desenho do Marcelo de 31/10/2026. Só apresentação: textos, validade e ações vêm do app.
+
+- **OfferCard** (novo): cupom com `appearance="ticket"` (recortes laterais por máscara, linha tracejada e dois botões de largura igual) ou `"featured"` (foto de pelo menos 240 px com o cupom sobreposto). Aceita `tag` para "Usado" e "Vencido". Sem botões, a linha e o rodapé somem; com um só, ele ocupa a largura toda.
+- **Carousel** (novo): rolagem lateral com `scroll-snap`, sem barra, marcador de páginas em barrinhas (some com um item só), setas do teclado e `prefers-reduced-motion` respeitado.
+- **Tokens novos** nos dois temas: `--background-coupon` (#c4d4ca) e `--background-coupon-photo` (#e9f2ed). Texto e ícone sobre o cupom usam `--text-primary-static` e `--icon-primary-static`. `coupon` também sai de `@guiduchat/ui/tokens`.
+- **Ícones** no catálogo: `fashion`, `travel`, `health` e `otherCategory` (`food` já existia).
+- **Teto do catálogo de ícones** (`check:icons`) de 50 para 56 KB: o catálogo passou a ter 68 ícones (51,4 KB).
+
 ## 0.12.0 (detalhes do pedido)
 
 Componentes da página do pedido, a partir do modelo do Marcelo de 30/10/2026. Só apresentação: textos, valores e situação vêm do app.

@@ -1,0 +1,53 @@
+@use '../../styles/shared-mixins/a11y';
+
+.Carousel {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-size-xl);
+  width: 100%;
+  min-width: 0;
+}
+
+.Carousel__track {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  overscroll-behavior-x: contain;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  @include a11y.focusRing(2px);
+
+  @media (prefers-reduced-motion: no-preference) {
+    scroll-behavior: smooth;
+  }
+}
+
+.Carousel__page {
+  flex: 0 0 100%;
+  min-width: 0;
+  box-sizing: border-box;
+  scroll-snap-align: start;
+}
+
+.Carousel__pager {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-size-m);
+}
+
+// Bars, not dots: the active one is lighter.
+.Carousel__bar {
+  width: 48px;
+  height: 4px;
+  border-radius: var(--border-radius-circle);
+  background-color: var(--icon-mute);
+}
+
+.Carousel__bar_active {
+  background-color: var(--icon-primary);
+}

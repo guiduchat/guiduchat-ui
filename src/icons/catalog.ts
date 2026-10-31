@@ -8,6 +8,7 @@
 //   ('@hugeicons/core-free-icons'), que puxa os 6.000 ícones (o lint proíbe).
 // - Nomes por função, não pelo desenho: trocar de ícone, de coleção ou para a
 //   Hugeicons Pro muda só este arquivo.
+import Airplane01Icon from '@hugeicons/core-free-icons/Airplane01Icon';
 import Alert02Icon from '@hugeicons/core-free-icons/Alert02Icon';
 import AppleIcon from '@hugeicons/core-free-icons/AppleIcon';
 import ArrowDown01Icon from '@hugeicons/core-free-icons/ArrowDown01Icon';
@@ -37,6 +38,7 @@ import FavouriteIcon from '@hugeicons/core-free-icons/FavouriteIcon';
 import FilterHorizontalIcon from '@hugeicons/core-free-icons/FilterHorizontalIcon';
 import Globe02Icon from '@hugeicons/core-free-icons/Globe02Icon';
 import GoogleIcon from '@hugeicons/core-free-icons/GoogleIcon';
+import GridViewIcon from '@hugeicons/core-free-icons/GridViewIcon';
 import Home01Icon from '@hugeicons/core-free-icons/Home01Icon';
 import Image01Icon from '@hugeicons/core-free-icons/Image01Icon';
 import InformationCircleIcon from '@hugeicons/core-free-icons/InformationCircleIcon';
@@ -56,11 +58,13 @@ import PlusSignIcon from '@hugeicons/core-free-icons/PlusSignIcon';
 import Search01Icon from '@hugeicons/core-free-icons/Search01Icon';
 import SentIcon from '@hugeicons/core-free-icons/SentIcon';
 import Share01Icon from '@hugeicons/core-free-icons/Share01Icon';
+import Shirt01Icon from '@hugeicons/core-free-icons/Shirt01Icon';
 import ShoppingBasket01Icon from '@hugeicons/core-free-icons/ShoppingBasket01Icon';
 import ShoppingCart01Icon from '@hugeicons/core-free-icons/ShoppingCart01Icon';
 import SmartPhone01Icon from '@hugeicons/core-free-icons/SmartPhone01Icon';
 import SparklesIcon from '@hugeicons/core-free-icons/SparklesIcon';
 import StarIcon from '@hugeicons/core-free-icons/StarIcon';
+import StethoscopeIcon from '@hugeicons/core-free-icons/StethoscopeIcon';
 import Store01Icon from '@hugeicons/core-free-icons/Store01Icon';
 import ThumbsDownIcon from '@hugeicons/core-free-icons/ThumbsDownIcon';
 import ThumbsUpIcon from '@hugeicons/core-free-icons/ThumbsUpIcon';
@@ -142,6 +146,11 @@ export const icons = {
   note: NoteEditIcon,
   timer: Timer02Icon,
   smartphone: SmartPhone01Icon,
+  // Categorias das ofertas (food já está em Informações úteis)
+  fashion: Shirt01Icon,
+  travel: Airplane01Icon,
+  health: StethoscopeIcon,
+  otherCategory: GridViewIcon,
   // Avisos
   offline: WifiOff01Icon,
   warning: Alert02Icon,

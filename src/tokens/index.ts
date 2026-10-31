@@ -14,6 +14,13 @@ export const brand = {
   accentStrong: '#566600'
 } as const;
 
+// Verde do cupom das ofertas (desenho aprovado pelo Marcelo, 31/10/2026). Texto e ícone
+// sobre ele usam os tokens estáticos, escuros nos dois temas.
+export const coupon = {
+  ticket: '#c4d4ca',
+  photo: '#e9f2ed'
+} as const;
+
 export const fontFamily =
   "Outfit, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif";
 
@@ -27,7 +34,9 @@ export const palette = {
     '--states-button-primary-hover': brand.accentHover,
     '--states-button-primary-pressed': brand.accentPressed,
     '--counter-themed': brand.accent,
-    '--text-on-accent': brand.onAccent
+    '--text-on-accent': brand.onAccent,
+    '--background-coupon': coupon.ticket,
+    '--background-coupon-photo': coupon.photo
   },
   dark: {
     '--text-themed': brand.accent,
@@ -37,7 +46,9 @@ export const palette = {
     '--states-button-primary-hover': brand.accentHover,
     '--states-button-primary-pressed': brand.accentPressed,
     '--counter-themed': brand.accent,
-    '--text-on-accent': brand.onAccent
+    '--text-on-accent': brand.onAccent,
+    '--background-coupon': coupon.ticket,
+    '--background-coupon-photo': coupon.photo
   }
 } as const;
 
