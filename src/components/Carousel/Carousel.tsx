@@ -1,26 +1,40 @@
 import { clsx } from 'clsx';
-import { type ComponentProps, forwardRef, type KeyboardEvent, type ReactNode, useEffect, useRef, useState } from 'react';
+import { type ComponentProps, forwardRef, isValidElement, type KeyboardEvent, type ReactNode, useEffect, useRef, useState } from 'react';
 
-import { mergeRefs } from '../../helpers';
 import { type MergeProps } from '../../types';
 import styles from './Carousel.module.scss';
 
 interface CarouselOwnProps {
-  /** One child per page. */
+  /**
+   * One child per page. Arrays are flattened, and `null`, `undefined` and booleans
+   * (such as the result of `cond && <X />`) are dropped. A fragment counts as one page.
+   */
   children: ReactNode
-  /** Accessible name of the scroll area, translated by the app. */
+  /** Accessible name of the scroll area (the keyboard stop), translated by the app. */
   'aria-label': string
-  /** Text of the page indicator for screen readers, such as "Page 2 of 3". */
-  pagerLabel?: (page: number, total: number) => string
+  /** Text of the page indicator for screen readers, such as "Page 2 of 3". Required: the kit has no texts of its own. */
+  pagerLabel: (page: number, total: number) => string
 }
 
+/**
+ * `className`, `style`, `id`, `ref` and the other props go to the root.
+ * `aria-label`, `aria-labelledby` and `onKeyDown` belong to the scroll area (the focusable element).
+ */
 export type CarouselProps = MergeProps<ComponentProps<'div'>, CarouselOwnProps>;
+
+// Without `Children.*`: flattens arrays and drops what React renders as nothing.
+const toPages = (children: ReactNode): ReactNode[] =>
+  ([children] as unknown[]).flat(Infinity).filter(
+    (child): child is ReactNode => child !== null && child !== undefined && typeof child !== 'boolean'
+  );
+
+const pageKey = (page: ReactNode, index: number): string =>
+  isValidElement(page) && page.key !== null ? `k:${page.key}` : `i:${index}`;
 
 /** Side scroll with snap, one page per child, and a bar pager under it (hidden with one page). */
 export const Carousel = forwardRef<HTMLDivElement, CarouselProps>((props, forwardedRef) => {
-  const { children, pagerLabel, className, onKeyDown, ...rest } = props;
-  // One page per child; a single child arrives without the array.
-  const pages: ReactNode[] = Array.isArray(children) ? children : [children];
+  const { children, pagerLabel, className, onKeyDown, 'aria-label': ariaLabel, 'aria-labelledby': ariaLabelledby, ...rest } = props;
+  const pages = toPages(children);
   const total = pages.length;
   const trackRef = useRef<HTMLDivElement>(null);
   const [active, setActive] = useState(0);
@@ -43,9 +57,12 @@ export const Carousel = forwardRef<HTMLDivElement, CarouselProps>((props, forwar
     return () => { observer.disconnect(); };
   }, [total]);
 
+  if (total === 0) return null;
+
   const handleKeyDown = (event: KeyboardEvent<HTMLDivElement>) => {
     onKeyDown?.(event);
     if (event.defaultPrevented) return;
+    if (event.altKey || event.ctrlKey || event.metaKey || event.shiftKey) return;
     const track = trackRef.current;
     if (!track || (event.key !== 'ArrowRight' && event.key !== 'ArrowLeft')) return;
     event.preventDefault();
@@ -53,24 +70,24 @@ export const Carousel = forwardRef<HTMLDivElement, CarouselProps>((props, forwar
   };
 
   return (
-    <div className={clsx(styles.Carousel, className)}>
+    <div ref={forwardedRef} className={clsx(styles.Carousel, className)} {...rest}>
       {/* The scroll area takes the keyboard: Tab focuses it and the arrows scroll. */}
       <div
-        ref={mergeRefs(trackRef, forwardedRef)}
+        ref={trackRef}
         role="group"
-        aria-roledescription="carousel"
+        aria-label={ariaLabel}
+        aria-labelledby={ariaLabelledby}
         tabIndex={0}
         className={styles.Carousel__track}
         onKeyDown={handleKeyDown}
-        {...rest}
       >
         {pages.map((page, index) => (
-          <div key={index} className={styles.Carousel__page}>{page}</div>
+          <div key={pageKey(page, index)} className={styles.Carousel__page}>{page}</div>
         ))}
       </div>
 
       {total > 1 && (
-        <div className={styles.Carousel__pager} role="group" aria-label={pagerLabel?.(active + 1, total)}>
+        <div className={styles.Carousel__pager} role="group" aria-label={pagerLabel(active + 1, total)}>
           {Array.from({ length: total }, (_, index) => (
             <span
               key={index}

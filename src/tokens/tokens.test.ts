@@ -51,7 +51,12 @@ describe('tokens da marca', () => {
     for (const bg of [coupon.ticket, coupon.photo]) {
       expect(contrast("#060708", bg), bg).toBeGreaterThanOrEqual(4.5);
     }
+    // Desativado: cor escura própria do cupom, legível nos dois verdes.
+    for (const bg of [coupon.ticket, coupon.photo]) {
+      expect(contrast(coupon.disabledText, bg), bg).toBeGreaterThanOrEqual(4.5);
+    }
     for (const scheme of ["light", "dark"] as const) {
+      expect(palette[scheme]["--states-text-coupon-disabled"]).toBe(coupon.disabledText);
       expect(palette[scheme]["--background-coupon"]).toBe(coupon.ticket);
       expect(palette[scheme]["--background-coupon-photo"]).toBe(coupon.photo);
     }

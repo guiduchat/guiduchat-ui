@@ -18,7 +18,10 @@ export const brand = {
 // sobre ele usam os tokens estáticos, escuros nos dois temas.
 export const coupon = {
   ticket: '#c4d4ca',
-  photo: '#e9f2ed'
+  photo: '#e9f2ed',
+  hovered: 'rgb(6 7 8 / 0.12)',
+  pressed: 'rgb(6 7 8 / 0.2)',
+  disabledText: '#4a5651'
 } as const;
 
 export const fontFamily =
@@ -36,7 +39,10 @@ export const palette = {
     '--counter-themed': brand.accent,
     '--text-on-accent': brand.onAccent,
     '--background-coupon': coupon.ticket,
-    '--background-coupon-photo': coupon.photo
+    '--background-coupon-photo': coupon.photo,
+    '--states-background-coupon-hovered': coupon.hovered,
+    '--states-background-coupon-pressed': coupon.pressed,
+    '--states-text-coupon-disabled': coupon.disabledText
   },
   dark: {
     '--text-themed': brand.accent,
@@ -48,7 +54,10 @@ export const palette = {
     '--counter-themed': brand.accent,
     '--text-on-accent': brand.onAccent,
     '--background-coupon': coupon.ticket,
-    '--background-coupon-photo': coupon.photo
+    '--background-coupon-photo': coupon.photo,
+    '--states-background-coupon-hovered': coupon.hovered,
+    '--states-background-coupon-pressed': coupon.pressed,
+    '--states-text-coupon-disabled': coupon.disabledText
   }
 } as const;
 

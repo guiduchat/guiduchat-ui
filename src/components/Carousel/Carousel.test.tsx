@@ -58,7 +58,7 @@ describe('Carousel', () => {
 
   it('é focável pelo teclado, as setas rolam e o observador sai no unmount', () => {
     const { unmount } = render(
-      <Carousel aria-label="Ofertas">
+      <Carousel aria-label="Ofertas" pagerLabel={pager}>
         <p>a</p>
         <p>b</p>
       </Carousel>
@@ -71,5 +71,75 @@ describe('Carousel', () => {
     expect(scrollBy).toHaveBeenCalledWith({ left: track.clientWidth });
     unmount();
     expect(disconnect).toHaveBeenCalled();
+  });
+
+  it('ignora false, null e undefined e achata listas aninhadas ao contar as páginas', () => {
+    render(
+      <Carousel aria-label="Ofertas" pagerLabel={pager}>
+        {false}
+        {null}
+        {undefined}
+        <p>a</p>
+        {[<p key="b">b</p>, [<p key="c">c</p>, null]]}
+      </Carousel>
+    );
+    expect(screen.getByRole('group', { name: 'Ofertas' }).children).toHaveLength(3);
+    expect(screen.getByRole('group', { name: 'Página 1 de 3' })).toBeTruthy();
+  });
+
+  it('um fragmento conta como uma página', () => {
+    render(
+      <Carousel aria-label="Ofertas" pagerLabel={pager}>
+        <>
+          <p>a</p>
+          <p>b</p>
+        </>
+        <p>c</p>
+      </Carousel>
+    );
+    expect(screen.getByRole('group', { name: 'Página 1 de 2' })).toBeTruthy();
+  });
+
+  it('sem filhos válidos não mostra a área focável nem o marcador', () => {
+    const { container } = render(
+      <Carousel aria-label="Ofertas" pagerLabel={pager}>
+        {false}
+        {null}
+      </Carousel>
+    );
+    expect(container.firstChild).toBeNull();
+    expect(screen.queryByRole('group')).toBeNull();
+  });
+
+  it('não rola com tecla modificadora', () => {
+    render(
+      <Carousel aria-label="Ofertas" pagerLabel={pager}>
+        <p>a</p>
+        <p>b</p>
+      </Carousel>
+    );
+    const track = screen.getByRole('group', { name: 'Ofertas' });
+    const scrollBy = vi.fn();
+    track.scrollBy = scrollBy as unknown as typeof track.scrollBy;
+    fireEvent.keyDown(track, { key: 'ArrowLeft', altKey: true });
+    fireEvent.keyDown(track, { key: 'ArrowRight', metaKey: true });
+    expect(scrollBy).not.toHaveBeenCalled();
+    fireEvent.keyDown(track, { key: 'ArrowLeft' });
+    expect(scrollBy).toHaveBeenCalledWith({ left: -track.clientWidth });
+  });
+
+  it('className, id e style vão para a raiz e o nome acessível fica na área de rolagem', () => {
+    const { container } = render(
+      <Carousel aria-label="Ofertas" pagerLabel={pager} id="ofertas" className="x" style={{ width: 10 }}>
+        <p>a</p>
+      </Carousel>
+    );
+    const root = container.firstElementChild as HTMLElement;
+    const track = screen.getByRole('group', { name: 'Ofertas' });
+    expect(root.id).toBe('ofertas');
+    expect(root.classList.contains('x')).toBe(true);
+    expect(root.style.width).toBe('10px');
+    expect(track).not.toBe(root);
+    expect(track.hasAttribute('aria-roledescription')).toBe(false);
   });
 });

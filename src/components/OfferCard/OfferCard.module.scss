@@ -2,9 +2,14 @@
 @use '../../styles/shared-mixins/reset-clickable';
 
 // Texto e ícone sobre o cupom usam os tokens estáticos: escuros nos dois temas.
-// O recorte lateral é uma máscara (só conta o alfabeto): o fundo da página aparece pelo buraco.
+// O recorte lateral é uma máscara (só conta o alfa): o que está atrás do cupom aparece pelo buraco,
+// o fundo da página no ticket e a foto no featured.
+// Linha tracejada do desenho: 2 px de espessura, traço de 10 px e vão de 6 px, a partir da borda do recorte.
 $notch: var(--spacing-size-xl);
-$line-inset: var(--spacing-size2xl);
+$line-inset: $notch;
+$dash: 10px;
+$dash-gap: 6px;
+$dash-thickness: 2px;
 
 .OfferCard {
   --OfferCard-background: var(--background-coupon);
@@ -74,6 +79,11 @@ $line-inset: var(--spacing-size2xl);
   background-color: var(--background-coupon-photo);
 }
 
+// Over the photo the tag pill uses the ticket green, or it would vanish on the lighter coupon.
+.OfferCard_appearance_featured .OfferCard__tag {
+  background-color: var(--background-coupon);
+}
+
 // [Parts] Save button: light circle, same in the ticket and over the photo
 .OfferCard__save {
   @include reset-clickable.resetClickable;
@@ -106,6 +116,8 @@ $line-inset: var(--spacing-size2xl);
   position: relative;
   display: flex;
   align-items: stretch;
+  overflow: hidden;
+  border-radius: 0 0 var(--size-border-radius-semantic-border-radius-surface) var(--size-border-radius-semantic-border-radius-surface);
   background-color: var(--OfferCard-background);
 
   &::before {
@@ -114,7 +126,8 @@ $line-inset: var(--spacing-size2xl);
     top: 0;
     right: $line-inset;
     left: $line-inset;
-    border-top: 1px dashed var(--text-primary-static);
+    height: $dash-thickness;
+    background: linear-gradient(to right, var(--text-primary-static) $dash, transparent $dash) 0 0 / #{$dash + $dash-gap} $dash-thickness repeat-x;
     pointer-events: none;
   }
 }
@@ -124,6 +137,7 @@ $line-inset: var(--spacing-size2xl);
   @include typography.actionSmall;
   flex: 1 1 0;
   min-width: 0;
+  position: relative;
   min-height: 48px;
   padding: var(--spacing-size-m) var(--spacing-size-xl);
   box-sizing: border-box;
@@ -133,12 +147,27 @@ $line-inset: var(--spacing-size2xl);
   text-transform: uppercase;
   cursor: pointer;
 
-  & + & {
-    border-left: 1px dashed var(--text-primary-static);
+  // Dashed divider between the buttons, centered on the middle of the footer.
+  & + &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: -#{$dash-thickness * 0.5};
+    width: $dash-thickness;
+    background: linear-gradient(to bottom, var(--text-primary-static) $dash, transparent $dash) 0 0 / #{$dash-thickness} #{$dash + $dash-gap} repeat-y;
+    pointer-events: none;
   }
 
-  &:hover {
-    background-color: var(--background-tertiary);
+  // Static tokens, the same in both themes and visible on both greens.
+  @media (hover: hover) {
+    &:hover:not(:disabled) {
+      background-color: var(--states-background-coupon-hovered);
+    }
+  }
+
+  &:active:not(:disabled) {
+    background-color: var(--states-background-coupon-pressed);
   }
 
   &:focus-visible {
@@ -147,37 +176,40 @@ $line-inset: var(--spacing-size2xl);
   }
 
   &:disabled {
-    color: var(--states-text-primary-static-disabled);
+    color: var(--states-text-coupon-disabled);
     background-color: transparent;
     cursor: not-allowed;
   }
 }
 
-// [Appearance] Ticket: notches on both sides at the height of the dashed line
-.OfferCard_appearance_ticket {
-  .OfferCard__header {
-    border-radius: var(--size-border-radius-semantic-border-radius-surface);
-  }
-
-  .OfferCard__footer {
-    border-radius: 0 0 var(--size-border-radius-semantic-border-radius-surface) var(--size-border-radius-semantic-border-radius-surface);
-    mask:
-      radial-gradient(circle $notch at 0 0, transparent calc(#{$notch} - 0.5px), currentColor $notch) left / 51% 100% no-repeat,
-      radial-gradient(circle $notch at 100% 0, transparent calc(#{$notch} - 0.5px), currentColor $notch) right / 51% 100% no-repeat;
-  }
-
-  // With a footer the header loses its bottom corners and gets the notches.
-  .OfferCard__header:not(.OfferCard__header_alone) {
-    border-radius: var(--size-border-radius-semantic-border-radius-surface) var(--size-border-radius-semantic-border-radius-surface) 0 0;
-    mask:
-      radial-gradient(circle $notch at 0 100%, transparent calc(#{$notch} - 0.5px), currentColor $notch) left / 51% 100% no-repeat,
-      radial-gradient(circle $notch at 100% 100%, transparent calc(#{$notch} - 0.5px), currentColor $notch) right / 51% 100% no-repeat;
-  }
+// [Shape] Both appearances: notches on both sides at the height of the dashed line.
+// With a footer the header loses its bottom corners and gets the notches.
+.OfferCard__header {
+  border-radius: var(--size-border-radius-semantic-border-radius-surface);
 }
 
-// [Appearance] Featured: photo with the coupon over its base
+.OfferCard__footer {
+  mask:
+    radial-gradient(circle $notch at 0 0, transparent calc(#{$notch} - 0.5px), currentColor $notch) left / 51% 100% no-repeat,
+    radial-gradient(circle $notch at 100% 0, transparent calc(#{$notch} - 0.5px), currentColor $notch) right / 51% 100% no-repeat;
+}
+
+.OfferCard__header:not(.OfferCard__header_alone) {
+  border-radius: var(--size-border-radius-semantic-border-radius-surface) var(--size-border-radius-semantic-border-radius-surface) 0 0;
+  mask:
+    radial-gradient(circle $notch at 0 100%, transparent calc(#{$notch} - 0.5px), currentColor $notch) left / 51% 100% no-repeat,
+    radial-gradient(circle $notch at 100% 100%, transparent calc(#{$notch} - 0.5px), currentColor $notch) right / 51% 100% no-repeat;
+}
+
+// [Appearance] Ticket: the coupon green and the page behind the notches
+.OfferCard_appearance_ticket {
+  --OfferCard-background: var(--background-coupon);
+}
+
+// [Appearance] Featured: photo with the coupon over its base; the header and the footer
+// carry the light green, so the notches show the real photo.
 .OfferCard_appearance_featured {
-  --OfferCard-background: transparent;
+  --OfferCard-background: var(--background-coupon-photo);
   justify-content: flex-end;
   min-height: 240px;
   padding: 68px var(--spacing-size-xl) var(--spacing-size-xl);
@@ -198,5 +230,4 @@ $line-inset: var(--spacing-size2xl);
   position: relative;
   overflow: hidden;
   border-radius: var(--size-border-radius-semantic-border-radius-surface);
-  background-color: var(--background-coupon-photo);
 }

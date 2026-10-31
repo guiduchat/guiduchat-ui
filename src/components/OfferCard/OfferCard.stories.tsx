@@ -98,16 +98,27 @@ export const Spanish: Story = {
   }
 };
 
-export const NarrowScreen: Story = {
+// Tela de 320 px: o decorador global já soma 12 px de cada lado, então o cartão tem 296 px.
+const narrow: Story['decorators'] = [
+  (Story) => (
+    <div style={{ width: 296 }}>
+      <Story />
+    </div>
+  )
+];
+
+export const NarrowScreen: Story = { render: WithSave, args: longText, decorators: narrow };
+
+export const FeaturedNarrowEnglish: Story = {
   render: WithSave,
-  args: longText,
-  decorators: [
-    (Story) => (
-      <div style={{ width: 320, padding: 0, boxSizing: 'border-box' }}>
-        <Story />
-      </div>
-    )
-  ]
+  decorators: narrow,
+  args: { ...English.args, appearance: 'featured', image }
+};
+
+export const FeaturedNarrowSpanish: Story = {
+  render: WithSave,
+  decorators: narrow,
+  args: { ...Spanish.args, appearance: 'featured', image }
 };
 
 export const OnlyOneButton: Story = { render: WithSave, args: { secondaryAction: undefined } };
