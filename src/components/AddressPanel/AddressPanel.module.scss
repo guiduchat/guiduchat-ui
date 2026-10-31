@@ -1,0 +1,37 @@
+.AddressPanel {
+  display: flex;
+  gap: var(--spacing-size-xl);
+  padding: var(--spacing-size-xl);
+  border-radius: var(--size-border-radius-semantic-border-radius-promo);
+  background-color: var(--background-nested);
+  color: var(--text-primary);
+}
+
+.AddressPanel__text {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-size-xs);
+  min-width: 0;
+}
+
+.AddressPanel__title {
+  margin: 0;
+  font-size: var(--font-size-body);
+  font-weight: var(--font-weight-body-strong);
+  line-height: 22px;
+}
+
+.AddressPanel__address {
+  margin: 0;
+  font-size: var(--font-size-label);
+  line-height: 18px;
+}
+
+.AddressPanel__note {
+  display: flex;
+  gap: var(--spacing-size-m);
+  margin: var(--spacing-size-xs) 0 0;
+  font-size: var(--font-size-label);
+  line-height: 18px;
+  color: var(--text-themed);
+}

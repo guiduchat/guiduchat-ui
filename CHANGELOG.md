@@ -1,5 +1,20 @@
 # Changelog do @guiduchat/ui
 
+## 0.12.0 (detalhes do pedido)
+
+Componentes da página do pedido, a partir do modelo do Marcelo de 30/10/2026. Só apresentação: textos, valores e situação vêm do app.
+
+- **OrderStatusCard**: código, situação e previsão.
+- **ContactCard**: logo, nome, endereço e botões de contato.
+- **ExpandablePanel**: quadro interno que abre com a seta.
+- **PaymentPanel**: forma de pagamento, valor e orientação.
+- **AddressPanel**: endereço com observação.
+- **PersonRow**: pessoa com botões de contato.
+- **OrderTimeline**: passos do pedido, com o atual marcado para o leitor de tela.
+- **IconTile**: quadrado com ícone, comum aos quadros internos.
+- **InfoCard**: `plain` tira o quadro interno, para o cartão receber vários quadros.
+- **Ícones** no catálogo: `basket`, `wallet`, `navigation`, `note`, `timer` e `smartphone`.
+
 ## 0.11.1
 
 - **Token novo** `--background-nested`: fundo do cartão interno. No tema escuro, InfoCard, OpeningHours, StatStrip e OrderSummaryCard mostravam o quadro interno da mesma cor do cartão externo; agora ele aparece mais claro.

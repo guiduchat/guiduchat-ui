@@ -1,0 +1,63 @@
+.OrderTimeline {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-size-xl);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.OrderTimeline__item {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-size-xl);
+
+  // Ligação pontilhada até o próximo passo.
+  &:not(:last-child)::after {
+    position: absolute;
+    top: 44px;
+    bottom: calc(-1 * var(--spacing-size-xl));
+    left: 21px;
+    border-left: 2px dotted var(--icon-themed);
+    content: '';
+  }
+}
+
+.OrderTimeline__icon {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background-color: var(--button-primary);
+  color: var(--text-on-accent);
+}
+
+.OrderTimeline__item_pending .OrderTimeline__icon {
+  background-color: var(--background-primary);
+  color: var(--text-secondary);
+}
+
+.OrderTimeline__text {
+  min-width: 0;
+}
+
+.OrderTimeline__title {
+  margin: 0;
+  font-size: var(--font-size-body);
+  line-height: 22px;
+}
+
+.OrderTimeline__item_current .OrderTimeline__title {
+  font-weight: var(--font-weight-body-strong);
+}
+
+.OrderTimeline__description {
+  margin: 0;
+  font-size: var(--font-size-label);
+  line-height: 18px;
+  color: var(--text-secondary);
+}

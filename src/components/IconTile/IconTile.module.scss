@@ -1,0 +1,11 @@
+.IconTile {
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: var(--size-border-radius-semantic-border-radius-paper);
+  background-color: var(--background-primary);
+  color: var(--icon-themed);
+}
