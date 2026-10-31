@@ -1,5 +1,9 @@
 # Changelog do @guiduchat/ui
 
+## 0.11.1
+
+- **Token novo** `--background-nested`: fundo do cartão interno. No tema escuro, InfoCard, OpeningHours, StatStrip e OrderSummaryCard mostravam o quadro interno da mesma cor do cartão externo; agora ele aparece mais claro.
+
 ## 0.11.0 (medidas dos cartões e pedidos)
 
 Medidas definidas pelo Marcelo em 30/10/2026: cartão externo com raio de 24 px e margem interna de 12 px; cartão interno com raio de 20 px.
