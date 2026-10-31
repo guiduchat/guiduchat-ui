@@ -9,6 +9,13 @@
   --background-overlay: rgb(12 13 14 / 0.32);
   --background-overlay-secondary: rgb(0 0 0 / 0.6);
   --background-surface-secondary: rgb(240 240 240);
+  // Cupom das ofertas (OfferCard): verde do desenho aprovado pelo Marcelo, igual nos dois temas.
+  // Hover, pressionado e desativado do cupom: escuros e fixos, legíveis nos dois verdes.
+  --background-coupon: #c4d4ca;
+  --background-coupon-photo: #e9f2ed;
+  --states-background-coupon-hovered: rgb(6 7 8 / 0.12);
+  --states-background-coupon-pressed: rgb(6 7 8 / 0.2);
+  --states-text-coupon-disabled: #4a5651;
 
   // Icon
   --icon-primary: rgb(6 7 8 / 0.84);
@@ -141,6 +148,13 @@
   --background-overlay: rgb(13 13 13 / 0.64);
   --background-overlay-secondary: rgb(0 0 0 / 0.6);
   --background-surface-secondary: rgb(30 31 36);
+  // Cupom das ofertas (OfferCard): verde do desenho aprovado pelo Marcelo, igual nos dois temas.
+  // Hover, pressionado e desativado do cupom: escuros e fixos, legíveis nos dois verdes.
+  --background-coupon: #c4d4ca;
+  --background-coupon-photo: #e9f2ed;
+  --states-background-coupon-hovered: rgb(6 7 8 / 0.12);
+  --states-background-coupon-pressed: rgb(6 7 8 / 0.2);
+  --states-text-coupon-disabled: #4a5651;
 
   // Icon
   --icon-primary: rgb(255 255 255);

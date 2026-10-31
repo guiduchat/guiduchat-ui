@@ -31,7 +31,12 @@ const palette: Record<PaletteGroupName, string[]> = {
     '--background-tertiary',
     '--background-card',
     '--background-overlay',
-    '--background-overlay-secondary'
+    '--background-overlay-secondary',
+    '--background-coupon',
+    '--background-coupon-photo',
+    '--states-background-coupon-hovered',
+    '--states-background-coupon-pressed',
+    '--states-text-coupon-disabled'
   ],
   Button: [
     '--button-primary',

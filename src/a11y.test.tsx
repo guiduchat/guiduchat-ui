@@ -10,6 +10,7 @@ import {
   BentoGrid,
   BentoImage,
   Button,
+  Carousel,
   Composer,
   ContactCard,
   Counter,
@@ -29,6 +30,7 @@ import {
   NavBarButton,
   NavBarPill,
   Notice,
+  OfferCard,
   OpeningHours,
   OrderStatusCard,
   OrderSummaryCard,
@@ -78,6 +80,31 @@ const cases: Array<[string, ReactNode]> = [
           { key: 'next', icon: '3', title: 'Entrega', state: 'pending' }
         ]}
       />
+    </div>
+  ],
+  [
+    'OfferCard',
+    <div key="offers">
+      <OfferCard
+        title="20% de desc Picanha 2 pessoas"
+        subtitle="Restaurante Buzin"
+        meta="Válido até 12/11/2026"
+        tag="Usado"
+        save={{ label: 'Salvar oferta', pressed: false, onPressedChange: () => {} }}
+        secondaryAction={{ label: 'Ver regras', onClick: () => {} }}
+        primaryAction={{ label: 'Resgatar oferta', onClick: () => {}, disabled: true }}
+      />
+      <OfferCard
+        appearance="featured"
+        image={{ src: 'foto.jpg', alt: 'Picanha' }}
+        title="20% de desc Picanha 2 pessoas"
+        subtitle="Restaurante Buzin"
+        primaryAction={{ label: 'Resgatar oferta', onClick: () => {} }}
+      />
+      <Carousel aria-label="Ofertas em destaque" pagerLabel={(page, total) => `Página ${page} de ${total}`}>
+        <p>Primeira</p>
+        <p>Segunda</p>
+      </Carousel>
     </div>
   ],
   [

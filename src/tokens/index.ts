@@ -14,6 +14,16 @@ export const brand = {
   accentStrong: '#566600'
 } as const;
 
+// Verde do cupom das ofertas (desenho aprovado pelo Marcelo, 31/10/2026). Texto e ícone
+// sobre ele usam os tokens estáticos, escuros nos dois temas.
+export const coupon = {
+  ticket: '#c4d4ca',
+  photo: '#e9f2ed',
+  hovered: 'rgb(6 7 8 / 0.12)',
+  pressed: 'rgb(6 7 8 / 0.2)',
+  disabledText: '#4a5651'
+} as const;
+
 export const fontFamily =
   "Outfit, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif";
 
@@ -27,7 +37,12 @@ export const palette = {
     '--states-button-primary-hover': brand.accentHover,
     '--states-button-primary-pressed': brand.accentPressed,
     '--counter-themed': brand.accent,
-    '--text-on-accent': brand.onAccent
+    '--text-on-accent': brand.onAccent,
+    '--background-coupon': coupon.ticket,
+    '--background-coupon-photo': coupon.photo,
+    '--states-background-coupon-hovered': coupon.hovered,
+    '--states-background-coupon-pressed': coupon.pressed,
+    '--states-text-coupon-disabled': coupon.disabledText
   },
   dark: {
     '--text-themed': brand.accent,
@@ -37,7 +52,12 @@ export const palette = {
     '--states-button-primary-hover': brand.accentHover,
     '--states-button-primary-pressed': brand.accentPressed,
     '--counter-themed': brand.accent,
-    '--text-on-accent': brand.onAccent
+    '--text-on-accent': brand.onAccent,
+    '--background-coupon': coupon.ticket,
+    '--background-coupon-photo': coupon.photo,
+    '--states-background-coupon-hovered': coupon.hovered,
+    '--states-background-coupon-pressed': coupon.pressed,
+    '--states-text-coupon-disabled': coupon.disabledText
   }
 } as const;
 

@@ -1,0 +1,228 @@
+@use '../../styles/shared-mixins/typography';
+@use '../../styles/shared-mixins/reset-clickable';
+
+// Texto e ícone sobre o cupom usam os tokens estáticos: escuros nos dois temas.
+// O recorte lateral é uma máscara (só conta o alfa): o que está atrás do cupom aparece pelo buraco,
+// o fundo da página no ticket e a foto no featured.
+// Linha tracejada do desenho: 2 px de espessura, traço de 10 px e vão de 6 px, a partir da borda do recorte.
+$notch: var(--spacing-size-xl);
+$line-inset: $notch;
+$dash: 10px;
+$dash-gap: 6px;
+$dash-thickness: 2px;
+
+.OfferCard {
+  --OfferCard-background: var(--background-coupon);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  box-sizing: border-box;
+  color: var(--text-primary-static);
+}
+
+// [Parts] Header: avatar, texts and the save button
+.OfferCard__header {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-size-xl);
+  padding: var(--spacing-size-xl);
+  background-color: var(--OfferCard-background);
+}
+
+.OfferCard__avatar {
+  display: flex;
+  flex-shrink: 0;
+  width: 48px;
+  height: 48px;
+  overflow: hidden;
+  border-radius: 50%;
+
+  > * {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.OfferCard__names {
+  display: flex;
+  flex: 1 1 0;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--spacing-size2xs);
+  min-width: 0;
+}
+
+.OfferCard__title {
+  @include typography.bodyStrong;
+  display: -webkit-box;
+  max-width: 100%;
+  overflow: hidden;
+  overflow-wrap: anywhere;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+}
+
+.OfferCard__line {
+  @include typography.description;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.OfferCard__tag {
+  @include typography.tag;
+  padding: 0 var(--spacing-size-m);
+  border-radius: var(--border-radius-circle);
+  background-color: var(--background-coupon-photo);
+}
+
+// Over the photo the tag pill uses the ticket green, or it would vanish on the lighter coupon.
+.OfferCard_appearance_featured .OfferCard__tag {
+  background-color: var(--background-coupon);
+}
+
+// [Parts] Save button: light circle, same in the ticket and over the photo
+.OfferCard__save {
+  @include reset-clickable.resetClickable;
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background-color: var(--background-coupon-photo);
+  color: var(--icon-primary-static);
+  cursor: pointer;
+
+  &:focus-visible {
+    outline: 2px solid var(--text-primary-static);
+    outline-offset: -4px;
+  }
+}
+
+.OfferCard__save_floating {
+  position: absolute;
+  z-index: 1;
+  top: var(--spacing-size-xl);
+  right: var(--spacing-size-xl);
+}
+
+// [Parts] Footer: dashed line, two buttons of equal width, dashed divider between them
+.OfferCard__footer {
+  position: relative;
+  display: flex;
+  align-items: stretch;
+  overflow: hidden;
+  border-radius: 0 0 var(--size-border-radius-semantic-border-radius-surface) var(--size-border-radius-semantic-border-radius-surface);
+  background-color: var(--OfferCard-background);
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: $line-inset;
+    left: $line-inset;
+    height: $dash-thickness;
+    background: linear-gradient(to right, var(--text-primary-static) $dash, transparent $dash) 0 0 / #{$dash + $dash-gap} $dash-thickness repeat-x;
+    pointer-events: none;
+  }
+}
+
+.OfferCard__action {
+  @include reset-clickable.resetClickable;
+  @include typography.actionSmall;
+  flex: 1 1 0;
+  min-width: 0;
+  position: relative;
+  min-height: 48px;
+  padding: var(--spacing-size-m) var(--spacing-size-xl);
+  box-sizing: border-box;
+  color: var(--text-primary-static);
+  overflow-wrap: anywhere;
+  text-align: center;
+  text-transform: uppercase;
+  cursor: pointer;
+
+  // Dashed divider between the buttons, centered on the middle of the footer.
+  & + &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: -#{$dash-thickness * 0.5};
+    width: $dash-thickness;
+    background: linear-gradient(to bottom, var(--text-primary-static) $dash, transparent $dash) 0 0 / #{$dash-thickness} #{$dash + $dash-gap} repeat-y;
+    pointer-events: none;
+  }
+
+  // Static tokens, the same in both themes and visible on both greens.
+  @media (hover: hover) {
+    &:hover:not(:disabled) {
+      background-color: var(--states-background-coupon-hovered);
+    }
+  }
+
+  &:active:not(:disabled) {
+    background-color: var(--states-background-coupon-pressed);
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--text-primary-static);
+    outline-offset: -4px;
+  }
+
+  &:disabled {
+    color: var(--states-text-coupon-disabled);
+    background-color: transparent;
+    cursor: not-allowed;
+  }
+}
+
+// [Shape] Both appearances: notches on both sides at the height of the dashed line.
+// With a footer the header loses its bottom corners and gets the notches.
+.OfferCard__header {
+  border-radius: var(--size-border-radius-semantic-border-radius-surface);
+}
+
+.OfferCard__footer {
+  mask:
+    radial-gradient(circle $notch at 0 0, transparent calc(#{$notch} - 0.5px), currentColor $notch) left / 51% 100% no-repeat,
+    radial-gradient(circle $notch at 100% 0, transparent calc(#{$notch} - 0.5px), currentColor $notch) right / 51% 100% no-repeat;
+}
+
+.OfferCard__header:not(.OfferCard__header_alone) {
+  border-radius: var(--size-border-radius-semantic-border-radius-surface) var(--size-border-radius-semantic-border-radius-surface) 0 0;
+  mask:
+    radial-gradient(circle $notch at 0 100%, transparent calc(#{$notch} - 0.5px), currentColor $notch) left / 51% 100% no-repeat,
+    radial-gradient(circle $notch at 100% 100%, transparent calc(#{$notch} - 0.5px), currentColor $notch) right / 51% 100% no-repeat;
+}
+
+// [Appearance] Featured: photo with the coupon over its base; the header and the footer
+// carry the light green, so the notches show the real photo.
+.OfferCard_appearance_featured {
+  --OfferCard-background: var(--background-coupon-photo);
+  justify-content: flex-end;
+  min-height: 240px;
+  padding: 68px var(--spacing-size-xl) var(--spacing-size-xl);
+  overflow: hidden;
+  border-radius: var(--size-border-radius-semantic-border-radius-surface);
+  background-color: var(--background-secondary);
+}
+
+.OfferCard__image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.OfferCard__coupon {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--size-border-radius-semantic-border-radius-surface);
+}

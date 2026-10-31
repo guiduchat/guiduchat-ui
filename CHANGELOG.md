@@ -1,5 +1,15 @@
 # Changelog do @guiduchat/ui
 
+## 0.13.0 (ofertas)
+
+Componentes da página de Ofertas, a partir do desenho do Marcelo de 31/10/2026. Só apresentação: textos, validade e ações vêm do app.
+
+- **OfferCard** (novo): cupom com `appearance="ticket"` ou `"featured"` (foto de pelo menos 240 px com o cupom sobreposto), os dois com recortes laterais por máscara na altura da linha (no `featured` a foto aparece pelo buraco), linha tracejada de 2 px (traço de 10 px, vão de 6 px) e dois botões de largura igual, com hover e pressionado. Aceita `tag` para "Usado" e "Vencido". Sem botões, a linha e o rodapé somem; com um só, ele ocupa a largura toda.
+- **Carousel** (novo): rolagem lateral com `scroll-snap`, sem barra, marcador de páginas em barrinhas (some com um item só), setas do teclado (sem tecla modificadora) e `prefers-reduced-motion` respeitado. `pagerLabel` é obrigatória. Os filhos são achatados e `null`, `undefined` e booleanos são descartados; um fragmento conta como uma página; sem filhos válidos nada é renderizado. `className`, `style`, `id`, `ref` e o resto vão para a raiz; `aria-label`, `aria-labelledby` e `onKeyDown` ficam na área de rolagem.
+- **Tokens novos** nos dois temas: `--background-coupon` (#c4d4ca), `--background-coupon-photo` (#e9f2ed), `--states-background-coupon-hovered` (rgb(6 7 8 / 0.12)), `--states-background-coupon-pressed` (rgb(6 7 8 / 0.2)) e `--states-text-coupon-disabled` (#4a5651), iguais nos dois temas. Texto e ícone sobre o cupom usam `--text-primary-static` e `--icon-primary-static`. `coupon` também sai de `@guiduchat/ui/tokens`.
+- **Ícones** no catálogo: `fashion`, `travel`, `health` e `otherCategory` (`food` já existia).
+- **Teto do catálogo de ícones** (`check:icons`) de 50 para 56 KB: o catálogo passou a ter 68 ícones (51,4 KB).
+
 ## 0.12.0 (detalhes do pedido)
 
 Componentes da página do pedido, a partir do modelo do Marcelo de 30/10/2026. Só apresentação: textos, valores e situação vêm do app.

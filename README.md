@@ -48,10 +48,10 @@ A fonte da marca é a **Outfit** (licença SIL OFL). O kit só declara a famíli
 `@guiduchat/ui/tokens` exporta as cores da marca, a fonte e os tokens de tema que dependem da marca em TypeScript puro, sem DOM e sem `'use client'`: serve ao app Expo e ao servidor.
 
 ```ts
-import { brand, fontFamily, palette } from '@guiduchat/ui/tokens';
+import { brand, coupon, fontFamily, palette } from '@guiduchat/ui/tokens';
 ```
 
-Sobre a cor principal (`brand.accent`, `#e1fb40`), o texto é sempre o escuro (`brand.onAccent`). Para texto, ícone e controle "da marca" sobre fundo claro, use `brand.accentStrong`: o limão sobre branco não tem contraste.
+Sobre a cor principal (`brand.accent`, `#e1fb40`), o texto é sempre o escuro (`brand.onAccent`). Para texto, ícone e controle "da marca" sobre fundo claro, use `brand.accentStrong`: o limão sobre branco não tem contraste. `coupon` traz o verde do cupom das ofertas (`ticket` e `photo`), igual nos dois temas, com texto escuro por cima.
 
 ### Ícones
 
