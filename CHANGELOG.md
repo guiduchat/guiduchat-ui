@@ -1,5 +1,20 @@
 # Changelog do @guiduchat/ui
 
+## 0.15.0 (detalhes da oferta e cupom com QR)
+
+Peças da página "Detalhes da Oferta" e da folha do cupom, a partir do desenho do Marcelo de 31/10/2026. Só apresentação: todo texto (rótulos, validade, preços formatados) vem do app. **Nenhum token novo nem alterado**: usam `--background-coupon`, `--button-primary`, `--text-on-accent`, `--text-themed` e os demais já existentes. Nada quebra: `hero` e `footer` são opcionais e, sem eles, o `BottomSheet` fica igual.
+
+- **QrCode** (novo): `value`, `aria-label` (obrigatório) e `size`. SVG com `role="img"`, gerado no aparelho com a dependência nova `uqr` 0.1.3 (MIT, sem dependências, embutida no `dist/`; licença em `THIRD_PARTY_LICENSES.md`), correção de erro média e margem de silêncio de 4 módulos. **Sempre módulos escuros sobre branco, nos dois temas**: o leitor de QR precisa disso, por isso é a única exceção às cores de tema, restrita a este componente. O valor não sai do aparelho e não vai para log nem para atributo `data-*`. Limite do `value`: 2.331 bytes em UTF-8; acima disso o gerador lança erro.
+- **QrPanel** (novo): o bloco verde-limão do cupom, para o `hero` do `BottomSheet`: `value`, `qrLabel`, `qrSize` e `action` (`{ label, onClick, icon? }`, botão redondo escuro no canto, imprimir por padrão). Sem cor no app. Em painel abaixo de 304 px o QR desce 20 px para não encostar no botão. O botão é escuro com ícone claro: 17,4:1 contra o limão (o `primary-contrast`, branco, daria 1,16:1 contra o limão).
+- **BottomSheet:** props opcionais `hero` (bloco de ponta a ponta no topo, sem a margem interna, com o raio superior da folha e a alça sobreposta) e `footer` (embaixo, com a margem interna normal). **Em altura normal** (retrato) os dois ficam fixos, fora do `.content`, e só o `.content` rola. **Em altura pequena** (`max-height: 600px`, celular deitado e telas baixas) a folha inteira rola, o `footer` fica `sticky` embaixo e continua alcançável (inclusive com dois botões), e a altura dele vira `scroll-padding-bottom`, para o foco por teclado não ficar atrás dele. O Tab continua preso na folha, incluindo os focáveis do `hero` e do `footer`. Só com `hero` (sem `footer`) a margem de baixo da folha (20 px) continua. Sem as props, o DOM e o visual não mudam. A alça sobre o `hero` é escura (`--icon-primary-static`, alfa 0,84, 12,1:1 sobre o limão), sem `opacity` no elemento; supõe um `hero` de fundo claro.
+- **WeekdayAvailability** (novo): lista de dias (`key`, `label`, `fullLabel`, `available`) em círculos reais que encolhem com a tela (largura = altura, a partir de 260 px; 35,4 px a 296 px), disponível preenchido com o verde da marca e contorno em `--text-themed`, indisponível só contorno em `--text-secondary`; `aria-label` da lista, `legend` (só o texto: o kit desenha a bolinha verde) e `availableLabel`/`unavailableLabel` (textos do app) para o estado não depender só de cor: cada item lê "Segunda-feira: disponível para uso".
+- **OfferHero** (novo): foto com o raio do cartão externo (24 px) e `save` no mesmo formato de `OfferCard`/`StoreHero`. Sem `image`, fundo de token.
+- **OfferPrice** (novo): `price` em destaque (`--text-themed`: verde-limão no escuro, tom forte da marca no claro, para manter o contraste) e `originalPrice` riscado (`<s>`) e menor em `--text-secondary` (contraste de texto no tema claro), com `originalPriceLabel` lido pelo leitor de tela.
+- **ValidityBanner** (novo): faixa de largura total sobre `--background-coupon`.
+- **Ícones** no catálogo: `copy` e `print`. O catálogo passou a ter 70 ícones.
+- **Dependências:** `uqr` 0.1.3 (produção) e `jsqr` 1.4.0 (só desenvolvimento, para o teste que decodifica o SVG do QR de volta para o valor).
+
+
 ## 0.14.0 (BottomSheet: saída garantida e diálogo acessível)
 
 Props novas e mudança de comportamento padrão, por isso minor. Atende Ofertas, `orders/[id]` e `places`. Visual igual. **Muda por padrão:** sem `handleLabel`, a alça do `BottomSheet` deixa de ser botão (fica oculta ao leitor de tela e fora do Tab), e sem `regionLabel` o `Snackbar` perde o `role="region"` e o nome. Quem dependia deles passa as props novas.

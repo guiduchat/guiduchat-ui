@@ -32,6 +32,8 @@ import {
   NavBarPill,
   Notice,
   OfferCard,
+  OfferHero,
+  OfferPrice,
   OpeningHours,
   OrderStatusCard,
   OrderSummaryCard,
@@ -42,6 +44,8 @@ import {
   PersonRow,
   PhoneInput,
   PlaceCard,
+  QrCode,
+  QrPanel,
   QuickAction,
   QuickActions,
   RatingStars,
@@ -59,11 +63,51 @@ import {
   TabBar,
   TabBarItem,
   TextDivider,
+  ValidityBanner,
+  WeekdayAvailability,
 } from './index';
 
 // Acessibilidade com o axe nos componentes, nos dois temas. Componente novo
 // entra nesta lista (U7 do guidu-chat).
 const cases: Array<[string, ReactNode]> = [
+  [
+    'Detalhes da oferta',
+    <div key="detail">
+      <OfferHero image={{ src: 'foto.jpg', alt: 'Picanha' }} save={{ label: 'Salvar oferta', pressed: false, onPressedChange: () => {} }} />
+      <OfferPrice price="R$ 89,90" originalPrice="R$ 119,90" originalPriceLabel="Preço original" />
+      <ValidityBanner>Oferta válida até: 30/11/2026</ValidityBanner>
+      <WeekdayAvailability
+        aria-label="Dias de uso"
+        availableLabel="disponível para uso"
+        unavailableLabel="indisponível"
+        legend="disponível para uso"
+        days={[
+          { key: 'mon', label: 'SEG', fullLabel: 'Segunda-feira', available: true },
+          { key: 'sun', label: 'DOM', fullLabel: 'Domingo', available: false }
+        ]}
+      />
+    </div>
+  ],
+  [
+    'QrCode e QrPanel',
+    <div key="qr">
+      <QrCode value="GUIDU-7K3Q-92XM" aria-label="QR code do cupom" size={160} />
+      <QrPanel value="GUIDU-7K3Q-92XM" qrLabel="QR code do cupom" action={{ label: 'Imprimir', onClick: () => {} }} />
+    </div>
+  ],
+  [
+    'BottomSheet com hero e footer',
+    <BottomSheet
+      key="sheet-hero"
+      open
+      aria-label="Cupom"
+      onClose={() => {}}
+      hero={<QrPanel value="GUIDU-7K3Q-92XM" qrLabel="QR code do cupom" action={{ label: 'Imprimir', onClick: () => {} }} />}
+      footer={<Button stretched>GUIDU-7K3Q-92XM</Button>}
+    >
+      <p>Regras do cupom.</p>
+    </BottomSheet>
+  ],
   [
     'Página do pedido',
     <div key="od">

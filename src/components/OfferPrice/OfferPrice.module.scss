@@ -1,0 +1,27 @@
+@use '../../styles/shared-mixins/a11y';
+@use '../../styles/shared-mixins/typography';
+
+.OfferPrice {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: var(--spacing-size-m) var(--spacing-size-xl);
+  margin: 0;
+}
+
+// Verde-limão no tema escuro; no claro, o tom forte da marca, legível sobre fundo claro (--text-themed).
+.OfferPrice__price {
+  @include typography.header;
+  color: var(--text-themed);
+}
+
+.OfferPrice__original {
+  @include typography.body;
+  color: var(--text-secondary);
+}
+
+// Só para o leitor de tela: o texto do app antes do preço antigo.
+.OfferPrice__label {
+  @include a11y.visuallyHidden;
+}

@@ -1,6 +1,7 @@
 import clsx from 'clsx';
 import {CSSProperties, type ReactNode, type TransitionEvent, useEffect, useId, useLayoutEffect, useRef, useState} from 'react';
 
+import { hasReactNode } from '../../helpers';
 import { useDrag } from '../../hooks';
 import {InnerClassNamesProp} from "../../types";
 import { Typography } from '../Typography';
@@ -11,6 +12,19 @@ export type BottomSheetProps = {
   title?: string
   onClose: () => void
   children: ReactNode
+  /**
+   * Área de ponta a ponta no topo da folha (por exemplo um bloco colorido com um QR):
+   * sem a margem interna, acompanhando o raio superior, com a alça sobreposta a ela.
+   * Em altura normal fica fora da área rolável; em altura pequena (até 600 px, celular deitado) a folha
+   * inteira rola e ele rola junto.
+   */
+  hero?: ReactNode
+  /**
+   * Área no fim da folha (por exemplo o botão principal), com a margem interna normal.
+   * Em altura normal fica fixa, fora da área rolável; em altura pequena (até 600 px) fica colada embaixo
+   * (sticky) enquanto a folha inteira rola, e o foco por teclado não fica atrás dela.
+   */
+  footer?: ReactNode
   /**
    * Минимальная высота шторки
    */
@@ -92,12 +106,13 @@ const prefersReducedMotion = () =>
   window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 export const BottomSheet = ({
-  open, title, onClose, children, minHeight = 'auto', innerClassNames, enableDrag = true,
+  open, title, onClose, children, hero, footer, minHeight = 'auto', innerClassNames, enableDrag = true,
   'aria-label': ariaLabel, handleLabel
 }: BottomSheetProps) => {
   const [status, setStatus] = useState<Status>(open ? 'open' : 'closed');
   const titleId = useId();
   const sheetRef = useRef<HTMLDivElement>(null);
+  const footerRef = useRef<HTMLDivElement>(null);
   const triggerRef = useRef<HTMLElement | null>(null);
   const openRef = useRef(open);
   openRef.current = open;
@@ -177,6 +192,30 @@ export const BottomSheet = ({
       }
     };
   }, [visible]);
+
+  // A altura do footer varia (um ou dois botões, texto longo, fonte grande). Ela é publicada na folha como
+  // scroll-padding-bottom (CSS de altura pequena), para o foco por teclado não ficar atrás do footer sticky.
+  const footerPresent = hasReactNode(footer) && status !== 'closed';
+  useLayoutEffect(() => {
+    const sheet = sheetRef.current;
+    const element = footerRef.current;
+    if (!footerPresent || !sheet || !element) {
+      return;
+    }
+    const update = () => {
+      sheet.style.setProperty('--BottomSheet-footer-height', `${element.offsetHeight}px`);
+    };
+    update();
+    if (typeof ResizeObserver === 'undefined') {
+      return;
+    }
+    const observer = new ResizeObserver(update);
+    observer.observe(element);
+    return () => {
+      observer.disconnect();
+      sheet.style.removeProperty('--BottomSheet-footer-height');
+    };
+  }, [footerPresent]);
 
   // Tab preso na folha. Fica no document (como o Esc) porque, com o foco em body
   // ou no fundo, o onKeyDown da folha não roda. Só com a folha aberta: em
@@ -273,6 +312,8 @@ export const BottomSheet = ({
   }
 
   const exiting = status === 'exiting';
+  const hasHero = hasReactNode(hero);
+  const hasFooter = hasReactNode(footer);
   const transform = dragging
     ? `translateY(${dragOffset}px)`
     : `translateY(${exiting ? 100 : 0}%)`;
@@ -286,7 +327,7 @@ export const BottomSheet = ({
         className={clsx(
           styles.sheet,
           innerClassNames?.sheet,
-          { [styles.sheet_dragging]: dragging, [styles.sheet_exiting]: exiting }
+          { [styles.sheet_dragging]: dragging, [styles.sheet_exiting]: exiting, [styles.sheet_scroll]: hasHero || hasFooter, [styles.sheet_withFooter]: hasFooter }
         )}
         style={{
           minHeight,
@@ -308,7 +349,7 @@ export const BottomSheet = ({
       >
         {enableDrag && (
           <div
-            className={clsx(styles.handle, innerClassNames?.handle)}
+            className={clsx(styles.handle, hasHero && styles.handle_overHero, innerClassNames?.handle)}
             {...(handleLabel
               ? { role: 'button', tabIndex: 0, 'aria-label': handleLabel }
               : { 'aria-hidden': true })}
@@ -324,6 +365,7 @@ export const BottomSheet = ({
             }}
           />
         )}
+        {hasHero && <div className={styles.hero}>{hero}</div>}
         {title && (
           <div className={clsx(styles.header, innerClassNames?.header)}>
             <Typography.Title id={titleId} variant="medium-strong">
@@ -334,6 +376,7 @@ export const BottomSheet = ({
         <div className={styles.content}>
           {children}
         </div>
+        {hasFooter && <div ref={footerRef} className={styles.footer}>{footer}</div>}
       </div>
     </div>
   );

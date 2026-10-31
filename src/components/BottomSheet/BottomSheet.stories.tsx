@@ -2,7 +2,10 @@ import type { Meta, StoryObj } from '@storybook/react-vite';
 import { hideArgsControl } from '@storybook-config/shared';
 import { useState } from 'react';
 
+import { icons } from '../../icons/catalog';
 import { Button } from '../Button';
+import { Icon } from '../Icon';
+import { QrPanel } from '../QrPanel';
 import { BottomSheet, type BottomSheetProps } from './BottomSheet';
 
 const meta = {
@@ -148,4 +151,50 @@ export const CouponSheet: Story = {
       </BottomSheet>
     );
   }
+};
+
+/**
+ * Folha do cupom com QR: QrPanel de ponta a ponta no topo (hero), conteúdo e dois botões
+ * fixos embaixo (footer). A alça fica sobreposta ao bloco. Com hero ou footer a folha
+ * inteira rola, inclusive em celular deitado (use a janela de visualização do Storybook).
+ */
+export const CouponWithQr: Story = {
+  args: { title: undefined, 'aria-label': 'Cupom com QR code' },
+  render: ({ ...args }) => (
+    <BottomSheet
+      {...args}
+      hero={<QrPanel value="GUIDU-7K3Q-92XM" qrLabel="QR code do cupom" action={{ label: 'Imprimir', onClick: () => {} }} />}
+      footer={(
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
+          <Button variant="primary" size="large" stretched iconAfter={<Icon icon={icons.copy} />}>
+            GUIDU-7K3Q-92XM
+          </Button>
+          <Button variant="secondary" size="large" stretched onClick={args.onClose}>
+            Fechar
+          </Button>
+        </div>
+      )}
+    >
+      {Array.from({ length: 12 }, (_, index) => (
+        <p key={index} style={{ margin: 0 }}>
+          Regra
+          {index + 1}
+          : válido de segunda a sexta, mediante apresentação do código.
+        </p>
+      ))}
+    </BottomSheet>
+  )
+};
+
+/** Só com hero, sem footer: a margem de baixo da folha (20 px) continua. */
+export const CouponHeroOnly: Story = {
+  args: { title: undefined, 'aria-label': 'Cupom com QR code' },
+  render: ({ ...args }) => (
+    <BottomSheet
+      {...args}
+      hero={<QrPanel value="GUIDU-7K3Q-92XM" qrLabel="QR code do cupom" action={{ label: 'Imprimir', onClick: args.onClose }} />}
+    >
+      <p style={{ margin: 0 }}>Válido de segunda a sexta, mediante apresentação do código.</p>
+    </BottomSheet>
+  )
 };

@@ -1,0 +1,40 @@
+@use '../../styles/shared-mixins/reset-clickable';
+
+.OfferHero {
+  position: relative;
+  width: 100%;
+  min-height: 200px;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  border-radius: var(--size-border-radius-semantic-border-radius-surface);
+  background-color: var(--background-secondary);
+}
+
+.OfferHero__image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.OfferHero__save {
+  @include reset-clickable.resetClickable;
+  position: absolute;
+  z-index: 1;
+  top: var(--spacing-size-xl);
+  right: var(--spacing-size-xl);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background-color: var(--background-coupon-photo);
+  color: var(--icon-primary-static);
+  cursor: pointer;
+
+  &:focus-visible {
+    outline: 2px solid var(--text-primary-static);
+    outline-offset: -4px;
+  }
+}

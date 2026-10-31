@@ -1,0 +1,13 @@
+@use '../../styles/shared-mixins/typography';
+
+// Texto escuro (estático) sobre o verde do cupom, igual ao OfferCard, nos dois temas.
+.ValidityBanner {
+  @include typography.bodyStrong;
+  box-sizing: border-box;
+  width: 100%;
+  padding: var(--spacing-size-xl) var(--spacing-size2xl);
+  background-color: var(--background-coupon);
+  color: var(--text-primary-static);
+  text-align: center;
+  overflow-wrap: anywhere;
+}
