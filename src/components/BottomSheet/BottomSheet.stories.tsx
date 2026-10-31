@@ -123,3 +123,29 @@ export const WithoutDrag: Story = {
     );
   }
 };
+
+/**
+ * Reproduz a folha de cupom da página de Ofertas: o foco vai para um elemento
+ * tabIndex={-1} antes do primeiro botão, e o Tab/Shift+Tab não pode sair da folha.
+ */
+export const CouponSheet: Story = {
+  args: {
+    title: 'Cupom de 10%'
+  },
+  render: ({ ...args }) => {
+    return (
+      <BottomSheet {...args}>
+        <div tabIndex={-1} data-testid="coupon-code" style={{ outline: 'none', marginBottom: 12 }}>
+          Código GUIDU10
+        </div>
+        <div style={{ display: 'flex', gap: 8 }}>
+          <Button variant="secondary" size="medium" stretched>Copiar</Button>
+          <Button variant="primary" size="medium" stretched onClick={args.onClose}>Fechar</Button>
+        </div>
+        <div tabIndex={-1} data-testid="coupon-note" style={{ outline: 'none', marginTop: 12 }}>
+          Válido até o fim do mês.
+        </div>
+      </BottomSheet>
+    );
+  }
+};

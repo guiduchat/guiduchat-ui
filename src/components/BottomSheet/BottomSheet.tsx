@@ -35,10 +35,56 @@ type Status = 'closed' | 'open' | 'exiting';
 const EXIT_TIMEOUT_MS = 300;
 
 const FOCUSABLE = [
-  'a[href]', 'area[href]', 'button:not([disabled])', 'input:not([disabled]):not([type="hidden"])',
-  'select:not([disabled])', 'textarea:not([disabled])', 'summary', '[contenteditable="true"]',
-  '[tabindex]:not([tabindex="-1"])'
+  'a[href]', 'area[href]', 'button', 'input:not([type="hidden"])', 'select', 'textarea',
+  'summary', '[contenteditable]:not([contenteditable="false"])', '[tabindex]'
 ].join(',');
+
+const isDisabled = (el: HTMLElement) => {
+  if (el.matches(':disabled')) {
+    return true;
+  }
+  // Campo dentro de fieldset desativado (exceto dentro do primeiro legend).
+  if (/^(BUTTON|INPUT|SELECT|TEXTAREA)$/.test(el.tagName)) {
+    const fieldset = el.closest('fieldset[disabled]');
+    if (fieldset) {
+      const legend = Array.from(fieldset.children).find((c) => c.tagName === 'LEGEND');
+      return !(legend && legend.contains(el));
+    }
+  }
+  return false;
+};
+
+const isHidden = (el: HTMLElement) => {
+  if (typeof el.checkVisibility === 'function') {
+    return !el.checkVisibility({ visibilityProperty: true });
+  }
+  // Alternativa (jsdom): sobe pelos ancestrais procurando hidden e display.
+  for (let node: HTMLElement | null = el; node; node = node.parentElement) {
+    if (node.hidden || window.getComputedStyle(node).display === 'none') {
+      return true;
+    }
+  }
+  return window.getComputedStyle(el).visibility === 'hidden';
+};
+
+const tabbableItems = (root: HTMLElement) => {
+  const items = Array.from(root.querySelectorAll<HTMLElement>(FOCUSABLE)).filter((el) => {
+    const tabindex = el.getAttribute('tabindex');
+    if (tabindex !== null && Number.parseInt(tabindex, 10) < 0) {
+      return false;
+    }
+    return !isDisabled(el) && !isHidden(el) && el.closest('[aria-hidden="true"], [inert]') === null;
+  });
+  // Grupo de rádio: só o marcado entra no Tab (ou o primeiro, se nenhum está marcado).
+  return items.filter((el) => {
+    if (!(el instanceof HTMLInputElement) || el.type !== 'radio' || !el.name) {
+      return true;
+    }
+    const group = items.filter((other): other is HTMLInputElement =>
+      other instanceof HTMLInputElement && other.type === 'radio' && other.name === el.name && other.form === el.form);
+    return (group.find((r) => r.checked) ?? group[0]) === el;
+  });
+};
 
 const prefersReducedMotion = () =>
   typeof window !== 'undefined' &&
@@ -137,20 +183,26 @@ export const BottomSheet = ({
       return;
     }
     const sheet = event.currentTarget;
-    const items = Array.from(sheet.querySelectorAll<HTMLElement>(FOCUSABLE))
-      .filter((el) => !el.hasAttribute('disabled') && el.getAttribute('aria-hidden') !== 'true');
-    if (items.length === 0) {
+    const items = tabbableItems(sheet);
+    const first = items[0];
+    const last = items[items.length - 1];
+    if (!first || !last) {
       event.preventDefault();
       sheet.focus({ preventScroll: true });
       return;
     }
-    const first = items[0];
-    const last = items[items.length - 1];
     const active = document.activeElement;
-    if (event.shiftKey && (active === first || active === sheet || !sheet.contains(active))) {
-      event.preventDefault();
-      last.focus();
-    } else if (!event.shiftKey && (active === last || !sheet.contains(active))) {
+    // Decide pela posição: o foco pode estar num elemento tabIndex={-1} fora da
+    // lista, e comparar só com first/last deixaria o Tab escapar da folha.
+    const anchor = active instanceof HTMLElement && sheet.contains(active) ? active : null;
+    const has = (flag: number) =>
+      anchor !== null && items.some((item) => item !== anchor && (anchor.compareDocumentPosition(item) & flag) !== 0);
+    if (event.shiftKey) {
+      if (!has(Node.DOCUMENT_POSITION_PRECEDING)) {
+        event.preventDefault();
+        last.focus();
+      }
+    } else if (!has(Node.DOCUMENT_POSITION_FOLLOWING)) {
       event.preventDefault();
       first.focus();
     }

@@ -1,5 +1,5 @@
 import { act, fireEvent, render, screen } from '@testing-library/react';
-import { useState } from 'react';
+import { type ReactNode, useState } from 'react';
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 
 import { BottomSheet } from './BottomSheet';
@@ -173,5 +173,121 @@ describe('BottomSheet: arrasto curto', () => {
     fireEvent.click(screen.getByRole('dialog').parentElement as HTMLElement);
     act(() => { vi.advanceTimersByTime(400); });
     expect(screen.queryByRole('dialog')).toBeNull();
+  });
+});
+
+describe('BottomSheet: lista de focáveis e Tab por posição', () => {
+  const Sheet = ({ children }: { children: ReactNode }) => (
+    <BottomSheet open title="X" enableDrag={false} onClose={() => {}}>{children}</BottomSheet>
+  );
+  const tab = (el: Element, shiftKey = false) => {
+    const notPrevented = fireEvent.keyDown(el, { key: 'Tab', shiftKey });
+    return !notPrevented;
+  };
+
+  it('Shift+Tab com o foco num filho tabIndex={-1} antes do primeiro botão vai ao último', () => {
+    render(
+      <Sheet>
+        <div tabIndex={-1} data-testid="alvo">cupom</div>
+        <button type="button">um</button>
+        <button type="button">dois</button>
+      </Sheet>
+    );
+    const alvo = screen.getByTestId('alvo');
+    alvo.focus();
+    expect(tab(alvo, true)).toBe(true);
+    expect(document.activeElement).toBe(screen.getByRole('button', { name: 'dois' }));
+  });
+
+  it('Tab com o foco em elemento tabIndex={-1} antes do primeiro botão segue o fluxo nativo', () => {
+    render(
+      <Sheet>
+        <div tabIndex={-1} data-testid="alvo">cupom</div>
+        <button type="button">um</button>
+      </Sheet>
+    );
+    const alvo = screen.getByTestId('alvo');
+    alvo.focus();
+    expect(tab(alvo)).toBe(false);
+  });
+
+  it('Tab com o foco em elemento tabIndex={-1} depois do último item volta ao primeiro', () => {
+    render(
+      <Sheet>
+        <button type="button">um</button>
+        <button type="button">dois</button>
+        <div tabIndex={-1} data-testid="alvo">fim</div>
+      </Sheet>
+    );
+    const alvo = screen.getByTestId('alvo');
+    alvo.focus();
+    expect(tab(alvo)).toBe(true);
+    expect(document.activeElement).toBe(screen.getByRole('button', { name: 'um' }));
+  });
+
+  it('Shift+Tab com o foco em elemento tabIndex={-1} depois do último item não é desviado', () => {
+    render(
+      <Sheet>
+        <button type="button">um</button>
+        <div tabIndex={-1} data-testid="alvo">fim</div>
+      </Sheet>
+    );
+    const alvo = screen.getByTestId('alvo');
+    alvo.focus();
+    expect(tab(alvo, true)).toBe(false);
+  });
+
+  it('ignora tabIndex negativo, desativados, fieldset desativado e ocultos', () => {
+    render(
+      <Sheet>
+        <button type="button" tabIndex={-1}>neg</button>
+        <button type="button">primeiro</button>
+        <button type="button" disabled>off</button>
+        <fieldset disabled><input aria-label="fs" /></fieldset>
+        <div hidden><button type="button">oculto</button></div>
+        <div style={{ display: 'none' }}><button type="button">none</button></div>
+        <button type="button" style={{ visibility: 'hidden' }}>invisivel</button>
+        <button type="button">ultimo</button>
+        <button type="button" tabIndex={-1}>neg2</button>
+      </Sheet>
+    );
+    const ultimo = screen.getByRole('button', { name: 'ultimo' });
+    ultimo.focus();
+    expect(tab(ultimo)).toBe(true);
+    expect(document.activeElement).toBe(screen.getByRole('button', { name: 'primeiro' }));
+    expect(tab(document.activeElement as Element, true)).toBe(true);
+    expect(document.activeElement).toBe(ultimo);
+  });
+
+  it('grupo de rádio entra no Tab só pelo marcado', () => {
+    render(
+      <Sheet>
+        <button type="button">antes</button>
+        <input type="radio" name="g" aria-label="r1" />
+        <input type="radio" name="g" aria-label="r2" defaultChecked />
+        <input type="radio" name="g" aria-label="r3" />
+      </Sheet>
+    );
+    const r2 = screen.getByLabelText('r2');
+    r2.focus();
+    // r2 é o último focável: Tab volta ao primeiro; Shift+Tab em 'antes' vai ao r2.
+    expect(tab(r2)).toBe(true);
+    const antes = screen.getByRole('button', { name: 'antes' });
+    expect(document.activeElement).toBe(antes);
+    expect(tab(antes, true)).toBe(true);
+    expect(document.activeElement).toBe(r2);
+  });
+
+  it('sem rádio marcado, só o primeiro do grupo entra no Tab', () => {
+    render(
+      <Sheet>
+        <input type="radio" name="h" aria-label="a" />
+        <input type="radio" name="h" aria-label="b" />
+      </Sheet>
+    );
+    const a = screen.getByLabelText('a');
+    a.focus();
+    expect(tab(a)).toBe(true);
+    expect(document.activeElement).toBe(a);
   });
 });
