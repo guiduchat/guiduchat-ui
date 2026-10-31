@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import {CSSProperties, type KeyboardEvent as ReactKeyboardEvent, type ReactNode, type TransitionEvent, useEffect, useId, useLayoutEffect, useRef, useState} from 'react';
+import {CSSProperties, type ReactNode, type TransitionEvent, useEffect, useId, useLayoutEffect, useRef, useState} from 'react';
 
 import { useDrag } from '../../hooks';
 import {InnerClassNamesProp} from "../../types";
@@ -56,7 +56,7 @@ const isDisabled = (el: HTMLElement) => {
 
 const isHidden = (el: HTMLElement) => {
   if (typeof el.checkVisibility === 'function') {
-    return !el.checkVisibility({ visibilityProperty: true });
+    return !el.checkVisibility({ visibilityProperty: true, checkVisibilityCSS: true });
   }
   // Alternativa (jsdom): sobe pelos ancestrais procurando hidden e display.
   for (let node: HTMLElement | null = el; node; node = node.parentElement) {
@@ -178,35 +178,54 @@ export const BottomSheet = ({
     };
   }, [visible]);
 
-  const handleSheetKeyDown = (event: ReactKeyboardEvent<HTMLDivElement>) => {
-    if (event.key !== 'Tab') {
+  // Tab preso na folha. Fica no document (como o Esc) porque, com o foco em body
+  // ou no fundo, o onKeyDown da folha não roda. Só com a folha aberta: em
+  // 'exiting' o app move o foco ao gatilho e a captura o roubaria de volta.
+  useEffect(() => {
+    if (status !== 'open') {
       return;
     }
-    const sheet = event.currentTarget;
-    const items = tabbableItems(sheet);
-    const first = items[0];
-    const last = items[items.length - 1];
-    if (!first || !last) {
-      event.preventDefault();
-      sheet.focus({ preventScroll: true });
-      return;
-    }
-    const active = document.activeElement;
-    // Decide pela posição: o foco pode estar num elemento tabIndex={-1} fora da
-    // lista, e comparar só com first/last deixaria o Tab escapar da folha.
-    const anchor = active instanceof HTMLElement && sheet.contains(active) ? active : null;
-    const has = (flag: number) =>
-      anchor !== null && items.some((item) => item !== anchor && (anchor.compareDocumentPosition(item) & flag) !== 0);
-    if (event.shiftKey) {
-      if (!has(Node.DOCUMENT_POSITION_PRECEDING)) {
-        event.preventDefault();
-        last.focus();
+    const handleTab = (event: KeyboardEvent) => {
+      const sheet = sheetRef.current;
+      if (event.key !== 'Tab' || !sheet) {
+        return;
       }
-    } else if (!has(Node.DOCUMENT_POSITION_FOLLOWING)) {
-      event.preventDefault();
-      first.focus();
-    }
-  };
+      const active = document.activeElement;
+      const anchor = active instanceof HTMLElement && sheet.contains(active) ? active : null;
+      const items = tabbableItems(sheet);
+      const first = items[0];
+      const last = items[items.length - 1];
+      if (!first || !last) {
+        event.preventDefault();
+        if (!anchor) {
+          sheet.focus({ preventScroll: true });
+        }
+        return;
+      }
+      if (!anchor) {
+        event.preventDefault();
+        (event.shiftKey ? last : first).focus();
+        return;
+      }
+      // Decide pela posição: o foco pode estar num elemento tabIndex={-1} fora da
+      // lista, e comparar só com first/last deixaria o Tab escapar da folha.
+      const has = (flag: number) =>
+        items.some((item) => item !== anchor && (anchor.compareDocumentPosition(item) & flag) !== 0);
+      if (event.shiftKey) {
+        if (!has(Node.DOCUMENT_POSITION_PRECEDING)) {
+          event.preventDefault();
+          last.focus();
+        }
+      } else if (!has(Node.DOCUMENT_POSITION_FOLLOWING)) {
+        event.preventDefault();
+        first.focus();
+      }
+    };
+    document.addEventListener('keydown', handleTab);
+    return () => {
+      document.removeEventListener('keydown', handleTab);
+    };
+  }, [status]);
 
   useEffect(() => {
     if (status === 'closed') {
@@ -285,7 +304,6 @@ export const BottomSheet = ({
           // supressão engolir o próximo toque na película.
           suppressClickRef.current = false;
         }}
-        onKeyDown={handleSheetKeyDown}
         onTransitionEnd={handleTransitionEnd}
       >
         {enableDrag && (

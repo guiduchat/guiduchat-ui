@@ -290,4 +290,100 @@ describe('BottomSheet: lista de focáveis e Tab por posição', () => {
     expect(tab(a)).toBe(true);
     expect(document.activeElement).toBe(a);
   });
+
+  it('foco no body: Tab vai ao primeiro item e Shift+Tab ao último', () => {
+    render(
+      <Sheet>
+        <button type="button">um</button>
+        <button type="button">dois</button>
+      </Sheet>
+    );
+    (document.activeElement as HTMLElement).blur();
+    expect(document.activeElement).toBe(document.body);
+    expect(tab(document.body)).toBe(true);
+    expect(document.activeElement).toBe(screen.getByRole('button', { name: 'um' }));
+    (document.activeElement as HTMLElement).blur();
+    expect(tab(document.body, true)).toBe(true);
+    expect(document.activeElement).toBe(screen.getByRole('button', { name: 'dois' }));
+  });
+
+  it('foco em botão fora da folha: Tab vai ao primeiro e Shift+Tab ao último', () => {
+    render(
+      <>
+        <button type="button">fundo</button>
+        <Sheet>
+          <button type="button">um</button>
+          <button type="button">dois</button>
+        </Sheet>
+      </>
+    );
+    const fundo = screen.getByRole('button', { name: 'fundo', hidden: true });
+    fundo.focus();
+    expect(tab(fundo)).toBe(true);
+    expect(document.activeElement).toBe(screen.getByRole('button', { name: 'um' }));
+    fundo.focus();
+    expect(tab(fundo, true)).toBe(true);
+    expect(document.activeElement).toBe(screen.getByRole('button', { name: 'dois' }));
+  });
+
+  it('sem focáveis: foco fora vai à folha; foco dentro não é movido', () => {
+    render(
+      <>
+        <button type="button">fundo</button>
+        <Sheet><p>texto longo</p></Sheet>
+      </>
+    );
+    const sheet = screen.getByRole('dialog');
+    const fundo = screen.getByRole('button', { name: 'fundo', hidden: true });
+    fundo.focus();
+    expect(tab(fundo)).toBe(true);
+    expect(document.activeElement).toBe(sheet);
+    const antes = document.activeElement;
+    expect(tab(sheet, true)).toBe(true);
+    expect(document.activeElement).toBe(antes);
+  });
+
+  it('durante exiting não captura o Tab', () => {
+    render(<Harness />);
+    press('abrir');
+    escape();
+    expect(screen.queryByRole('dialog')).not.toBeNull();
+    const abrir = screen.getByRole('button', { name: 'abrir', hidden: true });
+    abrir.focus();
+    expect(tab(abrir)).toBe(false);
+    expect(document.activeElement).toBe(abrir);
+  });
+
+  it('o primeiro legend de fieldset desativado continua focável; o segundo não', () => {
+    render(
+      <Sheet>
+        <button type="button">antes</button>
+        <fieldset disabled>
+          <legend><input aria-label="no-legend" /></legend>
+          <legend><input aria-label="legend2" /></legend>
+          <input aria-label="corpo" />
+        </fieldset>
+      </Sheet>
+    );
+    const noLegend = screen.getByLabelText('no-legend');
+    noLegend.focus();
+    expect(tab(noLegend)).toBe(true);
+    expect(document.activeElement).toBe(screen.getByRole('button', { name: 'antes' }));
+    expect(tab(document.activeElement as Element, true)).toBe(true);
+    expect(document.activeElement).toBe(noLegend);
+  });
+
+  it('ignora itens sob aria-hidden e inert', () => {
+    render(
+      <Sheet>
+        <button type="button">primeiro</button>
+        <div aria-hidden="true"><button type="button">escondido</button></div>
+        <div inert><button type="button">inerte</button></div>
+      </Sheet>
+    );
+    const primeiro = screen.getByRole('button', { name: 'primeiro' });
+    primeiro.focus();
+    expect(tab(primeiro)).toBe(true);
+    expect(document.activeElement).toBe(primeiro);
+  });
 });
