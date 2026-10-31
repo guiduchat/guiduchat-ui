@@ -113,6 +113,6 @@
     "typescript": "npm:@typescript/typescript6@6.0.2",
     "vite": "8.1.5",
     "vite-plugin-svgr": "5.2.0",
-    "vitest": "5.0.3"
+    "vitest": "5.0.5"
   }
 }
