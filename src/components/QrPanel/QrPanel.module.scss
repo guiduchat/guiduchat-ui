@@ -11,6 +11,15 @@
   padding: 40px var(--spacing-size2xl) var(--spacing-size3xl);
   background-color: var(--button-primary);
   color: var(--text-on-accent);
+  container-type: inline-size;
+}
+
+// Em largura estreita (painel abaixo de 304 px) o botão do canto (44 px a 12 px da borda) bateria na margem
+// de silêncio do QR de 192 px; o QR desce 20 px, para além da base do botão. Os módulos não mudam.
+@container (max-width: 271.99px) {
+  .QrPanel__qr {
+    margin-top: 20px;
+  }
 }
 
 // O QR já traz a margem de silêncio branca; o quadrado só arredonda.

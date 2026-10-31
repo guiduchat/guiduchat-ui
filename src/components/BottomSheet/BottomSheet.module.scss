@@ -63,7 +63,7 @@
   }
 }
 
-// Alça sobre o hero: escura e opaca (sem opacity no elemento, que diluiria o contorno de foco).
+// Alça sobre o hero: escura (--icon-primary-static, alfa 0,84) e sem opacity no elemento, que diluiria o contorno de foco.
 // Supõe um hero de fundo claro, como o QrPanel (limão); sobre um hero escuro ela some.
 .handle_overHero {
   position: absolute;
@@ -87,26 +87,37 @@
   padding-top: 12px;
 }
 
-// Com hero ou footer a folha inteira rola (celular deitado: a área rolável só do conteúdo ficava com 0 px).
-// O footer fica colado embaixo (sticky) e continua alcançável; sem as props nada disto vale.
-.sheet_scroll {
-  overflow-y: auto;
-  overscroll-behavior: contain;
-  padding-bottom: 0;
+// Em altura pequena (celular deitado, tela baixa) o hero e o footer sozinhos tomam a folha e a área
+// rolável do conteúdo ficava com 0 px. Aí, e só aí, a folha inteira rola e o footer fica colado embaixo (sticky).
+// Em altura normal (retrato) o hero e o footer ficam fixos e só o .content rola.
+// O limite de 600 px vem de medição: em 360x640 sobram cerca de 100 px de leitura e em 360x568 não sobra o
+// bastante. A altura do footer varia e é publicada pelo componente em --BottomSheet-footer-height,
+// que vira scroll-padding: o foco por teclado não fica atrás do footer (WCAG 2.4.11).
+@media (max-height: 600px) {
+  .sheet_scroll {
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    scroll-padding-bottom: var(--BottomSheet-footer-height, 0px);
 
-  > * {
-    flex-shrink: 0;
+    > * {
+      flex-shrink: 0;
+    }
+
+    .content {
+      overflow: visible;
+    }
   }
 
-  .content {
-    overflow: visible;
-  }
+  // O footer leva a margem de baixo da folha; sem footer (só hero) o padding da folha continua valendo.
+  .sheet_withFooter {
+    padding-bottom: 0;
 
-  .footer {
-    position: sticky;
-    bottom: 0;
-    padding-bottom: 20px;
-    background-color: var(--background-surface-secondary, #fff);
+    .footer {
+      position: sticky;
+      bottom: 0;
+      padding-bottom: 20px;
+      background-color: var(--background-surface-secondary, #fff);
+    }
   }
 }
 

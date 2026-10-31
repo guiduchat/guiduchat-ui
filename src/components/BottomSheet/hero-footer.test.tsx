@@ -34,7 +34,7 @@ afterEach(() => {
 });
 
 describe('BottomSheet: hero e footer', () => {
-  it('hero e footer ficam fora da área rolável', () => {
+  it('hero e footer ficam fora do .content, que é a área rolável em altura normal', () => {
     render(<HeroHarness />);
     openSheet();
     const content = screen.getByText('um').parentElement!;
@@ -73,7 +73,7 @@ describe('BottomSheet: hero e footer', () => {
     expect(dialog.children[1]!.className).toContain('content');
   });
 
-  it('com hero ou footer a folha inteira rola; sem eles, não', () => {
+  it('com hero ou footer a folha ganha a classe de rolagem total (só vale em altura pequena); sem eles, não', () => {
     const { unmount } = render(<HeroHarness />);
     openSheet();
     expect(screen.getByRole('dialog').className).toContain('sheet_scroll');

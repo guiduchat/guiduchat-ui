@@ -185,3 +185,16 @@ export const CouponWithQr: Story = {
     </BottomSheet>
   )
 };
+
+/** Só com hero, sem footer: a margem de baixo da folha (20 px) continua. */
+export const CouponHeroOnly: Story = {
+  args: { title: undefined, 'aria-label': 'Cupom com QR code' },
+  render: ({ ...args }) => (
+    <BottomSheet
+      {...args}
+      hero={<QrPanel value="GUIDU-7K3Q-92XM" qrLabel="QR code do cupom" action={{ label: 'Imprimir', onClick: args.onClose }} />}
+    >
+      <p style={{ margin: 0 }}>Válido de segunda a sexta, mediante apresentação do código.</p>
+    </BottomSheet>
+  )
+};
