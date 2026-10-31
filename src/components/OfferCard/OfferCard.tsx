@@ -61,7 +61,8 @@ interface OfferCardOwnProps {
   /** Small situation label, such as "Used" or "Expired". */
   tag?: ReactNode
   /**
-   * `ticket`: coupon with side notches and the footer under the dashed line.
+   * Both have side notches at the dashed line (CSS mask) and the footer under it.
+   * `ticket`: plain coupon on the coupon green.
    * `featured`: photo with the coupon over its base.
    */
   appearance?: OfferCardAppearance

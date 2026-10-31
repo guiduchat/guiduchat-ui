@@ -1,13 +1,13 @@
 import { clsx } from 'clsx';
-import { type ComponentProps, forwardRef, isValidElement, type KeyboardEvent, type ReactNode, useEffect, useRef, useState } from 'react';
+import { Children, type ComponentProps, forwardRef, isValidElement, type KeyboardEvent, type ReactNode, useEffect, useRef, useState } from 'react';
 
 import { type MergeProps } from '../../types';
 import styles from './Carousel.module.scss';
 
 interface CarouselOwnProps {
   /**
-   * One child per page. Arrays are flattened, and `null`, `undefined` and booleans
-   * (such as the result of `cond && <X />`) are dropped. A fragment counts as one page.
+   * One child per page. Arrays are flattened, and `null`, `undefined`, booleans
+   * (such as the result of `cond && <X />`) and empty strings are dropped. A fragment counts as one page.
    */
   children: ReactNode
   /** Accessible name of the scroll area (the keyboard stop), translated by the app. */
@@ -22,11 +22,12 @@ interface CarouselOwnProps {
  */
 export type CarouselProps = MergeProps<ComponentProps<'div'>, CarouselOwnProps>;
 
-// Without `Children.*`: flattens arrays and drops what React renders as nothing.
-const toPages = (children: ReactNode): ReactNode[] =>
-  ([children] as unknown[]).flat(Infinity).filter(
-    (child): child is ReactNode => child !== null && child !== undefined && typeof child !== 'boolean'
-  );
+// `Children.toArray` flattens arrays, drops `null`, `undefined` and booleans, and scopes each key
+// to its origin and position, so repeated ids in two lists never collide and `cond && <A />`
+// does not remount its sibling. A fragment stays whole, as one page. Empty strings would render
+// as blank pages, so they are dropped too.
+// eslint-disable-next-line @eslint-react/no-children-to-array -- the only API that scopes keys by origin and position
+const toPages = (children: ReactNode): ReactNode[] => Children.toArray(children).filter((child) => child !== '');
 
 const pageKey = (page: ReactNode, index: number): string =>
   isValidElement(page) && page.key !== null ? `k:${page.key}` : `i:${index}`;
@@ -36,6 +37,7 @@ export const Carousel = forwardRef<HTMLDivElement, CarouselProps>((props, forwar
   const { children, pagerLabel, className, onKeyDown, 'aria-label': ariaLabel, 'aria-labelledby': ariaLabelledby, ...rest } = props;
   const pages = toPages(children);
   const total = pages.length;
+  const keys = pages.map(pageKey).join('|');
   const trackRef = useRef<HTMLDivElement>(null);
   const [active, setActive] = useState(0);
 
@@ -55,7 +57,7 @@ export const Carousel = forwardRef<HTMLDivElement, CarouselProps>((props, forwar
 
     for (const child of track.children) observer.observe(child);
     return () => { observer.disconnect(); };
-  }, [total]);
+  }, [total, keys]);
 
   if (total === 0) return null;
 

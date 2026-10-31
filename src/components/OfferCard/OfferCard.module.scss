@@ -201,11 +201,6 @@ $dash-thickness: 2px;
     radial-gradient(circle $notch at 100% 100%, transparent calc(#{$notch} - 0.5px), currentColor $notch) right / 51% 100% no-repeat;
 }
 
-// [Appearance] Ticket: the coupon green and the page behind the notches
-.OfferCard_appearance_ticket {
-  --OfferCard-background: var(--background-coupon);
-}
-
 // [Appearance] Featured: photo with the coupon over its base; the header and the footer
 // carry the light green, so the notches show the real photo.
 .OfferCard_appearance_featured {

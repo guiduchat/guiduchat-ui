@@ -1,4 +1,5 @@
 import { fireEvent, render, screen } from '@testing-library/react';
+import { useEffect } from 'react';
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 
 import { Carousel } from './Carousel';
@@ -6,13 +7,15 @@ import { Carousel } from './Carousel';
 type Callback = (entries: Array<Partial<IntersectionObserverEntry>>) => void;
 let callback: Callback | undefined;
 const disconnect = vi.fn();
+const observed = new Set<Element>();
 
 beforeEach(() => {
   disconnect.mockClear();
+  observed.clear();
   class FakeObserver {
     constructor (cb: Callback) { callback = cb; }
-    observe = vi.fn();
-    disconnect = disconnect;
+    observe = (element: Element) => { observed.add(element); };
+    disconnect = () => { observed.clear(); disconnect(); };
   }
   vi.stubGlobal('IntersectionObserver', FakeObserver);
 });
@@ -126,6 +129,81 @@ describe('Carousel', () => {
     expect(scrollBy).not.toHaveBeenCalled();
     fireEvent.keyDown(track, { key: 'ArrowLeft' });
     expect(scrollBy).toHaveBeenCalledWith({ left: -track.clientWidth });
+  });
+
+  describe('observador e chaves', () => {
+    const list = (ids: string[]) => (
+      <Carousel aria-label="Ofertas" pagerLabel={pager}>
+        {ids.map((id) => <p key={id}>{id}</p>)}
+      </Carousel>
+    );
+    const watching = () => {
+      const track = screen.getByRole('group', { name: 'Ofertas' });
+      return Array.from(track.children).filter((child) => observed.has(child)).length;
+    };
+
+    it('troca todas as chaves com a mesma contagem e volta a observar as páginas novas', () => {
+      const { rerender } = render(list(['a', 'b', 'c']));
+      expect(watching()).toBe(3);
+      rerender(list(['d', 'e', 'f']));
+      expect(watching()).toBe(3);
+    });
+
+    it('troca parcial das chaves com a mesma contagem também reobserva', () => {
+      const { rerender } = render(list(['a', 'b', 'c']));
+      rerender(list(['a', 'b', 'd']));
+      expect(watching()).toBe(3);
+    });
+
+    it('chaves repetidas em listas irmãs não geram chave duplicada', () => {
+      const error = vi.spyOn(console, 'error').mockImplementation(() => undefined);
+      render(
+        <Carousel aria-label="Ofertas" pagerLabel={pager}>
+          {[1, 2].map((id) => (
+            <p key={id}>
+              a
+              {id}
+            </p>
+          ))}
+          {[1, 2].map((id) => (
+            <p key={id}>
+              b
+              {id}
+            </p>
+          ))}
+        </Carousel>
+      );
+      expect(screen.getByRole('group', { name: 'Ofertas' }).children).toHaveLength(4);
+      expect(error).not.toHaveBeenCalled();
+      error.mockRestore();
+    });
+
+    it('um condicional antes do filho não remonta o filho quando muda', () => {
+      let mounts = 0;
+      const Child = () => {
+        useEffect(() => { mounts += 1; }, []);
+        return <p>b</p>;
+      };
+      const ui = (show: boolean) => (
+        <Carousel aria-label="Ofertas" pagerLabel={pager}>
+          {show && <p>a</p>}
+          <Child />
+        </Carousel>
+      );
+      const { rerender } = render(ui(false));
+      rerender(ui(true));
+      expect(mounts).toBe(1);
+    });
+
+    it('string vazia não cria página em branco', () => {
+      render(
+        <Carousel aria-label="Ofertas" pagerLabel={pager}>
+          {''}
+          <p>a</p>
+        </Carousel>
+      );
+      expect(screen.getByRole('group', { name: 'Ofertas' }).children).toHaveLength(1);
+    });
   });
 
   it('className, id e style vão para a raiz e o nome acessível fica na área de rolagem', () => {
