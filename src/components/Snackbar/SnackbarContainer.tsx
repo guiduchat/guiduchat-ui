@@ -12,6 +12,8 @@ import type {
 export interface SnackbarContainerProps {
   queue: SnackbarQueueItem[];
   onExited?: SnackbarItemProps['onExited'];
+  /** Nome da região de avisos, traduzido pelo app. Sem ele, a região não recebe nome nem papel. */
+  regionLabel?: (placement: SnackbarPlacement) => string;
 }
 
 const placements: SnackbarPlacement[] = [
@@ -86,7 +88,7 @@ const getViewportStyle = (
     : { '--snackbar-bottom-offset': offsetValue };
 };
 
-export function SnackbarContainer({ queue, onExited }: SnackbarContainerProps) {
+export function SnackbarContainer({ queue, onExited, regionLabel }: SnackbarContainerProps) {
   const viewportGroups = groupByViewport(queue);
 
   return (
@@ -95,11 +97,11 @@ export function SnackbarContainer({ queue, onExited }: SnackbarContainerProps) {
         <div
           key={key}
           className={clsx(styles.viewport, placementClassNames[placement])}
-          aria-label={`Уведомления: ${placement}`}
+          aria-label={regionLabel?.(placement)}
           aria-live="polite"
           data-offset={offsetValue}
           data-placement={placement}
-          role="region"
+          role={regionLabel ? 'region' : undefined}
           style={getViewportStyle(placement, offsetValue)}
         >
           {items.map((item) => (
