@@ -1,5 +1,15 @@
 # Changelog do @guiduchat/ui
 
+## 0.11.0 (medidas dos cartões e pedidos)
+
+Medidas definidas pelo Marcelo em 30/10/2026: cartão externo com raio de 24 px e margem interna de 12 px; cartão interno com raio de 20 px.
+
+- **Token novo** `--size-border-radius-semantic-border-radius-surface` (24 px), usado por todos os cartões externos.
+- **InfoCard, OpeningHours e StatStrip:** raio de 28 para 24 px e margem interna de 8 para 12 px.
+- **HeaderCard:** margem interna de 20 para 12 px.
+- **StoreHero:** capa com raio de 28 para 24 px. **PlaceCard:** raio de 20 para 24 px.
+- **OrderSummaryCard** (novo): resumo de um pedido, com quadro interno, linha tracejada, total e botões do app.
+
 ## 0.10.0
 
 - **Ícones** no catálogo: `home`, `forYou` e `coupon`, para o rodapé de quem tem conta e os cartões de Conta.

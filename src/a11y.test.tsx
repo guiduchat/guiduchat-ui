@@ -27,6 +27,7 @@ import {
   NavBarPill,
   Notice,
   OpeningHours,
+  OrderSummaryCard,
   OtpInput,
   PasswordInput,
   PhoneInput,
@@ -53,6 +54,20 @@ import {
 // Acessibilidade com o axe nos componentes, nos dois temas. Componente novo
 // entra nesta lista (U7 do guidu-chat).
 const cases: Array<[string, ReactNode]> = [
+  [
+    'OrderSummaryCard',
+    <OrderSummaryCard
+      key="os"
+      title="Restaurante Buzin"
+      status="Retirado"
+      statusTone="positive"
+      meta="PED#235 - Segunda, 12/11/2026"
+      summary="Almoço completo / + 1 item"
+      totalLabel="Total:"
+      total="R$ 350,00"
+      actions={<Button size="small">Pedir novamente</Button>}
+    />
+  ],
   [
     'ShortcutCard',
     <div key="sc">

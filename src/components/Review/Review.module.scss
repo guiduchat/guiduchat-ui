@@ -31,7 +31,7 @@
   min-height: 116px;
   padding: var(--spacing-size-xl) var(--spacing-size-m);
   box-sizing: border-box;
-  border-radius: 24px;
+  border-radius: var(--size-border-radius-semantic-border-radius-surface);
   background-color: var(--background-secondary);
   color: var(--text-primary);
   text-align: center;
@@ -61,7 +61,7 @@
   min-height: 116px;
   padding: var(--spacing-size-xl) var(--spacing-size2xl);
   box-sizing: border-box;
-  border-radius: 24px;
+  border-radius: var(--size-border-radius-semantic-border-radius-surface);
   background-color: var(--background-secondary);
   color: var(--text-primary);
 }

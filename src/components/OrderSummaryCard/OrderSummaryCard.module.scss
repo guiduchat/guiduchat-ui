@@ -1,0 +1,96 @@
+.OrderSummaryCard {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-size-xl);
+  width: 100%;
+  padding: var(--spacing-size-xl);
+  box-sizing: border-box;
+  border-radius: var(--size-border-radius-semantic-border-radius-surface);
+  background-color: var(--background-secondary);
+  color: var(--text-primary);
+}
+
+.OrderSummaryCard__body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-size-xs);
+  padding: var(--spacing-size-xl);
+  border-radius: var(--size-border-radius-semantic-border-radius-promo);
+  background-color: var(--background-card);
+}
+
+.OrderSummaryCard__top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--spacing-size-xl);
+}
+
+.OrderSummaryCard__title {
+  min-width: 0;
+  margin: 0;
+  font-size: 20px;
+  font-weight: var(--font-weight-body-strong);
+  line-height: 26px;
+  overflow-wrap: anywhere;
+}
+
+.OrderSummaryCard__status {
+  flex-shrink: 0;
+  font-size: var(--font-size-body);
+  line-height: 26px;
+}
+
+.OrderSummaryCard__status_positive {
+  color: var(--text-positive);
+}
+
+.OrderSummaryCard__status_negative {
+  color: var(--text-negative);
+}
+
+.OrderSummaryCard__status_attention {
+  color: var(--text-attention);
+}
+
+.OrderSummaryCard__status_neutral {
+  color: var(--text-secondary);
+}
+
+.OrderSummaryCard__text {
+  margin: 0;
+  font-size: var(--font-size-body);
+  line-height: 22px;
+}
+
+.OrderSummaryCard__summary {
+  margin-top: var(--spacing-size-xs);
+  padding-top: var(--spacing-size-m);
+  border-top: 1px dashed var(--text-secondary);
+}
+
+.OrderSummaryCard__footer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--spacing-size-m) var(--spacing-size-xl);
+  padding: 0 var(--spacing-size-xs);
+}
+
+.OrderSummaryCard__total {
+  margin: 0;
+  font-size: var(--font-size-body);
+  line-height: 22px;
+}
+
+.OrderSummaryCard__totalLabel {
+  color: var(--text-secondary);
+}
+
+.OrderSummaryCard__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-size-m);
+  margin-left: auto;
+}
