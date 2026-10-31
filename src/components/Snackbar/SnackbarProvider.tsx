@@ -23,13 +23,16 @@ export interface SnackbarProviderProps extends PropsWithChildren {
   queueSize?: number;
   createId?: () => string;
   defaultPlacement?: SnackbarPlacement;
+  /** Nome da região de avisos por posição, traduzido pelo app. Opcional: sem ele a região fica sem nome. */
+  regionLabel?: (placement: SnackbarPlacement) => string;
 }
 
 export function SnackbarProvider({
   children,
   queueSize = 3,
   createId = createDefaultId,
-  defaultPlacement = 'bottom-center'
+  defaultPlacement = 'bottom-center',
+  regionLabel
 }: SnackbarProviderProps) {
   const [queue, setQueue] = useState<SnackbarQueueItem[]>([]);
   const timersRef = useRef(new Map<string, ReturnType<typeof setTimeout>>());
@@ -115,7 +118,7 @@ export function SnackbarProvider({
   return (
     <SnackbarContext.Provider value={value}>
       {children}
-      <SnackbarContainer queue={visibleQueue} onExited={removeSnackbar} />
+      <SnackbarContainer queue={visibleQueue} onExited={removeSnackbar} regionLabel={regionLabel} />
     </SnackbarContext.Provider>
   );
 }

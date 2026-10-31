@@ -95,3 +95,16 @@
     transform: translateY(0);
   }
 }
+
+.sheet:focus {
+  outline: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .overlay,
+  .overlayClosing,
+  .sheet {
+    animation: none;
+    transition: none;
+  }
+}

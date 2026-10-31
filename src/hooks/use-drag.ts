@@ -1,9 +1,11 @@
-import { type PointerEvent, type RefObject, useRef, useState } from 'react';
+import { type PointerEvent, type RefObject, useEffect, useRef, useState } from 'react';
 
 /** Порог смещения (в px), при превышении которого шторка закрывается по отпусканию. */
 const DEFAULT_CLOSE_THRESHOLD = 80;
 /** Небольшое смещение, после которого жест считается перетаскиванием (для подавления клика). */
 const DEFAULT_MOVE_THRESHOLD = 5;
+/** Tempo (em ms) em que o clique que encerra o arrasto fica suprimido; depois disso o próximo toque vale. */
+const SUPPRESS_CLICK_MS = 300;
 
 export type UseDragOptions = {
   /** Перетаскивание разрешено, только пока шторка полностью открыта и не закрывается. */
@@ -46,6 +48,11 @@ export const useDrag = ({
   const draggingRef = useRef(false);
   const movedRef = useRef(false);
   const suppressClickRef = useRef(false);
+  const suppressTimerRef = useRef<ReturnType<typeof setTimeout> | undefined>(undefined);
+
+  useEffect(() => () => {
+    clearTimeout(suppressTimerRef.current);
+  }, []);
 
   // Актуальное значение enabled берётся из ref, чтобы обработчики pointer
   // не опирались на устаревшее замыкание.
@@ -90,7 +97,13 @@ export const useDrag = ({
     const offset = dragOffsetRef.current;
     setDragging(false);
     if (movedRef.current) {
+      // O clique que encerra o arrasto pode nunca chegar à película (a alça o
+      // detém), então a supressão expira sozinha e não engole o próximo toque.
       suppressClickRef.current = true;
+      clearTimeout(suppressTimerRef.current);
+      suppressTimerRef.current = setTimeout(() => {
+        suppressClickRef.current = false;
+      }, SUPPRESS_CLICK_MS);
     }
     if (offset > closeThreshold) {
       onCloseRef.current();
