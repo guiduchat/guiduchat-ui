@@ -1,0 +1,61 @@
+.ContactCard {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-size-xl);
+  width: 100%;
+  padding: var(--spacing-size-xl);
+  box-sizing: border-box;
+  border-radius: var(--size-border-radius-semantic-border-radius-surface);
+  background-color: var(--background-secondary);
+  color: var(--text-primary);
+}
+
+.ContactCard__top {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-size-xl);
+}
+
+.ContactCard__avatar {
+  display: flex;
+  flex-shrink: 0;
+}
+
+.ContactCard__names {
+  min-width: 0;
+}
+
+.ContactCard__name {
+  margin: 0;
+  font-size: 20px;
+  font-weight: var(--font-weight-body-strong);
+  line-height: 26px;
+}
+
+.ContactCard__handle {
+  margin: 0;
+  font-size: var(--font-size-body);
+  line-height: 22px;
+  color: var(--text-secondary);
+}
+
+.ContactCard__address {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-size-m);
+  margin: 0;
+  font-size: var(--font-size-body);
+  line-height: 22px;
+}
+
+.ContactCard__icon {
+  flex-shrink: 0;
+  color: var(--icon-themed);
+}
+
+.ContactCard__actions {
+  display: grid;
+  grid-auto-columns: minmax(0, 1fr);
+  grid-auto-flow: column;
+  gap: var(--spacing-size-xl);
+}

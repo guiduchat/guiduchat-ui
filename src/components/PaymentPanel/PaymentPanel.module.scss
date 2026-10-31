@@ -1,0 +1,29 @@
+.PaymentPanel {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-size-m);
+  padding: var(--spacing-size-xl);
+  border-radius: var(--size-border-radius-semantic-border-radius-promo);
+  background-color: var(--background-nested);
+  color: var(--text-primary);
+}
+
+.PaymentPanel__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--spacing-size-xl);
+}
+
+.PaymentPanel__amount {
+  margin: 0;
+  font-size: 20px;
+  font-weight: var(--font-weight-body-strong);
+  line-height: 26px;
+}
+
+.PaymentPanel__description {
+  margin: 0;
+  font-size: var(--font-size-body);
+  line-height: 22px;
+}

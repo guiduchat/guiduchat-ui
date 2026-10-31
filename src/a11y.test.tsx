@@ -5,13 +5,16 @@ import { describe, expect, it } from 'vitest';
 
 import {
   ActionTile,
+  AddressPanel,
   Avatar,
   BentoGrid,
   BentoImage,
   Button,
   Composer,
+  ContactCard,
   Counter,
   EmptyState,
+  ExpandablePanel,
   FormField,
   GuiduUI,
   HeaderCard,
@@ -27,9 +30,13 @@ import {
   NavBarPill,
   Notice,
   OpeningHours,
+  OrderStatusCard,
   OrderSummaryCard,
+  OrderTimeline,
   OtpInput,
   PasswordInput,
+  PaymentPanel,
+  PersonRow,
   PhoneInput,
   PlaceCard,
   QuickAction,
@@ -48,12 +55,31 @@ import {
   Switch,
   TabBar,
   TabBarItem,
-  TextDivider
+  TextDivider,
 } from './index';
 
 // Acessibilidade com o axe nos componentes, nos dois temas. Componente novo
 // entra nesta lista (U7 do guidu-chat).
 const cases: Array<[string, ReactNode]> = [
+  [
+    'Página do pedido',
+    <div key="od">
+      <OrderStatusCard title="Pedido #23546" detail="Previsão de entrega: 1 hora" />
+      <ContactCard name="Padaria Flor de Búzios" handle="@flordebuzios" address="R. Manoel Turíbio de Farias, 273" />
+      <ExpandablePanel summary="Itens do pedido: 2" label="Ver itens do pedido">Pão de queijo × 2</ExpandablePanel>
+      <PaymentPanel amount="R$ 350,00" description="O pagamento deve ser feito no ato da entrega." />
+      <AddressPanel title="Pousada Flor do Mar" address="Av. Geribá, 360" note="Pode deixar na portaria." />
+      <PersonRow name="Fabiano Silva" detail="Placa: FDV3453" />
+      <OrderTimeline
+        aria-label="Andamento"
+        items={[
+          { key: 'done', icon: '1', title: 'Pedido confirmado', description: '12:40', state: 'done' },
+          { key: 'now', icon: '2', title: 'Pedido retirado', state: 'current' },
+          { key: 'next', icon: '3', title: 'Entrega', state: 'pending' }
+        ]}
+      />
+    </div>
+  ],
   [
     'OrderSummaryCard',
     <OrderSummaryCard
