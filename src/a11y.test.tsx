@@ -375,6 +375,15 @@ const cases: Array<[string, ReactNode]> = [
   [
     'Carrinho: item, quantidade, linha deslizante, cupom, resumo e aceite',
     <div key="cart">
+      <AddressPanel
+        plainIcon
+        title="Pousada Luar de Geribá"
+        titleAction={<Button variant="link" size="xsmall">Alterar endereço</Button>}
+        address="Av Geribá, 256"
+      >
+        <Button variant="link" size="xsmall" iconBefore={<Icon icon={icons.note} size={20} />}>Adicionar referência</Button>
+      </AddressPanel>
+      <AddressPanel title="Pousada" titleAction={<Button variant="link" size="xsmall">Alterar</Button>} address="Av. Geribá" />
       <Segmented
         aria-label="Entrega ou retirada"
         variant="buttons"

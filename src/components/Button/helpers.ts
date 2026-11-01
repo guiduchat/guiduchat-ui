@@ -25,6 +25,7 @@ export const getButtonSpinnerAppearance = (buttonVariant: ButtonVariant): Spinne
       return 'contrast';
     case 'ghost':
     case 'outline':
+    case 'link':
       return 'themed';
     case 'primary-contrast':
     case 'secondary-contrast':
@@ -40,6 +41,7 @@ export const getButtonCounterAppearance = (buttonVariant: ButtonVariant): Pick<C
       return { variant: 'static' };
     case 'ghost':
     case 'outline':
+    case 'link':
       return { variant: 'static' };
     case 'primary-contrast':
       return { variant: 'static' };

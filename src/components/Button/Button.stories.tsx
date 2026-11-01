@@ -23,7 +23,7 @@ const meta = {
   argTypes: {
     ...hideArgsControl(['asChild', 'innerClassNames']),
 
-    variant: selectControl(['primary', 'secondary', 'ghost', 'outline', 'primary-contrast', 'secondary-contrast', 'overlay', 'destructive', 'neutral']),
+    variant: selectControl(['primary', 'secondary', 'ghost', 'outline', 'link', 'primary-contrast', 'secondary-contrast', 'overlay', 'destructive', 'neutral']),
     size: selectControl(['xsmall', 'small', 'medium', 'large']),
     children: reactNodeTextControl,
     iconBefore: { control: 'boolean' },
@@ -100,4 +100,11 @@ export const AsLink: Story = {
       </Button>
     );
   }
+};
+
+/** Variante `link`: só texto na cor de destaque, alinhado à esquerda, alvo de toque de 44 px. */
+export const LinkVariant: Story = {
+  name: 'Link variant',
+  args: { variant: 'link', size: 'xsmall', children: 'Adicionar referência', iconBefore: true },
+  render: Playground.render
 };

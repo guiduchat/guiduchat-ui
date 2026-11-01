@@ -1,5 +1,16 @@
 # Changelog do @guiduchat/ui
 
+## 0.21.0 (variante link, AddressPanel e SwipeActions refinados)
+
+Ajustes pedidos pela validação da página do carrinho, a partir do desenho do Marcelo. Props novas e opcionais: **nada quebra**; o `AddressPanel` (usado em Pedidos) e os `Button` existentes ficam iguais. Sem token novo.
+
+- **Button, variante `link` (nova):** só texto em `--text-themed`, sem fundo, alinhado à esquerda, sem reticências (quebra linha se faltar espaço). Alvo de toque de 44 px com a caixa no fluxo menor (margem negativa, como no `QuantityStepper`). Use `size="xsmall"` para texto inline; `iconBefore` funciona ("Adicionar referência").
+- **AddressPanel:** `titleAction` (slot na mesma linha do nome, à direita; quebra para baixo, limpo, em 320 px) e `plainIcon` (tira a caixa do ícone: pino direto na cor de destaque, e o endereço alinha à esquerda sob o pino).
+- **SwipeActions:**
+  - Cantos em camadas (era a 0.20.1, só em PR): a linha, a 1ª e a 2ª ação têm os cantos direitos arredondados (`--size-border-radius-semantic-border-radius-surface`), cada uma sobre a seguinte. Deslocamento (96 px), `offsetWidth` e alvo de 48 px iguais.
+  - Fechada e sem arrasto, as ações ficam invisíveis (`opacity`, sem `visibility`/`display`): acabou o fio amarelo de ~1 px nas bordas de cima e de baixo, e o foco por teclado ainda as alcança e abre a linha.
+  - Sem emenda vertical: a extensão por baixo da camada anterior é um `box-shadow` deslocado (sem sobreposição de cor; o cinza translúcido não ganha fio mais claro).
+
 ## 0.20.0 (peças do carrinho)
 
 Peças da página do carrinho, a partir do desenho do Marcelo de 01/11/2026. Só apresentação: todo texto, valor e nome acessível vem do app (o kit não calcula preço). **Nenhum token novo.** Nada quebra: `icon` no `Segmented` é opcional.

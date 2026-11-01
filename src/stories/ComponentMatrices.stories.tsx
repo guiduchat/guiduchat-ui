@@ -206,7 +206,8 @@ const hoverBackgrounds: Record<ButtonVariant, string> = {
   'secondary-contrast': '--states-button-secondary-hover',
   overlay: '--states-button-overlay-hover',
   destructive: '--states-button-negative-hover',
-  neutral: '--states-button-neutral-hover'
+  neutral: '--states-button-neutral-hover',
+  link: '--button-ghost'
 };
 
 const getButtonStateProps = (variant: ButtonVariant, state: ButtonStateName): Partial<ButtonProps> => {

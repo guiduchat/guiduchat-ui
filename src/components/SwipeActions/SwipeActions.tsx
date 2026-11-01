@@ -225,7 +225,7 @@ export const SwipeActions = forwardRef<HTMLDivElement, SwipeActionsProps>((props
     >
       <div
         ref={actionsRef}
-        className={clsx(styles.SwipeActions__actions, { [styles.SwipeActions__actions_open]: open }, innerClassNames?.actions)}
+        className={clsx(styles.SwipeActions__actions, { [styles.SwipeActions__actions_open]: open, [styles.SwipeActions__actions_visible]: open || dragging }, innerClassNames?.actions)}
         onFocus={handleActionsFocus}
         onBlur={handleActionsBlur}
       >
