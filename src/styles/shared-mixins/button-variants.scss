@@ -143,3 +143,19 @@
     $foreground_disabled: var(--states-text-primary-inverse-static-disabled),
   )
 }
+
+// link: só texto na cor de destaque, sem fundo (uso inline, por exemplo "Alterar endereço")
+@mixin buttonVariantLink(
+  $root,
+) {
+  @include button-variants-builder.buildButtonFilledVariant(
+    $root,
+
+    $background: transparent,
+    $background_disabled: transparent,
+    $background_hovered: transparent,
+    $background_pressed: transparent,
+    $foreground: var(--text-themed),
+    $foreground_disabled: var(--states-text-primary-disabled),
+  )
+}

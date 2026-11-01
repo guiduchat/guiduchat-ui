@@ -35,3 +35,62 @@
   line-height: 18px;
   color: var(--text-themed);
 }
+
+// Nome e ação na mesma linha; se não couber (320 px), a ação desce inteira para a linha de baixo.
+.AddressPanel__titleRow {
+  display: flex;
+  flex: 1 1 0;
+  flex-wrap: wrap;
+  align-items: baseline;
+  column-gap: var(--spacing-size-xs);
+  min-width: 0;
+}
+
+.AddressPanel__titleRow .AddressPanel__title {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.AddressPanel__titleAction {
+  display: inline-flex;
+  font-size: var(--font-size-label);
+}
+
+// `plainIcon`: o pino direto, sem a caixa; o endereço alinha à esquerda, sob o pino.
+.AddressPanel_plainIcon {
+  flex-direction: column;
+  gap: var(--spacing-size-xs);
+}
+
+.AddressPanel__header {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--spacing-size-m);
+  min-width: 0;
+}
+
+.AddressPanel__pin {
+  display: inline-flex;
+  flex-shrink: 0;
+  color: var(--icon-themed);
+}
+
+// Texto da ação menor que o nome (inline, como no desenho), mesmo sendo um Button `link`.
+
+// Texto da ação menor que o nome (inline, como no desenho), mesmo sendo um Button `link`.
+.AddressPanel__titleAction button span,
+.AddressPanel__titleAction a {
+  font-size: var(--font-size-label);
+  line-height: var(--line-height-description);
+}
+
+// `plainIcon` é o modelo compacto do carrinho: nome um pouco menor e vãos curtos, para a ação caber ao lado.
+.AddressPanel_plainIcon {
+  .AddressPanel__header {
+    gap: var(--spacing-size-xs);
+  }
+
+  .AddressPanel__title {
+    font-size: var(--font-size-detail);
+  }
+}

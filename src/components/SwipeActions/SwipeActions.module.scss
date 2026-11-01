@@ -14,6 +14,15 @@
   display: flex;
   pointer-events: none;
   z-index: 0;
+  // Fechada e sem arrasto, as ações ficam invisíveis (opacity, não visibility: o foco por teclado
+  // continua alcançando os botões e abre a linha). Fecha depois do deslize; abre na hora.
+  opacity: 0;
+  transition: opacity 0s linear 200ms;
+}
+
+.SwipeActions__actions_visible {
+  opacity: 1;
+  transition: none;
 }
 
 .SwipeActions__actions_open {
@@ -41,10 +50,12 @@
 // Camadas, como no desenho: a linha fica sobre a 1ª ação, a 1ª sobre a 2ª, e assim por diante.
 // Cada ação (menos a última) termina em curva à direita, e a seguinte passa por baixo dela.
 // Para isso toda ação se estende para a esquerda por um raio, por baixo da camada anterior.
-// A extensão é absoluta, fora do fluxo: não entra na largura medida nem no deslocamento (96 px).
+// A extensão é um box-shadow deslocado (só a faixa de fora da caixa é pintada): fora do fluxo, não entra na
+// largura medida nem no deslocamento (96 px), e não sobrepõe a própria cor (o cinza é translúcido, sem fio mais claro).
 .SwipeActions__action {
   position: relative;
   z-index: 1;
+  box-shadow: calc(-1 * var(--size-border-radius-semantic-border-radius-surface)) 0 0 0 var(--swipe-action-bg);
 
   &:nth-child(1) {
     z-index: 4;
@@ -61,26 +72,17 @@
   &:not(:last-child) {
     border-radius: 0 var(--size-border-radius-semantic-border-radius-surface) var(--size-border-radius-semantic-border-radius-surface) 0;
   }
-
-  &::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    right: 100%;
-    bottom: 0;
-    width: var(--size-border-radius-semantic-border-radius-surface);
-    background-color: inherit;
-    z-index: -1;
-  }
 }
 
 .SwipeActions__action_tone_primary {
-  background-color: var(--button-primary);
+  --swipe-action-bg: var(--button-primary);
+  background-color: var(--swipe-action-bg);
   color: var(--text-on-accent);
 }
 
 .SwipeActions__action_tone_neutral {
-  background-color: var(--icon-quaternary);
+  --swipe-action-bg: var(--icon-quaternary);
+  background-color: var(--swipe-action-bg);
   color: var(--icon-primary);
 }
 

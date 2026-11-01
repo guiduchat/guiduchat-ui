@@ -61,9 +61,13 @@ const CartDemo = () => {
           ]}
         />
         <AddressPanel
+          plainIcon
           title="Pousada Luar de Geribá"
-          address={'Av Geribá, 256 suite 32\nGeribá, Armação dos Búzios, RJ'}
-        />
+          titleAction={<Button variant="link" size="xsmall">Alterar endereço</Button>}
+          address={'Av Geribá, 256 suite 32\nGeribá, Armação dos Búzios, RJ\nHorário de entrega: 24hs'}
+        >
+          <Button variant="link" size="xsmall" iconBefore={<Icon icon={icons.note} size={20} />}>Adicionar referência</Button>
+        </AddressPanel>
       </InfoCard>
       <h2 style={{ margin: 0, fontWeight: 400 }}>Itens</h2>
       {lines.map((line) => (
