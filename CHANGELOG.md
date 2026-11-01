@@ -1,5 +1,14 @@
 # Changelog do @guiduchat/ui
 
+## 0.23.4 (#EDEDED no lugar do #E3E3E3)
+
+Só o tema claro; decisão do Marcelo. Mexe em tokens: revisão da equipe console (regra U2).
+
+- **guidu claro:** dentro #EDEDED (era #E3E3E3); fora e faixa continuam #F7F7F7.
+- **hub claro:** fora e faixa #EDEDED (eram #E3E3E3); dentro continua #F7F7F7.
+- Barrinhas, página e tema escuro não mudam.
+- **Contraste (WCAG) sobre #EDEDED:** texto primário 17,2:1; secundário 6,8:1; `--text-themed` (#5C6B02) 5,0:1. `tokens.test.ts` confere o verde (4,5:1) sobre #FFFFFF, #F7F7F7 e #EDEDED.
+
 ## 0.23.3 (#E3E3E3 no lugar do #F1F1F1)
 
 Só o tema claro. Mais contraste com o #F7F7F7; decisão do Marcelo. Mexe em tokens: revisão da equipe console (regra U2).
