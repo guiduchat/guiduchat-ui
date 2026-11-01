@@ -14,7 +14,7 @@
   height: 200px;
   overflow: hidden;
   border-radius: var(--size-border-radius-semantic-border-radius-surface);
-  background-color: var(--background-secondary);
+  background-color: var(--surface-outer);
 }
 
 .StoreHero__image {
@@ -82,7 +82,7 @@
   display: flex;
   padding: 4px;
   border-radius: 28px;
-  background-color: var(--background-primary);
+  background-color: var(--page-background);
   position: relative;
 }
 

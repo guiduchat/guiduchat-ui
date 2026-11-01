@@ -21,7 +21,7 @@ const meta = {
     layout: 'fullscreen',
     docs: {
       description: {
-        component: 'Cartões novos da página Para Você (modelos do Marcelo, 01/11/2026): o cartão de fora é o `InfoCard` parado; só o `Carousel` por dentro se move. Textos e links vêm do app.'
+        component: 'Cartões novos da página Para Você (modelos do Marcelo, 01/11/2026): (ator `hub`, o padrão) o cartão de fora é o `InfoCard` parado; só o `Carousel` por dentro se move. Textos e links vêm do app.'
       }
     }
   }
@@ -48,7 +48,7 @@ const rating = (
 const seeAll = (href: string) => <a href={href}>Ver todas</a>;
 
 const Page = () => (
-  <div style={{ display: 'flex', flexDirection: 'column', gap: 16, maxWidth: 390, margin: '0 auto', padding: 12, boxSizing: 'border-box' }}>
+  <div data-actor="hub" style={{ display: 'flex', flexDirection: 'column', gap: 16, maxWidth: 390, margin: '0 auto', padding: 12, boxSizing: 'border-box' }}>
     <InfoCard title="Pedidos em andamento" seeAll={seeAll('#pedidos')} plain>
       <Carousel aria-label="Pedidos em andamento" pagerLabel={pagerLabel} pagerTone="accent">
         {[1, 2, 3].map((n) => (

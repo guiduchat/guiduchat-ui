@@ -55,7 +55,7 @@ const week = [
 const StoreProfileDemo = () => {
   const [saved, setSaved] = useState(false);
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: 12, width: 390, maxWidth: '100%', padding: 12, boxSizing: 'border-box' }}>
+    <div data-actor="guidu" style={{ display: 'flex', flexDirection: 'column', gap: 12, width: 390, maxWidth: '100%', padding: 12, boxSizing: 'border-box' }}>
       <StoreHero
         accent="#c2410c"
         avatar={(

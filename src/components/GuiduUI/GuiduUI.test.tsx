@@ -17,4 +17,11 @@ describe('GuiduUI', () => {
     expect(container.firstElementChild?.className).toMatch(/platform_android/);
     vi.unstubAllGlobals();
   });
+
+  it('o ator é hub por padrão e vira data-actor na raiz', () => {
+    const { container, rerender } = render(<GuiduUI colorScheme="light" platform="ios">a</GuiduUI>);
+    expect(container.firstElementChild?.getAttribute('data-actor')).toBe('hub');
+    rerender(<GuiduUI colorScheme="light" platform="ios" actor="guidu">a</GuiduUI>);
+    expect(container.firstElementChild?.getAttribute('data-actor')).toBe('guidu');
+  });
 });

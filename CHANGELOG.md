@@ -1,5 +1,24 @@
 # Changelog do @guiduchat/ui
 
+## 0.23.0 (cores por ator, verde do tema claro, botão secundário)
+
+Mexe em tokens: pede a revisão da equipe console (regra U2). Decisões do Marcelo de 01/11/2026. Props e tokens novos são opcionais, mas **o visual muda** em várias peças (lista abaixo).
+
+- **Atores:** prop `actor` no `GuiduUI` (`'guidu' | 'hub'`, padrão `hub`) e `data-actor` em qualquer elemento. Tokens novos: `--surface-outer`, `--surface-inner`, `--surface-band`, `--pager-inactive`, `--pager-active`, `--page-background` (e os conjuntos `-guidu` e `-hub`). `surfaces` em `@guiduchat/ui/tokens`. Ver README, "Atores".
+  - guidu claro/escuro: fora #F1F1F1/#404040, dentro #DDDDDD/#2D2D2D, faixa #F1F1F1/#404040, barrinha inativa #C0C0C0/#7B7B7B.
+  - hub claro/escuro: fora #DDDDDD/#2D2D2D, dentro #F1F1F1/#404040, faixa #DDDDDD/#2D2D2D, barrinha inativa #ACACAC/#858585.
+  - Fundo da página #FFFFFF (claro) e #191919 (escuro), nos dois atores (`GuiduUI`, `NavBar`, `TabBar`, contorno do avatar do `StoreHero`). No escuro era #17181C.
+- **Camadas (antes -> agora):**
+  - fora (`--background-secondary` -> `--surface-outer`): InfoCard, RecommendationCard (e o contorno do avatar), SocialLinkCard, CartItemCard, OrderSummaryCard, ContactCard, StatStrip, OpeningHours, StoreHero (capa), OfferCard `featured`, ShortcutCard, OrderStatusCard, OfferHero, Review (resumo e cartão), BentoGrid.
+  - dentro (`--background-nested` -> `--surface-inner`): InfoCard__body, RecommendationCard (quadro), OrderProgressCard, StoreOfferCard, StorePhotoCard (mídia), OfferCard `spotlight` (cartão, tag e mídia), PriceSummary, AddressPanel, PaymentPanel, ExpandablePanel, OrderSummaryCard__body, StatStrip (itens), OpeningHours (corpo).
+  - faixa (`--surface-band`): quadro do OrderProgressCard (era `secondary`), promo do StoreOfferCard (era `secondary`), cupom do OfferCard `spotlight` (era `tertiary`, translúcido).
+  - Não mudaram: CellAction, CellSimple, CellList, Notice, MessageBubble, Composer (linhas de lista e peças que não são cartão).
+- **Carousel:** barrinhas de 10 px de altura (eram 4 px), mesma largura e pontas arredondadas; a inativa segue o ator (`--pager-inactive`) e a ativa é `--pager-active`. `pagerTone` continua aceito, sem efeito visual.
+- **Verde do tema claro (kit inteiro):** `--text-themed`, `--icon-themed` e `--pager-active` passam de #566600 para **#5C6B02**; no escuro seguem #E1FB40. `--controls-active` e o spinner seguem #566600.
+- **Botão secundário (`Button` e `IconButton`, variante `secondary`):** fundo #C0C0C0 e texto preto no claro; fundo #404040 e texto branco no escuro (tokens `--button-secondary-contrast` e `--states-button-secondary-contrast-*`). Hover, pressionado e desativado foram derivados do fundo (#B5B5B5/#A8A8A8 e #4A4A4A/#373737): a confirmar.
+- **Decisões do Marcelo, contraste do #5C6B02 (WCAG):** 5,9:1 no #FFFFFF, 5,2:1 no #F1F1F1 e 4,35:1 no #DDDDDD. Passa para elemento gráfico (3:1) em todos os fundos; para texto pequeno passa de 4,5:1 nos dois primeiros e fica só um pouco abaixo no #DDDDDD. Escolha dele, sem bloquear. O `--text-tertiary` do tema claro já ficava abaixo de 4,5:1 (3,8 a 4,1:1) e segue assim.
+- **Histórias:** `Telas/Atores` (guidu e Cliente Hub, claro e escuro, lado a lado); `Telas/Para Você` (hub), `Telas/Carrinho` e `Telas/Perfil da loja` (guidu).
+
 ## 0.22.0 (cartões da página Para Você)
 
 Peças dos seis modelos do Marcelo para a página Para Você (01/11/2026). O cartão de fora dos quatro carrosséis é o `InfoCard` (parado); só o cartão de dentro se move, num `Carousel`. Props novas e opcionais: **nada quebra**; `Carousel` e `OfferCard` ficam iguais para quem não usa os props novos. **Nenhum token novo.** Todo texto, link e nome acessível vem do app.

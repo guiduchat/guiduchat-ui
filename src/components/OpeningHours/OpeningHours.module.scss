@@ -8,7 +8,7 @@
   padding: var(--spacing-size-xl);
   box-sizing: border-box;
   border-radius: var(--size-border-radius-semantic-border-radius-surface);
-  background-color: var(--background-secondary);
+  background-color: var(--surface-outer);
   color: var(--text-primary);
 }
 
@@ -23,7 +23,7 @@
   position: relative;
   padding: var(--spacing-size-xl) var(--spacing-size2xl);
   border-radius: var(--size-border-radius-semantic-border-radius-promo);
-  background-color: var(--background-nested);
+  background-color: var(--surface-inner);
 }
 
 .OpeningHours__today {
