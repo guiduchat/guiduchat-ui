@@ -1,8 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
-import { icons } from '../../icons/catalog';
-import { Icon } from '../Icon';
 import { InfoCard } from '../InfoCard';
+import { StarTile } from '../StarTile';
 import { StoreOfferCard, type StoreOfferCardProps } from './StoreOfferCard';
 
 // Foto desenhada aqui mesmo, para a história funcionar sem rede.
@@ -15,7 +14,7 @@ const image = {
 
 const rating = (
   <>
-    <Icon icon={icons.star} size={16} fill="currentColor" color="var(--icon-themed)" />
+    <StarTile size={20} />
     4,8 (235)
   </>
 );

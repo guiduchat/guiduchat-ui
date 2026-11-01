@@ -48,6 +48,7 @@
   --surface-inner: var(--surface-inner-hub);
   --surface-band: var(--surface-band-hub);
   --pager-inactive: var(--pager-inactive-hub);
+  --pager-active: var(--pager-active-hub);
 }
 
 :global([data-actor='guidu']) {
@@ -55,6 +56,7 @@
   --surface-inner: var(--surface-inner-guidu);
   --surface-band: var(--surface-band-guidu);
   --pager-inactive: var(--pager-inactive-guidu);
+  --pager-active: var(--pager-active-guidu);
 }
 
 :global(body).GuiduUI_resetBody {

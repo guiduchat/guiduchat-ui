@@ -1,0 +1,10 @@
+// Quadrado #2D2D2D nos dois temas; a estrela é o limão do tema (--star-tile-star).
+.StarTile {
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  background-color: var(--star-tile-background);
+  color: var(--star-tile-star);
+}

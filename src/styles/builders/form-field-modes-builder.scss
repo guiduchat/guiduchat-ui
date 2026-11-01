@@ -1,5 +1,5 @@
 @mixin buildFormFieldPrimaryMode ($root) {
-  background-color: var(--background-card);
+  background-color: var(--field-background-contrast);
 
   &.#{$root}_disabled {
     background-color: var(--states-background-card-disabled);
@@ -7,7 +7,7 @@
 }
 
 @mixin buildFormFieldSecondaryMode ($root) {
-  background-color: var(--background-tertiary);
+  background-color: var(--field-background);
 
   &.#{$root}_disabled {
     background-color: var(--states-background-disabled-neutral-fade);

@@ -22,6 +22,7 @@ import {
   ReviewRail,
   ReviewSummary,
   ScoreBadge,
+  StarTile,
   StatStrip,
   StatStripItem,
   StoreHero
@@ -133,7 +134,7 @@ const StoreProfileDemo = () => {
         address="Av. Geribá, 345"
         rating={(
           <>
-            <Icon icon={icons.star} size={16} fill="currentColor" color="var(--icon-themed)" />
+            <StarTile size={20} />
             4,8 (235)
           </>
         )}

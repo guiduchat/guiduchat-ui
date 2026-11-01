@@ -10,7 +10,7 @@
   box-sizing: border-box;
   padding: var(--spacing-size-xl);
   // Borda na mesma cor do fundo da busca.
-  border: 1px solid var(--background-tertiary);
+  border: 1px solid var(--field-background);
   border-radius: var(--size-border-radius-semantic-border-radius-surface);
   background-color: var(--background-primary);
   color: var(--text-primary);
@@ -51,7 +51,7 @@
   margin-top: var(--spacing-size-xs);
   padding: 4px;
   border-radius: var(--size-border-radius-semantic-border-radius-rounded);
-  background-color: var(--background-tertiary);
+  background-color: var(--field-background);
 }
 
 .HeaderCard__inputContainer {

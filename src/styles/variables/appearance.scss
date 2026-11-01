@@ -28,7 +28,13 @@
   --surface-inner-hub: #f7f7f7;
   --surface-band-hub: #ededed;
   --pager-inactive-hub: #acacac;
-  --pager-active: #5c6b02;
+  --pager-active-guidu: #5c6b02;
+  --pager-active-hub: #c8e805;
+  --star-tile-background: #2d2d2d;
+  --star-tile-star: #c8e805;
+  // Fundo de campo de formulário (Marcelo): #ededed no claro; no escuro, o valor de antes de cada campo.
+  --field-background: #ededed;
+  --field-background-contrast: #ededed;
 
   // Icon
   --icon-primary: rgb(6 7 8 / 0.84);
@@ -62,7 +68,7 @@
   --divider-secondary: rgb(12 13 14 / 0.06);
 
   // Button
-  --button-primary: #e1fb40;
+  --button-primary: #c8e805;
   --button-secondary: rgb(233 235 241);
   --button-primary-contrast: rgb(255 255 255);
   --button-secondary-contrast: #c0c0c0;
@@ -82,7 +88,7 @@
   // Counter
   --counter-attention: rgb(255 48 60);
   --counter-mute: rgb(6 7 8 / 0.12);
-  --counter-themed: #e1fb40;
+  --counter-themed: #c8e805;
   --counter-default: rgb(23 24 28);
   --counter-mirage: rgb(23 24 28);
   --counter-contrast: rgb(255 255 255);
@@ -92,9 +98,9 @@
   --states-background-card-disabled: rgb(255 255 255 / 0.4);
   --states-icon-primary-disabled: rgb(111 114 118 / 0.64);
   --states-icon-tertiary-hover: rgb(12 13 14 / 0.64);
-  --states-button-primary-hover: #e8fc6c;
-  --states-button-primary-pressed: #cde52e;
-  --states-button-primary-disabled: rgb(225 251 64 / 0.48);
+  --states-button-primary-hover: #d3ec37;
+  --states-button-primary-pressed: #b4d105;
+  --states-button-primary-disabled: rgb(200 232 5 / 0.48);
   --states-button-secondary-hover: rgb(238 239 244);
   --states-button-secondary-pressed: rgb(223 227 234);
   --states-button-secondary-disabled: rgb(233 235 241);
@@ -179,7 +185,12 @@
   --surface-inner-hub: #404040;
   --surface-band-hub: #2d2d2d;
   --pager-inactive-hub: #858585;
-  --pager-active: #e1fb40;
+  --pager-active-guidu: #e1fb40;
+  --pager-active-hub: #e1fb40;
+  --star-tile-background: #2d2d2d;
+  --star-tile-star: #e1fb40;
+  --field-background: var(--background-tertiary);
+  --field-background-contrast: var(--background-card);
 
   // Icon
   --icon-primary: rgb(255 255 255);

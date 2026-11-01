@@ -1,8 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
-import { icons } from '../../icons/catalog';
 import { Avatar } from '../Avatar';
-import { Icon } from '../Icon';
+import { StarTile } from '../StarTile';
 import { RecommendationCard, type RecommendationCardProps } from './RecommendationCard';
 
 const avatar = (gradient: 'blue' | 'orange' | 'green', text: string) => (
@@ -13,7 +12,7 @@ const avatar = (gradient: 'blue' | 'orange' | 'green', text: string) => (
 
 const rating = (
   <>
-    <Icon icon={icons.star} size={16} fill="currentColor" color="var(--icon-themed)" />
+    <StarTile size={20} />
     4,8 (235)
   </>
 );

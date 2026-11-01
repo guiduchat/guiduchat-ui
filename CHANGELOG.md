@@ -1,5 +1,16 @@
 # Changelog do @guiduchat/ui
 
+## 0.24.0 (lima do claro, StarTile, barrinha do hub e fundo de campo)
+
+Quatro decisões do Marcelo (01/11/2026). Mexe em tokens: revisão da equipe console (regra U2). O tema escuro não muda.
+
+- **Lima do tema claro:** o limão #E1FB40 de preenchimento passa a #C8E805 só no claro. Tokens trocados: `--button-primary` (botão principal, setas redondas), `--counter-themed` e `--states-button-primary-disabled` (mesmo lima a 48%). Hover e pressionado foram derivados: `--states-button-primary-hover` #D3EC37 e `--states-button-primary-pressed` #B4D105 (a confirmar). O verde de texto e ícone (#5C6B02) não muda. `brand.accentFill`, `accentFillHover` e `accentFillPressed` em `@guiduchat/ui/tokens`. Texto sobre o lima (`--text-on-accent`): 14,0:1.
+- **StarTile (novo):** quadrado de cantos arredondados #2D2D2D (raio de 25% do lado) com a estrela cheia (70% do lado) no centro. Estrela #C8E805 no claro e #E1FB40 no escuro (`--star-tile-star`; fundo `--star-tile-background`). Props: `size` (px, 24 por padrão) e `label` (nome acessível vindo do app; sem ele fica `aria-hidden`, ao lado do número). Substitui a estrela solta nas linhas de nota das histórias (RecommendationCard, StoreOfferCard, StorePhotoCard, Para Você e Perfil da loja); a nota nos componentes continua sendo slot do app. Estrela sobre o quadrado: 9,8:1.
+- **Carousel, barrinha ativa:** `--pager-active` agora segue o ator, como a inativa (`--pager-active-guidu`, `--pager-active-hub`). Hub claro: #C8E805. Guidu claro: #5C6B02. Escuro: #E1FB40.
+  - **Decisão do Marcelo, contraste do #C8E805 (WCAG):** 1,2:1 sobre #EDEDED, 1,3:1 sobre #F7F7F7, 1,4:1 sobre #FFFFFF. Baixo, e fica assim por decisão dele.
+- **Fundo de campo:** tokens `--field-background` (campos de fundo "default": Input, PhoneInput, PasswordInput, ActionInput, SelectField, Textarea no modo secundário, busca do Select e a pílula do HeaderCard) e `--field-background-contrast` (campos do modo "contrast"). No claro, os dois são #EDEDED. No escuro mantêm o valor de antes de cada campo (`--background-tertiary` e `--background-card`). A borda do HeaderCard acompanha o campo.
+- **Campos sem contorno visível:** o campo #EDEDED fica igual (1,0:1) ao fundo onde a camada é #EDEDED: dentro do cartão no guidu claro (InfoCard__body, PriceSummary, AddressPanel, PaymentPanel, ExpandablePanel, StatStrip e OpeningHours), por exemplo o código de desconto da tela do Carrinho; e sobre o cartão de fora ou a faixa no hub claro. Sobre #F7F7F7 a diferença é de 1,09:1 e sobre a página (#FFFFFF), de 1,17:1. Os campos não têm contorno próprio. Sem cor inventada: fica para o Marcelo decidir.
+
 ## 0.23.4 (#EDEDED no lugar do #E3E3E3)
 
 Só o tema claro; decisão do Marcelo. Mexe em tokens: revisão da equipe console (regra U2).

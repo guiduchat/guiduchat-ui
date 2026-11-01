@@ -8,6 +8,11 @@ export const brand = {
   accent: '#e1fb40',
   accentHover: '#e8fc6c',
   accentPressed: '#cde52e',
+  // Lima de preenchimento no tema claro (Marcelo, 01/11/2026): botão principal, contador, destaques.
+  // Hover e pressionado são derivados (a confirmar).
+  accentFill: '#c8e805',
+  accentFillHover: '#d3ec37',
+  accentFillPressed: '#b4d105',
   // Texto e ícone sobre a cor principal (contraste 16,8:1).
   onAccent: '#0b0c0d',
   // Texto, ícone e controle "da marca" sobre fundo claro (5,5:1 ou mais).
@@ -43,7 +48,11 @@ export const surfaces = {
     hub: { outer: '#2d2d2d', inner: '#404040', band: '#2d2d2d', pagerInactive: '#858585' }
   },
   // Barrinha ativa do Carousel: igual ao verde de texto do tema, nos dois atores.
-  pagerActive: { light: brand.accentLight, dark: brand.accent }
+  // No hub claro a ativa é o lima; no guidu claro, o verde de texto.
+  pagerActive: {
+    light: { guidu: brand.accentLight, hub: brand.accentFill },
+    dark: { guidu: brand.accent, hub: brand.accent }
+  }
 } as const;
 
 // Botão secundário (Marcelo, 01/11/2026): fundo #c0c0c0 no claro e #404040 no escuro; texto preto/branco
@@ -63,7 +72,10 @@ const surfaceTokens = (scheme: 'light' | 'dark') => ({
   '--surface-inner-hub': surfaces[scheme].hub.inner,
   '--surface-band-hub': surfaces[scheme].hub.band,
   '--pager-inactive-hub': surfaces[scheme].hub.pagerInactive,
-  '--pager-active': surfaces.pagerActive[scheme],
+  '--pager-active-guidu': surfaces.pagerActive[scheme].guidu,
+  '--pager-active-hub': surfaces.pagerActive[scheme].hub,
+  '--star-tile-background': '#2d2d2d',
+  '--star-tile-star': scheme === 'light' ? brand.accentFill : brand.accent,
   '--button-secondary-contrast': secondaryButton[scheme].background,
   '--states-button-secondary-contrast-hover': secondaryButton[scheme].hover,
   '--states-button-secondary-contrast-pressed': secondaryButton[scheme].pressed,
@@ -77,10 +89,12 @@ export const palette = {
     '--text-themed': brand.accentLight,
     '--icon-themed': brand.accentLight,
     '--controls-active': brand.accentStrong,
-    '--button-primary': brand.accent,
-    '--states-button-primary-hover': brand.accentHover,
-    '--states-button-primary-pressed': brand.accentPressed,
-    '--counter-themed': brand.accent,
+    '--button-primary': brand.accentFill,
+    '--states-button-primary-hover': brand.accentFillHover,
+    '--states-button-primary-pressed': brand.accentFillPressed,
+    '--counter-themed': brand.accentFill,
+    '--field-background': '#ededed',
+    '--field-background-contrast': '#ededed',
     '--text-on-accent': brand.onAccent,
     '--background-coupon': coupon.ticket,
     '--background-coupon-photo': coupon.photo,

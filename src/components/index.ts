@@ -63,6 +63,7 @@ export * from './Snackbar';
 export * from './SocialButton';
 export * from './SocialLinkCard';
 export * from './Spinner';
+export * from './StarTile';
 export * from './StatStrip';
 export * from './StatusBadge';
 export * from './Steps';
