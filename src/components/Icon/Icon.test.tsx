@@ -40,7 +40,7 @@ describe('catálogo de ícones', () => {
       'facebook', 'fashion', 'filter', 'food', 'forYou', 'google', 'health', 'heart', 'home', 'image', 'info',
       'instagram', 'kids', 'location', 'mail', 'map', 'menu', 'mic', 'more', 'navigation', 'note',
       'offline', 'orders', 'otherCategory', 'parking', 'places', 'priceLevel', 'print', 'save', 'saved', 'search', 'send',
-      'share', 'smartphone', 'star', 'thumbsDown', 'thumbsUp', 'tiktok', 'timer', 'travel', 'wallet',
+      'share', 'shareUpload', 'smartphone', 'star', 'thumbsDown', 'thumbsUp', 'tiktok', 'timer', 'travel', 'wallet',
       'warning', 'website', 'whatsapp'
     ]);
   });

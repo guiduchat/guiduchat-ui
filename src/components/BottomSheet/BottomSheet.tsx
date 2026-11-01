@@ -320,14 +320,14 @@ export const BottomSheet = ({
 
   return (
     <div
-      className={clsx(styles.overlay, { [styles.overlayClosing]: exiting }, innerClassNames?.overlay)}
+      className={clsx(styles.overlay, { [styles.overlayClosing]: exiting, [styles.overlay_hero]: hasHero }, innerClassNames?.overlay)}
       onClick={handleOverlayClick}
     >
       <div
         className={clsx(
           styles.sheet,
           innerClassNames?.sheet,
-          { [styles.sheet_dragging]: dragging, [styles.sheet_exiting]: exiting, [styles.sheet_scroll]: hasHero || hasFooter, [styles.sheet_withFooter]: hasFooter }
+          { [styles.sheet_dragging]: dragging, [styles.sheet_exiting]: exiting, [styles.sheet_scroll]: hasHero || hasFooter, [styles.sheet_withFooter]: hasFooter, [styles.sheet_hero]: hasHero }
         )}
         style={{
           minHeight,

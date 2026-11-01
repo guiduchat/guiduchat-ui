@@ -11,7 +11,7 @@ const meta = {
     status: 'neutral'
   },
   argTypes: {
-    status: selectControl(['positive', 'negative', 'warning', 'neutral']),
+    status: selectControl(['positive', 'negative', 'warning', 'neutral', 'coupon']),
   }
 } satisfies Meta<StatusBadgeProps>;
 
@@ -19,3 +19,5 @@ export default meta;
 type Story = StoryObj<StatusBadgeProps>;
 
 export const Playground: Story = {};
+
+export const Coupon: Story = { args: { text: 'uso individual', status: 'coupon' } };

@@ -169,3 +169,33 @@
     transition: none;
   }
 }
+
+// Impressão da folha com hero (cupom com QR): nada de alça, nada cortado por altura máxima ou rolagem.
+// Só vale com hero (classes overlay_hero e sheet_hero): a folha sem hero imprime como na 0.15.0.
+// O app esconde o resto da página; aqui a película deixa de ser fixa para a folha caber em páginas.
+@media print {
+  .overlay_hero {
+    position: static;
+    display: block;
+    background: none;
+    animation: none;
+  }
+
+  .sheet_hero,
+  .sheet_hero.sheet_scroll,
+  .sheet_hero .content {
+    max-height: none;
+    overflow: visible;
+    transform: none !important;
+    animation: none;
+    box-shadow: none;
+  }
+
+  .sheet_hero .handle {
+    display: none;
+  }
+
+  .sheet_hero .footer {
+    position: static;
+  }
+}
