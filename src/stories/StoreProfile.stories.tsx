@@ -65,7 +65,7 @@ const StoreProfileDemo = () => {
         )}
         title="Restaurante Buzin"
         subtitle="Frutos do mar"
-        action={<Button size="small" variant="primary">Seguir</Button>}
+        action={<Button size="xsmall" variant="primary">Seguir</Button>}
         stats={(
           <ProfileStats>
             <ProfileStat value="152" label="Seguidores" />
@@ -133,7 +133,7 @@ const StoreProfileDemo = () => {
         address="Av. Geribá, 345"
         rating={(
           <>
-            <Icon icon={icons.star} size={16} />
+            <Icon icon={icons.star} size={16} fill="currentColor" color="var(--icon-themed)" />
             4,8 (235)
           </>
         )}

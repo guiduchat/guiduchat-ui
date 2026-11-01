@@ -13,7 +13,7 @@ const avatar = (gradient: 'blue' | 'orange' | 'green', text: string) => (
 
 const rating = (
   <>
-    <Icon icon={icons.star} size={16} />
+    <Icon icon={icons.star} size={16} fill="currentColor" color="var(--icon-themed)" />
     4,8 (235)
   </>
 );

@@ -61,9 +61,15 @@
 
 .StoreHero__action {
   position: absolute;
-  right: 0;
+  left: calc(50% + 60px);
+  right: var(--spacing-size-xl);
   top: calc(56px + var(--spacing-size-m));
-  max-width: calc(50% - 56px - var(--spacing-size-m));
+  display: flex;
+
+  > * {
+    flex: 1 1 auto;
+    min-width: 0;
+  }
 }
 
 .StoreHero__stats {

@@ -94,13 +94,16 @@
   line-clamp: 2;
 }
 
+// A seta fica no canto de baixo, fora do fluxo: endereço e nota deixam os 44 px dela mais o espaço.
 .RecommendationCard__address {
   @include typography.description;
+  padding-right: calc(44px + var(--spacing-size-m));
   color: var(--text-secondary);
 }
 
 .RecommendationCard__rating {
   @include typography.description;
+  padding-right: calc(44px + var(--spacing-size-m));
   display: inline-flex;
   align-items: center;
   gap: var(--spacing-size-xs);
@@ -108,11 +111,12 @@
 
 .RecommendationCard__action {
   @include reset-clickable.resetClickable;
+  position: absolute;
+  right: var(--spacing-size-xl);
+  bottom: var(--spacing-size-xl);
   display: flex;
-  flex-shrink: 0;
   align-items: center;
   justify-content: center;
-  align-self: flex-end;
   width: 44px;
   height: 44px;
   border-radius: 50%;
