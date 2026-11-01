@@ -22,6 +22,26 @@ const meta = {
 export default meta;
 type Story = StoryObj<SwipeActionsProps>;
 
+/** Linha aberta desde o início: confere as curvas das camadas (linha, 1ª ação, 2ª ação). */
+export const Open: Story = {
+  args: { open: true, onOpenChange: () => {}, actions: [], children: null },
+  render: function Render () {
+    const [open, setOpen] = useState(true);
+    return (
+      <SwipeActions
+        open={open}
+        onOpenChange={setOpen}
+        actions={[
+          { id: "save", label: "Salvar", tone: "primary", icon: <Icon icon={icons.save} />, onClick: () => {} },
+          { id: "delete", label: "Excluir", tone: "neutral", icon: <Icon icon={icons.trash} />, onClick: () => {} }
+        ]}
+      >
+        <CartItemCard name="Nome do produto ou oferta" detail="Variáveis: atributo" price="R$350,00" />
+      </SwipeActions>
+    );
+  }
+};
+
 export const Playground: Story = {
   args: { open: false, onOpenChange: () => {}, actions: [], children: null },
   render: function Render () {

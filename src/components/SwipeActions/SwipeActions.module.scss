@@ -13,6 +13,7 @@
   inset: 0 0 0 auto;
   display: flex;
   pointer-events: none;
+  z-index: 0;
 }
 
 .SwipeActions__actions_open {
@@ -37,10 +38,29 @@
   }
 }
 
-// A primeira ação se estende por baixo da linha (um raio), para a cor aparecer atrás do canto arredondado.
-// Fica fora do fluxo (absoluta), então não entra na largura medida nem no deslocamento.
-.SwipeActions__action:first-child {
+// Camadas, como no desenho: a linha fica sobre a 1ª ação, a 1ª sobre a 2ª, e assim por diante.
+// Cada ação (menos a última) termina em curva à direita, e a seguinte passa por baixo dela.
+// Para isso toda ação se estende para a esquerda por um raio, por baixo da camada anterior.
+// A extensão é absoluta, fora do fluxo: não entra na largura medida nem no deslocamento (96 px).
+.SwipeActions__action {
   position: relative;
+  z-index: 1;
+
+  &:nth-child(1) {
+    z-index: 4;
+  }
+
+  &:nth-child(2) {
+    z-index: 3;
+  }
+
+  &:nth-child(3) {
+    z-index: 2;
+  }
+
+  &:not(:last-child) {
+    border-radius: 0 var(--size-border-radius-semantic-border-radius-surface) var(--size-border-radius-semantic-border-radius-surface) 0;
+  }
 
   &::before {
     content: "";
@@ -50,6 +70,7 @@
     bottom: 0;
     width: var(--size-border-radius-semantic-border-radius-surface);
     background-color: inherit;
+    z-index: -1;
   }
 }
 

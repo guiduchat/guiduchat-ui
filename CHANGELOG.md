@@ -1,5 +1,9 @@
 # Changelog do @guiduchat/ui
 
+## 0.20.1 (cantos das ações do SwipeActions)
+
+Correção visual a pedido do Marcelo, no celular: com a linha aberta, a ação de destaque ficava com a borda direita reta. Agora, como no desenho, a linha, a 1ª ação e a 2ª formam camadas: cada uma tem os cantos direitos arredondados (`--size-border-radius-semantic-border-radius-surface`) e fica sobre a seguinte, que passa por baixo da curva. Deslocamento (96 px), medida (`offsetWidth`) e área de toque de 48 px ficam iguais; fechada, as ações continuam sem receber ponteiro. Sem token novo.
+
 ## 0.20.0 (peças do carrinho)
 
 Peças da página do carrinho, a partir do desenho do Marcelo de 01/11/2026. Só apresentação: todo texto, valor e nome acessível vem do app (o kit não calcula preço). **Nenhum token novo.** Nada quebra: `icon` no `Segmented` é opcional.
