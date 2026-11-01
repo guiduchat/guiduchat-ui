@@ -191,7 +191,7 @@ export const AvatarMatrix: Story = {
 };
 
 const buttonVariants = [
-  'primary', 'secondary', 'ghost', 'primary-contrast', 'secondary-contrast', 'overlay', 'destructive', 'neutral'
+  'primary', 'secondary', 'ghost', 'outline', 'primary-contrast', 'secondary-contrast', 'overlay', 'destructive', 'neutral'
 ] as const satisfies readonly ButtonVariant[];
 const buttonSizes = ['xsmall', 'small', 'medium', 'large'] as const satisfies readonly ButtonSize[];
 const buttonStateNames = ['default', 'hover', 'pressed', 'focus', 'disabled', 'loading'] as const;
@@ -201,6 +201,7 @@ const hoverBackgrounds: Record<ButtonVariant, string> = {
   primary: '--states-button-primary-hover',
   secondary: '--states-button-secondary-contrast-hover',
   ghost: '--states-button-ghost-hover',
+  outline: '--states-button-ghost-hover',
   'primary-contrast': '--states-button-primary-contrast-hover',
   'secondary-contrast': '--states-button-secondary-hover',
   overlay: '--states-button-overlay-hover',
