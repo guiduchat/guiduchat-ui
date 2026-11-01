@@ -244,8 +244,8 @@ describe('Carousel', () => {
       expect(screen.getByRole('group', { name: 'Pedidos' }).className).toMatch(/track_peek/);
       expect(screen.getByRole('group', { name: 'Página 1 de 3' }).className).toMatch(/pager_accent/);
       const track = screen.getByRole('group', { name: 'Pedidos' });
-      // Com peek a página vizinha aparece só um pouco (abaixo de 0,6): não vira a ativa.
-      callback?.([{ isIntersecting: true, intersectionRatio: 0.25, target: track.children[1] }]);
+      // Com peek a página vizinha aparece pela metade (abaixo de 0,6): não vira a ativa.
+      callback?.([{ isIntersecting: true, intersectionRatio: 0.5, target: track.children[1] }]);
       expect(screen.getByRole('group', { name: 'Página 1 de 3' })).toBeTruthy();
       callback?.([{ isIntersecting: true, intersectionRatio: 1, target: track.children[2] }]);
       return screen.findByRole('group', { name: 'Página 3 de 3' });

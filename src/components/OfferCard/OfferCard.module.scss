@@ -228,8 +228,9 @@ $dash-thickness: 2px;
 }
 
 // [Appearance] Spotlight: o cartao do carrossel "Ofertas Imperdiveis", dentro de um `InfoCard plain`.
-// Sem o verde do cupom: quadro `nested` com o recorte lateral do ticket (a mesma mascara do cabecalho)
-// e, embaixo, a loja sobre o fundo do cartao de fora, com o botao principal em destaque.
+// Cartao do meio (`nested`, raio 20, margem 12) com o cupom em `tertiary`, com o recorte lateral do
+// ticket (a mesma mascara do cabecalho) e, embaixo, a loja direto sobre o cartao do meio, com o
+// botao principal em destaque.
 .OfferCard_appearance_spotlight {
   // Cartão do meio (`nested`, raio 20, margem 12); o cupom é mais claro que ele (`tertiary`).
   --OfferCard-background: var(--background-tertiary);

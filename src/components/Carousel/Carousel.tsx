@@ -15,10 +15,10 @@ interface CarouselOwnProps {
   /** Text of the page indicator for screen readers, such as "Page 2 of 3". Required: the kit has no texts of its own. */
   pagerLabel: (page: number, total: number) => string
   /**
-   * A página é mais estreita que a trilha, com um vão entre elas, e a ponta da próxima aparece.
+   * Um cartão e meio: a página é mais estreita que a trilha (um cartão inteiro, o vão de 12 px e metade do próximo).
    * Pensado para ficar dentro de um cartão de 12 px de margem (`InfoCard plain`): a trilha sai 12 px
    * pela direita, até a borda do cartão, e a rolagem da própria trilha corta a próxima página ali
-   * (nada vaza e a página não rola de lado).
+   * (nada vaza e a página não rola de lado). No fim, a última página para com 12 px de margem.
    */
   peek?: boolean
   /** Cor da barrinha ativa: `neutral` (padrão, cor do texto) ou `accent` (verde da marca). */
