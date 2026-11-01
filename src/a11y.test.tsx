@@ -58,6 +58,7 @@ import {
   ReviewRail,
   ReviewSummary,
   ScoreBadge,
+  Segmented,
   ShortcutCard,
   Skeleton,
   SocialButton,
@@ -374,6 +375,16 @@ const cases: Array<[string, ReactNode]> = [
   [
     'Carrinho: item, quantidade, linha deslizante, cupom, resumo e aceite',
     <div key="cart">
+      <Segmented
+        aria-label="Entrega ou retirada"
+        variant="buttons"
+        activeItem="delivery"
+        onClick={() => {}}
+        items={[
+          { id: 'delivery', title: 'Entrega', icon: <Icon icon={icons.delivery} size={20} /> },
+          { id: 'pickup', title: 'Retirada', icon: <Icon icon={icons.pickup} size={20} /> }
+        ]}
+      />
       <SwipeActions
         open
         onOpenChange={() => {}}

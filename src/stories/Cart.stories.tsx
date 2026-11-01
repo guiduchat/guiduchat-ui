@@ -52,6 +52,7 @@ const CartDemo = () => {
       <InfoCard>
         <Segmented
           aria-label="Entrega ou retirada"
+          variant="buttons"
           activeItem={mode}
           onClick={setMode}
           items={[

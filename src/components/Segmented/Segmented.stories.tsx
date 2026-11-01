@@ -73,3 +73,9 @@ export const WithIcons: Story = {
   },
   decorators: Default.decorators
 };
+
+/** Botões separados de 44 px, o ativo em amarelo (Entrega / Retirada do carrinho). */
+export const Buttons: Story = {
+  args: { ...WithIcons.args, variant: 'buttons' },
+  decorators: Default.decorators
+};

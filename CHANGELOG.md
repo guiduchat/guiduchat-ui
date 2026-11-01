@@ -4,7 +4,7 @@
 
 Peças da página do carrinho, a partir do desenho do Marcelo de 01/11/2026. Só apresentação: todo texto, valor e nome acessível vem do app (o kit não calcula preço). **Nenhum token novo.** Nada quebra: `icon` no `Segmented` é opcional.
 
-- **Segmented:** `icon` opcional em cada item (antes do título; decorativo).
+- **Segmented:** `icon` opcional em cada item (antes do título; decorativo) e `variant` opcional: `pill` (padrão, igual ao de sempre) ou `buttons` (botões separados de 44 px, o ativo em `--button-primary` com `--text-on-accent` e o inativo em `--background-primary`; papéis e teclado iguais). Quem já usa o `Segmented` não muda.
 - **Checkbox** (novo): input nativo com `label`, alvo de toque de 44 px (a linha inteira), estados marcado, desmarcado e desabilitado. Marcado usa `--button-primary`.
 - **QuantityStepper** (novo): ordem do desenho (mais, valor, menos), `value`, `min`, `max`, `onIncrement`, `onDecrement`, `disabled` e três nomes acessíveis obrigatórios (`label`, `incrementLabel`, `decrementLabel`). Círculos de 24 px com botão de 44 px e contorno em pílula. O botão do limite fica desabilitado.
 - **SwipeActions** (novo): linha que desliza para a esquerda e revela `actions` atrás dela (`tone` `primary` sobre `--button-primary` ou `neutral` em cinza). Controlada por `open` e `onOpenChange`, para só uma linha ficar aberta. O eixo é decidido no começo do gesto (`touch-action: pan-y`, a rolagem vertical da página não trava); ao soltar, abre ou fecha com 1/3 da largura das ações; o clique que termina o arrasto é suprimido. As ações ficam no DOM: foco por teclado nelas abre a linha, Escape fecha, e fechadas não recebem ponteiro.

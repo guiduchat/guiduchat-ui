@@ -31,3 +31,24 @@
     box-shadow: 0 4px 16px 0 var(--Effects-Shadow-Elevation-3-Shadow-Elevation-3-Color-Secondary), 0 0 2px 0 var(--Effects-Shadow-Elevation-3-Shadow-Elevation-3-Color-Secondary);
   }
 }
+
+// Variante `buttons`: botões separados de 44 px; o ativo na cor de destaque, o inativo em fundo escuro.
+.segmented_buttons {
+  gap: var(--spacing-size-xl);
+  overflow: visible;
+  padding: 0;
+  background: none;
+  border-radius: 0;
+}
+.segment_buttons {
+  min-height: 44px;
+  padding: 0 var(--spacing-size-xl);
+  border-radius: var(--size-border-radius-semantic-border-radius-card);
+  background-color: var(--background-primary);
+  flex-basis: 0;
+  &.segment_active {
+    background-color: var(--button-primary);
+    color: var(--text-on-accent);
+    box-shadow: none;
+  }
+}
