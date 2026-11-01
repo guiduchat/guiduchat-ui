@@ -2,10 +2,15 @@
 
 // Texto escuro (estático) sobre o verde do cupom, igual ao OfferCard, nos dois temas.
 .ValidityBanner {
-  @include typography.bodyStrong;
+  @include typography.body;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   box-sizing: border-box;
+  min-height: 39px;
+  border-radius: var(--size-border-radius-semantic-border-radius-paper);
   width: 100%;
-  padding: var(--spacing-size-xl) var(--spacing-size2xl);
+  padding: var(--spacing-size-m) var(--spacing-size2xl);
   background-color: var(--background-coupon);
   color: var(--text-primary-static);
   text-align: center;

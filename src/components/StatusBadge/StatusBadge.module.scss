@@ -27,3 +27,9 @@
   color: var(--text-primary);
   background: var(--button-secondary);
 }
+
+// Etiqueta do cupom ("uso individual"): o verde do cupom com texto escuro estático, igual nos dois temas.
+.coupon {
+  color: var(--text-primary-static);
+  background: var(--background-coupon);
+}

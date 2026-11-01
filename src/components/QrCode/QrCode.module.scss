@@ -3,3 +3,11 @@
   max-width: 100%;
   height: auto;
 }
+
+// O fundo branco do QR tem de sair na impressão, senão o leitor não lê.
+@media print {
+  .QrCode {
+    print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
+  }
+}

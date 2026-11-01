@@ -22,12 +22,10 @@
   }
 }
 
-// O QR já traz a margem de silêncio branca; o quadrado só arredonda.
+// O QR já traz a margem de silêncio branca; o quadrado tem cantos retos.
 .QrPanel__qr {
   display: flex;
   max-width: 100%;
-  overflow: hidden;
-  border-radius: var(--size-border-radius-semantic-border-radius-card);
 }
 
 // Botão escuro com ícone claro: contraste alto contra o limão e contra o próprio ícone.
@@ -50,5 +48,18 @@
   &:focus-visible {
     outline: 2px solid var(--text-primary-static);
     outline-offset: 2px;
+  }
+}
+
+// Na impressão o botão não sai e o QR sai com o fundo branco (o navegador não imprime fundos por padrão).
+@media print {
+  .QrPanel__action {
+    display: none;
+  }
+
+  .QrPanel__qr {
+    background-color: #fff;
+    print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
   }
 }

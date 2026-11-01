@@ -1,5 +1,17 @@
 # Changelog do @guiduchat/ui
 
+## 0.16.0 (detalhes da oferta: ajustes ao desenho)
+
+Aproxima as peças da 0.15.0 do desenho da oferta. Minor (prop e componente novos); nada quebra, sem token novo; `InfoCard`, `NavBar` e a margem do `BottomSheet` ficam como estão.
+
+- **ValidityBanner:** cantos arredondados (`--size-border-radius-semantic-border-radius-paper`, 12 px), peso regular (`body`) e altura mínima de 39 px.
+- **StatusBadge:** `status="coupon"` (fundo `--background-coupon`, texto `--text-primary-static`), para a etiqueta "uso individual".
+- **OfferHero:** proporção 1,57:1 no lugar de 4:3 (sem altura mínima, para a proporção valer em tela estreita).
+- **OfferPrice:** preço antigo em `label` (12 px), mantendo `--text-secondary`.
+- **Ícone** `shareUpload` (caixa com seta para cima, Hugeicons `Share03`). O `share` continua o mesmo.
+- **QrPanel:** quadrado do QR com cantos retos.
+- **Impressão** (`@media print`), só na folha com `hero` (classes próprias na folha e na película; a folha sem `hero` imprime como na 0.15.0): o botão do `QrPanel` e a alça somem; `max-height` e `overflow` da folha e do `.content` são soltos, a película deixa de ser fixa e o footer deixa de ser `sticky`, para nada ser cortado. O QR sai com fundo branco (`print-color-adjust: exact`). O app esconde o resto da página.
+
 ## 0.15.0 (detalhes da oferta e cupom com QR)
 
 Peças da página "Detalhes da Oferta" e da folha do cupom, a partir do desenho do Marcelo de 31/10/2026. Só apresentação: todo texto (rótulos, validade, preços formatados) vem do app. **Nenhum token novo nem alterado**: usam `--background-coupon`, `--button-primary`, `--text-on-accent`, `--text-themed` e os demais já existentes. Nada quebra: `hero` e `footer` são opcionais e, sem eles, o `BottomSheet` fica igual.
