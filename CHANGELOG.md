@@ -1,5 +1,14 @@
 # Changelog do @guiduchat/ui
 
+## 0.23.3 (#E3E3E3 no lugar do #F1F1F1)
+
+Só o tema claro. Mais contraste com o #F7F7F7; decisão do Marcelo. Mexe em tokens: revisão da equipe console (regra U2).
+
+- **guidu claro:** dentro #E3E3E3 (era #F1F1F1); fora e faixa continuam #F7F7F7.
+- **hub claro:** fora e faixa #E3E3E3 (eram #F1F1F1); dentro continua #F7F7F7.
+- Barrinhas, página e tema escuro não mudam.
+- **Contraste (WCAG) sobre #E3E3E3:** texto primário 15,7:1; secundário 6,6:1; `--text-themed` (#5C6B02) 4,6:1 (passa de 4,5:1). `tokens.test.ts` confere o verde sobre #FFFFFF, #F7F7F7 e #E3E3E3.
+
 ## 0.23.2 (#F7F7F7 no lugar do #FBFBFB)
 
 Só o tema claro. No celular o #FBFBFB ficou claro demais; decisão do Marcelo. Mexe em tokens: revisão da equipe console (regra U2).

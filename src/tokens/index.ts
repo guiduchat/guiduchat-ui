@@ -34,8 +34,8 @@ export const fontFamily =
 export const surfaces = {
   light: {
     page: '#ffffff',
-    guidu: { outer: '#f7f7f7', inner: '#f1f1f1', band: '#f7f7f7', pagerInactive: '#c0c0c0' },
-    hub: { outer: '#f1f1f1', inner: '#f7f7f7', band: '#f1f1f1', pagerInactive: '#acacac' }
+    guidu: { outer: '#f7f7f7', inner: '#e3e3e3', band: '#f7f7f7', pagerInactive: '#c0c0c0' },
+    hub: { outer: '#e3e3e3', inner: '#f7f7f7', band: '#e3e3e3', pagerInactive: '#acacac' }
   },
   dark: {
     page: '#191919',
