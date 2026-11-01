@@ -7,7 +7,7 @@
   @include common.commonVariables;
 
   font-family: var(--family-base);
-  background-color: var(--background-primary);
+  background-color: var(--page-background);
   color: var(--text-primary);
   width: 100%;
   text-rendering: optimizeLegibility;
@@ -37,6 +37,24 @@
       @include appearance.darkPalette;
     }
   }
+}
+
+// Atores: os tokens semânticos das camadas escolhem o conjunto do ator (hub é o padrão). O
+// `data-actor` pode estar na raiz (prop `actor`) ou em qualquer elemento de dentro; o mais próximo vale.
+// Os conjuntos (--surface-outer-hub, --surface-outer-guidu...) vêm da paleta do tema, herdados da raiz.
+.GuiduUI,
+:global([data-actor='hub']) {
+  --surface-outer: var(--surface-outer-hub);
+  --surface-inner: var(--surface-inner-hub);
+  --surface-band: var(--surface-band-hub);
+  --pager-inactive: var(--pager-inactive-hub);
+}
+
+:global([data-actor='guidu']) {
+  --surface-outer: var(--surface-outer-guidu);
+  --surface-inner: var(--surface-inner-guidu);
+  --surface-band: var(--surface-band-guidu);
+  --pager-inactive: var(--pager-inactive-guidu);
 }
 
 :global(body).GuiduUI_resetBody {

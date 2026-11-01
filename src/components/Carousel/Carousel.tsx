@@ -21,7 +21,7 @@ interface CarouselOwnProps {
    * (nada vaza e a página não rola de lado). No fim, a última página para com 12 px de margem.
    */
   peek?: boolean
-  /** Cor da barrinha ativa: `neutral` (padrão, cor do texto) ou `accent` (verde da marca). */
+  /** Sem efeito visual desde a 0.23.0: a barrinha ativa é sempre o limão (`--pager-active`). Mantido para não quebrar o app. */
   pagerTone?: 'neutral' | 'accent'
 }
 

@@ -53,6 +53,14 @@ import { brand, coupon, fontFamily, palette } from '@guiduchat/ui/tokens';
 
 Sobre a cor principal (`brand.accent`, `#e1fb40`), o texto é sempre o escuro (`brand.onAccent`). Para texto, ícone e controle "da marca" sobre fundo claro, use `brand.accentStrong`: o limão sobre branco não tem contraste. `coupon` traz o verde do cupom das ofertas (`ticket` e `photo`), igual nos dois temas, com texto escuro por cima.
 
+### Atores
+
+O visual dos cartões tem dois atores (decisão do Marcelo, 01/11/2026). `hub` (padrão, a área da pessoa, Cliente Hub): cartão de fora mais escuro e o de dentro mais claro. `guidu` (telas da loja e do guidu): o contrário. Vale nos dois temas.
+
+- **Como o app escolhe:** pela prop `actor` do `GuiduUI` (`<GuiduUI actor="guidu">`), que vira `data-actor` na raiz; ou por um `data-actor="guidu"` (ou `"hub"`) em qualquer elemento de dentro, que troca o ator só daquela parte. O mais próximo vale. Sem nada, é `hub`.
+- **Tokens semânticos** (use estes nos componentes): `--surface-outer` (cartão de fora), `--surface-inner` (cartão de dentro), `--surface-band` (faixa ou quadro dentro do cartão de dentro), `--pager-inactive` e `--pager-active` (barrinhas do `Carousel`) e `--page-background` (fundo da página, igual nos dois atores). Os conjuntos por ator (`--surface-outer-guidu`, `--surface-outer-hub` etc.) vêm da paleta do tema; os valores estão em `surfaces` de `@guiduchat/ui/tokens`.
+- `--background-secondary`, `--background-nested` e `--icon-mute` continuam como eram, para as outras peças.
+
 ### Ícones
 
 Os ícones são da **Hugeicons, versão gratuita** (MIT, `THIRD_PARTY_LICENSES.md`), estilo de traço arredondado. O kit tem **um catálogo só** (`src/icons/catalog.ts`), com nomes por função (`search`, `cart`, `back`, `discover`...), que serve ao web e ao app nativo.

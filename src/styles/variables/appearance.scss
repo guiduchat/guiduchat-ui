@@ -17,6 +17,19 @@
   --states-background-coupon-pressed: rgb(6 7 8 / 0.2);
   --states-text-coupon-disabled: #4a5651;
 
+  // Camadas dos cartões, por ator (decisão do Marcelo, 01/11/2026; ver README, "Atores").
+  // Os tokens semânticos (--surface-outer etc.) escolhem um dos dois conjuntos pelo ator, em GuiduUI.module.scss.
+  --page-background: #ffffff;
+  --surface-outer-guidu: #f1f1f1;
+  --surface-inner-guidu: #dddddd;
+  --surface-band-guidu: #f1f1f1;
+  --pager-inactive-guidu: #c0c0c0;
+  --surface-outer-hub: #dddddd;
+  --surface-inner-hub: #f1f1f1;
+  --surface-band-hub: #dddddd;
+  --pager-inactive-hub: #acacac;
+  --pager-active: #5c6b02;
+
   // Icon
   --icon-primary: rgb(6 7 8 / 0.84);
   --icon-tertiary: rgb(6 7 8 / 0.48);
@@ -24,7 +37,7 @@
   --icon-primary-static: rgb(6 7 8 / 0.84);
   --icon-primary-inverse: rgb(255 255 255);
   --icon-primary-inverse-static: rgb(255 255 255);
-  --icon-themed: #566600;
+  --icon-themed: #5c6b02;
   --icon-positive: rgb(26 190 67);
   --icon-negative: rgb(255 48 60);
 
@@ -35,7 +48,7 @@
   --text-primary-static: rgb(6 7 8);
   --text-primary-inverse: rgb(255 255 255);
   --text-primary-inverse-static: rgb(255 255 255);
-  --text-themed: #566600;
+  --text-themed: #5c6b02;
   --text-negative: rgb(255 48 60);
   --text-positive: rgba(26, 190, 67, 1);
   --text-attention: rgb(228 96 39);
@@ -52,7 +65,7 @@
   --button-primary: #e1fb40;
   --button-secondary: rgb(233 235 241);
   --button-primary-contrast: rgb(255 255 255);
-  --button-secondary-contrast: rgb(32 54 110 / 0.1);
+  --button-secondary-contrast: #c0c0c0;
   --button-negative: rgb(255 48 60);
   --button-ghost: rgb(0 0 0 / 0);
   --button-overlay: rgb(12 13 14 / 0.32);
@@ -88,9 +101,9 @@
   --states-button-primary-contrast-hover: rgb(246 246 246);
   --states-button-primary-contrast-pressed: rgb(235 235 235);
   --states-button-primary-contrast-disabled: rgb(255 255 255 / 0.4);
-  --states-button-secondary-contrast-hover: rgb(32 54 110 / 0.08);
-  --states-button-secondary-contrast-pressed: rgb(32 54 110 / 0.12);
-  --states-button-secondary-contrast-disabled: rgb(32 54 110 / 0.1);
+  --states-button-secondary-contrast-hover: #b5b5b5;
+  --states-button-secondary-contrast-pressed: #a8a8a8;
+  --states-button-secondary-contrast-disabled: rgb(192 192 192 / 0.5);
   --states-button-negative-hover: rgb(255 75 85);
   --states-button-negative-pressed: rgb(240 55 65);
   --states-button-negative-disabled: rgb(247 96 105 / 0.48);
@@ -107,7 +120,7 @@
   --states-text-tertiary-disabled: rgb(111 114 118 / 0.64);
   --states-text-primary-static-disabled: rgb(111 114 118 / 0.64);
   --states-text-primary-inverse-static-disabled: rgb(255 255 255 / 0.72);
-  --states-text-themed-disabled: rgb(86 102 0 / 0.6);
+  --states-text-themed-disabled: rgb(92 107 2 / 0.6);
   --states-text-negative-disabled: rgb(229 77 86 / 0.64);
   --states-controls-active-disabled: rgb(86 102 0 / 0.48);
   --states-controls-inactive-disabled: rgb(9 9 9 / 0.04);
@@ -156,6 +169,18 @@
   --states-background-coupon-pressed: rgb(6 7 8 / 0.2);
   --states-text-coupon-disabled: #4a5651;
 
+  // Camadas dos cartões, por ator (ver o tema claro).
+  --page-background: #191919;
+  --surface-outer-guidu: #404040;
+  --surface-inner-guidu: #2d2d2d;
+  --surface-band-guidu: #404040;
+  --pager-inactive-guidu: #7b7b7b;
+  --surface-outer-hub: #2d2d2d;
+  --surface-inner-hub: #404040;
+  --surface-band-hub: #2d2d2d;
+  --pager-inactive-hub: #858585;
+  --pager-active: #e1fb40;
+
   // Icon
   --icon-primary: rgb(255 255 255);
   --icon-tertiary: rgb(255 255 255 / 0.52);
@@ -190,7 +215,7 @@
   --button-primary: #e1fb40;
   --button-secondary: rgb(67 68 85);
   --button-primary-contrast: rgb(255 255 255);
-  --button-secondary-contrast: rgb(191 194 246 / 0.26);
+  --button-secondary-contrast: #404040;
   --button-negative: rgb(206 66 87);
   --button-ghost: rgb(0 0 0 / 0);
   --button-overlay: rgb(46 51 56 / 0.45);
@@ -226,9 +251,9 @@
   --states-button-primary-contrast-hover: rgb(246 246 246);
   --states-button-primary-contrast-pressed: rgb(235 235 235);
   --states-button-primary-contrast-disabled: rgb(255 255 255 / 0.12);
-  --states-button-secondary-contrast-hover: rgb(191 194 246 / 0.32);
-  --states-button-secondary-contrast-pressed: rgb(191 194 246 / 0.22);
-  --states-button-secondary-contrast-disabled: rgb(191 194 246 / 0.26);
+  --states-button-secondary-contrast-hover: #4a4a4a;
+  --states-button-secondary-contrast-pressed: #373737;
+  --states-button-secondary-contrast-disabled: rgb(64 64 64 / 0.5);
   --states-button-negative-hover: rgb(245 78 103);
   --states-button-negative-pressed: rgb(156 50 66);
   --states-button-negative-disabled: rgb(255 255 255 / 0.12);

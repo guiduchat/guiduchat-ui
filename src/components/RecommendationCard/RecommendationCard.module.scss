@@ -10,7 +10,7 @@
   padding: var(--spacing-size-xl);
   box-sizing: border-box;
   border-radius: var(--size-border-radius-semantic-border-radius-surface);
-  background-color: var(--background-secondary);
+  background-color: var(--surface-outer);
   color: var(--text-primary);
 }
 
@@ -49,7 +49,7 @@
   padding: var(--spacing-size-xl);
   box-sizing: border-box;
   border-radius: var(--size-border-radius-semantic-border-radius-promo);
-  background-color: var(--background-nested);
+  background-color: var(--surface-inner);
 }
 
 .RecommendationCard__media {
@@ -148,7 +148,7 @@
   position: relative;
   display: flex;
   border-radius: 50%;
-  box-shadow: 0 0 0 2px var(--background-secondary);
+  box-shadow: 0 0 0 2px var(--surface-outer);
 
   & + & {
     margin-left: -10px;

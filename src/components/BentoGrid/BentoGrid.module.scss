@@ -35,7 +35,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: var(--background-secondary);
+  background-color: var(--surface-outer);
   color: var(--icon-tertiary);
 }
 
@@ -48,7 +48,7 @@
   padding: var(--spacing-size-xl);
   box-sizing: border-box;
   border-radius: var(--size-border-radius-semantic-border-radius-surface);
-  background-color: var(--background-secondary);
+  background-color: var(--surface-outer);
   color: var(--text-primary);
   text-decoration: none;
   cursor: pointer;

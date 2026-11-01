@@ -40,16 +40,16 @@
   gap: var(--spacing-size-m);
 }
 
-// Bars, not dots: the active one is lighter.
+// Barras, não bolinhas: a ativa é o limão da marca (--pager-active); as outras seguem o ator (--pager-inactive).
 .Carousel__bar {
   width: 48px;
-  height: 4px;
+  height: 10px;
   border-radius: var(--border-radius-circle);
-  background-color: var(--icon-mute);
+  background-color: var(--pager-inactive);
 }
 
 .Carousel__bar_active {
-  background-color: var(--icon-primary);
+  background-color: var(--pager-active);
 }
 
 // [Peek] Um cartão e meio: página + vão de 12 px + meia página = largura da trilha (T), ou seja,
@@ -81,6 +81,8 @@
   padding-right: var(--spacing-size-xl);
 }
 
+
+// Mantido por compatibilidade: com `pagerTone="accent"` a barrinha ativa é a mesma de sempre (limão).
 .Carousel__pager_accent .Carousel__bar_active {
-  background-color: var(--icon-themed);
+  background-color: var(--pager-active);
 }

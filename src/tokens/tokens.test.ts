@@ -3,7 +3,7 @@ import { readFileSync } from 'node:fs';
 
 import { describe, expect, it } from 'vitest';
 
-import { brand, coupon, fontFamily, palette } from './index';
+import { brand, coupon, fontFamily, palette, surfaces } from './index';
 
 const read = (path: string): string =>
   readFileSync(new URL(path, import.meta.url), 'utf8');
@@ -38,6 +38,7 @@ describe('tokens da marca', () => {
     for (const [name, value] of Object.entries(palette[scheme])) {
       expect(scss[name], name).toBe(value);
     }
+    expect(contrast('#5c6b02', '#dddddd')).toBeLessThan(4.5);
   });
 
   it('a fonte do SCSS é a de @guiduchat/ui/tokens', () => {
@@ -59,6 +60,34 @@ describe('tokens da marca', () => {
       expect(palette[scheme]["--states-text-coupon-disabled"]).toBe(coupon.disabledText);
       expect(palette[scheme]["--background-coupon"]).toBe(coupon.ticket);
       expect(palette[scheme]["--background-coupon-photo"]).toBe(coupon.photo);
+    }
+  });
+
+  it('as camadas por ator seguem a decisão do Marcelo (01/11/2026), nos dois temas', () => {
+    expect(surfaces.light.guidu).toEqual({ outer: '#f1f1f1', inner: '#dddddd', band: '#f1f1f1', pagerInactive: '#c0c0c0' });
+    expect(surfaces.light.hub).toEqual({ outer: '#dddddd', inner: '#f1f1f1', band: '#dddddd', pagerInactive: '#acacac' });
+    expect(surfaces.dark.guidu).toEqual({ outer: '#404040', inner: '#2d2d2d', band: '#404040', pagerInactive: '#7b7b7b' });
+    expect(surfaces.dark.hub).toEqual({ outer: '#2d2d2d', inner: '#404040', band: '#2d2d2d', pagerInactive: '#858585' });
+    expect(palette.light['--page-background']).toBe('#ffffff');
+    expect(palette.dark['--page-background']).toBe('#191919');
+    // Guidu e hub trocam fora e dentro entre si.
+    for (const scheme of ['light', 'dark'] as const) {
+      expect(surfaces[scheme].guidu.outer).toBe(surfaces[scheme].hub.inner);
+      expect(surfaces[scheme].guidu.inner).toBe(surfaces[scheme].hub.outer);
+    }
+  });
+
+  it('o verde de texto e a barrinha ativa seguem a decisão do Marcelo (01/11/2026)', () => {
+    expect(palette.light['--text-themed']).toBe('#5c6b02');
+    expect(palette.light['--icon-themed']).toBe('#5c6b02');
+    expect(palette.light['--pager-active']).toBe('#5c6b02');
+    expect(palette.dark['--text-themed']).toBe('#e1fb40');
+    expect(palette.dark['--pager-active']).toBe('#e1fb40');
+    // Decisão dele: o #5c6b02 passa de 3:1 (elemento gráfico) em todas as camadas claras, e passa do AA de
+    // 4,5:1 para texto pequeno nos dois primeiros fundos, mas não no último (5,9:1 no #ffffff e 5,2:1 no #f1f1f1 passam; só 4,35:1 no #dddddd fica um pouco abaixo).
+    // Registrado aqui e no CHANGELOG; não troque a cor sem nova decisão.
+    for (const bg of ['#ffffff', '#f1f1f1', '#dddddd']) {
+      expect(contrast('#5c6b02', bg), bg).toBeGreaterThanOrEqual(3);
     }
   });
 

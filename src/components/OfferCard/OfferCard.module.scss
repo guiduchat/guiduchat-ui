@@ -210,7 +210,7 @@ $dash-thickness: 2px;
   padding: 68px var(--spacing-size-xl) var(--spacing-size-xl);
   overflow: hidden;
   border-radius: var(--size-border-radius-semantic-border-radius-surface);
-  background-color: var(--background-secondary);
+  background-color: var(--surface-outer);
 }
 
 .OfferCard__image {
@@ -233,15 +233,15 @@ $dash-thickness: 2px;
 // botao principal em destaque.
 .OfferCard_appearance_spotlight {
   // Cartão do meio (`nested`, raio 20, margem 12); o cupom é mais claro que ele (`tertiary`).
-  --OfferCard-background: var(--background-tertiary);
+  --OfferCard-background: var(--surface-band);
   gap: var(--spacing-size-xl);
   padding: var(--spacing-size-xl);
   border-radius: var(--size-border-radius-semantic-border-radius-promo);
-  background-color: var(--background-nested);
+  background-color: var(--surface-inner);
   color: var(--text-primary);
 
   .OfferCard__tag {
-    background-color: var(--background-nested);
+    background-color: var(--surface-inner);
   }
 
   .OfferCard__avatar {
@@ -288,7 +288,7 @@ $spot-notch-rise: 32px;
   aspect-ratio: 1;
   overflow: hidden;
   border-radius: var(--size-border-radius-semantic-border-radius-card);
-  background-color: var(--background-nested);
+  background-color: var(--surface-inner);
   color: var(--text-secondary);
 }
 

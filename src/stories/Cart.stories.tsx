@@ -48,7 +48,7 @@ const CartDemo = () => {
     setLines((current) => current.map((line) => (line.id === id ? { ...line, quantity: line.quantity + delta } : line)));
 
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: 12, width: 390, maxWidth: '100%', padding: 12, boxSizing: 'border-box' }}>
+    <div data-actor="guidu" style={{ display: 'flex', flexDirection: 'column', gap: 12, width: 390, maxWidth: '100%', padding: 12, boxSizing: 'border-box' }}>
       <InfoCard>
         <Segmented
           aria-label="Entrega ou retirada"
