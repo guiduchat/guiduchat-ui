@@ -1,5 +1,12 @@
 # Changelog do @guiduchat/ui
 
+## 0.19.0 (botões de 44 px e variante outline)
+
+Decisão do Marcelo de 01/11/2026: todo botão de toque com 44 px de altura (a especificação). Sem token novo.
+
+- **Button / IconButton, tamanho `small`:** de 40 px para 44 px de altura (e largura, no `IconButton`). **Muda o tamanho de quem usa `small`**; `xsmall` (32 px) continua para uso compacto, mas fica abaixo do mínimo de toque: o app deve preferir `small`.
+- **Button, variante `outline` (nova):** só contorno de 1 px em `--text-themed`, sem preenchimento, texto em `--text-primary`; hover e pressionado usam os estados do `ghost`. Não existe no `IconButton`. Cor do contorno a confirmar com o Marcelo.
+
 ## 0.18.0 (respiro do quadro interno e contorno dos dias)
 
 Ajuste visual a pedido do Marcelo; sem token novo, nada quebra.

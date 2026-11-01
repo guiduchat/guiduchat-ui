@@ -23,7 +23,7 @@ const meta = {
   argTypes: {
     ...hideArgsControl(['asChild', 'innerClassNames']),
 
-    variant: selectControl(['primary', 'secondary', 'ghost', 'primary-contrast', 'secondary-contrast', 'overlay', 'destructive', 'neutral']),
+    variant: selectControl(['primary', 'secondary', 'ghost', 'outline', 'primary-contrast', 'secondary-contrast', 'overlay', 'destructive', 'neutral']),
     size: selectControl(['xsmall', 'small', 'medium', 'large']),
     children: reactNodeTextControl,
     iconBefore: { control: 'boolean' },

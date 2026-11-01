@@ -6,7 +6,7 @@
 }
 
 @mixin buttonSmallSize {
-  height: 40px;
+  height: 44px;
   min-width: 48px;
   border-radius: var(--size-border-radius-button-small);
   padding: 10px 12px;
@@ -35,8 +35,8 @@
 }
 
 @mixin iconButtonSmallSize {
-  width: 40px;
-  height: 40px;
+  width: 44px;
+  height: 44px;
   border-radius: 45%;
 }
 

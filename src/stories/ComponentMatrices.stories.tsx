@@ -24,6 +24,7 @@ import {
   Counter,
   type CounterVariant,
   IconButton,
+  type IconButtonVariant,
   Input,
   Spinner,
   type SpinnerAppearance,
@@ -191,8 +192,9 @@ export const AvatarMatrix: Story = {
 };
 
 const buttonVariants = [
-  'primary', 'secondary', 'ghost', 'primary-contrast', 'secondary-contrast', 'overlay', 'destructive', 'neutral'
+  'primary', 'secondary', 'ghost', 'outline', 'primary-contrast', 'secondary-contrast', 'overlay', 'destructive', 'neutral'
 ] as const satisfies readonly ButtonVariant[];
+const iconButtonVariants = buttonVariants.filter((variant): variant is IconButtonVariant => variant !== 'outline');
 const buttonSizes = ['xsmall', 'small', 'medium', 'large'] as const satisfies readonly ButtonSize[];
 const buttonStateNames = ['default', 'hover', 'pressed', 'focus', 'disabled', 'loading'] as const;
 type ButtonStateName = typeof buttonStateNames[number];
@@ -201,6 +203,7 @@ const hoverBackgrounds: Record<ButtonVariant, string> = {
   primary: '--states-button-primary-hover',
   secondary: '--states-button-secondary-contrast-hover',
   ghost: '--states-button-ghost-hover',
+  outline: '--states-button-ghost-hover',
   'primary-contrast': '--states-button-primary-contrast-hover',
   'secondary-contrast': '--states-button-secondary-hover',
   overlay: '--states-button-overlay-hover',
@@ -280,14 +283,14 @@ export const IconButtonMatrix: Story = {
       {() => (
         <>
           <MatrixGroup title="Variants × sizes" minItemWidth={120}>
-            {buttonVariants.flatMap((variant) => buttonSizes.map((size) => (
+            {iconButtonVariants.flatMap((variant) => buttonSizes.map((size) => (
               <MatrixItem key={`${variant}-${size}`} label={`${variant} · ${size}`}>
                 <IconButton aria-label="Кнопка с иконкой" variant={variant} size={size}>{getIconForButtonSize(size)}</IconButton>
               </MatrixItem>
             )))}
           </MatrixGroup>
           <MatrixGroup title="States · medium" minItemWidth={120}>
-            {buttonVariants.flatMap((variant) => buttonStateNames.map((state) => {
+            {iconButtonVariants.flatMap((variant) => buttonStateNames.map((state) => {
               const stateProps = getIconButtonStateProps(variant, state);
               return (
                 <MatrixItem key={`${variant}-${state}`} label={`${variant} · ${state}`}>

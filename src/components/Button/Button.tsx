@@ -11,7 +11,7 @@ import styles from './Button.module.scss';
 import { getButtonSpinnerAppearance, getButtonSpinnerSize, injectButtonIndicator } from './helpers';
 
 export type ButtonSize = 'xsmall' | 'small' | 'medium' | 'large';
-export type ButtonVariant = 'primary' | 'secondary' | 'ghost' | 'primary-contrast' | 'secondary-contrast' | 'overlay' | 'destructive' | 'neutral';
+export type ButtonVariant = 'primary' | 'secondary' | 'ghost' | 'outline' | 'primary-contrast' | 'secondary-contrast' | 'overlay' | 'destructive' | 'neutral';
 export type ButtonInnerElementKey = 'iconBefore' | 'iconAfter' | 'indicator' | 'content' | 'spinnerContainer' | 'spinner';
 
 export interface ButtonProps extends ComponentProps<'button'>, AsChildProp {

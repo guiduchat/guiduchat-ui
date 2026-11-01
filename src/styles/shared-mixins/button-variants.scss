@@ -48,6 +48,22 @@
   )
 }
 
+// outline: só contorno, sem preenchimento
+@mixin buttonVariantOutline(
+  $root,
+) {
+  @include button-variants-builder.buildButtonFilledVariant(
+    $root,
+
+    $background: transparent,
+    $background_disabled: transparent,
+    $background_hovered: var(--states-button-ghost-hover),
+    $background_pressed: var(--states-button-ghost-pressed),
+    $foreground: var(--text-primary),
+    $foreground_disabled: var(--states-text-primary-disabled),
+  )
+}
+
 // primary-contrast
 @mixin buttonVariantPrimaryContrast(
   $root,
