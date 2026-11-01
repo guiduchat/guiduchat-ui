@@ -1,0 +1,38 @@
+@use '../../styles/shared-mixins/reset-text-field';
+@use '../../styles/shared-mixins/typography';
+
+.ActionInput {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-size-m);
+  padding: var(--spacing-size-xs) var(--spacing-size-xs) var(--spacing-size-xs) var(--spacing-size-xl);
+  box-sizing: border-box;
+  border-radius: var(--size-border-radius-semantic-border-radius-promo);
+  background-color: var(--background-tertiary);
+  color: var(--text-primary);
+
+  &:focus-within {
+    outline: 2px solid var(--icon-themed);
+    outline-offset: 2px;
+  }
+}
+
+.ActionInput_disabled {
+  cursor: not-allowed;
+}
+
+.ActionInput__input {
+  @include reset-text-field.resetTextField;
+  @include typography.detail;
+  flex: 1 1 0;
+  min-width: 0;
+  height: 44px;
+
+  &::placeholder {
+    color: var(--text-secondary);
+  }
+
+  &:disabled {
+    color: var(--states-text-primary-disabled);
+  }
+}

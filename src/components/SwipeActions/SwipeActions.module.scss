@@ -1,0 +1,88 @@
+@use '../../styles/shared-mixins/reset-clickable';
+
+.SwipeActions {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--size-border-radius-semantic-border-radius-surface);
+}
+
+// Atrás da linha, encostadas na direita. Fechadas, não recebem ponteiro:
+// só o foco por teclado as alcança (e então a linha abre).
+.SwipeActions__actions {
+  position: absolute;
+  inset: 0 0 0 auto;
+  display: flex;
+  pointer-events: none;
+}
+
+.SwipeActions__actions_open {
+  pointer-events: auto;
+}
+
+.SwipeActions__action {
+  @include reset-clickable.resetClickable;
+  display: flex;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+  // Medida fixa: 24 do ícone + 12 + 12 = 48 px por ação (duas ações: a linha desloca 96 px).
+  width: 48px;
+  box-sizing: border-box;
+  padding: 0;
+  cursor: pointer;
+
+  &:focus-visible {
+    outline: 2px solid var(--icon-themed);
+    outline-offset: -4px;
+  }
+}
+
+// A primeira ação se estende por baixo da linha (um raio), para a cor aparecer atrás do canto arredondado.
+// Fica fora do fluxo (absoluta), então não entra na largura medida nem no deslocamento.
+.SwipeActions__action:first-child {
+  position: relative;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 100%;
+    bottom: 0;
+    width: var(--size-border-radius-semantic-border-radius-surface);
+    background-color: inherit;
+  }
+}
+
+.SwipeActions__action_tone_primary {
+  background-color: var(--button-primary);
+  color: var(--text-on-accent);
+}
+
+.SwipeActions__action_tone_neutral {
+  background-color: var(--icon-quaternary);
+  color: var(--icon-primary);
+}
+
+// A rolagem vertical é do navegador; o horizontal é do gesto.
+.SwipeActions__row {
+  position: relative;
+  z-index: 1;
+  touch-action: pan-y;
+  outline: none;
+  transition: transform 200ms ease-out;
+
+  img {
+    -webkit-user-drag: none;
+  }
+}
+
+.SwipeActions__row_dragging {
+  transition: none;
+  user-select: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .SwipeActions__row {
+    transition: none;
+  }
+}

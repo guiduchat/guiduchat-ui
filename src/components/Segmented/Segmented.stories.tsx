@@ -3,6 +3,8 @@ import {hideArgsControl} from "@storybook-config/shared";
 import { useState } from 'react';
 import {fn} from "storybook/test";
 
+import { icons } from '../../icons/catalog';
+import { Icon } from '../Icon';
 import { Segmented } from './Segmented';
 
 const meta = {
@@ -57,4 +59,23 @@ export const Default: Story = {
       );
     }
   ]
+};
+
+/** Com ícone antes do título (Entrega / Retirada). */
+export const WithIcons: Story = {
+  args: {
+    items: [
+      { id: 'delivery', title: 'Entrega', icon: <Icon icon={icons.delivery} size={20} /> },
+      { id: 'pickup', title: 'Retirada', icon: <Icon icon={icons.pickup} size={20} /> }
+    ],
+    activeItem: 'delivery',
+    onClick: fn()
+  },
+  decorators: Default.decorators
+};
+
+/** Botões separados de 44 px, o ativo em amarelo (Entrega / Retirada do carrinho). */
+export const Buttons: Story = {
+  args: { ...WithIcons.args, variant: 'buttons' },
+  decorators: Default.decorators
 };

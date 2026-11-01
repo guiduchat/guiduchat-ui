@@ -28,7 +28,9 @@ import Clock01Icon from '@hugeicons/core-free-icons/Clock01Icon';
 import Copy01Icon from '@hugeicons/core-free-icons/Copy01Icon';
 import Coupon01Icon from '@hugeicons/core-free-icons/Coupon01Icon';
 import CreditCardIcon from '@hugeicons/core-free-icons/CreditCardIcon';
+import Delete02Icon from '@hugeicons/core-free-icons/Delete02Icon';
 import DeliveryBox01Icon from '@hugeicons/core-free-icons/DeliveryBox01Icon';
+import DeliveryTruck01Icon from '@hugeicons/core-free-icons/DeliveryTruck01Icon';
 import DiscoverSquareIcon from '@hugeicons/core-free-icons/DiscoverSquareIcon';
 import Dish01Icon from '@hugeicons/core-free-icons/Dish01Icon';
 import DrinkIcon from '@hugeicons/core-free-icons/DrinkIcon';
@@ -50,6 +52,7 @@ import MapsIcon from '@hugeicons/core-free-icons/MapsIcon';
 import Medal01Icon from '@hugeicons/core-free-icons/Medal01Icon';
 import Menu01Icon from '@hugeicons/core-free-icons/Menu01Icon';
 import Mic01Icon from '@hugeicons/core-free-icons/Mic01Icon';
+import MinusSignIcon from '@hugeicons/core-free-icons/MinusSignIcon';
 import MoreHorizontalIcon from '@hugeicons/core-free-icons/MoreHorizontalIcon';
 import Navigation03Icon from '@hugeicons/core-free-icons/Navigation03Icon';
 import NfcIcon from '@hugeicons/core-free-icons/NfcIcon';
@@ -69,6 +72,7 @@ import SparklesIcon from '@hugeicons/core-free-icons/SparklesIcon';
 import StarIcon from '@hugeicons/core-free-icons/StarIcon';
 import StethoscopeIcon from '@hugeicons/core-free-icons/StethoscopeIcon';
 import Store01Icon from '@hugeicons/core-free-icons/Store01Icon';
+import StoreLocation01Icon from '@hugeicons/core-free-icons/StoreLocation01Icon';
 import ThumbsDownIcon from '@hugeicons/core-free-icons/ThumbsDownIcon';
 import ThumbsUpIcon from '@hugeicons/core-free-icons/ThumbsUpIcon';
 import Tick02Icon from '@hugeicons/core-free-icons/Tick02Icon';
@@ -159,6 +163,11 @@ export const icons = {
   // Cupom
   copy: Copy01Icon,
   print: PrinterIcon,
+  // Carrinho
+  minus: MinusSignIcon,
+  trash: Delete02Icon,
+  delivery: DeliveryTruck01Icon,
+  pickup: StoreLocation01Icon,
   // Avisos
   offline: WifiOff01Icon,
   warning: Alert02Icon,

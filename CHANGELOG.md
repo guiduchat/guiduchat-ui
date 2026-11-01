@@ -1,5 +1,20 @@
 # Changelog do @guiduchat/ui
 
+## 0.20.0 (peças do carrinho)
+
+Peças da página do carrinho, a partir do desenho do Marcelo de 01/11/2026. Só apresentação: todo texto, valor e nome acessível vem do app (o kit não calcula preço). **Nenhum token novo.** Nada quebra: `icon` no `Segmented` é opcional.
+
+- **Segmented:** `icon` opcional em cada item (antes do título; decorativo) e `variant` opcional: `pill` (padrão, igual ao de sempre) ou `buttons` (botões separados de 44 px, o ativo em `--button-primary` com `--text-on-accent` e o inativo em `--background-primary`; papéis e teclado iguais). Quem já usa o `Segmented` não muda.
+- **Checkbox** (novo): input nativo com `label`, alvo de toque de 44 px (a linha inteira), estados marcado, desmarcado e desabilitado. Marcado usa `--button-primary`.
+- **QuantityStepper** (novo): ordem do desenho (mais, valor, menos), `value`, `min`, `max`, `onIncrement`, `onDecrement`, `disabled` e três nomes acessíveis obrigatórios (`label`, `incrementLabel`, `decrementLabel`). Círculos de 24 px com botão de 44 px e contorno em pílula. O botão do limite fica desabilitado.
+- **SwipeActions** (novo): linha que desliza para a esquerda e revela `actions` atrás dela (`tone` `primary` sobre `--button-primary` ou `neutral` em cinza). Controlada por `open` e `onOpenChange`, para só uma linha ficar aberta. O eixo é decidido no começo do gesto (`touch-action: pan-y`, a rolagem vertical da página não trava); ao soltar, abre ou fecha com 1/3 da largura das ações; o clique que termina o arrasto é suprimido. As ações ficam no DOM: foco por teclado nelas abre a linha, Escape fecha, e fechadas não recebem ponteiro.
+- **CartItemCard** (novo): `image` (com reserva sem foto), `name`, `detail`, `stepper` (slot) e `price` (texto já formatado ou slot, em `--text-themed`). Raio externo 24 px, margem 12 px, foto com raio 20 px.
+- **PriceSummary** (novo): `rows` e `total` com `label` e `value` já formatados; tracejado igual ao do `OrderSummaryCard`.
+- **ActionInput** (novo): campo com botão dentro (por exemplo cupom e Aplicar), `label`, `placeholder`, `actionLabel`, `onAction` (também no Enter). O botão fica fora do `label` do campo, por isso não usa o `iconAfter` do `Input`.
+- **Ícones:** `minus`, `trash`, `delivery` e `pickup` no catálogo (Hugeicons gratuita).
+- **Teto do catálogo de ícones** (`check:icons`) de 56 para 64 KB: os quatro ícones novos passaram dos 56 KB (57,9 KB).
+- **Story** `Telas/Carrinho` com a página inteira.
+
 ## 0.19.0 (botões de 44 px e variante outline)
 
 Decisão do Marcelo de 01/11/2026: todo botão de toque com 44 px de altura (a especificação). Sem token novo.

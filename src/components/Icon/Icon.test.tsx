@@ -36,11 +36,11 @@ describe('catálogo de ícones', () => {
     expect(Object.keys(icons).sort()).toEqual([
       'accessible', 'account', 'add', 'apple', 'arrowForward', 'arrowUpRight', 'attach', 'back',
       'basket', 'call', 'card', 'cart', 'chats', 'check', 'chevronDown', 'chevronRight', 'clock',
-      'close', 'closeCircle', 'contactless', 'copy', 'coupon', 'discover', 'drink', 'eye', 'eyeOff',
+      'close', 'closeCircle', 'contactless', 'copy', 'coupon', 'delivery', 'discover', 'drink', 'eye', 'eyeOff',
       'facebook', 'fashion', 'filter', 'food', 'forYou', 'google', 'health', 'heart', 'home', 'image', 'info',
-      'instagram', 'kids', 'location', 'mail', 'map', 'menu', 'mic', 'more', 'navigation', 'note',
-      'offline', 'orders', 'otherCategory', 'parking', 'places', 'priceLevel', 'print', 'save', 'saved', 'search', 'send',
-      'share', 'shareUpload', 'smartphone', 'star', 'thumbsDown', 'thumbsUp', 'tiktok', 'timer', 'travel', 'wallet',
+      'instagram', 'kids', 'location', 'mail', 'map', 'menu', 'mic', 'minus', 'more', 'navigation', 'note',
+      'offline', 'orders', 'otherCategory', 'parking', 'pickup', 'places', 'priceLevel', 'print', 'save', 'saved', 'search', 'send',
+      'share', 'shareUpload', 'smartphone', 'star', 'thumbsDown', 'thumbsUp', 'tiktok', 'timer', 'trash', 'travel', 'wallet',
       'warning', 'website', 'whatsapp'
     ]);
   });

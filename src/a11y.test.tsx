@@ -4,6 +4,7 @@ import type { ReactNode } from 'react';
 import { describe, expect, it } from 'vitest';
 
 import {
+  ActionInput,
   ActionTile,
   AddressPanel,
   Avatar,
@@ -12,6 +13,8 @@ import {
   BottomSheet,
   Button,
   Carousel,
+  CartItemCard,
+  Checkbox,
   Composer,
   ContactCard,
   Counter,
@@ -44,8 +47,10 @@ import {
   PersonRow,
   PhoneInput,
   PlaceCard,
+  PriceSummary,
   QrCode,
   QrPanel,
+  QuantityStepper,
   QuickAction,
   QuickActions,
   RatingStars,
@@ -53,12 +58,14 @@ import {
   ReviewRail,
   ReviewSummary,
   ScoreBadge,
+  Segmented,
   ShortcutCard,
   Skeleton,
   SocialButton,
   StatStrip,
   StatStripItem,
   StoreHero,
+  SwipeActions,
   Switch,
   TabBar,
   TabBarItem,
@@ -364,6 +371,51 @@ const cases: Array<[string, ReactNode]> = [
         items: [{ id: 'chat', title: 'chat' }, { id: 'guidu', title: 'guidu bot' }]
       }}
     />
+  ],
+  [
+    'Carrinho: item, quantidade, linha deslizante, cupom, resumo e aceite',
+    <div key="cart">
+      <Segmented
+        aria-label="Entrega ou retirada"
+        variant="buttons"
+        activeItem="delivery"
+        onClick={() => {}}
+        items={[
+          { id: 'delivery', title: 'Entrega', icon: <Icon icon={icons.delivery} size={20} /> },
+          { id: 'pickup', title: 'Retirada', icon: <Icon icon={icons.pickup} size={20} /> }
+        ]}
+      />
+      <SwipeActions
+        open
+        onOpenChange={() => {}}
+        actions={[
+          { id: 'save', label: 'Salvar', tone: 'primary', icon: <Icon icon={icons.save} />, onClick: () => {} },
+          { id: 'delete', label: 'Excluir', icon: <Icon icon={icons.trash} />, onClick: () => {} }
+        ]}
+      >
+        <CartItemCard
+          name="Pizza"
+          detail="Grande"
+          price="R$ 35,00"
+          stepper={(
+            <QuantityStepper
+              value={2}
+              min={1}
+              max={9}
+              label="Quantidade de Pizza"
+              incrementLabel="Aumentar quantidade"
+              decrementLabel="Diminuir quantidade"
+              onIncrement={() => {}}
+              onDecrement={() => {}}
+            />
+          )}
+        />
+      </SwipeActions>
+      <ActionInput label="Código de desconto" placeholder="Código" actionLabel="Aplicar" onAction={() => {}} />
+      <PriceSummary rows={[{ label: 'Subtotal', value: 'R$ 70,00' }, { label: 'Envio', value: 'R$ 0,00' }]} total={{ label: 'Total', value: 'R$ 70,00' }} />
+      <Checkbox label="Aceito compartilhar meus dados de contato" />
+      <Checkbox label="Desabilitada" disabled checked readOnly />
+    </div>
   ],
   [
     'MessageBubble',
