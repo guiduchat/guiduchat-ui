@@ -145,6 +145,7 @@
 
 // Sobrepostos, com um contorno da cor do cartão para separar.
 .RecommendationCard__avatar {
+  position: relative;
   display: flex;
   border-radius: 50%;
   box-shadow: 0 0 0 2px var(--background-secondary);
