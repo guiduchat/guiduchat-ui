@@ -1,3 +1,5 @@
+@use '../../styles/shared-mixins/typography';
+
 .InfoCard {
   display: flex;
   flex-direction: column;
@@ -15,6 +17,33 @@
   font-size: 20px;
   font-weight: var(--font-weight-body-strong);
   line-height: 26px;
+}
+
+.InfoCard__header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--spacing-size-xl);
+  margin: var(--spacing-size-m) var(--spacing-size-xl) 0;
+}
+
+// Com "Ver todas" a margem passa para o cabeçalho.
+.InfoCard__title_withSeeAll {
+  min-width: 0;
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+
+.InfoCard__seeAll {
+  @include typography.description;
+  flex-shrink: 0;
+  white-space: nowrap;
+
+  a,
+  button {
+    color: var(--text-themed);
+    text-decoration: none;
+  }
 }
 
 .InfoCard__body {

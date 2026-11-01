@@ -11,6 +11,8 @@ interface InfoCardOwnProps {
   title?: ReactNode
   /** Elemento do título. `h2` por padrão. */
   titleAs?: ElementType
+  /** Slot do link "Ver todas", do app, ao lado do título. Sem `title`, não aparece. */
+  seeAll?: ReactNode
   /** Sem o quadro interno: os filhos já são quadros (`AddressPanel`, por exemplo). */
   plain?: boolean
 }
@@ -19,10 +21,17 @@ export type InfoCardProps = MergeProps<ComponentProps<'section'>, InfoCardOwnPro
 
 /** Superfície com título e um quadro interno; as linhas são `InfoRow`. */
 export const InfoCard = forwardRef<HTMLElement, InfoCardProps>((props, ref) => {
-  const { title, titleAs: Title = 'h2', plain = false, children, className, ...rest } = props;
+  const { title, titleAs: Title = 'h2', seeAll, plain = false, children, className, ...rest } = props;
   return (
     <section ref={ref} className={clsx(styles.InfoCard, className)} {...rest}>
-      {hasReactNode(title) && <Title className={styles.InfoCard__title}>{title}</Title>}
+      {hasReactNode(title) && (hasReactNode(seeAll)
+        ? (
+          <div className={styles.InfoCard__header}>
+            <Title className={clsx(styles.InfoCard__title, styles.InfoCard__title_withSeeAll)}>{title}</Title>
+            <span className={styles.InfoCard__seeAll}>{seeAll}</span>
+          </div>
+        )
+        : <Title className={styles.InfoCard__title}>{title}</Title>)}
       {plain ? children : <div className={styles.InfoCard__body}>{children}</div>}
     </section>
   );

@@ -1,0 +1,140 @@
+@use '../../styles/shared-mixins/typography';
+
+// Medidas do desenho: cartão do meio (fundo `nested`, raio 20, margem 12) com o quadro de dentro mais escuro; o cartão de fora (`InfoCard`) tem 24 e margem 12.
+.OrderProgressCard {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-size-xl);
+  width: 100%;
+  min-width: 0;
+  padding: var(--spacing-size-xl);
+  box-sizing: border-box;
+  border-radius: var(--size-border-radius-semantic-border-radius-promo);
+  background-color: var(--background-nested);
+  color: var(--text-primary);
+}
+
+// Texto à esquerda, foto à direita; os passos ocupam a largura toda embaixo.
+.OrderProgressCard__frame {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 88px;
+  grid-template-areas:
+    'info media'
+    'updated media'
+    'steps steps';
+  column-gap: var(--spacing-size-xl);
+  row-gap: var(--spacing-size-m);
+  align-items: start;
+  padding: var(--spacing-size-xl);
+  box-sizing: border-box;
+  border-radius: var(--size-border-radius-semantic-border-radius-promo);
+  background-color: var(--background-secondary);
+}
+
+.OrderProgressCard__info {
+  grid-area: info;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: var(--spacing-size2xs);
+  min-width: 0;
+  text-align: right;
+}
+
+.OrderProgressCard__status {
+  @include typography.title;
+  overflow-wrap: anywhere;
+  color: var(--text-themed);
+}
+
+.OrderProgressCard__line {
+  @include typography.description;
+  overflow-wrap: anywhere;
+}
+
+.OrderProgressCard__updated {
+  @include typography.description;
+  grid-area: updated;
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-size-m);
+  min-width: 0;
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+
+.OrderProgressCard__updatedIcon {
+  display: flex;
+  flex-shrink: 0;
+  color: var(--icon-primary);
+}
+
+.OrderProgressCard__media {
+  grid-area: media;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 88px;
+  height: 88px;
+  overflow: hidden;
+  border-radius: var(--size-border-radius-semantic-border-radius-card);
+  background-color: var(--background-tertiary);
+  color: var(--text-secondary);
+}
+
+.OrderProgressCard__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+// O `Steps` traz 12 px de margem própria: sai para as bordas do quadro e para o rodapé dele.
+.OrderProgressCard__steps {
+  grid-area: steps;
+  margin: calc(-1 * var(--spacing-size-m)) calc(-1 * var(--spacing-size-xl)) calc(-1 * var(--spacing-size-xl));
+}
+
+.OrderProgressCard__footer {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-size-xl);
+  padding: 0 var(--spacing-size-m);
+}
+
+.OrderProgressCard__avatar {
+  display: flex;
+  flex-shrink: 0;
+  width: 44px;
+  height: 44px;
+  overflow: hidden;
+  border-radius: 50%;
+
+  > * {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.OrderProgressCard__store {
+  display: flex;
+  flex: 1 1 0;
+  flex-direction: column;
+  gap: var(--spacing-size2xs);
+  min-width: 0;
+}
+
+.OrderProgressCard__storeName {
+  @include typography.bodyStrong;
+  overflow-wrap: anywhere;
+}
+
+.OrderProgressCard__category {
+  @include typography.description;
+  overflow-wrap: anywhere;
+  color: var(--text-secondary);
+}
+
+.OrderProgressCard__action {
+  display: flex;
+  flex-shrink: 0;
+}

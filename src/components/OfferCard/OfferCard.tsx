@@ -1,9 +1,11 @@
+import { Slot, Slottable } from '@radix-ui/react-slot';
 import { clsx } from 'clsx';
-import { type ComponentProps, forwardRef, type ReactNode } from 'react';
+import { type ComponentProps, type ElementType, forwardRef, type MouseEventHandler, type ReactNode } from 'react';
 
 import { hasReactNode } from '../../helpers';
 import { icons } from '../../icons/catalog';
-import { type InnerClassNamesProp, type MergeProps } from '../../types';
+import { type AsChildProp, type InnerClassNamesProp, type MergeProps } from '../../types';
+import { Button } from '../Button';
 import { Icon } from '../Icon';
 import styles from './OfferCard.module.scss';
 
@@ -18,7 +20,10 @@ export type OfferCardInnerElementKey =
   | 'tag'
   | 'save'
   | 'footer'
-  | 'action';
+  | 'action'
+  | 'notice'
+  | 'category'
+  | 'media';
 
 export interface OfferCardToggle {
   /** Accessible name; the kit has no texts of its own, the app passes them translated. */
@@ -39,7 +44,14 @@ export interface OfferCardImage {
   alt: string
 }
 
-export type OfferCardAppearance = 'ticket' | 'featured';
+export type OfferCardAppearance = 'ticket' | 'featured' | 'spotlight';
+
+/** Torna a parte de cima do `spotlight` (foto e textos) clicável: abre a página da oferta. */
+export interface OfferCardTopAction extends AsChildProp {
+  onClick?: MouseEventHandler<HTMLElement>
+  /** Com `asChild`, o app passa o link aqui: `<a href="...">`. O kit põe a foto e os textos dentro dele. */
+  children?: ReactNode
+}
 
 interface OfferCardOwnProps {
   /** Usually an `Avatar.Container` with the store logo, 44 to 48 px. */
@@ -56,14 +68,23 @@ interface OfferCardOwnProps {
   secondaryAction?: OfferCardAction
   /** Right button of the footer, such as "Redeem offer". */
   primaryAction?: OfferCardAction
-  /** Photo behind the coupon. Used only in the featured appearance. */
+  /** Photo behind the coupon (featured) or beside the texts (spotlight). */
   image?: OfferCardImage
+  /** Notice under the title, such as "Check the promotion rules." Used only in the spotlight appearance. */
+  notice?: ReactNode
+  /** Store category, under the store name. Used only in the spotlight appearance. */
+  category?: ReactNode
+  /** Makes the top of the spotlight (photo and texts) a link or button. Used only in the spotlight appearance. */
+  topAction?: OfferCardTopAction
   /** Small situation label, such as "Used" or "Expired". */
   tag?: ReactNode
   /**
    * Both have side notches at the dashed line (CSS mask) and the footer under it.
    * `ticket`: plain coupon on the coupon green.
    * `featured`: photo with the coupon over its base.
+   * `spotlight`: card of the "Ofertas Imperdiveis" carousel, for an `InfoCard plain`: photo and texts
+   * with side notches, and under it the store (`avatar`, `subtitle`, `category`) with `primaryAction` as
+   * the main button. It ignores `save` and `secondaryAction`.
    */
   appearance?: OfferCardAppearance
   innerClassNames?: InnerClassNamesProp<OfferCardInnerElementKey>
@@ -83,6 +104,9 @@ export const OfferCard = forwardRef<HTMLElement, OfferCardProps>((props, forward
     primaryAction,
     image,
     tag,
+    notice,
+    category,
+    topAction,
     appearance = 'ticket',
     className,
     innerClassNames,
@@ -90,6 +114,7 @@ export const OfferCard = forwardRef<HTMLElement, OfferCardProps>((props, forward
   } = props;
 
   const isFeatured = appearance === 'featured';
+  const isSpotlight = appearance === 'spotlight';
   const actions = [secondaryAction, primaryAction].filter((action): action is OfferCardAction => action !== undefined);
   const hasFooter = actions.length > 0;
 
@@ -137,6 +162,51 @@ export const OfferCard = forwardRef<HTMLElement, OfferCardProps>((props, forward
   );
 
   const rootClassName = clsx(styles.OfferCard, styles[`OfferCard_appearance_${appearance}`], className);
+
+  if (isSpotlight) {
+    const TopRoot: ElementType = topAction?.asChild ? Slot : (topAction ? 'button' : 'div');
+    return (
+      <article ref={forwardedRef} className={rootClassName} {...rest}>
+        <TopRoot
+          type={topAction && !topAction.asChild ? 'button' : undefined}
+          className={clsx(styles.OfferCard__spot, topAction && styles.OfferCard__spot_interactive)}
+          onClick={topAction?.onClick}
+        >
+          <Slottable>{topAction?.children}</Slottable>
+          <span className={clsx(styles.OfferCard__media, innerClassNames?.media)}>
+            {image
+              ? <img className={clsx(styles.OfferCard__image_inline, innerClassNames?.image)} src={image.src} alt={image.alt} />
+              : <Icon icon={icons.image} size={32} />}
+          </span>
+          <span className={styles.OfferCard__names}>
+            {hasReactNode(tag) && <span className={clsx(styles.OfferCard__tag, innerClassNames?.tag)}>{tag}</span>}
+            <span className={clsx(styles.OfferCard__title, innerClassNames?.title)}>{title}</span>
+            {hasReactNode(notice) && <span className={clsx(styles.OfferCard__note, innerClassNames?.notice)}>{notice}</span>}
+            {hasReactNode(meta) && <span className={clsx(styles.OfferCard__note, innerClassNames?.meta)}>{meta}</span>}
+          </span>
+        </TopRoot>
+        {(hasReactNode(avatar) || hasReactNode(subtitle) || hasReactNode(category) || primaryAction) && (
+          <div className={clsx(styles.OfferCard__store, innerClassNames?.footer)}>
+            {hasReactNode(avatar) && <span className={clsx(styles.OfferCard__avatar, innerClassNames?.avatar)}>{avatar}</span>}
+            <span className={styles.OfferCard__storeNames}>
+              {hasReactNode(subtitle) && <span className={clsx(styles.OfferCard__storeName, innerClassNames?.subtitle)}>{subtitle}</span>}
+              {hasReactNode(category) && <span className={clsx(styles.OfferCard__category, innerClassNames?.category)}>{category}</span>}
+            </span>
+            {primaryAction && (
+              <Button
+                size="small"
+                className={clsx(innerClassNames?.action)}
+                disabled={primaryAction.disabled}
+                onClick={primaryAction.onClick}
+              >
+                {primaryAction.label}
+              </Button>
+            )}
+          </div>
+        )}
+      </article>
+    );
+  }
 
   if (isFeatured) {
     return (

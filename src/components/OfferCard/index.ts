@@ -5,5 +5,6 @@ export {
   type OfferCardImage,
   type OfferCardInnerElementKey,
   type OfferCardProps,
-  type OfferCardToggle
+  type OfferCardToggle,
+  type OfferCardTopAction
 } from './OfferCard';

@@ -51,3 +51,36 @@
 .Carousel__bar_active {
   background-color: var(--icon-primary);
 }
+
+// [Peek] Um cartão e meio: página + vão de 12 px + meia página = largura da trilha (T), ou seja,
+// página = (T - 12) * 2 / 3. A trilha sai 12 px pela direita do cartão de fora (que a corta), e a
+// segunda página aparece até ali. A 390 px (T = 354) são 228 px de página e 114 px da segunda.
+// A vizinha fica com ~0,5 à vista, abaixo do 0,6 que define a página ativa.
+// Ao fim da rolagem sobra um vão de 12 px depois da última página (o ::after sem largura, mais o gap):
+// ela para com 12 px de margem à direita, com os cantos inteiros.
+.Carousel_peek {
+  width: auto;
+  margin-right: calc(-1 * var(--spacing-size-xl));
+}
+
+.Carousel__track_peek {
+  gap: var(--spacing-size-xl);
+
+  .Carousel__page {
+    flex-basis: calc((100% - var(--spacing-size-xl)) * 2 / 3);
+  }
+
+  &::after {
+    content: '';
+    flex: 0 0 0;
+  }
+}
+
+// O marcador continua centrado na área útil do cartão, não na trilha alargada.
+.Carousel_peek .Carousel__pager {
+  padding-right: var(--spacing-size-xl);
+}
+
+.Carousel__pager_accent .Carousel__bar_active {
+  background-color: var(--icon-themed);
+}

@@ -2,6 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react-vite';
 import { useState } from 'react';
 
 import { Avatar } from '../Avatar';
+import { InfoCard } from '../InfoCard';
 import { OfferCard, type OfferCardProps } from './OfferCard';
 
 const avatar = (
@@ -31,7 +32,7 @@ const meta = {
     primaryAction: { label: 'Resgatar oferta', onClick: () => {} }
   },
   argTypes: {
-    appearance: { control: 'inline-radio', options: ['ticket', 'featured'] }
+    appearance: { control: 'inline-radio', options: ['ticket', 'featured', 'spotlight'] }
   },
   decorators: [
     (Story) => (
@@ -136,3 +137,85 @@ export const WithTag: Story = {
 export const WithoutButtons: Story = { render: WithSave, args: { secondaryAction: undefined, primaryAction: undefined } };
 
 export const FeaturedWithTag: Story = { render: WithSave, args: { appearance: 'featured', image, tag: 'Vencido' } };
+
+// Spotlight: dentro do cartão de fora, como no app (carrossel "Ofertas Imperdíveis").
+const spotlightArgs = {
+  appearance: 'spotlight' as const,
+  avatar: (
+    <Avatar.Container size={44} form="circle">
+      <Avatar.Text gradient="green">RB</Avatar.Text>
+    </Avatar.Container>
+  ),
+  notice: 'Verifique as regras da promoção.',
+  category: 'Restaurantes & Cafés',
+  save: undefined,
+  secondaryAction: undefined,
+  primaryAction: { label: 'Resgatar', onClick: () => {} }
+};
+
+const inInfoCard: Story['decorators'] = [
+  (Story) => (
+    <div style={{ width: '100%', maxWidth: 390, padding: 12, boxSizing: 'border-box' }}>
+      <InfoCard title="Ofertas Imperdíveis" seeAll={<a href="#todas">Ver todas</a>} plain>
+        <Story />
+      </InfoCard>
+    </div>
+  )
+];
+
+/** Sem foto: reserva com ícone. */
+export const Spotlight: Story = { args: spotlightArgs, decorators: inInfoCard };
+
+export const SpotlightWithPhoto: Story = { args: { ...spotlightArgs, image }, decorators: inInfoCard };
+
+/** A parte de cima como link do app (`topAction` com `asChild`): abre a página da oferta. */
+export const SpotlightTopAsLink: Story = {
+  args: { ...spotlightArgs, image, topAction: { asChild: true, children: <a href="#oferta" /> } },
+  decorators: inInfoCard
+};
+
+export const SpotlightDisabled: Story = {
+  args: { ...spotlightArgs, image, primaryAction: { label: 'Resgatar', onClick: () => {}, disabled: true } },
+  decorators: inInfoCard
+};
+
+export const SpotlightWithTag: Story = { args: { ...spotlightArgs, image, tag: 'Vencido' }, decorators: inInfoCard };
+
+export const SpotlightLongText: Story = {
+  args: {
+    ...spotlightArgs,
+    image,
+    ...longText,
+    notice: 'Verifique as regras da promoção, que podem mudar por loja, dia da semana e horário de funcionamento.',
+    category: 'Restaurantes, Pizzarias e Cafés Especiais'
+  },
+  decorators: inInfoCard
+};
+
+export const SpotlightEnglish: Story = {
+  args: {
+    ...spotlightArgs,
+    image,
+    title: '20% off two-person steak',
+    notice: 'Check the promotion rules.',
+    meta: 'Valid until 11/12/2026',
+    subtitle: 'Buzin Restaurant',
+    category: 'Restaurants & Cafes',
+    primaryAction: { label: 'Redeem', onClick: () => {} }
+  },
+  decorators: inInfoCard
+};
+
+export const SpotlightSpanish: Story = {
+  args: {
+    ...spotlightArgs,
+    image,
+    title: '20% de descuento en parrillada para dos',
+    notice: 'Consulta las condiciones de la promoción.',
+    meta: 'Válido hasta el 12/11/2026',
+    subtitle: 'Restaurante Buzin',
+    category: 'Restaurantes y Cafés',
+    primaryAction: { label: 'Canjear', onClick: () => {} }
+  },
+  decorators: inInfoCard
+};

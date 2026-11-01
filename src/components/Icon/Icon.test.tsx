@@ -35,7 +35,7 @@ describe('catálogo de ícones', () => {
   it('tem os nomes por função que o kit e os apps usam', () => {
     expect(Object.keys(icons).sort()).toEqual([
       'accessible', 'account', 'add', 'apple', 'arrowForward', 'arrowUpRight', 'attach', 'back',
-      'basket', 'call', 'card', 'cart', 'chats', 'check', 'chevronDown', 'chevronRight', 'clock',
+      'basket', 'calendar', 'call', 'card', 'cart', 'chats', 'check', 'chevronDown', 'chevronRight', 'clock',
       'close', 'closeCircle', 'contactless', 'copy', 'coupon', 'delivery', 'discover', 'drink', 'eye', 'eyeOff',
       'facebook', 'fashion', 'filter', 'food', 'forYou', 'google', 'health', 'heart', 'home', 'image', 'info',
       'instagram', 'kids', 'location', 'mail', 'map', 'menu', 'mic', 'minus', 'more', 'navigation', 'note',

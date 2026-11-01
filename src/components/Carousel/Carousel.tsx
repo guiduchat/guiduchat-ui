@@ -14,6 +14,15 @@ interface CarouselOwnProps {
   'aria-label': string
   /** Text of the page indicator for screen readers, such as "Page 2 of 3". Required: the kit has no texts of its own. */
   pagerLabel: (page: number, total: number) => string
+  /**
+   * Um cartão e meio: a página é mais estreita que a trilha (um cartão inteiro, o vão de 12 px e metade do próximo).
+   * Pensado para ficar dentro de um cartão de 12 px de margem (`InfoCard plain`): a trilha sai 12 px
+   * pela direita, até a borda do cartão, e a rolagem da própria trilha corta a próxima página ali
+   * (nada vaza e a página não rola de lado). No fim, a última página para com 12 px de margem.
+   */
+  peek?: boolean
+  /** Cor da barrinha ativa: `neutral` (padrão, cor do texto) ou `accent` (verde da marca). */
+  pagerTone?: 'neutral' | 'accent'
 }
 
 /**
@@ -34,7 +43,7 @@ const pageKey = (page: ReactNode, index: number): string =>
 
 /** Side scroll with snap, one page per child, and a bar pager under it (hidden with one page). */
 export const Carousel = forwardRef<HTMLDivElement, CarouselProps>((props, forwardedRef) => {
-  const { children, pagerLabel, className, onKeyDown, 'aria-label': ariaLabel, 'aria-labelledby': ariaLabelledby, ...rest } = props;
+  const { children, pagerLabel, peek = false, pagerTone = 'neutral', className, onKeyDown, 'aria-label': ariaLabel, 'aria-labelledby': ariaLabelledby, ...rest } = props;
   const pages = toPages(children);
   const total = pages.length;
   const keys = pages.map(pageKey).join('|');
@@ -68,11 +77,15 @@ export const Carousel = forwardRef<HTMLDivElement, CarouselProps>((props, forwar
     const track = trackRef.current;
     if (!track || (event.key !== 'ArrowRight' && event.key !== 'ArrowLeft')) return;
     event.preventDefault();
-    track.scrollBy({ left: (event.key === 'ArrowRight' ? 1 : -1) * track.clientWidth });
+    // Com `peek`, a página é menor que a trilha: anda de página em página, não de trilha em trilha.
+    const first = track.children[0] as HTMLElement | undefined;
+    const second = track.children[1] as HTMLElement | undefined;
+    const pageStep = peek && first && second ? second.offsetLeft - first.offsetLeft : 0;
+    track.scrollBy({ left: (event.key === 'ArrowRight' ? 1 : -1) * (pageStep || track.clientWidth) });
   };
 
   return (
-    <div ref={forwardedRef} className={clsx(styles.Carousel, className)} {...rest}>
+    <div ref={forwardedRef} className={clsx(styles.Carousel, peek && styles.Carousel_peek, className)} {...rest}>
       {/* The scroll area takes the keyboard: Tab focuses it and the arrows scroll. */}
       <div
         ref={trackRef}
@@ -80,7 +93,7 @@ export const Carousel = forwardRef<HTMLDivElement, CarouselProps>((props, forwar
         aria-label={ariaLabel}
         aria-labelledby={ariaLabelledby}
         tabIndex={0}
-        className={styles.Carousel__track}
+        className={clsx(styles.Carousel__track, peek && styles.Carousel__track_peek)}
         onKeyDown={handleKeyDown}
       >
         {pages.map((page, index) => (
@@ -89,7 +102,7 @@ export const Carousel = forwardRef<HTMLDivElement, CarouselProps>((props, forwar
       </div>
 
       {total > 1 && (
-        <div className={styles.Carousel__pager} role="group" aria-label={pagerLabel(active + 1, total)}>
+        <div className={clsx(styles.Carousel__pager, pagerTone === 'accent' && styles.Carousel__pager_accent)} role="group" aria-label={pagerLabel(active + 1, total)}>
           {Array.from({ length: total }, (_, index) => (
             <span
               key={index}

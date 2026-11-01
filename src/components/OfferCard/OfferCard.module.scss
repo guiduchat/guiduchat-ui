@@ -226,3 +226,106 @@ $dash-thickness: 2px;
   overflow: hidden;
   border-radius: var(--size-border-radius-semantic-border-radius-surface);
 }
+
+// [Appearance] Spotlight: o cartao do carrossel "Ofertas Imperdiveis", dentro de um `InfoCard plain`.
+// Cartao do meio (`nested`, raio 20, margem 12) com o cupom em `tertiary`, com o recorte lateral do
+// ticket (a mesma mascara do cabecalho) e, embaixo, a loja direto sobre o cartao do meio, com o
+// botao principal em destaque.
+.OfferCard_appearance_spotlight {
+  // Cartão do meio (`nested`, raio 20, margem 12); o cupom é mais claro que ele (`tertiary`).
+  --OfferCard-background: var(--background-tertiary);
+  gap: var(--spacing-size-xl);
+  padding: var(--spacing-size-xl);
+  border-radius: var(--size-border-radius-semantic-border-radius-promo);
+  background-color: var(--background-nested);
+  color: var(--text-primary);
+
+  .OfferCard__tag {
+    background-color: var(--background-nested);
+  }
+
+  .OfferCard__avatar {
+    width: 44px;
+    height: 44px;
+  }
+}
+
+// O recorte sobe 32 px da borda de baixo (como no desenho): é a mesma máscara do ticket, só mais alta.
+$spot-notch-rise: 32px;
+
+.OfferCard__spot {
+  @include reset-clickable.resetClickable;
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-size-xl);
+  width: 100%;
+  min-width: 0;
+  padding: var(--spacing-size-xl);
+  box-sizing: border-box;
+  border-radius: var(--size-border-radius-semantic-border-radius-card);
+  background-color: var(--OfferCard-background);
+  color: var(--text-primary);
+  text-align: left;
+  mask:
+    radial-gradient(circle $notch at 0 calc(100% - #{$spot-notch-rise}), transparent calc(#{$notch} - 0.5px), currentColor $notch) left / 51% 100% no-repeat,
+    radial-gradient(circle $notch at 100% calc(100% - #{$spot-notch-rise}), transparent calc(#{$notch} - 0.5px), currentColor $notch) right / 51% 100% no-repeat;
+}
+
+.OfferCard__spot_interactive {
+  cursor: pointer;
+
+  &:focus-visible {
+    outline: 2px solid var(--icon-themed);
+    outline-offset: 2px;
+  }
+}
+
+.OfferCard__media {
+  display: flex;
+  flex: 0 0 34%;
+  align-items: center;
+  justify-content: center;
+  aspect-ratio: 1;
+  overflow: hidden;
+  border-radius: var(--size-border-radius-semantic-border-radius-card);
+  background-color: var(--background-nested);
+  color: var(--text-secondary);
+}
+
+.OfferCard__image_inline {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.OfferCard__note {
+  @include typography.description;
+  max-width: 100%;
+  overflow-wrap: anywhere;
+  color: var(--text-secondary);
+}
+
+.OfferCard__store {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-size-xl);
+}
+
+.OfferCard__storeNames {
+  display: flex;
+  flex: 1 1 0;
+  flex-direction: column;
+  gap: var(--spacing-size2xs);
+  min-width: 0;
+}
+
+.OfferCard__storeName {
+  @include typography.bodyStrong;
+  overflow-wrap: anywhere;
+}
+
+.OfferCard__category {
+  @include typography.description;
+  overflow-wrap: anywhere;
+  color: var(--text-secondary);
+}

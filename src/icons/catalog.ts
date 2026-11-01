@@ -20,6 +20,7 @@ import Attachment01Icon from '@hugeicons/core-free-icons/Attachment01Icon';
 import Baby01Icon from '@hugeicons/core-free-icons/Baby01Icon';
 import Bookmark01Icon from '@hugeicons/core-free-icons/Bookmark01Icon';
 import BookmarkCheck01Icon from '@hugeicons/core-free-icons/BookmarkCheck01Icon';
+import CalendarClockIcon from '@hugeicons/core-free-icons/CalendarClockIcon';
 import CallIcon from '@hugeicons/core-free-icons/CallIcon';
 import Cancel01Icon from '@hugeicons/core-free-icons/Cancel01Icon';
 import CancelCircleIcon from '@hugeicons/core-free-icons/CancelCircleIcon';
@@ -119,6 +120,8 @@ export const icons = {
   location: Location01Icon,
   website: Globe02Icon,
   clock: Clock01Icon,
+  // Calendário com relógio (desenho dos pedidos em andamento)
+  calendar: CalendarClockIcon,
   image: Image01Icon,
   arrowForward: ArrowRight02Icon,
   thumbsUp: ThumbsUpIcon,

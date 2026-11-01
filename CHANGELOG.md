@@ -1,5 +1,19 @@
 # Changelog do @guiduchat/ui
 
+## 0.22.0 (cartões da página Para Você)
+
+Peças dos seis modelos do Marcelo para a página Para Você (01/11/2026). O cartão de fora dos quatro carrosséis é o `InfoCard` (parado); só o cartão de dentro se move, num `Carousel`. Props novas e opcionais: **nada quebra**; `Carousel` e `OfferCard` ficam iguais para quem não usa os props novos. **Nenhum token novo.** Todo texto, link e nome acessível vem do app.
+
+- **InfoCard:** `seeAll` (slot do link "Ver todas") ao lado do título, com o mesmo tratamento do `RecommendationCard`.
+- **Carousel:** `peek` (páginas mais estreitas, vão de 12 px, ~56 px da próxima à vista; a trilha sai 12 px pela direita do `InfoCard plain` e a própria rolagem corta ali; a página ativa segue por `intersectionRatio >= 0.6`, e a vizinha fica com ~25% à vista; as setas do teclado andam uma página) e `pagerTone="accent"` (barrinha ativa em `--icon-themed`).
+- **OfferCard, `appearance="spotlight"` (nova):** foto, título, aviso (`notice`), validade (`meta`), recorte lateral (a máscara do ticket) e, embaixo, loja (`avatar`, `subtitle`, `category`) com `primaryAction` como botão principal. `topAction` (com `asChild`) torna a parte de cima o link da oferta. Ignora `save` e `secondaryAction`. `ticket` e `featured` não mudam.
+- **OrderProgressCard (novo):** `status`, `code`, `items`, `updatedAt` (com ícone de calendário), `image`, `steps` (slot para `Steps`; use `role="img"` e `aria-label`), `avatar`, `store`, `category`, `action` (slot, em geral `Button`).
+- **StoreOfferCard (novo):** `image`, `category`, `name`, `address`, `rating` (slot), `action` (seta redonda, com `asChild`) e `promo` (faixa com ícone de cupom, opcional).
+- **StorePhotoCard (novo):** foto grande com a seta sobre ela (`action`, com `asChild`) e `category`, `name`, `address`, `rating` abaixo. Sem foto, reserva com ícone.
+- **SocialLinkCard (novo):** `icon`, `text` e seta; `asChild` para o link do app. Um só componente para Instagram e Facebook.
+- **Ícones:** `calendar` (calendário com relógio) no catálogo.
+- **Story** `Telas/Para Você` com a página inteira.
+
 ## 0.21.0 (variante link, AddressPanel e SwipeActions refinados)
 
 Ajustes pedidos pela validação da página do carrinho, a partir do desenho do Marcelo. Props novas e opcionais: **nada quebra**; o `AddressPanel` (usado em Pedidos) e os `Button` existentes ficam iguais. Sem token novo.
