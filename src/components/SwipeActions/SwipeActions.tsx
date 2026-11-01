@@ -66,6 +66,7 @@ export const SwipeActions = forwardRef<HTMLDivElement, SwipeActionsProps>((props
   const { children, actions, open, onOpenChange, innerClassNames, className, onKeyDown, ...rest } = props;
 
   const actionsRef = useRef<HTMLDivElement>(null);
+  const rowRef = useRef<HTMLDivElement>(null);
   const rootRef = useRef<HTMLDivElement | null>(null);
   const [width, setWidth] = useState(0);
   const [dragOffset, setDragOffset] = useState<number | null>(null);
@@ -109,7 +110,7 @@ export const SwipeActions = forwardRef<HTMLDivElement, SwipeActionsProps>((props
   };
 
   const handlePointerDown = (event: PointerEvent<HTMLDivElement>) => {
-    if (width === 0 || (event.pointerType === 'mouse' && event.button !== 0)) {
+    if (width === 0 || gestureRef.current || event.isPrimary === false || (event.pointerType === 'mouse' && event.button !== 0)) {
       return;
     }
     gestureRef.current = {
@@ -125,6 +126,11 @@ export const SwipeActions = forwardRef<HTMLDivElement, SwipeActionsProps>((props
   const handlePointerMove = (event: PointerEvent<HTMLDivElement>) => {
     const gesture = gestureRef.current;
     if (!gesture || gesture.id !== event.pointerId || gesture.axis === 'y') {
+      return;
+    }
+    // Mouse sem botão apertado: o botão foi solto fora da linha; encerra sem abrir nem fechar.
+    if (event.pointerType === 'mouse' && event.buttons === 0) {
+      endGesture(event, false);
       return;
     }
     const dx = event.clientX - gesture.x;
@@ -152,11 +158,11 @@ export const SwipeActions = forwardRef<HTMLDivElement, SwipeActionsProps>((props
       return;
     }
     gestureRef.current = null;
+    setDragOffset(null);
     if (gesture.axis !== 'x') {
       return;
     }
     event.currentTarget.releasePointerCapture?.(event.pointerId);
-    setDragOffset(null);
     if (movedRef.current) {
       // O clique que encerra o arrasto não deve acionar nada dentro da linha.
       suppressClickRef.current = true;
@@ -199,6 +205,10 @@ export const SwipeActions = forwardRef<HTMLDivElement, SwipeActionsProps>((props
   const handleKeyDown = (event: KeyboardEvent<HTMLDivElement>) => {
     onKeyDown?.(event);
     if (event.key === 'Escape' && openRef.current) {
+      // Foco numa ação escondida deixaria o Enter acionando-a: devolve o foco à linha visível.
+      if (actionsRef.current?.contains(document.activeElement)) {
+        rowRef.current?.focus();
+      }
       onOpenChangeRef.current(false);
     }
   };
@@ -236,6 +246,8 @@ export const SwipeActions = forwardRef<HTMLDivElement, SwipeActionsProps>((props
         ))}
       </div>
       <div
+        ref={rowRef}
+        tabIndex={-1}
         className={clsx(styles.SwipeActions__row, { [styles.SwipeActions__row_dragging]: dragging }, innerClassNames?.row)}
         style={{ transform: `translateX(${offset}px)` }}
         onPointerDown={handlePointerDown}

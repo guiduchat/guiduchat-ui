@@ -32,9 +32,9 @@ const setup = (over: Partial<SwipeActionsProps> = {}) => {
   );
   const row = screen.getByRole('button', { name: 'Salvar' }).parentElement?.nextElementSibling as HTMLElement;
   const move = (to: { x: number, y: number }) => {
-    fireEvent.pointerDown(row, { clientX: 300, clientY: 100, pointerId: 1, pointerType: 'touch' });
-    fireEvent.pointerMove(row, { clientX: 300 + to.x, clientY: 100 + to.y, pointerId: 1, pointerType: 'touch' });
-    fireEvent.pointerUp(row, { clientX: 300 + to.x, clientY: 100 + to.y, pointerId: 1, pointerType: 'touch' });
+    fireEvent.pointerDown(row, { clientX: 300, clientY: 100, pointerId: 1, pointerType: 'touch', isPrimary: true });
+    fireEvent.pointerMove(row, { clientX: 300 + to.x, clientY: 100 + to.y, pointerId: 1, pointerType: 'touch', isPrimary: true });
+    fireEvent.pointerUp(row, { clientX: 300 + to.x, clientY: 100 + to.y, pointerId: 1, pointerType: 'touch', isPrimary: true });
   };
   return { row, move, onOpenChange, onSave };
 };
@@ -92,5 +92,32 @@ describe('SwipeActions', () => {
     const { row, onOpenChange } = setup({ open: true });
     fireEvent.keyDown(row, { key: 'Escape' });
     expect(onOpenChange).toHaveBeenCalledWith(false);
+  });
+
+  it('segundo dedo não reinicia nem disputa o gesto', () => {
+    const { row, onOpenChange } = setup();
+    fireEvent.pointerDown(row, { clientX: 300, clientY: 100, pointerId: 1, pointerType: 'touch', isPrimary: true });
+    fireEvent.pointerDown(row, { clientX: 200, clientY: 100, pointerId: 2, pointerType: 'touch', isPrimary: false });
+    fireEvent.pointerMove(row, { clientX: 240, clientY: 100, pointerId: 1, pointerType: 'touch', isPrimary: true });
+    fireEvent.pointerUp(row, { clientX: 240, clientY: 100, pointerId: 1, pointerType: 'touch', isPrimary: true });
+    expect(onOpenChange).toHaveBeenCalledTimes(1);
+    expect(onOpenChange).toHaveBeenCalledWith(true);
+    expect(row.style.transform).toBe('translateX(0px)');
+  });
+
+  it('mouse sem botão apertado aborta o gesto', () => {
+    const { row, onOpenChange } = setup();
+    fireEvent.pointerDown(row, { clientX: 300, clientY: 100, pointerId: 1, pointerType: 'mouse', button: 0, buttons: 1, isPrimary: true });
+    fireEvent.pointerMove(row, { clientX: 220, clientY: 100, pointerId: 1, pointerType: 'mouse', buttons: 0 });
+    fireEvent.pointerUp(row, { clientX: 220, clientY: 100, pointerId: 1, pointerType: 'mouse' });
+    expect(onOpenChange).not.toHaveBeenCalled();
+  });
+
+  it('Escape com foco numa ação devolve o foco à linha visível', () => {
+    const { row } = setup({ open: true });
+    const del = screen.getByRole('button', { name: 'Excluir' });
+    del.focus();
+    fireEvent.keyDown(del, { key: 'Escape' });
+    expect(document.activeElement).toBe(row);
   });
 });
