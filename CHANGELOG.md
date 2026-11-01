@@ -1,5 +1,12 @@
 # Changelog do @guiduchat/ui
 
+## 0.18.0 (respiro do quadro interno e contorno dos dias)
+
+Ajuste visual a pedido do Marcelo; sem token novo, nada quebra.
+
+- **InfoCard:** o quadro interno (`InfoCard__body`) passa de 4 px para 8 px de `padding` vertical (`--spacing-size-m`). Os outros quadros internos do kit (`AddressPanel`, `ExpandablePanel`, `OpeningHours`, `OrderSummaryCard`, `PaymentPanel`, `RecommendationCard`) já têm 12 px ou mais, e o `StatStrip` só tem 4 px na horizontal dos itens, não na vertical.
+- **WeekdayAvailability:** o contorno do dia disponível e da bolinha da legenda é `--button-primary`, igual ao preenchimento, nos dois temas. O dia indisponível continua com contorno cinza.
+
 ## 0.17.0 (Seguir, números do perfil e Indicações Locais)
 
 Peças do topo do perfil e do cartão de indicações, a partir dos desenhos do Marcelo de 31/10/2026. Só apresentação: todo texto, número e nome acessível vem do app. **Nenhum token novo nem alterado.** Nada quebra: `action` e `stats` são opcionais e, sem eles, o `StoreHero` fica igual.
