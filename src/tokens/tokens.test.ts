@@ -64,8 +64,8 @@ describe('tokens da marca', () => {
   });
 
   it('as camadas por ator seguem a decisão do Marcelo (01/11/2026), nos dois temas', () => {
-    expect(surfaces.light.guidu).toEqual({ outer: '#f1f1f1', inner: '#dddddd', band: '#f1f1f1', pagerInactive: '#c0c0c0' });
-    expect(surfaces.light.hub).toEqual({ outer: '#dddddd', inner: '#f1f1f1', band: '#dddddd', pagerInactive: '#acacac' });
+    expect(surfaces.light.guidu).toEqual({ outer: '#fbfbfb', inner: '#f1f1f1', band: '#fbfbfb', pagerInactive: '#c0c0c0' });
+    expect(surfaces.light.hub).toEqual({ outer: '#f1f1f1', inner: '#fbfbfb', band: '#f1f1f1', pagerInactive: '#acacac' });
     expect(surfaces.dark.guidu).toEqual({ outer: '#404040', inner: '#2d2d2d', band: '#404040', pagerInactive: '#7b7b7b' });
     expect(surfaces.dark.hub).toEqual({ outer: '#2d2d2d', inner: '#404040', band: '#2d2d2d', pagerInactive: '#858585' });
     expect(palette.light['--page-background']).toBe('#ffffff');
@@ -86,7 +86,7 @@ describe('tokens da marca', () => {
     // Decisão dele: o #5c6b02 passa de 3:1 (elemento gráfico) em todas as camadas claras, e passa do AA de
     // 4,5:1 para texto pequeno nos dois primeiros fundos, mas não no último (5,9:1 no #ffffff e 5,2:1 no #f1f1f1 passam; só 4,35:1 no #dddddd fica um pouco abaixo).
     // Registrado aqui e no CHANGELOG; não troque a cor sem nova decisão.
-    for (const bg of ['#ffffff', '#f1f1f1', '#dddddd']) {
+    for (const bg of ['#ffffff', '#fbfbfb', '#f1f1f1', '#dddddd']) {
       expect(contrast('#5c6b02', bg), bg).toBeGreaterThanOrEqual(3);
     }
   });

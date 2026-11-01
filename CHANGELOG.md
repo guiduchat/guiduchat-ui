@@ -1,5 +1,14 @@
 # Changelog do @guiduchat/ui
 
+## 0.23.1 (tema claro mais claro)
+
+Só o tema claro (o escuro não muda). Decisão do Marcelo, referência 11.png. Mexe em tokens: revisão da equipe console (regra U2).
+
+- **guidu claro:** fora #FBFBFB (era #F1F1F1), dentro #F1F1F1 (era #DDDDDD), faixa #FBFBFB (era #F1F1F1). Barrinha inativa #C0C0C0, igual.
+- **hub claro:** fora #F1F1F1 (era #DDDDDD), dentro #FBFBFB (era #F1F1F1), faixa #F1F1F1 (era #DDDDDD). Barrinha inativa #ACACAC, igual.
+- Página #FFFFFF, igual.
+- **Contraste (WCAG) sobre #FBFBFB / #F1F1F1:** texto primário 19,5:1 / 17,9:1; texto secundário 7,2:1 / 6,9:1; `--text-themed` (#5C6B02) 5,7:1 / 5,2:1. Tudo acima de 4,5:1.
+
 ## 0.23.0 (cores por ator, verde do tema claro, botão secundário)
 
 Mexe em tokens: pede a revisão da equipe console (regra U2). Decisões do Marcelo de 01/11/2026. Props e tokens novos são opcionais, mas **o visual muda** em várias peças (lista abaixo).
