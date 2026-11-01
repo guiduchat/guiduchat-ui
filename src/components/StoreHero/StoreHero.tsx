@@ -37,13 +37,17 @@ interface StoreHeroOwnProps {
   save?: StoreHeroToggle
   /** Selo sobre a capa, em geral o `ScoreBadge`. */
   badge?: ReactNode
+  /** Botão à direita da logo, abaixo da capa, por exemplo Seguir. O app passa o `Button`. */
+  action?: ReactNode
+  /** Faixa depois da categoria, em geral o `ProfileStats`. */
+  stats?: ReactNode
 }
 
 export type StoreHeroProps = MergeProps<ComponentProps<'section'>, StoreHeroOwnProps>;
 
 /** Topo do perfil da loja: capa, logo sobreposta, nome e categoria. */
 export const StoreHero = forwardRef<HTMLElement, StoreHeroProps>((props, ref) => {
-  const { cover, accent, avatar, title, titleAs: Title = 'h2', subtitle, save, badge, className, ...rest } = props;
+  const { cover, accent, avatar, title, titleAs: Title = 'h2', subtitle, save, badge, action, stats, className, ...rest } = props;
   return (
     <section ref={ref} className={clsx(styles.StoreHero, className)} {...rest}>
       <div className={styles.StoreHero__cover} style={cover ? undefined : { background: accent }}>
@@ -61,9 +65,13 @@ export const StoreHero = forwardRef<HTMLElement, StoreHeroProps>((props, ref) =>
         )}
         {hasReactNode(badge) && <div className={styles.StoreHero__badge}>{badge}</div>}
       </div>
-      <div className={styles.StoreHero__avatar}>{avatar}</div>
+      <div className={styles.StoreHero__row}>
+        <div className={styles.StoreHero__avatar}>{avatar}</div>
+        {hasReactNode(action) && <div className={styles.StoreHero__action}>{action}</div>}
+      </div>
       <Title className={styles.StoreHero__title}>{title}</Title>
       {hasReactNode(subtitle) && <p className={styles.StoreHero__subtitle}>{subtitle}</p>}
+      {hasReactNode(stats) && <div className={styles.StoreHero__stats}>{stats}</div>}
     </section>
   );
 });

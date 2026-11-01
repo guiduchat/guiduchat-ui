@@ -50,10 +50,36 @@
   bottom: var(--spacing-size-xl);
 }
 
-// A logo fica metade sobre a capa, com um contorno da cor da página.
+// A logo fica metade sobre a capa. A ação ocupa a faixa abaixo da capa, à direita da logo.
+.StoreHero__row {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-top: -56px;
+}
+
+.StoreHero__action {
+  position: absolute;
+  left: calc(50% + 60px);
+  right: var(--spacing-size-xl);
+  top: calc(56px + var(--spacing-size-m));
+  display: flex;
+
+  > * {
+    flex: 1 1 auto;
+    min-width: 0;
+  }
+}
+
+.StoreHero__stats {
+  width: 100%;
+  margin-top: var(--spacing-size2xl);
+}
+
+// Contorno da cor da página em volta da logo.
 .StoreHero__avatar {
   display: flex;
-  margin-top: -56px;
   padding: 4px;
   border-radius: 28px;
   background-color: var(--background-primary);
