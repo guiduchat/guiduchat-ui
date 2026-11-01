@@ -231,12 +231,16 @@ $dash-thickness: 2px;
 // Sem o verde do cupom: quadro `nested` com o recorte lateral do ticket (a mesma mascara do cabecalho)
 // e, embaixo, a loja sobre o fundo do cartao de fora, com o botao principal em destaque.
 .OfferCard_appearance_spotlight {
-  --OfferCard-background: var(--background-nested);
+  // Cartão do meio (`nested`, raio 20, margem 12); o cupom é mais claro que ele (`tertiary`).
+  --OfferCard-background: var(--background-tertiary);
   gap: var(--spacing-size-xl);
+  padding: var(--spacing-size-xl);
+  border-radius: var(--size-border-radius-semantic-border-radius-promo);
+  background-color: var(--background-nested);
   color: var(--text-primary);
 
   .OfferCard__tag {
-    background-color: var(--background-tertiary);
+    background-color: var(--background-nested);
   }
 
   .OfferCard__avatar {
@@ -245,8 +249,8 @@ $dash-thickness: 2px;
   }
 }
 
-// O recorte sobe 20 px da borda de baixo (como no desenho): é a mesma máscara do ticket, só mais alta.
-$spot-notch-rise: 20px;
+// O recorte sobe 32 px da borda de baixo (como no desenho): é a mesma máscara do ticket, só mais alta.
+$spot-notch-rise: 32px;
 
 .OfferCard__spot {
   @include reset-clickable.resetClickable;
@@ -257,7 +261,7 @@ $spot-notch-rise: 20px;
   min-width: 0;
   padding: var(--spacing-size-xl);
   box-sizing: border-box;
-  border-radius: var(--size-border-radius-semantic-border-radius-promo);
+  border-radius: var(--size-border-radius-semantic-border-radius-card);
   background-color: var(--OfferCard-background);
   color: var(--text-primary);
   text-align: left;
@@ -283,7 +287,7 @@ $spot-notch-rise: 20px;
   aspect-ratio: 1;
   overflow: hidden;
   border-radius: var(--size-border-radius-semantic-border-radius-card);
-  background-color: var(--background-tertiary);
+  background-color: var(--background-nested);
   color: var(--text-secondary);
 }
 
@@ -304,7 +308,6 @@ $spot-notch-rise: 20px;
   display: flex;
   align-items: center;
   gap: var(--spacing-size-xl);
-  padding: 0 var(--spacing-size-m);
 }
 
 .OfferCard__storeNames {

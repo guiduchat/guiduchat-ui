@@ -1,14 +1,17 @@
 @use '../../styles/shared-mixins/typography';
 @use '../../styles/shared-mixins/reset-clickable';
 
-// Medidas do desenho: quadro e faixa com raio 20; o cartão de fora (`InfoCard`) tem 24 e margem 12.
+// Medidas do desenho: cartão do meio (fundo `nested`, raio 20, margem 12) com foto e textos direto nele e a faixa da promoção mais escura.
 .StoreOfferCard {
   display: flex;
   flex-direction: column;
   gap: var(--spacing-size-m);
   width: 100%;
   min-width: 0;
+  padding: var(--spacing-size-xl);
   box-sizing: border-box;
+  border-radius: var(--size-border-radius-semantic-border-radius-promo);
+  background-color: var(--background-nested);
   color: var(--text-primary);
 }
 
@@ -17,10 +20,6 @@
   display: flex;
   align-items: stretch;
   gap: var(--spacing-size-xl);
-  padding: var(--spacing-size-xl);
-  box-sizing: border-box;
-  border-radius: var(--size-border-radius-semantic-border-radius-promo);
-  background-color: var(--background-nested);
 }
 
 .StoreOfferCard__media {
@@ -84,8 +83,8 @@
 .StoreOfferCard__action {
   @include reset-clickable.resetClickable;
   position: absolute;
-  right: var(--spacing-size-xl);
-  bottom: var(--spacing-size-xl);
+  right: 0;
+  bottom: 0;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -112,8 +111,8 @@
   margin: 0;
   padding: var(--spacing-size-m) var(--spacing-size-xl);
   box-sizing: border-box;
-  border-radius: var(--size-border-radius-semantic-border-radius-promo);
-  background-color: var(--background-nested);
+  border-radius: var(--size-border-radius-semantic-border-radius-card);
+  background-color: var(--background-secondary);
   color: var(--text-themed);
 }
 
