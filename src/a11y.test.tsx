@@ -38,6 +38,7 @@ import {
   OfferHero,
   OfferPrice,
   OpeningHours,
+  OrderProgressCard,
   OrderStatusCard,
   OrderSummaryCard,
   OrderTimeline,
@@ -62,9 +63,13 @@ import {
   ShortcutCard,
   Skeleton,
   SocialButton,
+  SocialLinkCard,
   StatStrip,
   StatStripItem,
+  Steps,
   StoreHero,
+  StoreOfferCard,
+  StorePhotoCard,
   SwipeActions,
   Switch,
   TabBar,
@@ -262,6 +267,62 @@ const cases: Array<[string, ReactNode]> = [
       <ReviewSummary logo="Google" count="12 avaliações" rating={<RatingStars value={4.6} label="Nota 4,6 de 5" />} />
       <ReviewCard text="Muito bom." author="Joaquim" source="Google" rating={<RatingStars value={5} label="Nota 5 de 5" />} />
     </ReviewRail>
+  ],
+  [
+    'Cartões da página Para Você',
+    <div key="fy">
+      <InfoCard title="Pedidos em andamento" seeAll={<a href="/orders">Ver todas</a>} plain>
+        <Carousel aria-label="Pedidos em andamento" pagerLabel={(page, total) => `Pedido ${page} de ${total}`} peek pagerTone="accent">
+          <OrderProgressCard
+            status="Aguardando pagamento"
+            code="Pedido ID: #123456"
+            items="2 itens"
+            updatedAt="Atualizado em 01/11/26 - 12:00h"
+            steps={<Steps count={4} progress={1} role="img" aria-label="Passo 1 de 4" />}
+            avatar={<Avatar.Container size={44} form="circle"><Avatar.Text>RB</Avatar.Text></Avatar.Container>}
+            store="Restaurante Buzin"
+            category="Restaurantes & Cafés"
+            action={<Button asChild size="small"><a href="/orders/1">Ver mais</a></Button>}
+          />
+          <OrderProgressCard status="Em preparo" code="Pedido ID: #123457" items="1 item" />
+        </Carousel>
+      </InfoCard>
+      <InfoCard title="Ofertas Imperdíveis" seeAll={<a href="/offers">Ver todas</a>} plain>
+        <OfferCard
+          appearance="spotlight"
+          avatar={<Avatar.Container size={44} form="circle"><Avatar.Text>RB</Avatar.Text></Avatar.Container>}
+          title="20% de desc Picanha 2 pessoas"
+          notice="Verifique as regras da promoção."
+          meta="Válido até 12/11/2026"
+          subtitle="Restaurante Buzin"
+          category="Restaurantes & Cafés"
+          topAction={{ asChild: true, children: <a href="/offers/1" /> }}
+          primaryAction={{ label: 'Resgatar', onClick: () => {} }}
+        />
+      </InfoCard>
+      <InfoCard title="Favoritos" seeAll={<a href="/places?tab=favorites">Ver todas</a>} plain>
+        <StoreOfferCard
+          category="Restaurantes & Bares"
+          name="Padaria Flor de Geribá"
+          address="Av. Geribá, 345"
+          rating="4,8 (235)"
+          action={{ label: 'Abrir Padaria Flor de Geribá', asChild: true, children: <a href="/places/padaria" /> }}
+          promo="20% de desconto nos produtos da linha artesanal"
+        />
+      </InfoCard>
+      <InfoCard title="Mais Recomendados" seeAll={<a href="/places?tab=recommended">Ver todas</a>} plain>
+        <StorePhotoCard
+          category="Restaurantes & Bares"
+          name="Padaria Flor de Geribá"
+          address="Av. Geribá, 345"
+          rating="4,8 (235)"
+          action={{ label: 'Abrir Padaria Flor de Geribá', onClick: () => {} }}
+        />
+      </InfoCard>
+      <SocialLinkCard asChild icon={<Icon icon={icons.instagram} />} text="Siga o Guidu no Instagram">
+        <a href="https://instagram.com/guidu" />
+      </SocialLinkCard>
+    </div>
   ],
   ['Button', <Button key="b">Enviar pedido</Button>],
   [

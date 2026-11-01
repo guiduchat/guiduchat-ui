@@ -51,3 +51,31 @@
 .Carousel__bar_active {
   background-color: var(--icon-primary);
 }
+
+// [Peek] A trilha sai 12 px pela direita do cartão de fora (que corta com `overflow: hidden`);
+// a página deixa $peek visíveis da próxima, contando esses 12 px, e o vão entre elas é de 12 px.
+// No fim da rolagem a última página cabe inteira na trilha, e a anterior fica com ~25% à vista,
+// abaixo do 0,6 que define a página ativa.
+$peek: 56px;
+
+.Carousel_peek {
+  width: auto;
+  margin-right: calc(-1 * var(--spacing-size-xl));
+}
+
+.Carousel__track_peek {
+  gap: var(--spacing-size-xl);
+
+  .Carousel__page {
+    flex-basis: calc(100% - var(--spacing-size-xl) - #{$peek});
+  }
+}
+
+// O marcador continua centrado na área útil do cartão, não na trilha alargada.
+.Carousel_peek .Carousel__pager {
+  padding-right: var(--spacing-size-xl);
+}
+
+.Carousel__pager_accent .Carousel__bar_active {
+  background-color: var(--icon-themed);
+}

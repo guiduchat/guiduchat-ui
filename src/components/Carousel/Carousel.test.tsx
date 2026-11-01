@@ -220,4 +220,52 @@ describe('Carousel', () => {
     expect(track).not.toBe(root);
     expect(track.hasAttribute('aria-roledescription')).toBe(false);
   });
+
+  describe('peek e pagerTone', () => {
+    it('sem os props novos não muda nada: nenhuma classe extra', () => {
+      const { container } = render(
+        <Carousel aria-label="Ofertas" pagerLabel={pager}>
+          <p>a</p>
+          <p>b</p>
+        </Carousel>
+      );
+      expect(container.innerHTML).not.toMatch(/peek|accent/);
+    });
+
+    it('com peek marca a raiz e a trilha, e a página ativa continua seguindo o observador', () => {
+      const { container } = render(
+        <Carousel aria-label="Pedidos" pagerLabel={pager} peek pagerTone="accent">
+          <p>a</p>
+          <p>b</p>
+          <p>c</p>
+        </Carousel>
+      );
+      expect(container.firstElementChild?.className).toMatch(/Carousel_peek/);
+      expect(screen.getByRole('group', { name: 'Pedidos' }).className).toMatch(/track_peek/);
+      expect(screen.getByRole('group', { name: 'Página 1 de 3' }).className).toMatch(/pager_accent/);
+      const track = screen.getByRole('group', { name: 'Pedidos' });
+      // Com peek a página vizinha aparece só um pouco (abaixo de 0,6): não vira a ativa.
+      callback?.([{ isIntersecting: true, intersectionRatio: 0.25, target: track.children[1] }]);
+      expect(screen.getByRole('group', { name: 'Página 1 de 3' })).toBeTruthy();
+      callback?.([{ isIntersecting: true, intersectionRatio: 1, target: track.children[2] }]);
+      return screen.findByRole('group', { name: 'Página 3 de 3' });
+    });
+
+    it('com peek as setas andam uma página, não a largura da trilha', () => {
+      render(
+        <Carousel aria-label="Pedidos" pagerLabel={pager} peek>
+          <p>a</p>
+          <p>b</p>
+        </Carousel>
+      );
+      const track = screen.getByRole('group', { name: 'Pedidos' });
+      Object.defineProperty(track.children[1], 'offsetLeft', { value: 300 });
+      const scrollBy = vi.fn();
+      track.scrollBy = scrollBy as unknown as typeof track.scrollBy;
+      fireEvent.keyDown(track, { key: 'ArrowRight' });
+      expect(scrollBy).toHaveBeenCalledWith({ left: 300 });
+      fireEvent.keyDown(track, { key: 'ArrowLeft' });
+      expect(scrollBy).toHaveBeenLastCalledWith({ left: -300 });
+    });
+  });
 });

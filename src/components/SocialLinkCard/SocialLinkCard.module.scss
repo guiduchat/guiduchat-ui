@@ -1,0 +1,50 @@
+@use '../../styles/shared-mixins/typography';
+@use '../../styles/shared-mixins/reset-clickable';
+
+// Faixa inteira clicável; a seta é só desenho (o nome do link é a frase).
+.SocialLinkCard {
+  @include reset-clickable.resetClickable;
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-size-xl);
+  width: 100%;
+  min-width: 0;
+  min-height: 68px;
+  padding: var(--spacing-size-m) var(--spacing-size-m) var(--spacing-size-m) var(--spacing-size2xl);
+  box-sizing: border-box;
+  border-radius: var(--size-border-radius-semantic-border-radius-surface);
+  background-color: var(--background-secondary);
+  color: var(--text-primary);
+  text-align: left;
+  text-decoration: none;
+  cursor: pointer;
+
+  &:focus-visible {
+    outline: 2px solid var(--icon-themed);
+    outline-offset: 2px;
+  }
+}
+
+.SocialLinkCard__icon {
+  display: flex;
+  flex-shrink: 0;
+}
+
+.SocialLinkCard__text {
+  @include typography.title;
+  flex: 1 1 0;
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.SocialLinkCard__arrow {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background-color: var(--button-primary);
+  color: var(--text-on-accent);
+}
