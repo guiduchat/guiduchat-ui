@@ -1,5 +1,5 @@
 import {clsx} from "clsx";
-import {KeyboardEventHandler, MouseEventHandler} from "react";
+import {KeyboardEventHandler, MouseEventHandler, ReactNode} from "react";
 
 import type {InnerClassNamesProp} from "../../types";
 import styles from "./Segmented.module.scss";
@@ -8,6 +8,8 @@ export type SegmentedElementKey = 'list' | 'item';
 export interface SegmentedItem {
   id: string;
   title: string;
+  /** Ícone antes do título (por exemplo `<Icon icon={icons.delivery} size={20} />`). Decorativo. */
+  icon?: ReactNode;
 }
 export interface SegmentedProps {
   items: SegmentedItem[],
@@ -71,6 +73,7 @@ export const Segmented = ({items, activeItem, onClick, innerClassNames, 'aria-la
           onClick={handleClick(item.id)}
           type="button"
         >
+          {item.icon}
           {item.title}
         </button>
       ))}

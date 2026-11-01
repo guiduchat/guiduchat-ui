@@ -1,0 +1,87 @@
+@use '../../styles/shared-mixins/typography';
+
+.Checkbox {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-size-xl);
+  min-height: 44px;
+  cursor: pointer;
+  color: var(--text-secondary);
+  -webkit-tap-highlight-color: transparent;
+}
+
+.Checkbox_disabled {
+  cursor: not-allowed;
+  color: var(--states-text-primary-disabled);
+}
+
+// O input nativo ocupa a linha toda (alvo de 44 px) e fica invisível.
+.Checkbox__input {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  opacity: 0;
+  cursor: inherit;
+}
+
+.Checkbox__control {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  box-sizing: border-box;
+  border: 2px solid var(--divider-primary);
+  border-radius: var(--size-border-radius-semantic-border-radius-card);
+  background-color: var(--controls-inactive);
+  color: var(--text-on-accent);
+  transition: background-color 100ms ease-out, border-color 100ms ease-out;
+
+  svg {
+    opacity: 0;
+    transition: opacity 100ms ease-out;
+  }
+}
+
+.Checkbox__label {
+  @include typography.description;
+  flex: 1 1 0;
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.Checkbox__input:focus-visible + .Checkbox__control {
+  outline: 2px solid var(--icon-themed);
+  outline-offset: 2px;
+}
+
+.Checkbox__input:checked + .Checkbox__control {
+  border-color: var(--button-primary);
+  background-color: var(--button-primary);
+
+  svg {
+    opacity: 1;
+  }
+}
+
+.Checkbox__input:disabled + .Checkbox__control {
+  border-color: var(--states-controls-inactive-disabled);
+  background-color: var(--states-controls-inactive-disabled);
+}
+
+.Checkbox__input:disabled:checked + .Checkbox__control {
+  border-color: var(--states-button-primary-disabled);
+  background-color: var(--states-button-primary-disabled);
+  color: var(--states-text-on-accent-disabled);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .Checkbox__control,
+  .Checkbox__control svg {
+    transition: none;
+  }
+}

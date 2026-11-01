@@ -1,0 +1,61 @@
+@use '../../styles/shared-mixins/typography';
+@use '../../styles/shared-mixins/reset-clickable';
+
+// Contorno em pílula; os círculos são de 24 px e o botão de 44 px entra por
+// margem negativa, então a pílula fica pequena e o toque continua confortável.
+.QuantityStepper {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px;
+  box-sizing: border-box;
+  border: 1px solid var(--text-secondary);
+  border-radius: var(--border-radius-circle);
+  color: var(--text-primary);
+}
+
+.QuantityStepper__button {
+  @include reset-clickable.resetClickable;
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  margin: -10px;
+  cursor: pointer;
+
+  &:focus-visible {
+    outline: none;
+
+    .QuantityStepper__circle {
+      outline: 2px solid var(--icon-themed);
+      outline-offset: 2px;
+    }
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+
+    .QuantityStepper__circle {
+      color: var(--states-icon-primary-disabled);
+    }
+  }
+}
+
+.QuantityStepper__circle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background-color: var(--background-tertiary);
+  color: var(--text-primary);
+}
+
+.QuantityStepper__value {
+  @include typography.detail;
+  min-width: 36px;
+  text-align: center;
+  font-variant-numeric: tabular-nums;
+}

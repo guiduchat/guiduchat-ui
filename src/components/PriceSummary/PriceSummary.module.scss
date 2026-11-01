@@ -1,0 +1,47 @@
+@use '../../styles/shared-mixins/typography';
+
+// Quadro interno (raio 20) com o mesmo tracejado do OrderSummaryCard.
+.PriceSummary {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-size-s);
+  margin: 0;
+  padding: var(--spacing-size-xl);
+  box-sizing: border-box;
+  border-radius: var(--size-border-radius-semantic-border-radius-promo);
+  background-color: var(--background-nested);
+  color: var(--text-primary);
+}
+
+.PriceSummary__row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--spacing-size-xl);
+}
+
+.PriceSummary__label {
+  @include typography.detail;
+  min-width: 0;
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+
+.PriceSummary__value {
+  @include typography.detailStrong;
+  flex-shrink: 0;
+  margin: 0;
+  text-align: right;
+  white-space: nowrap;
+}
+
+.PriceSummary__total {
+  margin-top: var(--spacing-size-xs);
+  padding-top: var(--spacing-size-m);
+  border-top: 1px dashed var(--text-secondary);
+
+  .PriceSummary__label,
+  .PriceSummary__value {
+    @include typography.title;
+  }
+}

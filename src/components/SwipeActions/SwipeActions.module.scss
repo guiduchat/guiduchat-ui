@@ -1,0 +1,69 @@
+@use '../../styles/shared-mixins/reset-clickable';
+
+.SwipeActions {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--size-border-radius-semantic-border-radius-surface);
+}
+
+// Atrás da linha, encostadas na direita. Fechadas, não recebem ponteiro:
+// só o foco por teclado as alcança (e então a linha abre).
+.SwipeActions__actions {
+  position: absolute;
+  inset: 0 0 0 auto;
+  display: flex;
+  pointer-events: none;
+}
+
+.SwipeActions__actions_open {
+  pointer-events: auto;
+}
+
+.SwipeActions__action {
+  @include reset-clickable.resetClickable;
+  display: flex;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+  min-width: 56px;
+  padding: 0 var(--spacing-size-xl);
+  cursor: pointer;
+
+  &:focus-visible {
+    outline: 2px solid var(--icon-themed);
+    outline-offset: -4px;
+  }
+}
+
+.SwipeActions__action_tone_primary {
+  background-color: var(--button-primary);
+  color: var(--text-on-accent);
+}
+
+.SwipeActions__action_tone_neutral {
+  background-color: var(--icon-quaternary);
+  color: var(--icon-primary);
+}
+
+// A rolagem vertical é do navegador; o horizontal é do gesto.
+.SwipeActions__row {
+  position: relative;
+  z-index: 1;
+  touch-action: pan-y;
+  transition: transform 200ms ease-out;
+
+  img {
+    -webkit-user-drag: none;
+  }
+}
+
+.SwipeActions__row_dragging {
+  transition: none;
+  user-select: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .SwipeActions__row {
+    transition: none;
+  }
+}
