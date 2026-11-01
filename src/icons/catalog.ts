@@ -60,6 +60,7 @@ import PrinterIcon from '@hugeicons/core-free-icons/PrinterIcon';
 import Search01Icon from '@hugeicons/core-free-icons/Search01Icon';
 import SentIcon from '@hugeicons/core-free-icons/SentIcon';
 import Share01Icon from '@hugeicons/core-free-icons/Share01Icon';
+import Share03Icon from '@hugeicons/core-free-icons/Share03Icon';
 import Shirt01Icon from '@hugeicons/core-free-icons/Shirt01Icon';
 import ShoppingBasket01Icon from '@hugeicons/core-free-icons/ShoppingBasket01Icon';
 import ShoppingCart01Icon from '@hugeicons/core-free-icons/ShoppingCart01Icon';
@@ -73,7 +74,6 @@ import ThumbsUpIcon from '@hugeicons/core-free-icons/ThumbsUpIcon';
 import Tick02Icon from '@hugeicons/core-free-icons/Tick02Icon';
 import TiktokIcon from '@hugeicons/core-free-icons/TiktokIcon';
 import Timer02Icon from '@hugeicons/core-free-icons/Timer02Icon';
-import Upload03Icon from '@hugeicons/core-free-icons/Upload03Icon';
 import User02Icon from '@hugeicons/core-free-icons/User02Icon';
 import Wallet01Icon from '@hugeicons/core-free-icons/Wallet01Icon';
 import WhatsappIcon from '@hugeicons/core-free-icons/WhatsappIcon';
@@ -110,7 +110,7 @@ export const icons = {
   more: MoreHorizontalIcon,
   share: Share01Icon,
   // Caixa com seta para cima (desenho da oferta); o `share` acima continua o de sempre.
-  shareUpload: Upload03Icon,
+  shareUpload: Share03Icon,
   map: MapsIcon,
   location: Location01Icon,
   website: Globe02Icon,
