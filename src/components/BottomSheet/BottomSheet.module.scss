@@ -169,3 +169,32 @@
     transition: none;
   }
 }
+
+// Impressão da folha (cupom com QR): nada de alça, nada cortado por altura máxima ou rolagem.
+// O app esconde o resto da página; aqui a película deixa de ser fixa para a folha caber em páginas.
+@media print {
+  .overlay {
+    position: static;
+    display: block;
+    background: none;
+    animation: none;
+  }
+
+  .sheet,
+  .sheet_scroll,
+  .sheet .content {
+    max-height: none;
+    overflow: visible;
+    transform: none !important;
+    animation: none;
+    box-shadow: none;
+  }
+
+  .handle {
+    display: none;
+  }
+
+  .footer {
+    position: static;
+  }
+}

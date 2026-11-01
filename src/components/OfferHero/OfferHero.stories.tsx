@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { useState } from 'react';
 
+import { OfferPrice } from '../OfferPrice';
 import { OfferHero, type OfferHeroProps } from './OfferHero';
 
 // Foto desenhada aqui mesmo, para a história funcionar sem rede.
@@ -36,3 +37,16 @@ export const Saved: Story = {
 export const WithoutImage: Story = { render: WithSave, args: { image: undefined } };
 
 export const WithoutSave: Story = { args: { save: undefined } };
+
+/** Como na página da oferta: foto e preço com o antigo riscado. */
+export const WithPrice: Story = {
+  render: WithSave,
+  decorators: [
+    (Story) => (
+      <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
+        <Story />
+        <OfferPrice price="R$125,00" originalPrice="R$185,00" originalPriceLabel="Preço original" />
+      </div>
+    )
+  ]
+};

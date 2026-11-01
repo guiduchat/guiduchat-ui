@@ -17,7 +17,7 @@
 }
 
 .OfferPrice__original {
-  @include typography.body;
+  @include typography.label;
   color: var(--text-secondary);
 }
 

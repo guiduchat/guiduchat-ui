@@ -73,6 +73,7 @@ import ThumbsUpIcon from '@hugeicons/core-free-icons/ThumbsUpIcon';
 import Tick02Icon from '@hugeicons/core-free-icons/Tick02Icon';
 import TiktokIcon from '@hugeicons/core-free-icons/TiktokIcon';
 import Timer02Icon from '@hugeicons/core-free-icons/Timer02Icon';
+import Upload03Icon from '@hugeicons/core-free-icons/Upload03Icon';
 import User02Icon from '@hugeicons/core-free-icons/User02Icon';
 import Wallet01Icon from '@hugeicons/core-free-icons/Wallet01Icon';
 import WhatsappIcon from '@hugeicons/core-free-icons/WhatsappIcon';
@@ -108,6 +109,8 @@ export const icons = {
   mail: Mail01Icon,
   more: MoreHorizontalIcon,
   share: Share01Icon,
+  // Caixa com seta para cima (desenho da oferta); o `share` acima continua o de sempre.
+  shareUpload: Upload03Icon,
   map: MapsIcon,
   location: Location01Icon,
   website: Globe02Icon,
