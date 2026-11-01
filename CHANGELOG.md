@@ -1,5 +1,14 @@
 # Changelog do @guiduchat/ui
 
+## 0.17.0 (Seguir, números do perfil e Indicações Locais)
+
+Peças do topo do perfil e do cartão de indicações, a partir dos desenhos do Marcelo de 31/10/2026. Só apresentação: todo texto, número e nome acessível vem do app. **Nenhum token novo nem alterado.** Nada quebra: `action` e `stats` são opcionais e, sem eles, o `StoreHero` fica igual.
+
+- **StoreHero:** props opcionais `action` (botão à direita da logo, abaixo da capa, na mesma faixa dela, por exemplo Seguir) e `stats` (faixa depois da categoria, por exemplo o `ProfileStats`).
+- **ProfileStats / ProfileStat** (novos): colunas iguais com `value` em destaque e `label` em caixa alta por CSS, divisória fina mais curta que a coluna, sem quadro. Com `onClick` a coluna é botão; com `asChild`, o link do app (mesmo padrão do `StatStripItem`); sem os dois, só informa.
+- **RecommendationCard** (novo): `title`, `seeAll` (slot do link), `image` (sem foto, reserva com ícone), `category`, `name`, `address`, `rating` (slot), `action` (`label` obrigatório, `onClick` ou `asChild` com o link como filho; botão redondo de seta na cor de destaque), `avatars` (sobrepostos) e `note` (a linha "Indicado por"; `<strong>` dentro dela ganha a cor de destaque). Raio de 24 px no externo, margem de 12 px e quadro interno de raio 20 px.
+
+
 ## 0.15.0 (detalhes da oferta e cupom com QR)
 
 Peças da página "Detalhes da Oferta" e da folha do cupom, a partir do desenho do Marcelo de 31/10/2026. Só apresentação: todo texto (rótulos, validade, preços formatados) vem do app. **Nenhum token novo nem alterado**: usam `--background-coupon`, `--button-primary`, `--text-on-accent`, `--text-themed` e os demais já existentes. Nada quebra: `hero` e `footer` são opcionais e, sem eles, o `BottomSheet` fica igual.

@@ -12,9 +12,12 @@ import {
   InfoCard,
   InfoRow,
   OpeningHours,
+  ProfileStat,
+  ProfileStats,
   QuickAction,
   QuickActions,
   RatingStars,
+  RecommendationCard,
   ReviewCard,
   ReviewRail,
   ReviewSummary,
@@ -62,6 +65,14 @@ const StoreProfileDemo = () => {
         )}
         title="Restaurante Buzin"
         subtitle="Frutos do mar"
+        action={<Button size="small" variant="primary">Seguir</Button>}
+        stats={(
+          <ProfileStats>
+            <ProfileStat value="152" label="Seguidores" />
+            <ProfileStat value="25" label="Seguindo" />
+            <ProfileStat value="213" label="Indicações" />
+          </ProfileStats>
+        )}
         save={{ label: 'Salvar', pressed: saved, onPressedChange: setSaved }}
         badge={<ScoreBadge value="4,6" logo={<Icon icon={icons.google} size={20} />} label="Nota 4,6 no Google" />}
       />
@@ -114,6 +125,34 @@ const StoreProfileDemo = () => {
           avatar={<Avatar.Container size={32} form="circle"><Avatar.Text gradient="blue">J</Avatar.Text></Avatar.Container>}
         />
       </ReviewRail>
+      <RecommendationCard
+        title="Indicações Locais"
+        seeAll={<a href="#todas">Ver todas</a>}
+        category="Restaurantes & Bares"
+        name="Padaria Flor de Geribá"
+        address="Av. Geribá, 345"
+        rating={(
+          <>
+            <Icon icon={icons.star} size={16} />
+            4,8 (235)
+          </>
+        )}
+        action={{ label: 'Abrir Padaria Flor de Geribá', onClick: () => {} }}
+        avatars={['B', 'M', 'C'].map((t) => (
+          <Avatar.Container key={t} size={28} form="circle"><Avatar.Text gradient="blue">{t}</Avatar.Text></Avatar.Container>
+        ))}
+        note={(
+          <>
+            Indicado por
+            {' '}
+            <strong>Buzin</strong>
+            {', '}
+            <strong>Maria Maria Café</strong>
+            {' '}
+            e mais 36 empresas locais.
+          </>
+        )}
+      />
       <InfoCard title="Informações úteis">
         <InfoRow icon={<Icon icon={icons.contactless} />} value="Aceita pagamento por aproximação" />
         <InfoRow icon={<Icon icon={icons.accessible} />} value="Rampas e portas acessíveis" />
