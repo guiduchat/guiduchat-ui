@@ -70,6 +70,11 @@
   @include button-variants.buttonVariantSecondary('IconButton');
 }
 
+.IconButton_variant_outline {
+  @include button-variants.buttonVariantOutline('IconButton');
+  box-shadow: inset 0 0 0 1px var(--text-themed);
+}
+
 .IconButton_variant_ghost {
   @include button-variants.buttonVariantGhost('IconButton');
 }

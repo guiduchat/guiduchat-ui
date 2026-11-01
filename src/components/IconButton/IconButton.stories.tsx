@@ -23,7 +23,7 @@ const meta = {
     ...hideArgsControl(['asChild', 'innerClassNames']),
     ...disableArgs(['aria-label']),
 
-    variant: selectControl(['primary', 'secondary', 'ghost', 'primary-contrast', 'secondary-contrast', 'overlay', 'destructive', 'neutral']),
+    variant: selectControl(['primary', 'secondary', 'ghost', 'outline', 'primary-contrast', 'secondary-contrast', 'overlay', 'destructive', 'neutral']),
     size: selectControl(['xsmall', 'small', 'medium', 'large'])
   },
   args: {

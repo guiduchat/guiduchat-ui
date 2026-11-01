@@ -12,7 +12,7 @@ import { getIconButtonSpinnerAppearance, getIconButtonSpinnerSize } from './help
 import styles from './IconButton.module.scss';
 
 export type IconButtonSize = 'xsmall' | 'small' | 'medium' | 'large';
-export type IconButtonVariant = Exclude<ButtonVariant, 'outline'>;
+export type IconButtonVariant = ButtonVariant;
 export type IconButtonInnerElementKey = 'content' | 'spinnerContainer' | 'spinner';
 
 export interface IconButtonProps extends ComponentProps<'button'>, AsChildProp {
