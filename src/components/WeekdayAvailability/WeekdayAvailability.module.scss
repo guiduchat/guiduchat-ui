@@ -40,9 +40,9 @@
   border-radius: 50%;
 }
 
-// O contorno em --text-themed (olive no claro, limão no escuro) mantém o círculo visível sobre fundo claro.
+// Contorno na mesma cor do preenchimento (--button-primary) nos dois temas; o indisponível tem contorno cinza.
 .WeekdayAvailability__day_available {
-  border-color: var(--text-themed);
+  border-color: var(--button-primary);
   background-color: var(--button-primary);
   color: var(--text-on-accent);
 }
@@ -64,13 +64,13 @@
   color: var(--text-secondary);
 }
 
-// Bolinha da legenda: o mesmo verde e contorno do círculo disponível.
+// Bolinha da legenda: o mesmo verde do círculo disponível.
 .WeekdayAvailability__dot {
   flex-shrink: 0;
   box-sizing: border-box;
   width: 12px;
   height: 12px;
-  border: 1px solid var(--text-themed);
+  border: 1px solid var(--button-primary);
   border-radius: 50%;
   background-color: var(--button-primary);
 }

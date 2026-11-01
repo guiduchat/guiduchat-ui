@@ -31,7 +31,7 @@ export type WeekdayAvailabilityProps = MergeProps<Omit<ComponentProps<'div'>, 'c
 /**
  * Dias da semana em que a oferta vale. O estado nunca depende só da cor: cada dia
  * leva o nome inteiro e o texto de disponível ou indisponível para o leitor de tela,
- * e o disponível também é preenchido (o indisponível só tem contorno).
+ * e o disponível também é preenchido (o indisponível só tem contorno cinza).
  */
 export const WeekdayAvailability = forwardRef<HTMLDivElement, WeekdayAvailabilityProps>((props, ref) => {
   const { days, availableLabel, unavailableLabel, legend, className, 'aria-label': ariaLabel, ...rest } = props;

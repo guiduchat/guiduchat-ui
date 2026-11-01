@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
+import { InfoCard } from '../InfoCard';
 import { WeekdayAvailability, type WeekdayAvailabilityProps } from './WeekdayAvailability';
 
 const days = [
@@ -58,4 +59,9 @@ export const NarrowScreen: Story = {
 
 export const VeryNarrowScreen: Story = {
   decorators: [(Story) => <div style={{ width: 260 }}><Story /></div>]
+};
+
+/** Dentro do quadro interno do InfoCard: a legenda tem respiro embaixo. */
+export const InsideInfoCard: Story = {
+  decorators: [(Story) => <InfoCard title="Disponível para uso nos dias:"><Story /></InfoCard>]
 };
