@@ -1,5 +1,21 @@
 # Changelog do @guiduchat/ui
 
+## 0.26.0 (texto do tema escuro em cinza)
+
+Só o tema escuro; decisão do Marcelo (02/11/2026): títulos e textos estavam brancos demais. Texto e ícones passam de branco (puro ou transparente) para **cinzas sólidos** da escala neutra do Marcelo (base #F7F7F7), como fazem Material 3, Notion e Radix. Tema claro, limão da marca, cores de status e texto sobre fotos (`-static`, `-inverse`) não mudam. Mexe em token: revisão da equipe console (regra U2).
+
+| Token | Antes | Agora | Sobre #232323 | Sobre #2D2D2D | Sobre #404040 |
+| --- | --- | --- | --- | --- | --- |
+| `--text-primary` (títulos, valores) | #FFFFFF | #D1D1D1 | 10,3:1 | 9,0:1 | 6,8:1 |
+| `--text-secondary` (texto corrido) | branco 80% | #B1B1B1 | 7,3:1 | 6,4:1 | 4,8:1 |
+| `--text-tertiary` (apoio) | branco 64% | #A3A3A3 | 6,2:1 | 5,5:1 | 4,1:1 |
+| `--states-text-{primary,secondary,tertiary}-disabled` | branco 28% | #6C6C6C | 3,0:1 | 2,6:1 | 2,0:1 |
+| `--icon-primary` | #FFFFFF | #D1D1D1 | 10,3:1 | 9,0:1 | 6,8:1 |
+| `--icon-tertiary` | branco 52% | #8C8C8C | 4,7:1 | 4,1:1 | 3,1:1 |
+
+- **Atenção:** o `--text-tertiary` fica abaixo de 4,5:1 só sobre #404040; ali, texto pequeno de apoio deve usar `--text-secondary`. Desativado é isento de contraste (WCAG).
+- Valores sólidos em vez de transparência: o tom fica igual em qualquer camada.
+
 ## 0.25.1 (fundo da página escura #232323)
 
 Só o tema escuro; decisão do Marcelo. `--page-background` no escuro passa de #191919 para **#232323**, nos dois atores. Tema claro e demais cores não mudam. Mexe em token: revisão da equipe console (regra U2).

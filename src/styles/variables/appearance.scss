@@ -221,8 +221,9 @@
   --field-contrast-on-band-hub: var(--background-card);
 
   // Icon
-  --icon-primary: rgb(255 255 255);
-  --icon-tertiary: rgb(255 255 255 / 0.52);
+  // Ícones e texto do escuro em cinzas sólidos (Marcelo, 02/11/2026): branco puro cansava a vista.
+  --icon-primary: #d1d1d1;
+  --icon-tertiary: #8c8c8c;
   --icon-mute: rgb(255 255 255 / 0.36);
   --icon-primary-static: rgb(6 7 8 / 0.84);
   --icon-primary-inverse: rgb(6 7 8 / 0.84);
@@ -232,9 +233,11 @@
   --icon-negative: rgb(206 66 87);
 
   // Text
-  --text-primary: rgb(255 255 255);
-  --text-secondary: rgb(255 255 255 / 0.8);
-  --text-tertiary: rgb(255 255 255 / 0.64);
+  // Títulos #d1d1d1 (200), texto corrido #b1b1b1 (300), apoio #a3a3a3, desativado #6c6c6c (500),
+  // da escala neutra do Marcelo; todos passam 4,5:1 em #2d2d2d. Branco fica no texto sobre fotos (-static).
+  --text-primary: #d1d1d1;
+  --text-secondary: #b1b1b1;
+  --text-tertiary: #a3a3a3;
   --text-primary-static: rgb(6 7 8);
   --text-primary-inverse: rgb(6 7 8);
   --text-primary-inverse-static: rgb(255 255 255);
@@ -304,9 +307,9 @@
   --states-button-neutral-hover: rgb(228 229 232);
   --states-button-neutral-pressed: rgb(206 208 212);
   --states-button-neutral-disabled: rgb(255 255 255 / 0.32);
-  --states-text-primary-disabled: rgb(255 255 255 / 0.28);
-  --states-text-secondary-disabled: rgb(255 255 255 / 0.28);
-  --states-text-tertiary-disabled: rgb(255 255 255 / 0.28);
+  --states-text-primary-disabled: #6c6c6c;
+  --states-text-secondary-disabled: #6c6c6c;
+  --states-text-tertiary-disabled: #6c6c6c;
   --states-text-primary-static-disabled: rgb(255 255 255 / 0.28);
   --states-text-primary-inverse-static-disabled: rgb(255 255 255 / 0.28);
   --states-text-themed-disabled: rgb(255 255 255 / 0.28);
