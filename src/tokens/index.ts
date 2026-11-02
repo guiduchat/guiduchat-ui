@@ -47,8 +47,16 @@ export const surfaces = {
     guidu: { outer: '#404040', inner: '#2d2d2d', band: '#404040', pagerInactive: '#7b7b7b' },
     hub: { outer: '#2d2d2d', inner: '#404040', band: '#2d2d2d', pagerInactive: '#858585' }
   },
-  // Barrinha ativa do Carousel: igual ao verde de texto do tema, nos dois atores.
-  // No hub claro a ativa é o lima; no guidu claro, o verde de texto.
+  // Estrela de nota (StarTile): o quadrado é o mesmo nos dois temas.
+  starTileBackground: '#2d2d2d',
+  // Fundo de campo de formulário no claro: #ededed, ou #ffffff sobre uma camada que também é #ededed.
+  fieldLight: {
+    default: '#ededed',
+    guidu: { outer: '#ededed', inner: '#ffffff', band: '#ededed' },
+    hub: { outer: '#ffffff', inner: '#ededed', band: '#ffffff' }
+  },
+  // Barrinha ativa do Carousel: segue o ator e o tema. Claro: lima no hub e verde de texto no guidu;
+  // escuro: limão nos dois.
   pagerActive: {
     light: { guidu: brand.accentLight, hub: brand.accentFill },
     dark: { guidu: brand.accent, hub: brand.accent }
@@ -74,13 +82,22 @@ const surfaceTokens = (scheme: 'light' | 'dark') => ({
   '--pager-inactive-hub': surfaces[scheme].hub.pagerInactive,
   '--pager-active-guidu': surfaces.pagerActive[scheme].guidu,
   '--pager-active-hub': surfaces.pagerActive[scheme].hub,
-  '--star-tile-background': '#2d2d2d',
+  '--star-tile-background': surfaces.starTileBackground,
   '--star-tile-star': scheme === 'light' ? brand.accentFill : brand.accent,
   '--button-secondary-contrast': secondaryButton[scheme].background,
   '--states-button-secondary-contrast-hover': secondaryButton[scheme].hover,
   '--states-button-secondary-contrast-pressed': secondaryButton[scheme].pressed,
   '--states-button-secondary-contrast-disabled': secondaryButton[scheme].disabled
 }) as const;
+
+const fieldOnLayers = {
+  '--field-on-outer-guidu': surfaces.fieldLight.guidu.outer,
+  '--field-on-inner-guidu': surfaces.fieldLight.guidu.inner,
+  '--field-on-band-guidu': surfaces.fieldLight.guidu.band,
+  '--field-on-outer-hub': surfaces.fieldLight.hub.outer,
+  '--field-on-inner-hub': surfaces.fieldLight.hub.inner,
+  '--field-on-band-hub': surfaces.fieldLight.hub.band
+} as const;
 
 // Tokens do tema que dependem da marca, com o nome da variável CSS do kit.
 export const palette = {
@@ -93,8 +110,9 @@ export const palette = {
     '--states-button-primary-hover': brand.accentFillHover,
     '--states-button-primary-pressed': brand.accentFillPressed,
     '--counter-themed': brand.accentFill,
-    '--field-background': '#ededed',
-    '--field-background-contrast': '#ededed',
+    '--field-background': surfaces.fieldLight.default,
+    '--field-background-contrast': surfaces.fieldLight.default,
+    ...fieldOnLayers,
     '--text-on-accent': brand.onAccent,
     '--background-coupon': coupon.ticket,
     '--background-coupon-photo': coupon.photo,

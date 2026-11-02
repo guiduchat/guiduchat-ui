@@ -76,6 +76,17 @@ describe('tokens da marca', () => {
     }
   });
 
+  it('no claro o campo nunca tem a cor da camada de trás (vira #ffffff sobre #ededed)', () => {
+    for (const actor of ['guidu', 'hub'] as const) {
+      for (const layer of ['outer', 'inner', 'band'] as const) {
+        expect(surfaces.fieldLight[actor][layer], `${actor} ${layer}`).not.toBe(surfaces.light[actor][layer]);
+      }
+    }
+    expect(surfaces.fieldLight.guidu.inner).toBe('#ffffff');
+    expect(surfaces.fieldLight.hub.outer).toBe('#ffffff');
+    expect(surfaces.fieldLight.hub.band).toBe('#ffffff');
+  });
+
   it('o verde de texto e a barrinha ativa seguem a decisão do Marcelo (01/11/2026)', () => {
     expect(palette.light['--text-themed']).toBe('#5c6b02');
     expect(palette.light['--icon-themed']).toBe('#5c6b02');

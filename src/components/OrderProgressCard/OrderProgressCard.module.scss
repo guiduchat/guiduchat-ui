@@ -11,6 +11,8 @@
   box-sizing: border-box;
   border-radius: var(--size-border-radius-semantic-border-radius-promo);
   background-color: var(--surface-inner);
+  --field-background: var(--field-on-inner);
+  --field-background-contrast: var(--field-contrast-on-inner);
   color: var(--text-primary);
 }
 
@@ -29,6 +31,8 @@
   box-sizing: border-box;
   border-radius: var(--size-border-radius-semantic-border-radius-promo);
   background-color: var(--surface-band);
+  --field-background: var(--field-on-band);
+  --field-background-contrast: var(--field-contrast-on-band);
 }
 
 .OrderProgressCard__info {

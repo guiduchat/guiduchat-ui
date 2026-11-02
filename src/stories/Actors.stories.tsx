@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
 import {
+  ActionInput,
   type ActorType,
   Avatar,
   Button,
@@ -51,6 +52,10 @@ const Sample = ({ name }: { name: string }) => (
           />
         ))}
       </Carousel>
+    </InfoCard>
+    {/* Campo: #EDEDED, ou #FFFFFF quando a camada de trás também é #EDEDED (automático, no claro). */}
+    <InfoCard title="Campo">
+      <ActionInput label="Código de desconto" placeholder="Insira seu código" actionLabel="Aplicar" onAction={() => {}} />
     </InfoCard>
   </div>
 );

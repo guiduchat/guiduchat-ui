@@ -35,6 +35,19 @@
   // Fundo de campo de formulário (Marcelo): #ededed no claro; no escuro, o valor de antes de cada campo.
   --field-background: #ededed;
   --field-background-contrast: #ededed;
+  // Campo sobre cada camada (por ator): #ededed, ou #ffffff quando a camada também é #ededed.
+  --field-on-outer-guidu: #ededed;
+  --field-contrast-on-outer-guidu: var(--field-on-outer-guidu);
+  --field-on-inner-guidu: #ffffff;
+  --field-contrast-on-inner-guidu: var(--field-on-inner-guidu);
+  --field-on-band-guidu: #ededed;
+  --field-contrast-on-band-guidu: var(--field-on-band-guidu);
+  --field-on-outer-hub: #ffffff;
+  --field-contrast-on-outer-hub: var(--field-on-outer-hub);
+  --field-on-inner-hub: #ededed;
+  --field-contrast-on-inner-hub: var(--field-on-inner-hub);
+  --field-on-band-hub: #ffffff;
+  --field-contrast-on-band-hub: var(--field-on-band-hub);
 
   // Icon
   --icon-primary: rgb(6 7 8 / 0.84);
@@ -191,6 +204,19 @@
   --star-tile-star: #e1fb40;
   --field-background: var(--background-tertiary);
   --field-background-contrast: var(--background-card);
+  // Campo sobre cada camada: no escuro, o mesmo valor de antes em todas.
+  --field-on-outer-guidu: var(--background-tertiary);
+  --field-contrast-on-outer-guidu: var(--background-card);
+  --field-on-inner-guidu: var(--background-tertiary);
+  --field-contrast-on-inner-guidu: var(--background-card);
+  --field-on-band-guidu: var(--background-tertiary);
+  --field-contrast-on-band-guidu: var(--background-card);
+  --field-on-outer-hub: var(--background-tertiary);
+  --field-contrast-on-outer-hub: var(--background-card);
+  --field-on-inner-hub: var(--background-tertiary);
+  --field-contrast-on-inner-hub: var(--background-card);
+  --field-on-band-hub: var(--background-tertiary);
+  --field-contrast-on-band-hub: var(--background-card);
 
   // Icon
   --icon-primary: rgb(255 255 255);
