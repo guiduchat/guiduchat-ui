@@ -33,6 +33,8 @@
   box-sizing: border-box;
   border-radius: var(--size-border-radius-semantic-border-radius-surface);
   background-color: var(--surface-outer);
+  --field-background: var(--field-on-outer);
+  --field-background-contrast: var(--field-contrast-on-outer);
   color: var(--text-primary);
   text-align: center;
 }
@@ -63,6 +65,8 @@
   box-sizing: border-box;
   border-radius: var(--size-border-radius-semantic-border-radius-surface);
   background-color: var(--surface-outer);
+  --field-background: var(--field-on-outer);
+  --field-background-contrast: var(--field-contrast-on-outer);
   color: var(--text-primary);
 }
 

@@ -4,6 +4,8 @@
   padding: var(--spacing-size-xl);
   border-radius: var(--size-border-radius-semantic-border-radius-promo);
   background-color: var(--surface-inner);
+  --field-background: var(--field-on-inner);
+  --field-background-contrast: var(--field-contrast-on-inner);
   color: var(--text-primary);
 }
 

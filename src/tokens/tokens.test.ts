@@ -76,12 +76,25 @@ describe('tokens da marca', () => {
     }
   });
 
+  it('no claro o campo nunca tem a cor da camada de trás (vira #ffffff sobre #ededed)', () => {
+    for (const actor of ['guidu', 'hub'] as const) {
+      for (const layer of ['outer', 'inner', 'band'] as const) {
+        expect(surfaces.fieldLight[actor][layer], `${actor} ${layer}`).not.toBe(surfaces.light[actor][layer]);
+      }
+    }
+    expect(surfaces.fieldLight.guidu.inner).toBe('#ffffff');
+    expect(surfaces.fieldLight.hub.outer).toBe('#ffffff');
+    expect(surfaces.fieldLight.hub.band).toBe('#ffffff');
+  });
+
   it('o verde de texto e a barrinha ativa seguem a decisão do Marcelo (01/11/2026)', () => {
     expect(palette.light['--text-themed']).toBe('#5c6b02');
     expect(palette.light['--icon-themed']).toBe('#5c6b02');
-    expect(palette.light['--pager-active']).toBe('#5c6b02');
+    expect(palette.light['--pager-active-guidu']).toBe('#5c6b02');
+    expect(palette.light['--pager-active-hub']).toBe('#c8e805');
     expect(palette.dark['--text-themed']).toBe('#e1fb40');
-    expect(palette.dark['--pager-active']).toBe('#e1fb40');
+    expect(palette.dark['--pager-active-guidu']).toBe('#e1fb40');
+    expect(palette.dark['--pager-active-hub']).toBe('#e1fb40');
     // Decisão dele: o verde #5c6b02 do tema claro. Nas camadas claras (página, #f7f7f7 e #ededed) passa do
     // AA de 4,5:1 para texto pequeno. Registrado aqui e no CHANGELOG; não troque a cor sem nova decisão.
     for (const bg of ['#ffffff', '#f7f7f7', '#ededed']) {

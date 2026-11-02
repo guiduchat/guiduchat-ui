@@ -48,6 +48,13 @@
   --surface-inner: var(--surface-inner-hub);
   --surface-band: var(--surface-band-hub);
   --pager-inactive: var(--pager-inactive-hub);
+  --pager-active: var(--pager-active-hub);
+  --field-on-outer: var(--field-on-outer-hub);
+  --field-contrast-on-outer: var(--field-contrast-on-outer-hub);
+  --field-on-inner: var(--field-on-inner-hub);
+  --field-contrast-on-inner: var(--field-contrast-on-inner-hub);
+  --field-on-band: var(--field-on-band-hub);
+  --field-contrast-on-band: var(--field-contrast-on-band-hub);
 }
 
 :global([data-actor='guidu']) {
@@ -55,6 +62,13 @@
   --surface-inner: var(--surface-inner-guidu);
   --surface-band: var(--surface-band-guidu);
   --pager-inactive: var(--pager-inactive-guidu);
+  --pager-active: var(--pager-active-guidu);
+  --field-on-outer: var(--field-on-outer-guidu);
+  --field-contrast-on-outer: var(--field-contrast-on-outer-guidu);
+  --field-on-inner: var(--field-on-inner-guidu);
+  --field-contrast-on-inner: var(--field-contrast-on-inner-guidu);
+  --field-on-band: var(--field-on-band-guidu);
+  --field-contrast-on-band: var(--field-contrast-on-band-guidu);
 }
 
 :global(body).GuiduUI_resetBody {

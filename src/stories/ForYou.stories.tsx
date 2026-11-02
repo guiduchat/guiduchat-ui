@@ -10,6 +10,7 @@ import {
   OfferCard,
   OrderProgressCard,
   SocialLinkCard,
+  StarTile,
   Steps,
   StoreOfferCard,
   StorePhotoCard
@@ -40,7 +41,7 @@ const avatar = (
 
 const rating = (
   <>
-    <Icon icon={icons.star} size={16} fill="currentColor" color="var(--icon-themed)" />
+    <StarTile size={20} />
     4,8 (235)
   </>
 );
