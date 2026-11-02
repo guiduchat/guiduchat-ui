@@ -1,5 +1,12 @@
 # Changelog do @guiduchat/ui
 
+## 0.25.1 (fundo da página escura #232323)
+
+Só o tema escuro; decisão do Marcelo. `--page-background` no escuro passa de #191919 para **#232323**, nos dois atores. Tema claro e demais cores não mudam. Mexe em token: revisão da equipe console (regra U2).
+
+- **Contraste (WCAG) do texto sobre #232323:** primário 15,7:1; secundário 10,5:1; terciário 7,2:1; `--text-themed` (#E1FB40) 13,5:1.
+- **Página x camadas escuras:** #2D2D2D sobre #232323 fica em 1,14:1 (era 1,28:1 sobre #191919); #404040 sobre #232323, 1,52:1. O #2D2D2D fica bem próximo do fundo novo: decisão do Marcelo.
+
 ## 0.25.0 (avaliações redesenhadas)
 
 Modelos do Marcelo (13, 14 e 15.png) e logos oficiais em SVG. **A API de `ReviewSummary` e `ReviewCard` muda (quebra o app)**: lista abaixo. Mexe em tokens: revisão da equipe console (regra U2).
