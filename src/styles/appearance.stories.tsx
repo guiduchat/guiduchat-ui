@@ -126,6 +126,7 @@ const palette: Record<PaletteGroupName, string[]> = {
     '--text-primary',
     '--text-secondary',
     '--text-tertiary',
+    '--text-card-title',
     '--text-primary-static',
     '--text-primary-inverse',
     '--text-primary-inverse-static',

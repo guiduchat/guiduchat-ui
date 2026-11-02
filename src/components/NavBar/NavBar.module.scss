@@ -59,7 +59,7 @@
   padding: 0;
   border: 0;
   border-radius: 50%;
-  background-color: var(--button-secondary);
+  background-color: var(--nav-button-background);
   color: var(--icon-primary);
   text-decoration: none;
   cursor: pointer;
@@ -76,12 +76,12 @@
 
   @media (hover: hover) {
     &:hover {
-      background-color: var(--states-button-secondary-hover);
+      background-color: var(--states-nav-button-hover);
     }
   }
 
   &:active {
-    background-color: var(--states-button-secondary-pressed);
+    background-color: var(--states-nav-button-pressed);
   }
 
   svg {

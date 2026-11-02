@@ -1,5 +1,15 @@
 # Changelog do @guiduchat/ui
 
+## 0.27.0 (ajustes finos do escuro no Para Você)
+
+Só o tema escuro; decisão do Marcelo (02/11/2026, em teste): o título do `InfoCard` (por exemplo "Pedidos em andamento") fica em **#B1B1B1**, um tom abaixo do texto principal (#D1D1D1). O tamanho (20 px) e o peso seguem dando o destaque. Mexe em token: revisão da equipe console (regra U2).
+
+- Token novo `--text-card-title`: #B1B1B1 no escuro (6,4:1 sobre #2D2D2D, 4,8:1 sobre #404040); no claro, igual ao `--text-primary`.
+- `InfoCard`: o título passa a usar `--text-card-title`. O conteúdo do cartão não muda.
+- `HeaderCard`: sem borda, fundo na camada de fora do ator (`--surface-outer`; Cliente Hub #2D2D2D no escuro, #EDEDED no claro) e busca no campo dessa camada (`--field-on-outer`). Saudação em 18 px.
+- `NavBarButton` (voltar, menu): tokens novos `--nav-button-background`, `--states-nav-button-hover` e `--states-nav-button-pressed`. No escuro, #2D2D2D (hover #363636 e pressionado #262626, a confirmar); no claro, igual ao botão secundário.
+- `OrderProgressCard` e `OfferCard`: a moldura do avatar deixa de recortar em círculo; o formato vem do avatar (o app usa `squircle`).
+
 ## 0.26.0 (texto do tema escuro em cinza)
 
 Só o tema escuro; decisão do Marcelo (02/11/2026): títulos e textos estavam brancos demais. Texto e ícones passam de branco (puro ou transparente) para **cinzas sólidos** da escala neutra do Marcelo (base #F7F7F7), como fazem Material 3, Notion e Radix. Tema claro, limão da marca, cores de status e texto sobre fotos (`-static`, `-inverse`) não mudam. Mexe em token: revisão da equipe console (regra U2).

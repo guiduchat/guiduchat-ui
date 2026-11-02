@@ -35,8 +35,8 @@ $dash-thickness: 2px;
   flex-shrink: 0;
   width: 48px;
   height: 48px;
+  // Sem recorte redondo: o formato vem do próprio avatar (squircle, Marcelo, 02/11/2026).
   overflow: hidden;
-  border-radius: 50%;
 
   > * {
     width: 100%;

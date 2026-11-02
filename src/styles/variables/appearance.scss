@@ -65,6 +65,8 @@
   --text-primary: rgb(6 7 8);
   --text-secondary: rgb(6 7 8 / 0.68);
   --text-tertiary: rgb(6 7 8 / 0.52);
+  // Título dos cartões (InfoCard): no claro, igual ao texto principal.
+  --text-card-title: var(--text-primary);
   --text-primary-static: rgb(6 7 8);
   --text-primary-inverse: rgb(255 255 255);
   --text-primary-inverse-static: rgb(255 255 255);
@@ -84,6 +86,10 @@
   // Button
   --button-primary: #c8e805;
   --button-secondary: rgb(233 235 241);
+  // Botão redondo do cabeçalho (voltar, menu): no claro, igual ao secundário.
+  --nav-button-background: var(--button-secondary);
+  --states-nav-button-hover: var(--states-button-secondary-hover);
+  --states-nav-button-pressed: var(--states-button-secondary-pressed);
   --button-primary-contrast: rgb(255 255 255);
   --button-secondary-contrast: #c0c0c0;
   --button-negative: rgb(255 48 60);
@@ -238,6 +244,9 @@
   --text-primary: #d1d1d1;
   --text-secondary: #b1b1b1;
   --text-tertiary: #a3a3a3;
+  // Título dos cartões (InfoCard) no escuro: #b1b1b1, um tom abaixo do texto principal
+  // (Marcelo, 02/11/2026, em teste). O tamanho e o peso do título mantêm o destaque.
+  --text-card-title: #b1b1b1;
   --text-primary-static: rgb(6 7 8);
   --text-primary-inverse: rgb(6 7 8);
   --text-primary-inverse-static: rgb(255 255 255);
@@ -256,6 +265,11 @@
   // Button
   --button-primary: #e1fb40;
   --button-secondary: rgb(67 68 85);
+  // Botão redondo do cabeçalho (voltar, menu) no escuro: #2d2d2d (Marcelo, 02/11/2026).
+  // Hover e pressionado derivados, a confirmar.
+  --nav-button-background: #2d2d2d;
+  --states-nav-button-hover: #363636;
+  --states-nav-button-pressed: #262626;
   --button-primary-contrast: rgb(255 255 255);
   --button-secondary-contrast: #404040;
   --button-negative: rgb(206 66 87);
