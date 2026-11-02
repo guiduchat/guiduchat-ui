@@ -5,7 +5,8 @@
 .StoreOfferCard {
   display: flex;
   flex-direction: column;
-  gap: var(--spacing-size-m);
+  // 12 px entre o cartão da loja e a faixa da promoção (Marcelo, 02/11/2026).
+  gap: var(--spacing-size-xl);
   width: 100%;
   min-width: 0;
   padding: var(--spacing-size-xl);

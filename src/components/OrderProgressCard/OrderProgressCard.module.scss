@@ -61,10 +61,13 @@
   grid-area: updated;
   display: flex;
   align-items: center;
+  // À direita, como as linhas de cima (Marcelo, 02/11/2026): texto e depois o ícone.
+  justify-content: flex-end;
   gap: var(--spacing-size-m);
   min-width: 0;
   margin: 0;
   overflow-wrap: anywhere;
+  text-align: right;
 }
 
 .OrderProgressCard__updatedIcon {
