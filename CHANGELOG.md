@@ -1,5 +1,17 @@
 # Changelog do @guiduchat/ui
 
+## 0.25.0 (avaliações redesenhadas)
+
+Modelos do Marcelo (13, 14 e 15.png) e logos oficiais em SVG. **A API de `ReviewSummary` e `ReviewCard` muda (quebra o app)**: lista abaixo. Mexe em tokens: revisão da equipe console (regra U2).
+
+- **ReviewSummary:** quadrado com o logo grande em cima, a nota com a contagem e, embaixo, 5 `StarTile`. Props novas: `provider` (`'google' | 'tripadvisor'`), `providerLabel` (nome acessível do logo, do app), `score` (texto pronto, "4,5 (128)"), `rating` (número de 0 a 5) e `ratingLabel` ("Nota 4,5 de 5", do app). **Saíram:** `logo`, `count` e o `rating` em ReactNode.
+- **ReviewCard:** texto em até 2 linhas (eram 3); embaixo, avatar, 5 `StarTile` pequenos e o nome. `rating` agora é número, com `ratingLabel`. **Saiu:** `source` ("· Google"); o modelo mostra só o nome. O avatar sugerido sobe para 36 px, redondo.
+- **Estrelas:** cheias = nota arredondada (4,5 dá 5; 3,2 dá 3); as que faltam usam `StarTile empty`. A fileira tem um nome só (`role="img"`) e cada `StarTile` fica `aria-hidden`.
+- **StarTile:** prop `empty` e token `--star-tile-empty-star` (branco a 24%, igual nos dois temas; derivado, a confirmar). `surfaces.starTileEmptyStar` em `@guiduchat/ui/tokens`.
+- **Logos:** os SVG oficiais viraram componentes internos (`ProviderLogo`), com as cores das marcas (exceção, como o logo do Google do `SocialButton`). O Tripadvisor mantém o círculo verde #63BB94 de fundo, então o traço #010202 aparece nos dois temas. Ids de gradiente do Google únicos por instância.
+- **Camadas:** resumo e cartão usam `--surface-outer` do ator (no modelo escuro do guidu, #404040 com os quadrados #2D2D2D por cima). No hub escuro a camada de fora também é #2D2D2D e as estrelas somem: use o ator guidu (a página do local já usa).
+- **Histórias:** `Components/Review` (novo, claro e escuro) e `Telas/Perfil da loja`.
+
 ## 0.24.0 (lima do claro, StarTile, barrinha do hub e fundo de campo)
 
 Quatro decisões do Marcelo (01/11/2026). Mexe em tokens: revisão da equipe console (regra U2). O tema escuro não muda.

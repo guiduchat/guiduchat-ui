@@ -1,0 +1,13 @@
+// Logo do provedor: grande, no alto do resumo.
+.ProviderLogo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 44px;
+
+  svg {
+    width: auto;
+    height: 100%;
+    max-width: 100%;
+  }
+}

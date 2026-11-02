@@ -16,7 +16,6 @@ import {
   ProfileStats,
   QuickAction,
   QuickActions,
-  RatingStars,
   RecommendationCard,
   ReviewCard,
   ReviewRail,
@@ -116,14 +115,14 @@ const StoreProfileDemo = () => {
         <InfoRow icon={<Icon icon={icons.instagram} />} label="Instagram" value="@restaurantebuzin" />
       </InfoCard>
       <ReviewRail label="Avaliações">
-        <ReviewSummary logo={<Icon icon={icons.google} />} count="48 avaliações" rating={<RatingStars value={4.6} label="Nota 4,6 de 5" />} />
-        <ReviewSummary logo="Tripadvisor" count="12 avaliações" rating={<RatingStars value={5} label="Nota 5 de 5" />} />
+        <ReviewSummary provider="google" providerLabel="Google" score="4,5 (128)" rating={4.5} ratingLabel="Nota 4,5 de 5" />
+        <ReviewSummary provider="tripadvisor" providerLabel="Tripadvisor" score="4,5 (128)" rating={4.5} ratingLabel="Nota 4,5 de 5" />
         <ReviewCard
-          text="Moqueca maravilhosa, atendimento atencioso e vista linda para a rua."
+          text="Moqueca maravilhosa, atendimento atencioso e vista linda para a rua. Voltarei com certeza!"
           author="JoaquimJose235"
-          source="Google"
-          rating={<RatingStars value={4} label="Nota 4 de 5" />}
-          avatar={<Avatar.Container size={32} form="circle"><Avatar.Text gradient="blue">J</Avatar.Text></Avatar.Container>}
+          rating={4}
+          ratingLabel="Nota 4 de 5"
+          avatar={<Avatar.Container size={36} form="circle"><Avatar.Text gradient="blue">J</Avatar.Text></Avatar.Container>}
         />
       </ReviewRail>
       <RecommendationCard

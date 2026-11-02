@@ -60,7 +60,7 @@ O visual dos cartões tem dois atores (decisão do Marcelo, 01/11/2026). `hub` (
 - **Como o app escolhe:** pela prop `actor` do `GuiduUI` (`<GuiduUI actor="guidu">`), que vira `data-actor` na raiz; ou por um `data-actor="guidu"` (ou `"hub"`) em qualquer elemento de dentro, que troca o ator só daquela parte. O mais próximo vale. Sem nada, é `hub`.
 - **Tokens semânticos** (use estes nos componentes): `--surface-outer` (cartão de fora), `--surface-inner` (cartão de dentro), `--surface-band` (faixa ou quadro dentro do cartão de dentro), `--pager-inactive` e `--pager-active` (barrinhas do `Carousel`) e `--page-background` (fundo da página, igual nos dois atores). Os conjuntos por ator (`--surface-outer-guidu`, `--surface-outer-hub` etc.) vêm da paleta do tema; os valores estão em `surfaces` de `@guiduchat/ui/tokens`.
 - A barrinha ativa também segue o ator (`--pager-active-guidu`, `--pager-active-hub`): hub claro #C8E805, guidu claro #5C6B02, escuro #E1FB40.
-- **Campos de formulário:** `--field-background` e `--field-background-contrast` (#EDEDED no claro; no escuro, o valor de antes). **Estrela de nota:** `StarTile` (`size`, `label`).
+- **Campos de formulário:** `--field-background` e `--field-background-contrast` (#EDEDED no claro; no escuro, o valor de antes). **Estrela de nota:** `StarTile` (`size`, `label`, `empty`). **Avaliações:** `ReviewSummary` (`provider`, `providerLabel`, `score`, `rating`, `ratingLabel`) e `ReviewCard` (`rating`, `ratingLabel`), dentro de `ReviewRail`; os textos vêm do app.
 - `--background-secondary`, `--background-nested` e `--icon-mute` continuam como eram, para as outras peças.
 
 ### Ícones
