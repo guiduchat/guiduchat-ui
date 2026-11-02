@@ -68,7 +68,7 @@ describe('tokens da marca', () => {
     expect(surfaces.dark.guidu).toEqual({ outer: '#404040', inner: '#2d2d2d', band: '#404040', pagerInactive: '#7b7b7b' });
     expect(surfaces.dark.hub).toEqual({ outer: '#2d2d2d', inner: '#404040', band: '#2d2d2d', pagerInactive: '#858585' });
     expect(palette.light['--page-background']).toBe('#ffffff');
-    expect(palette.dark['--page-background']).toBe('#191919');
+    expect(palette.dark['--page-background']).toBe('#232323');
     // Guidu e hub trocam fora e dentro entre si.
     for (const scheme of ['light', 'dark'] as const) {
       expect(surfaces[scheme].guidu.outer).toBe(surfaces[scheme].hub.inner);

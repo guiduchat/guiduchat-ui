@@ -43,7 +43,7 @@ export const surfaces = {
     hub: { outer: '#ededed', inner: '#f7f7f7', band: '#ededed', pagerInactive: '#acacac' }
   },
   dark: {
-    page: '#191919',
+    page: '#232323',
     guidu: { outer: '#404040', inner: '#2d2d2d', band: '#404040', pagerInactive: '#7b7b7b' },
     hub: { outer: '#2d2d2d', inner: '#404040', band: '#2d2d2d', pagerInactive: '#858585' }
   },
