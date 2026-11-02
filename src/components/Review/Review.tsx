@@ -26,7 +26,7 @@ ReviewRail.displayName = 'ReviewRail';
 interface StarRowProps {
   /** Nota de 0 a 5. As estrelas cheias são a nota arredondada (4,5 dá 5). */
   rating: number
-  /** Frase única da fileira, por exemplo "Nota 4,5 de 5", vinda do app. */
+  /** Frase única da fileira, por exemplo "Nota 4,5 de 5", vinda do app. Vazia: a fileira é decorativa. */
   label: string
   /** Lado de cada estrela, em px. */
   size: number
@@ -34,9 +34,12 @@ interface StarRowProps {
 
 /** Fileira de 5 `StarTile`: um nome só para o leitor de tela, cada estrela decorativa. */
 const StarRow = ({ rating, label, size }: StarRowProps) => {
-  const filled = Math.min(5, Math.max(0, Math.round(rating)));
+  // NaN (ou nota fora da faixa) mostra 0 estrelas cheias.
+  const filled = Number.isFinite(rating) ? Math.min(5, Math.max(0, Math.round(rating))) : 0;
+  // Sem frase não há nome: a fileira vira decorativa, em vez de um `img` sem nome.
+  const a11y = label ? { role: 'img', 'aria-label': label } : { 'aria-hidden': true };
   return (
-    <span role="img" aria-label={label} className={styles.StarRow}>
+    <span {...a11y} className={styles.StarRow}>
       {[0, 1, 2, 3, 4].map((index) => <StarTile key={index} size={size} empty={index >= filled} />)}
     </span>
   );

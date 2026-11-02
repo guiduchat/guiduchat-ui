@@ -9,6 +9,8 @@ Modelos do Marcelo (13, 14 e 15.png) e logos oficiais em SVG. **A API de `Review
 - **Estrelas:** cheias = nota arredondada (4,5 dá 5; 3,2 dá 3); as que faltam usam `StarTile empty`. A fileira tem um nome só (`role="img"`) e cada `StarTile` fica `aria-hidden`.
 - **StarTile:** prop `empty` e token `--star-tile-empty-star` (branco a 24%, igual nos dois temas; derivado, a confirmar). `surfaces.starTileEmptyStar` em `@guiduchat/ui/tokens`.
 - **Logos:** os SVG oficiais viraram componentes internos (`ProviderLogo`), com as cores das marcas (exceção, como o logo do Google do `SocialButton`). O Tripadvisor mantém o círculo verde #63BB94 de fundo, então o traço #010202 aparece nos dois temas. Ids de gradiente do Google únicos por instância.
+- **Tamanho dos logos:** os dois com 40 px de altura. O Tripadvisor tem o `viewBox` recortado ao círculo (`139.3 64.6 321.6 321.6`): 40 x 40, sem área vazia. O G do Google fica com ~39 x 40 (proporção do SVG, 268,15 x 273,88).
+- **Acessibilidade:** `ReviewCard` com `rating` e sem `ratingLabel` deixa a fileira decorativa (`aria-hidden`), sem `img` sem nome; `rating` NaN mostra 0 estrelas cheias.
 - **Camadas:** resumo e cartão usam `--surface-outer` do ator (no modelo escuro do guidu, #404040 com os quadrados #2D2D2D por cima). No hub escuro a camada de fora também é #2D2D2D e as estrelas somem: use o ator guidu (a página do local já usa).
 - **Histórias:** `Components/Review` (novo, claro e escuro) e `Telas/Perfil da loja`.
 

@@ -34,6 +34,17 @@ describe('ReviewSummary', () => {
 });
 
 describe('ReviewCard', () => {
+  it('com rating e sem ratingLabel a fileira é decorativa, sem img sem nome', () => {
+    const { container } = render(<ReviewCard text="a" author="b" rating={4} />);
+    expect(container.querySelector('[role="img"]')).toBeNull();
+    expect(container.querySelectorAll('[aria-hidden="true"]').length).toBeGreaterThanOrEqual(5);
+  });
+
+  it('rating NaN mostra 0 estrelas cheias', () => {
+    render(<ReviewCard text="a" author="b" rating={Number.NaN} ratingLabel="Sem nota" />);
+    expect(filledCount(screen.getByRole('img', { name: 'Sem nota' }))).toBe(0);
+  });
+
   it('mostra o texto, as estrelas e o nome', () => {
     render(<ReviewCard text="Muito bom." author="Joaquim" rating={4} ratingLabel="Nota 4 de 5" />);
     expect(screen.getByText('Muito bom.')).toBeTruthy();

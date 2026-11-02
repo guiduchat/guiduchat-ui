@@ -99,7 +99,7 @@ const GoogleSvg = () => {
 };
 
 const TripadvisorSvg = () => (
-  <svg viewBox="0 0 600 450" focusable="false" aria-hidden>
+  <svg viewBox="139.3 64.6 321.6 321.6" focusable="false" aria-hidden>
     <circle cx="300.1" cy="225.4" r="160.8" fill="#63BB94" />
     <path
       fill="#010202"
