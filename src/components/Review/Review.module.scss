@@ -21,14 +21,21 @@
   }
 }
 
+// Resumo e cartão ficam na camada de fora do ator (--surface-outer): o quadrado das estrelas (#2D2D2D)
+// precisa contrastar com ela, no claro (#F7F7F7 guidu, #EDEDED hub) e no escuro (#404040 guidu, #2D2D2D hub).
+.StarRow {
+  display: inline-flex;
+  gap: 4px;
+}
+
 .ReviewSummary {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  gap: var(--spacing-size-xs);
-  width: 116px;
-  min-height: 116px;
+  justify-content: space-between;
+  gap: var(--spacing-size-m);
+  width: 128px;
+  min-height: 128px;
   padding: var(--spacing-size-xl) var(--spacing-size-m);
   box-sizing: border-box;
   border-radius: var(--size-border-radius-semantic-border-radius-surface);
@@ -39,18 +46,9 @@
   text-align: center;
 }
 
-.ReviewSummary__logo {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 28px;
+.ReviewSummary__score {
   font-size: var(--font-size-description);
-  font-weight: var(--font-weight-body-strong);
-}
-
-.ReviewSummary__count {
-  font-size: var(--font-size-label);
-  line-height: 14px;
+  line-height: 18px;
   color: var(--text-secondary);
 }
 
@@ -60,7 +58,7 @@
   justify-content: space-between;
   gap: var(--spacing-size-xl);
   width: 260px;
-  min-height: 116px;
+  min-height: 128px;
   padding: var(--spacing-size-xl) var(--spacing-size2xl);
   box-sizing: border-box;
   border-radius: var(--size-border-radius-semantic-border-radius-surface);
@@ -77,7 +75,7 @@
   font-size: var(--font-size-description);
   line-height: 20px;
   -webkit-box-orient: vertical;
-  -webkit-line-clamp: 3;
+  -webkit-line-clamp: 2;
 }
 
 .ReviewCard__footer {

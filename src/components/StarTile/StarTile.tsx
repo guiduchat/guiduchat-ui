@@ -14,17 +14,19 @@ interface StarTileOwnProps {
    * como quando fica ao lado do número da nota.
    */
   label?: string
+  /** Estrela apagada (a nota não chegou até ela). Mesmo quadrado, estrela em `--star-tile-empty-star`. */
+  empty?: boolean
 }
 
 export type StarTileProps = MergeProps<ComponentProps<'span'>, StarTileOwnProps>;
 
 /** Estrela cheia no centro de um quadrado arredondado #2D2D2D (modelo do Marcelo, 01/11/2026). */
 export const StarTile = forwardRef<HTMLSpanElement, StarTileProps>((props, ref) => {
-  const { size = 24, label, className, style, ...rest } = props;
+  const { size = 24, label, empty = false, className, style, ...rest } = props;
   return (
     <span
       ref={ref}
-      className={clsx(styles.StarTile, className)}
+      className={clsx(styles.StarTile, empty && styles.StarTile_empty, className)}
       style={{ width: size, height: size, borderRadius: size * 0.25, ...style }}
       {...(label ? { role: 'img', 'aria-label': label } : { 'aria-hidden': true })}
       {...rest}

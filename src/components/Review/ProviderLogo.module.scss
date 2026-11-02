@@ -1,0 +1,14 @@
+// Logo do provedor: 40 px de altura nos dois (o Tripadvisor tem o viewBox recortado ao círculo, 40 x 40;
+// o G do Google fica com ~39 x 40), para terem o mesmo peso no resumo.
+.ProviderLogo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 40px;
+
+  svg {
+    display: block;
+    width: auto;
+    height: 40px;
+  }
+}

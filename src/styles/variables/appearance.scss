@@ -32,6 +32,7 @@
   --pager-active-hub: #c8e805;
   --star-tile-background: #2d2d2d;
   --star-tile-star: #c8e805;
+  --star-tile-empty-star: rgb(255 255 255 / 0.24);
   // Fundo de campo de formulário (Marcelo): #ededed no claro; no escuro, o valor de antes de cada campo.
   --field-background: #ededed;
   --field-background-contrast: #ededed;
@@ -202,6 +203,7 @@
   --pager-active-hub: #e1fb40;
   --star-tile-background: #2d2d2d;
   --star-tile-star: #e1fb40;
+  --star-tile-empty-star: rgb(255 255 255 / 0.24);
   --field-background: var(--background-tertiary);
   --field-background-contrast: var(--background-card);
   // Campo sobre cada camada: no escuro, o mesmo valor de antes em todas.

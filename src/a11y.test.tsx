@@ -54,7 +54,6 @@ import {
   QuantityStepper,
   QuickAction,
   QuickActions,
-  RatingStars,
   ReviewCard,
   ReviewRail,
   ReviewSummary,
@@ -264,8 +263,9 @@ const cases: Array<[string, ReactNode]> = [
   [
     'Review',
     <ReviewRail key="rv" label="Avaliações">
-      <ReviewSummary logo="Google" count="12 avaliações" rating={<RatingStars value={4.6} label="Nota 4,6 de 5" />} />
-      <ReviewCard text="Muito bom." author="Joaquim" source="Google" rating={<RatingStars value={5} label="Nota 5 de 5" />} />
+      <ReviewSummary provider="google" providerLabel="Google" score="4,6 (12)" rating={4.6} ratingLabel="Nota 4,6 de 5" />
+      <ReviewSummary provider="tripadvisor" providerLabel="Tripadvisor" score="4,5 (128)" rating={4.5} ratingLabel="Nota 4,5 de 5" />
+      <ReviewCard text="Muito bom." author="Joaquim" rating={5} ratingLabel="Nota 5 de 5" />
     </ReviewRail>
   ],
   [
