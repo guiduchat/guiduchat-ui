@@ -48,6 +48,7 @@ import {
   PersonRow,
   PhoneInput,
   PlaceCard,
+  PlaceListCard,
   PriceSummary,
   QrCode,
   QrPanel,
@@ -325,6 +326,23 @@ const cases: Array<[string, ReactNode]> = [
     </div>
   ],
   ['Button', <Button key="b">Enviar pedido</Button>],
+  [
+    'PlaceListCard',
+    <PlaceListCard
+      key="plc"
+      title="Padaria Flor de Geribá"
+      rating="4,8 (235)"
+      description="Frutos do mar e pratos da casa."
+      address="Av. Geribá, 256"
+      status="Fechado"
+      statusTone="negative"
+      hours="Abre às 12:00"
+      open={{ label: 'Abrir Padaria Flor de Geribá', onClick: () => {} }}
+      save={{ label: 'Salvar Padaria Flor de Geribá', pressed: false, onPressedChange: () => {} }}
+      call={{ label: 'Ligar para Padaria Flor de Geribá', href: 'tel:+5522999990000' }}
+      chat={{ label: 'Abrir Chat', onClick: () => {}, count: 2 }}
+    />
+  ],
   [
     'Switch',
     <label key="s">
