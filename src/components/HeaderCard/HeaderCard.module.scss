@@ -1,7 +1,8 @@
 @use '../../styles/shared-mixins/typography';
 
 // Page header card: greeting, a large sentence and a search pill with the filter button.
-// Same clean style as the minimal PlaceCard: flat surface and hairline border.
+// Fundo na camada de fora do ator, sem borda (Marcelo, 02/11/2026): no Cliente Hub,
+// #EDEDED no claro e #2D2D2D no escuro. A busca usa o campo próprio dessa camada.
 .HeaderCard {
   display: flex;
   flex-direction: column;
@@ -9,10 +10,10 @@
   width: 100%;
   box-sizing: border-box;
   padding: var(--spacing-size-xl);
-  // Borda na mesma cor do fundo da busca.
-  border: 1px solid var(--field-background);
   border-radius: var(--size-border-radius-semantic-border-radius-surface);
-  background-color: var(--background-primary);
+  background-color: var(--surface-outer);
+  --field-background: var(--field-on-outer);
+  --field-background-contrast: var(--field-contrast-on-outer);
   color: var(--text-primary);
 }
 
@@ -27,8 +28,11 @@
   flex-shrink: 0;
 }
 
+// 18 px, para acompanhar o avatar de 48 px (Marcelo, 02/11/2026, em teste).
 .HeaderCard__greeting {
   @include typography.detail;
+  font-size: 18px;
+  line-height: 24px;
   color: var(--text-secondary);
 }
 
