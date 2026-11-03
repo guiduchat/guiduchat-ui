@@ -32,7 +32,7 @@ export type FilterTagsProps = MergeProps<Omit<ComponentProps<'div'>, 'children'>
 
 /**
  * Fileira de tags que filtram uma lista, com seleção única e botão "+" opcional no fim. Cada tag tem
- * 32 px de altura e raio de 8 px; a ativa usa a cor da marca. Rola na horizontal, sem barra, se não couber.
+ * 32 px de altura e raio de 12 px; a ativa usa a cor da marca. Rola na horizontal, sem barra, se não couber.
  * Acessibilidade: grupo com nome e cada tag com `aria-pressed`. Escolhi isso em vez de radiogroup porque
  * as tags são botões comuns no Tab (sem teclas de seta a aprender) e o leitor de tela anuncia "pressionado".
  */

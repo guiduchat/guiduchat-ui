@@ -13,9 +13,9 @@ export const FilterTagsSkeleton = forwardRef<HTMLDivElement, FilterTagsSkeletonP
   return (
     <div ref={ref} className={clsx(styles.FilterTags, className)} aria-hidden {...rest}>
       {Array.from({ length: count }, (_, index) => (
-        <Skeleton key={index} width={index === 0 ? 52 : 76} height={32} style={{ borderRadius: 8, flexShrink: 0 }} />
+        <Skeleton key={index} width={index === 0 ? 52 : 76} height={32} style={{ borderRadius: 12, flexShrink: 0 }} />
       ))}
-      <Skeleton width={32} height={32} style={{ borderRadius: 8, flexShrink: 0 }} />
+      <Skeleton width={32} height={32} style={{ borderRadius: 12, flexShrink: 0 }} />
     </div>
   );
 });
