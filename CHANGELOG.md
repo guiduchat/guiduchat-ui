@@ -1,5 +1,14 @@
 # Changelog do @guiduchat/ui
 
+## 0.29.0 (esqueletos com a forma dos cartões)
+
+Regra U10 do guidu.chat (Marcelo, 02/11/2026): o carregamento imita o cartão real. Mexe em token: revisão da equipe console (regra U2).
+
+- Token novo `--skeleton-fill`: preto a 10% no claro e branco a 8% no escuro. O `Skeleton` passa a usá-lo no lugar do `--background-tertiary`.
+- `Skeleton`: formatos novos `line` (barra na linha do texto, com a altura de linha do pai) e `avatar` (cantos do avatar, nunca redondo).
+- Esqueletos novos, com as classes do próprio cartão: `HeaderCardSkeleton`, `OrderProgressCardSkeleton`, `OfferCardSkeleton` (spotlight), `StoreOfferCardSkeleton`, `ListingCardSkeleton` e `StorePhotoCardSkeleton`.
+- `InfoCardSkeleton`: moldura do módulo com carrossel (título, "Ver todas", o cartão, barrinhas e `peek`), com `aria-busy` e o texto "Carregando" do app para o leitor de tela.
+
 ## 0.28.0 (ListingCard e espaços do Para Você)
 
 - **`ListingCard`** (novo): cartão coringa de um item de catálogo — local, oferta, produto e, depois, serviço ou hospedagem. Foto à esquerda; tipo (`eyebrow`), título e apoio em uma linha com reticências; nota (`rating`) ou preço em destaque (`price` e `priceNote`); seta no canto. Camada de dentro do ator, para um `InfoCard plain` com `Carousel` (Visualizações Recentes do Para Você).

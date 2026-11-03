@@ -4,7 +4,13 @@ import { type ComponentProps, type CSSProperties, forwardRef } from 'react';
 import { type MergeProps } from '../../types';
 import styles from './Skeleton.module.scss';
 
-export type SkeletonShape = 'rect' | 'circle' | 'text';
+/**
+ * `rect`: bloco (foto, botão). `circle`: o que é redondo de verdade (botão de seta).
+ * `avatar`: cantos do avatar do kit, nunca redondo (Marcelo, 02/11/2026).
+ * `text`: linhas em bloco. `line`: uma barra na linha do texto, que ocupa a altura de linha
+ * do elemento pai; é o que os esqueletos dos cartões usam dentro das classes reais.
+ */
+export type SkeletonShape = 'rect' | 'circle' | 'avatar' | 'text' | 'line';
 
 interface SkeletonOwnProps {
   shape?: SkeletonShape
@@ -42,7 +48,7 @@ export const Skeleton = forwardRef<HTMLSpanElement, SkeletonProps>((props, ref) 
     <span
       ref={ref}
       className={clsx(blockClassName, className)}
-      style={{ width: width ?? (shape === 'text' ? '100%' : undefined), height, ...style }}
+      style={{ width: width ?? (shape === 'text' || shape === 'line' ? '100%' : undefined), height, ...style }}
       aria-hidden
       {...rest}
     />

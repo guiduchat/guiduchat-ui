@@ -4,6 +4,8 @@
   --background-primary: rgb(255 255 255);
   --background-secondary: rgb(245 247 250);
   --background-tertiary: rgb(9 9 9 / 0.05);
+  // Barras do esqueleto (U10): um pouco mais escuras que qualquer camada.
+  --skeleton-fill: rgb(0 0 0 / 0.1);
   --background-card: rgb(255 255 255);
   --background-nested: rgb(255 255 255);
   --background-overlay: rgb(12 13 14 / 0.32);
@@ -182,6 +184,8 @@
   --background-primary: rgb(23 24 28);
   --background-secondary: rgb(37 38 45);
   --background-tertiary: rgb(255 255 255 / 0.09);
+  // Barras do esqueleto (U10): um pouco mais claras que qualquer camada.
+  --skeleton-fill: rgb(255 255 255 / 0.08);
   --background-card: rgb(37 38 45);
   --background-nested: rgb(58 59 67);
   --background-overlay: rgb(13 13 13 / 0.64);

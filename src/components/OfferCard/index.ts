@@ -8,3 +8,4 @@ export {
   type OfferCardToggle,
   type OfferCardTopAction
 } from './OfferCard';
+export { OfferCardSkeleton, type OfferCardSkeletonProps } from './OfferCardSkeleton';
