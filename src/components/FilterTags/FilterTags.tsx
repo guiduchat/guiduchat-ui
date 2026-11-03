@@ -32,7 +32,7 @@ export type FilterTagsProps = MergeProps<Omit<ComponentProps<'div'>, 'children'>
 
 /**
  * Fileira de tags que filtram uma lista, com seleção única e botão "+" opcional no fim. Cada tag tem
- * 24 px de altura e raio de 8 px; a ativa usa a cor da marca. Rola na horizontal, sem barra, se não couber.
+ * 32 px de altura e raio de 8 px; a ativa usa a cor da marca. Rola na horizontal, sem barra, se não couber.
  * Acessibilidade: grupo com nome e cada tag com `aria-pressed`. Escolhi isso em vez de radiogroup porque
  * as tags são botões comuns no Tab (sem teclas de seta a aprender) e o leitor de tela anuncia "pressionado".
  */
@@ -53,7 +53,7 @@ export const FilterTags = forwardRef<HTMLDivElement, FilterTagsProps>((props, re
       ))}
       {add && (
         <button type="button" className={clsx(styles.FilterTags__tag, styles.FilterTags__add)} aria-label={add.label} onClick={add.onClick}>
-          <Icon icon={icons.add} size={16} />
+          <Icon icon={icons.add} size={20} />
         </button>
       )}
     </div>

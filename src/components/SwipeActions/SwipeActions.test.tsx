@@ -53,8 +53,9 @@ describe('SwipeActions, aparência button', () => {
     );
     expect((container.firstElementChild as HTMLElement).className).toMatch(/appearance_button/);
     const actions = screen.getByRole('button', { name: 'Fixar' }).parentElement as HTMLElement;
-    // Fechada: tudo recortado (WIDTH px à esquerda).
-    expect(actions.style.clipPath).toBe(`inset(0 0 0 ${WIDTH}px)`);
+    // Fechada: tudo recortado na horizontal (WIDTH px à esquerda); na vertical sobra folga para o botão de 60 px
+    // passar de uma linha mais baixa. O jsdom não mede altura, então a folga é o que se confere aqui.
+    expect(actions.style.clipPath).toBe(`inset(-12px 0 -12px ${WIDTH}px)`);
   });
 
   it('o padrão continua sendo a faixa, sem recorte', () => {

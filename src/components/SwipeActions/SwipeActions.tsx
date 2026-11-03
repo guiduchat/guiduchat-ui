@@ -21,6 +21,8 @@ export const SWIPE_AXIS_THRESHOLD = 8;
 /** Fração da largura das ações que o arrasto precisa percorrer para abrir ou fechar a linha ao soltar. */
 export const SWIPE_OPEN_RATIO = 1 / 3;
 /** Tempo (ms) em que o clique que encerra o arrasto fica suprimido; depois disso o próximo toque vale. */
+/** Folga (px) acima e abaixo da linha em que o botão de 60 px pode aparecer, em linha mais baixa que ele. */
+const BUTTON_OVERFLOW = 12;
 const SUPPRESS_CLICK_MS = 300;
 
 export type SwipeActionTone = 'primary' | 'neutral';
@@ -235,7 +237,7 @@ export const SwipeActions = forwardRef<HTMLDivElement, SwipeActionsProps>((props
         ref={actionsRef}
         className={clsx(styles.SwipeActions__actions, { [styles.SwipeActions__actions_open]: open, [styles.SwipeActions__actions_visible]: open || dragging }, innerClassNames?.actions)}
         // No modo botão, só a parte já revelada pela linha aparece: nada da cor fica por baixo dela.
-        style={appearance === 'button' ? { clipPath: `inset(0 0 0 ${Math.max(0, width + offset)}px)` } : undefined}
+        style={appearance === 'button' ? { clipPath: `inset(-${BUTTON_OVERFLOW}px 0 -${BUTTON_OVERFLOW}px ${Math.max(0, width + offset)}px)` } : undefined}
         onFocus={handleActionsFocus}
         onBlur={handleActionsBlur}
       >

@@ -115,6 +115,9 @@
 // (a linha desloca 56 px com uma ação).
 .SwipeActions_appearance_button {
   border-radius: 0;
+  // O botão de 60 px pode passar da linha (mais baixa que ele): recorta só na horizontal.
+  overflow-x: clip;
+  overflow-y: visible;
 
   .SwipeActions__actions {
     align-items: center;
