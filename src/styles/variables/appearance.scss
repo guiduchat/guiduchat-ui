@@ -98,9 +98,10 @@
   --composer-field: transparent;
   --composer-field-radius: 0;
   --composer-field-padding: 4px 6px;
-  --composer-field-min-height: 24px;
-  --composer-font-size: var(--font-size-body);
-  --composer-line-height: 24px;
+  --composer-field-min-height: 26px;
+  // Fonte do campo em 18 px nos dois temas (Marcelo, 03/11/2026).
+  --composer-font-size: 1.125rem;
+  --composer-line-height: 26px;
   --composer-control: var(--button-secondary);
   --states-composer-control-hover: var(--states-button-secondary-hover);
   --states-composer-control-pressed: var(--states-button-secondary-pressed);
