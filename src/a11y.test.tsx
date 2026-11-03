@@ -17,6 +17,7 @@ import {
   Checkbox,
   Composer,
   ContactCard,
+  ConversationListItem,
   Counter,
   EmptyState,
   ExpandablePanel,
@@ -59,6 +60,7 @@ import {
   ReviewRail,
   ReviewSummary,
   ScoreBadge,
+  SearchField,
   Segmented,
   ShortcutCard,
   Skeleton,
@@ -351,6 +353,20 @@ const cases: Array<[string, ReactNode]> = [
     </label>
   ],
   ['Counter', <Counter key="c" value={3} />],
+  ['SearchField', <SearchField key="sf" aria-label="Buscar conversas" placeholder="Buscar" />],
+  [
+    'ConversationListItem',
+    <ConversationListItem
+      key="cli"
+      href="#"
+      title="Padaria Flor de Geribá"
+      message="Seu pedido está pronto."
+      address="Av. Geribá, 236, Geribá"
+      time="09:34"
+      status="read"
+      statusLabel="Lida pela loja"
+    />
+  ],
   [
     'PlaceCard',
     <PlaceCard

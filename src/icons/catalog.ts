@@ -52,6 +52,7 @@ import Mail01Icon from '@hugeicons/core-free-icons/Mail01Icon';
 import MapsIcon from '@hugeicons/core-free-icons/MapsIcon';
 import Medal01Icon from '@hugeicons/core-free-icons/Medal01Icon';
 import Menu01Icon from '@hugeicons/core-free-icons/Menu01Icon';
+import MessageAdd01Icon from '@hugeicons/core-free-icons/MessageAdd01Icon';
 import Mic01Icon from '@hugeicons/core-free-icons/Mic01Icon';
 import MinusSignIcon from '@hugeicons/core-free-icons/MinusSignIcon';
 import MoreHorizontalIcon from '@hugeicons/core-free-icons/MoreHorizontalIcon';
@@ -59,6 +60,8 @@ import Navigation03Icon from '@hugeicons/core-free-icons/Navigation03Icon';
 import NfcIcon from '@hugeicons/core-free-icons/NfcIcon';
 import NoteEditIcon from '@hugeicons/core-free-icons/NoteEditIcon';
 import ParkingAreaCircleIcon from '@hugeicons/core-free-icons/ParkingAreaCircleIcon';
+import PinIcon from '@hugeicons/core-free-icons/PinIcon';
+import PinOffIcon from '@hugeicons/core-free-icons/PinOffIcon';
 import PlusSignIcon from '@hugeicons/core-free-icons/PlusSignIcon';
 import PrinterIcon from '@hugeicons/core-free-icons/PrinterIcon';
 import Search01Icon from '@hugeicons/core-free-icons/Search01Icon';
@@ -77,6 +80,7 @@ import StoreLocation01Icon from '@hugeicons/core-free-icons/StoreLocation01Icon'
 import ThumbsDownIcon from '@hugeicons/core-free-icons/ThumbsDownIcon';
 import ThumbsUpIcon from '@hugeicons/core-free-icons/ThumbsUpIcon';
 import Tick02Icon from '@hugeicons/core-free-icons/Tick02Icon';
+import TickDouble02Icon from '@hugeicons/core-free-icons/TickDouble02Icon';
 import TiktokIcon from '@hugeicons/core-free-icons/TiktokIcon';
 import Timer02Icon from '@hugeicons/core-free-icons/Timer02Icon';
 import User02Icon from '@hugeicons/core-free-icons/User02Icon';
@@ -109,6 +113,11 @@ export const icons = {
   mic: Mic01Icon,
   send: SentIcon,
   menu: Menu01Icon,
+  // Lista de Conversas: novo chat, leitura pela loja e fixar
+  chatAdd: MessageAdd01Icon,
+  readDouble: TickDouble02Icon,
+  pin: PinIcon,
+  unpin: PinOffIcon,
   // Perfil da loja
   call: CallIcon,
   mail: Mail01Icon,

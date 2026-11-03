@@ -1,5 +1,15 @@
 # Changelog do @guiduchat/ui
 
+## 0.32.0 (lista de Conversas)
+
+Modelo do Marcelo (03/11/2026) para a página Conversas. Sem mudança de token: só tokens existentes.
+
+- **`ConversationListItem`** (novo): linha da lista de Conversas. Avatar de 48 px (slot `avatar`), nome da empresa, trecho da última mensagem e endereço curto com o ícone de local, cada um em uma linha com reticências; à direita, o horário (`time`) e, abaixo, o check de leitura. Com `status="sent"`, um check cinza; com `status="read"`, o duplo check na cor do tema; `statusLabel` é o texto do check para o leitor de tela. Com `unread` maior que 0, o contador ocupa o lugar do check. A linha inteira é o link (`asChild` com o `Link` do app). O arrasto para fixar fica no `SwipeActions`, que envolve a linha.
+- **`ConversationListItemSkeleton`** (U10), com as classes da linha.
+- **`SearchField`** (novo): campo de busca isolado, pílula de 48 px com a lupa à esquerda e fundo `--field-background`. Repassa as props do input (`role`, `aria-controls`, `aria-activedescendant`), então o app monta o combobox da folha de novo chat.
+- Ícones novos: `chatAdd`, `readDouble`, `pin` e `unpin`.
+- `CellHeader`: sem mudança. O rótulo de seção em maiúsculas (`PINADAS`) já é o estilo padrão dele (`titleStyle="caps"`).
+
 ## 0.31.0 (abas e filtro de Meus Locais no escuro)
 
 Pedido do Marcelo (03/11/2026). Mexe em token: revisão da equipe console (regra U2).
