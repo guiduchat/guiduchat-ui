@@ -18,7 +18,9 @@ const code = bundles.map((file) => readFileSync(new URL(file, dist), 'utf8')).jo
 // Cada ícone começa com [["path"|"circle"|..., {...}].
 const embedded = (code.match(/\[\["(path|circle|rect|line|polyline|polygon|ellipse)",/g) ?? []).length;
 
-const MAX_ICONS_KB = 64;
+// Teto contra importar a biblioteca inteira (passaria de 1 MB), com folga para o catálogo crescer.
+// Subiu de 64 para 72 KB no kit 0.33.0 (camera, document e moreVertical).
+const MAX_ICONS_KB = 72;
 const iconsKb = statSync(new URL('icons/index.js', dist)).size / 1024;
 
 const errors = collisions.map((entry) => `dist/${entry.name} tem o nome da pasta dist/${entry.name.slice(0, -3)}/: o TypeScript resolve para o .js, sem tipos.`);
