@@ -1,3 +1,5 @@
+@use '../../styles/shared-mixins/a11y';
+
 .overlay {
   position: fixed;
   inset: 0;
@@ -86,6 +88,16 @@
   padding-inline-end: 40px;
 }
 
+// Sem título, o conteúdo começa abaixo do X (que vai até 48 px do topo da folha).
+// Com a alça ocupando cerca de 36 px, faltam 16 px; sem a alça, 40 px.
+.content_belowClose {
+  padding-top: 16px;
+}
+
+.content_belowCloseNoHandle {
+  padding-top: 40px;
+}
+
 // X no canto superior direito (closeLabel).
 .close {
   position: absolute;
@@ -105,9 +117,16 @@
   cursor: pointer;
   -webkit-tap-highlight-color: transparent;
 
-  &:focus-visible {
-    outline: 2px solid var(--text-primary);
-    outline-offset: 2px;
+  @include a11y.focusRing(2px);
+
+  @media (hover: hover) {
+    &:hover {
+      background-color: var(--states-nav-button-hover);
+    }
+  }
+
+  &:active {
+    background-color: var(--states-nav-button-pressed);
   }
 }
 

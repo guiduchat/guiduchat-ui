@@ -2,19 +2,28 @@
 
 ## 0.33.0 (chat no escuro)
 
-Pedido do Marcelo (03/11/2026): cores do chat no tema escuro e botão de três pontos no cabeçalho. Mexe em token: revisão da equipe console (regra U2).
+Pedido do Marcelo (03/11/2026): cores do chat no tema escuro, botão de três pontos no cabeçalho e folha de anexos do chat. Mexe em token: revisão da equipe console (regra U2).
 
-- **Tokens novos** (no claro mantêm os valores de antes): `--composer-background`, `--composer-border`, `--composer-field`, `--composer-field-radius`, `--composer-field-padding`, `--composer-field-min-height`, `--composer-font-size`, `--composer-line-height`, `--composer-control` (com `--states-composer-control-hover` e `-pressed`), `--composer-modes-track`, `--composer-modes-active`, `--nav-pill-background` (com `--states-nav-pill-hover` e `-pressed`) e `--bubble-received`. No escuro: caixa, pílula e balão recebido em #404040, campo em #2d2d2d, controles em #2d2d2d. Fonte do campo em 18 px (linha de 26 px) nos dois temas. Os hover e pressionado da pílula (#4a4a4a, #363636) e dos controles (#363636, #262626) foram derivados e ficam a confirmar.
-- **`Composer`**: a caixa usa `--composer-background`; a borda de 1 px fica transparente no escuro. O campo de texto vira um campo arredondado (raio de 16 px, padding de 12 px, altura mínima de cerca de 3 linhas, 84 px) e continua crescendo até o máximo. No claro o campo é transparente e mantém as medidas de antes. Anexar, microfone e a chave de modos passam para os tokens novos; o enviar continua amarelo.
-- **`NavBarPill`** usa `--nav-pill-background`; **`MessageBubble`** recebido usa `--bubble-received`.
-- **`NavBarPill`**: largura fixa de 160 px (única no app, vira o padrão). Com as colunas laterais iguais do `NavBar`, fica centralizada em relação à tela, não ao espaço entre os botões. Nome e subtítulo em uma linha cada, com reticências; o avatar não encolhe.
-- **`BottomSheet`**: prop opcional `closeLabel`, que mostra um X (40 px) no canto superior direito e chama `onClose`. Sem a prop, nada muda.
-- **`ActionGrid`** (novo): grade de 3 colunas de quadros (`button`, raio de 16 px) com círculo amarelo de 40 px, ícone escuro e rótulo embaixo. Props `items` (`id`, `label`, `icon`, `onClick`) e `aria-label`.
-- **`AttachSheet`** (novo): `BottomSheet` com X e o `ActionGrid`, para o clipe do chat. Fundo pelo token `--attach-sheet-background`, aplicado só nela.  Mais 40 px de espaço embaixo (60 px no total), só nela.
-- **Tokens novos**: `--attach-sheet-background` (#2d2d2d no escuro; no claro, o fundo de sempre da folha), `--action-tile-background` (#404040 no escuro; no claro, `--background-tertiary`), `--states-action-tile-hover` e `--states-action-tile-pressed` (derivados, a confirmar).
-- **Ícones** `camera` (`Camera01Icon`) e `document` (`Doc01Icon`).
+**Tokens novos**
+
+- Chat: `--composer-background`, `--composer-border`, `--composer-field`, `--composer-field-radius`, `--composer-field-padding`, `--composer-field-min-height`, `--composer-font-size`, `--composer-line-height`, `--composer-control` (com `--states-composer-control-hover` e `-pressed`), `--composer-modes-track`, `--composer-modes-active`, `--nav-pill-background` (com `--states-nav-pill-hover` e `-pressed`) e `--bubble-received`.
+- No escuro: caixa, pílula e balão recebido em #404040; campo e controles em #2d2d2d. Os hover e pressionado da pílula (#4a4a4a, #363636) e dos controles (#363636, #262626) foram derivados e ficam a confirmar.
+- No claro: a caixa, a borda, a transparência do campo e o padding de antes continuam. Fonte, linha e altura mínima do campo passam a 18, 26 e 26 px (nos dois temas a fonte é 18 px e a linha 26 px; `--composer-font-size` e `--composer-line-height` ficam em `commonVariables`).
+- Folha de anexos: `--attach-sheet-background` (#2d2d2d no escuro; no claro, o fundo de sempre da folha), `--action-tile-background` (#404040 no escuro; no claro, `--background-tertiary`), `--states-action-tile-hover` e `--states-action-tile-pressed` (derivados, a confirmar).
+
+**Componentes**
+
+- **`Composer`**: a caixa usa `--composer-background`; a borda de 1 px fica transparente no escuro. O campo de texto vira um campo arredondado no escuro (raio de 16 px, padding de 12 px, altura mínima de 84 px, cerca de 3 linhas) e continua crescendo até o máximo. Anexar, microfone e a chave de modos passam para os tokens novos; o enviar continua amarelo.
+- **`NavBarPill`**: usa `--nav-pill-background`; largura fixa de 160 px (única no app, vira o padrão). Com as colunas laterais iguais do `NavBar`, fica centralizada em relação à tela, não ao espaço entre os botões. Nome e subtítulo em uma linha cada, com reticências; o avatar não encolhe.
+- **`MessageBubble`**: o recebido usa `--bubble-received`.
 - **`NavBarButton`**: variante `ghost`, sem fundo (o círculo aparece no hover e no toque), para os três pontos.
-- **Ícone `moreVertical`** (`MoreVerticalIcon`) no catálogo.
+- **`BottomSheet`**: prop opcional `closeLabel`, que mostra um X (40 px) no canto superior direito e chama `onClose`, com foco visível e hover e pressionado como o botão do cabeçalho. Sem título, o conteúdo ganha recuo no topo para começar abaixo do X. Sem a prop, nada muda.
+- **`ActionGrid`** (novo): grade de 3 colunas de quadros (`button`, raio de 16 px) com círculo amarelo de 40 px, ícone escuro e rótulo embaixo. Props `items` (`id`, `label`, `icon`, `onClick`) e `aria-label` (opcional).
+- **`AttachSheet`** (novo): `BottomSheet` com X e o `ActionGrid`, para o clipe do chat. Fundo pelo token `--attach-sheet-background` e mais 40 px de espaço embaixo (60 px no total), só nela. A grade tem um respiro de 4 px para o anel de foco não ser cortado; o grupo não repete o nome do diálogo.
+
+**Ícones**
+
+- `camera` (`Camera01Icon`), `document` (`Doc01Icon`) e `moreVertical` (`MoreVerticalIcon`) no catálogo.
 
 ## 0.32.0 (lista de Conversas)
 

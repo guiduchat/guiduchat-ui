@@ -2,6 +2,10 @@
   --font: system-ui, -apple-system, BlinkMacSystemFont, "Roboto", "Apple Color Emoji", "Helvetica Neue", sans-serif;
   --border-radius-circle: 999px;
 
+  // Fonte do campo do Composer em 18 px nos dois temas (Marcelo, 03/11/2026).
+  --composer-font-size: 1.125rem;
+  --composer-line-height: 26px;
+
   --gradient-red: linear-gradient(153deg, #FF48B6 0.77%, #FF8A35 93.03%);
   --gradient-orange: linear-gradient(155deg, #FFC93D 6.6%, #FF832A 84.12%);
   --gradient-green: linear-gradient(158deg, #14E1D5 6.15%, #03C722 85.68%);

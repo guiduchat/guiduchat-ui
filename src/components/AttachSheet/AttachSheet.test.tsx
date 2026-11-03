@@ -31,6 +31,18 @@ describe('BottomSheet closeLabel', () => {
     expect(screen.queryByRole('button', { name: 'Fechar' })).toBeNull();
   });
 
+  it('com closeLabel e sem título, o conteúdo ganha recuo para começar abaixo do X', () => {
+    render(<BottomSheet open aria-label="Folha" closeLabel="Fechar" onClose={() => {}}><p data-testid="c">oi</p></BottomSheet>);
+    expect(screen.getByTestId('c').parentElement?.className).toMatch(/content_belowClose/);
+  });
+
+  it('sem closeLabel, ou com título, o conteúdo não ganha recuo', () => {
+    const { rerender } = render(<BottomSheet open aria-label="Folha" onClose={() => {}}><p data-testid="c">oi</p></BottomSheet>);
+    expect(screen.getByTestId('c').parentElement?.className).not.toMatch(/belowClose/);
+    rerender(<BottomSheet open title="T" closeLabel="Fechar" onClose={() => {}}><p data-testid="c">oi</p></BottomSheet>);
+    expect(screen.getByTestId('c').parentElement?.className).not.toMatch(/belowClose/);
+  });
+
   it('com closeLabel o X chama onClose', () => {
     const onClose = vi.fn();
     render(<BottomSheet open aria-label="Folha" closeLabel="Fechar" onClose={onClose}><p>oi</p></BottomSheet>);
@@ -64,6 +76,13 @@ describe('AttachSheet', () => {
     render(<Harness onPick={onPick} />);
     fireEvent.click(screen.getByRole('button', { name: 'Câmera' }));
     expect(onPick).toHaveBeenCalledWith('camera');
+  });
+
+  it('o grupo da grade não repete o nome do diálogo', () => {
+    render(<Harness onPick={() => {}} />);
+    const group = screen.getByRole('group');
+    expect(group.getAttribute('aria-label')).toBeNull();
+    expect(screen.getAllByLabelText('Anexar')).toHaveLength(1);
   });
 
   it('o X fecha a folha', () => {

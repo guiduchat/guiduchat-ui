@@ -25,6 +25,9 @@ export const AttachSheet = ({ open, onClose, label, closeLabel, handleLabel, ite
     handleLabel={handleLabel}
     innerClassNames={{ sheet: styles.AttachSheet }}
   >
-    <ActionGrid aria-label={label} items={items} />
+    {/* Sem nome no grupo: o diálogo já tem o mesmo nome e o leitor de tela falaria duas vezes. */}
+    <div className={styles.AttachSheet__grid}>
+      <ActionGrid items={items} />
+    </div>
   </BottomSheet>
 );

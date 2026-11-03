@@ -384,7 +384,12 @@ export const BottomSheet = ({
             </Typography.Title>
           </div>
         )}
-        <div className={styles.content}>
+        <div
+          className={clsx(
+            styles.content,
+            closeLabel && !title && (enableDrag ? styles.content_belowClose : styles.content_belowCloseNoHandle)
+          )}
+        >
           {children}
         </div>
         {hasFooter && <div ref={footerRef} className={styles.footer}>{footer}</div>}
