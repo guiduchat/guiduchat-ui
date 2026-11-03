@@ -7,6 +7,7 @@ import { icons } from '../../icons/catalog';
 import { type AsChildProp, type MergeProps } from '../../types';
 import { Counter } from '../Counter';
 import { Icon } from '../Icon';
+import skeletonStyles from '../Skeleton/Skeleton.module.scss';
 import styles from './ConversationListItem.module.scss';
 
 /** Situação da última mensagem de quem usa o app: `sent` (enviada) ou `read` (lida pela loja). */
@@ -29,6 +30,8 @@ interface ConversationListItemOwnProps extends AsChildProp {
   status?: ConversationListItemStatus
   /** Texto do check para o leitor de tela, traduzido pelo app ("Enviada", "Lida"). */
   statusLabel?: string
+  /** Texto do contador para o leitor de tela, traduzido pelo app ("3 mensagens não lidas"). */
+  unreadLabel?: string
   /** Mensagens não lidas. Com valor maior que 0, o contador ocupa o lugar do check. */
   unread?: number
 }
@@ -52,6 +55,7 @@ export const ConversationListItem = forwardRef<HTMLAnchorElement, ConversationLi
     time,
     status,
     statusLabel,
+    unreadLabel,
     unread = 0,
     className,
     children,
@@ -78,7 +82,12 @@ export const ConversationListItem = forwardRef<HTMLAnchorElement, ConversationLi
       </span>
       <span className={styles.ConversationListItem__meta}>
         {hasReactNode(time) && <span className={styles.ConversationListItem__time}>{time}</span>}
-        {showUnread && <Counter value={unread} rounded />}
+        {showUnread && (
+          <>
+            <Counter value={unread} rounded aria-hidden />
+            {unreadLabel && <span className={skeletonStyles.Skeleton__status}>{unreadLabel}</span>}
+          </>
+        )}
         {showStatus && (
           <span
             className={clsx(styles.ConversationListItem__status, status === 'read' && styles.ConversationListItem__status_read)}

@@ -122,7 +122,30 @@
   .SwipeActions__actions {
     align-items: center;
     box-sizing: border-box;
-    padding-left: 8px;
+    padding-left: var(--spacing-size-m);
+    // Entre botões, quando há mais de uma ação (o deslocamento vem do offsetWidth medido).
+    gap: var(--spacing-size-m);
+    // O recorte acompanha a linha: mesma curva e duração do deslize, e nenhuma durante o arrasto.
+    transition: clip-path 200ms ease-out, opacity 0s linear 200ms;
+  }
+
+  .SwipeActions__actions_visible {
+    transition: clip-path 200ms ease-out;
+  }
+
+  .SwipeActions__actions_dragging {
+    transition: none;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .SwipeActions__actions,
+    .SwipeActions__actions_visible {
+      transition: opacity 0s linear 200ms;
+    }
+
+    .SwipeActions__actions_visible {
+      transition: none;
+    }
   }
 
   .SwipeActions__action {

@@ -22,7 +22,7 @@ const meta = {
     href: '#'
   },
   parameters: { layout: 'padded' },
-  decorators: [(Story) => <div style={{ maxWidth: 366 }}><Story /></div>]
+  decorators: [(Story) => <div style={{ width: '100%', maxWidth: 366 }}><Story /></div>]
 } satisfies Meta<typeof ConversationListItem>;
 
 export default meta;

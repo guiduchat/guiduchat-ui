@@ -370,6 +370,10 @@ const cases: Array<[string, ReactNode]> = [
     />
   ],
   [
+    'ConversationListItem com não lidas',
+    <ConversationListItem key="cliu" href="#" title="Padaria Flor de Geribá" message="Pedido pronto." time="09:34" unread={3} unreadLabel="3 mensagens não lidas" />
+  ],
+  [
     'PlaceCard',
     <PlaceCard
       key="p"

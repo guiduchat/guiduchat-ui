@@ -22,7 +22,7 @@ const meta = {
     add: { label: 'Nova lista', onClick: () => {} }
   },
   parameters: { layout: 'padded' },
-  decorators: [(Story) => <div style={{ maxWidth: 366 }}><Story /></div>]
+  decorators: [(Story) => <div style={{ width: '100%', maxWidth: 366 }}><Story /></div>]
 } satisfies Meta<typeof FilterTags>;
 
 export default meta;
@@ -38,7 +38,7 @@ export const Padrao: Story = {
 
 /** Não cabe na largura: rola na horizontal, sem barra. */
 export const Rolagem: Story = {
-  decorators: [(Story) => <div style={{ maxWidth: 220 }}><Story /></div>]
+  decorators: [(Story) => <div style={{ width: '100%', maxWidth: 220 }}><Story /></div>]
 };
 
 export const Carregando: Story = { render: () => <FilterTagsSkeleton /> };

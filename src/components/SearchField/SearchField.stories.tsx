@@ -7,7 +7,7 @@ const meta = {
   component: SearchField,
   args: { 'aria-label': 'Buscar', placeholder: 'Buscar conversas' },
   parameters: { layout: 'padded' },
-  decorators: [(Story) => <div style={{ maxWidth: 366 }}><Story /></div>]
+  decorators: [(Story) => <div style={{ width: '100%', maxWidth: 366 }}><Story /></div>]
 } satisfies Meta<typeof SearchField>;
 
 export default meta;

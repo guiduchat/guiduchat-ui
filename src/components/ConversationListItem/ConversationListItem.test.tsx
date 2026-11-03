@@ -49,6 +49,12 @@ describe('ConversationListItem', () => {
     expect(screen.queryByRole('img')).toBeNull();
   });
 
+  it('o contador tem texto para o leitor de tela e o número fica escondido dele', () => {
+    render(<ConversationListItem {...base} unread={3} unreadLabel="3 mensagens não lidas" />);
+    expect(screen.getByText('3 mensagens não lidas')).toBeTruthy();
+    expect(screen.getByText('3').getAttribute('aria-hidden')).toBe('true');
+  });
+
   it('sem endereço a linha do local some', () => {
     render(<ConversationListItem {...base} address={undefined} />);
     expect(screen.queryByText(base.address)).toBeNull();
