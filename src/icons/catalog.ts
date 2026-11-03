@@ -56,6 +56,7 @@ import MessageAdd01Icon from '@hugeicons/core-free-icons/MessageAdd01Icon';
 import Mic01Icon from '@hugeicons/core-free-icons/Mic01Icon';
 import MinusSignIcon from '@hugeicons/core-free-icons/MinusSignIcon';
 import MoreHorizontalIcon from '@hugeicons/core-free-icons/MoreHorizontalIcon';
+import MoreVerticalIcon from '@hugeicons/core-free-icons/MoreVerticalIcon';
 import Navigation03Icon from '@hugeicons/core-free-icons/Navigation03Icon';
 import NfcIcon from '@hugeicons/core-free-icons/NfcIcon';
 import NoteEditIcon from '@hugeicons/core-free-icons/NoteEditIcon';
@@ -122,6 +123,7 @@ export const icons = {
   call: CallIcon,
   mail: Mail01Icon,
   more: MoreHorizontalIcon,
+  moreVertical: MoreVerticalIcon,
   share: Share01Icon,
   // Caixa com seta para cima (desenho da oferta); o `share` acima continua o de sempre.
   shareUpload: Share03Icon,

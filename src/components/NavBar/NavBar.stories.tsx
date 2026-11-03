@@ -53,7 +53,12 @@ export const Chat: Story = {
             Restaurante Buzin
           </NavBarPill>
         )}
-        after={<NavBarButton label="Carrinho" variant="accent" icon={<Icon icon={icons.cart} />} />}
+        after={(
+          <>
+            <NavBarButton label="Carrinho" variant="accent" icon={<Icon icon={icons.cart} />} />
+            <NavBarButton label="Mais opções" variant="ghost" icon={<Icon icon={icons.moreVertical} />} />
+          </>
+        )}
       />
     </div>
   )

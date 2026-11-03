@@ -36,7 +36,7 @@
 
   .MessageBubble_side_theirs & {
     border-bottom-left-radius: 6px;
-    background-color: var(--background-secondary);
+    background-color: var(--bubble-received);
     color: var(--text-primary);
   }
 }

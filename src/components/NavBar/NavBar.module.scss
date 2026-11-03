@@ -105,6 +105,11 @@
   }
 }
 
+// Sem fundo (três pontos do chat): só o ícone; o círculo aparece no hover e no toque.
+.NavBarButton_variant_ghost {
+  background-color: transparent;
+}
+
 // Pílula do chat: avatar e nome do estabelecimento no lugar do título.
 .NavBarPill {
   display: inline-flex;
@@ -117,7 +122,7 @@
   box-sizing: border-box;
   border: 0;
   border-radius: 20px;
-  background-color: var(--button-secondary);
+  background-color: var(--nav-pill-background);
   color: var(--text-primary);
   font: inherit;
   text-decoration: none;
@@ -128,12 +133,12 @@
 
   @media (hover: hover) {
     &:hover {
-      background-color: var(--states-button-secondary-hover);
+      background-color: var(--states-nav-pill-hover);
     }
   }
 
   &:active {
-    background-color: var(--states-button-secondary-pressed);
+    background-color: var(--states-nav-pill-pressed);
   }
 }
 

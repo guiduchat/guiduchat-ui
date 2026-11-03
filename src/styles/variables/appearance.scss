@@ -92,6 +92,24 @@
   --nav-button-background: var(--button-secondary);
   --states-nav-button-hover: var(--states-button-secondary-hover);
   --states-nav-button-pressed: var(--states-button-secondary-pressed);
+  // Chat (0.33.0): no claro, os mesmos valores de antes.
+  --composer-background: var(--background-secondary);
+  --composer-border: var(--background-tertiary);
+  --composer-field: transparent;
+  --composer-field-radius: 0;
+  --composer-field-padding: 4px 6px;
+  --composer-field-min-height: 24px;
+  --composer-font-size: var(--font-size-body);
+  --composer-line-height: 24px;
+  --composer-control: var(--button-secondary);
+  --states-composer-control-hover: var(--states-button-secondary-hover);
+  --states-composer-control-pressed: var(--states-button-secondary-pressed);
+  --composer-modes-track: var(--background-tertiary);
+  --composer-modes-active: var(--background-primary);
+  --nav-pill-background: var(--button-secondary);
+  --states-nav-pill-hover: var(--states-button-secondary-hover);
+  --states-nav-pill-pressed: var(--states-button-secondary-pressed);
+  --bubble-received: var(--background-secondary);
   // Botão de filtro do HeaderCard sem filtro aplicado: no claro, igual ao secundário.
   --header-filter-background: var(--button-secondary-contrast);
   --states-header-filter-hover: var(--states-button-secondary-contrast-hover);
@@ -281,6 +299,25 @@
   --nav-button-background: #2d2d2d;
   --states-nav-button-hover: #363636;
   --states-nav-button-pressed: #262626;
+  // Chat no escuro (Marcelo, 03/11/2026): caixa e balão da loja #404040, campo #2d2d2d, fonte de 18 px.
+  // Hover e pressionado da pílula e dos controles derivados, a confirmar.
+  --composer-background: #404040;
+  --composer-border: transparent;
+  --composer-field: #2d2d2d;
+  --composer-field-radius: 16px;
+  --composer-field-padding: 12px;
+  --composer-field-min-height: 84px;
+  --composer-font-size: 1.125rem;
+  --composer-line-height: 26px;
+  --composer-control: #2d2d2d;
+  --states-composer-control-hover: #363636;
+  --states-composer-control-pressed: #262626;
+  --composer-modes-track: #2d2d2d;
+  --composer-modes-active: #404040;
+  --nav-pill-background: #404040;
+  --states-nav-pill-hover: #4a4a4a;
+  --states-nav-pill-pressed: #363636;
+  --bubble-received: #404040;
   // Botão de filtro do HeaderCard no escuro: #2d2d2d, como o botão do cabeçalho (Marcelo, 03/11/2026).
   --header-filter-background: #2d2d2d;
   --states-header-filter-hover: #363636;
