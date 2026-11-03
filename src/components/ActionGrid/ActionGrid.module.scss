@@ -1,0 +1,59 @@
+@use '../../styles/shared-mixins/reset-clickable';
+@use '../../styles/shared-mixins/a11y';
+
+.ActionGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  width: 100%;
+}
+
+.ActionGrid__tile {
+  @include reset-clickable.resetClickable;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+  padding: 16px;
+  box-sizing: border-box;
+  border-radius: 16px;
+  background-color: var(--action-tile-background);
+  color: var(--text-primary);
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+
+  @include a11y.focusRing(2px);
+
+  @media (hover: hover) {
+    &:hover {
+      background-color: var(--states-action-tile-hover);
+    }
+  }
+
+  &:active {
+    background-color: var(--states-action-tile-pressed);
+  }
+}
+
+.ActionGrid__icon {
+  display: flex;
+  flex: none;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: var(--button-primary);
+  color: var(--text-on-accent);
+}
+
+.ActionGrid__label {
+  max-width: 100%;
+  overflow: hidden;
+  font-size: var(--font-size-detail);
+  line-height: var(--line-height-detail);
+  font-weight: var(--font-weight-detail);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

@@ -8,6 +8,11 @@ Pedido do Marcelo (03/11/2026): cores do chat no tema escuro e botão de três p
 - **`Composer`**: a caixa usa `--composer-background`; a borda de 1 px fica transparente no escuro. O campo de texto vira um campo arredondado (raio de 16 px, padding de 12 px, altura mínima de cerca de 3 linhas, 84 px) e continua crescendo até o máximo. No claro o campo é transparente e mantém as medidas de antes. Anexar, microfone e a chave de modos passam para os tokens novos; o enviar continua amarelo.
 - **`NavBarPill`** usa `--nav-pill-background`; **`MessageBubble`** recebido usa `--bubble-received`.
 - **`NavBarPill`**: largura fixa de 160 px (única no app, vira o padrão). Com as colunas laterais iguais do `NavBar`, fica centralizada em relação à tela, não ao espaço entre os botões. Nome e subtítulo em uma linha cada, com reticências; o avatar não encolhe.
+- **`BottomSheet`**: prop opcional `closeLabel`, que mostra um X (40 px) no canto superior direito e chama `onClose`. Sem a prop, nada muda.
+- **`ActionGrid`** (novo): grade de 3 colunas de quadros (`button`, raio de 16 px) com círculo amarelo de 40 px, ícone escuro e rótulo embaixo. Props `items` (`id`, `label`, `icon`, `onClick`) e `aria-label`.
+- **`AttachSheet`** (novo): `BottomSheet` com X e o `ActionGrid`, para o clipe do chat. Fundo pelo token `--attach-sheet-background`, aplicado só nela.
+- **Tokens novos**: `--attach-sheet-background` (#2d2d2d no escuro; no claro, o fundo de sempre da folha), `--action-tile-background` (#404040 no escuro; no claro, `--background-tertiary`), `--states-action-tile-hover` e `--states-action-tile-pressed` (derivados, a confirmar).
+- **Ícones** `camera` (`Camera01Icon`) e `document` (`Doc01Icon`).
 - **`NavBarButton`**: variante `ghost`, sem fundo (o círculo aparece no hover e no toque), para os três pontos.
 - **Ícone `moreVertical`** (`MoreVerticalIcon`) no catálogo.
 

@@ -96,6 +96,19 @@ export const WithoutTitle: Story = {
   }
 };
 
+export const WithCloseButton: Story = {
+  args: {
+    closeLabel: 'Fechar'
+  },
+  render: ({ ...args }) => {
+    return (
+      <BottomSheet {...args}>
+        <p style={{ margin: 0 }}>O X no canto superior direito fecha a folha.</p>
+      </BottomSheet>
+    );
+  }
+};
+
 export const WithMinHeight: Story = {
   args: {
     minHeight: '50vh'

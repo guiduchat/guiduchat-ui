@@ -82,6 +82,35 @@
   //color: var(--text-primary-inverse);
 }
 
+.header_withClose {
+  padding-inline-end: 40px;
+}
+
+// X no canto superior direito (closeLabel).
+.close {
+  position: absolute;
+  z-index: 2;
+  top: 8px;
+  right: 8px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  color: var(--icon-primary);
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+
+  &:focus-visible {
+    outline: 2px solid var(--text-primary);
+    outline-offset: 2px;
+  }
+}
+
 .footer {
   flex-shrink: 0;
   padding-top: 12px;
