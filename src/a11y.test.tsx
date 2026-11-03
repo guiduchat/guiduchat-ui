@@ -21,6 +21,7 @@ import {
   Counter,
   EmptyState,
   ExpandablePanel,
+  FilterTags,
   FormField,
   GuiduUI,
   HeaderCard,
@@ -353,6 +354,7 @@ const cases: Array<[string, ReactNode]> = [
     </label>
   ],
   ['Counter', <Counter key="c" value={3} />],
+  ['FilterTags', <FilterTags key="ft" label="Filtrar conversas" tags={[{ id: 'all', label: 'Todas' }, { id: 'unread', label: 'Não lidas' }]} value="all" onValueChange={() => {}} add={{ label: 'Nova lista', onClick: () => {} }} />],
   ['SearchField', <SearchField key="sf" aria-label="Buscar conversas" placeholder="Buscar" />],
   [
     'ConversationListItem',

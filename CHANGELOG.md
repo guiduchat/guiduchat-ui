@@ -8,6 +8,7 @@ Modelo do Marcelo (03/11/2026) para a página Conversas. Sem mudança de token: 
 - **`ConversationListItemSkeleton`** (U10), com as classes da linha.
 - **`SearchField`** (novo): campo de busca isolado, pílula de 48 px com a lupa à esquerda e fundo `--field-background`. Repassa as props do input (`role`, `aria-controls`, `aria-activedescendant`), então o app monta o combobox da folha de novo chat.
 - **`SwipeActions`**: prop nova `appearance` (`band`, o padrão, com o comportamento de sempre; ou `button`). Em `button`, cada ação é um botão solto de 48 x 60 px com cantos de 12 px, centralizado na vertical, sem a extensão por sombra nem as curvas em camadas; 8 px de respiro à esquerda entram na largura medida (a linha desloca 56 px com uma ação) e só a parte já revelada pelo arrasto aparece, então a cor nunca fica por baixo da linha.
+- **`FilterTags`** (novo) e **`FilterTagsSkeleton`** (U10): fileira de tags que filtram uma lista, com seleção única. Cada tag tem 24 px de altura e raio de 8 px; a ativa usa `--button-primary` com `--text-on-accent`, as outras `--field-background` com `--text-primary`. O botão "+" no fim (`add`, com o nome acessível vindo do app) tem a mesma altura e o mesmo raio. A fileira rola na horizontal, sem barra. Acessível como grupo com nome (`label`) e `aria-pressed` em cada tag. Sem token novo.
 - Ícones novos: `chatAdd`, `readDouble`, `pin` e `unpin`.
 - `CellHeader`: sem mudança. O rótulo de seção em maiúsculas (`PINADAS`) já é o estilo padrão dele (`titleStyle="caps"`).
 

@@ -1,0 +1,49 @@
+@use '../../styles/shared-mixins/typography';
+@use '../../styles/shared-mixins/reset-clickable';
+
+// Fileira do modelo do Marcelo (03/11/2026): tags de 24 px e raio de 8 px; a ativa na cor da marca,
+// as outras em cinza com texto claro. Rola na horizontal, sem barra visível.
+.FilterTags {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-size-m);
+  width: 100%;
+  overflow-x: auto;
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.FilterTags__tag {
+  @include reset-clickable.resetClickable;
+  @include typography.labelStrong;
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  height: 24px;
+  padding: 0 var(--spacing-size-m);
+  box-sizing: border-box;
+  border-radius: 8px;
+  background-color: var(--field-background);
+  color: var(--text-primary);
+  white-space: nowrap;
+  cursor: pointer;
+
+  &:focus-visible {
+    outline: 2px solid var(--icon-themed);
+    outline-offset: 2px;
+  }
+}
+
+.FilterTags__tag_active {
+  background-color: var(--button-primary);
+  color: var(--text-on-accent);
+}
+
+.FilterTags__add {
+  width: 24px;
+  padding: 0;
+}

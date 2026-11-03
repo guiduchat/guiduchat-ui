@@ -19,6 +19,7 @@ export * from './ConversationListItem';
 export * from './Counter';
 export * from './EmptyState';
 export * from './ExpandablePanel';
+export * from './FilterTags';
 export * from './FormField';
 export * from './GuiduUI';
 export * from './HeaderCard';
