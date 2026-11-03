@@ -109,3 +109,26 @@
     transition: none;
   }
 }
+
+// Aparência `button`: botões soltos de 48 x 60 px, cantos de 12 px, centralizados na vertical, sem a
+// extensão por box-shadow nem as curvas em camadas. 8 px de respiro à esquerda entram na largura medida
+// (a linha desloca 56 px com uma ação).
+.SwipeActions_appearance_button {
+  border-radius: 0;
+
+  .SwipeActions__actions {
+    align-items: center;
+    box-sizing: border-box;
+    padding-left: 8px;
+  }
+
+  .SwipeActions__action {
+    height: 60px;
+    border-radius: 12px;
+    box-shadow: none;
+  }
+
+  .SwipeActions__action:not(:last-child) {
+    border-radius: 12px;
+  }
+}

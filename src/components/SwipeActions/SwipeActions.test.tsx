@@ -39,6 +39,35 @@ const setup = (over: Partial<SwipeActionsProps> = {}) => {
   return { row, move, onOpenChange, onSave };
 };
 
+describe('SwipeActions, aparência button', () => {
+  it('usa a classe da aparência e esconde o que a linha ainda não revelou', () => {
+    const { container } = render(
+      <SwipeActions
+        appearance="button"
+        open={false}
+        onOpenChange={() => {}}
+        actions={[{ id: 'pin', label: 'Fixar', icon: <i />, tone: 'primary', onClick: () => {} }]}
+      >
+        <div>Linha</div>
+      </SwipeActions>
+    );
+    expect((container.firstElementChild as HTMLElement).className).toMatch(/appearance_button/);
+    const actions = screen.getByRole('button', { name: 'Fixar' }).parentElement as HTMLElement;
+    // Fechada: tudo recortado (WIDTH px à esquerda).
+    expect(actions.style.clipPath).toBe(`inset(0 0 0 ${WIDTH}px)`);
+  });
+
+  it('o padrão continua sendo a faixa, sem recorte', () => {
+    const { container } = render(
+      <SwipeActions open={false} onOpenChange={() => {}} actions={[{ id: 'a', label: 'A', icon: <i />, onClick: () => {} }]}>
+        <div>Linha</div>
+      </SwipeActions>
+    );
+    expect((container.firstElementChild as HTMLElement).className).not.toMatch(/appearance_button/);
+    expect((screen.getByRole('button', { name: 'A' }).parentElement as HTMLElement).style.clipPath).toBe('');
+  });
+});
+
 describe('SwipeActions', () => {
   it('arrasto horizontal além do limiar abre a linha', () => {
     const { move, onOpenChange } = setup();
