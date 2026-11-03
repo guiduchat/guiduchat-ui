@@ -1,3 +1,5 @@
+@use '../../styles/shared-mixins/a11y';
+
 .overlay {
   position: fixed;
   inset: 0;
@@ -80,6 +82,52 @@
   align-items: center;
   margin-bottom: 16px;
   //color: var(--text-primary-inverse);
+}
+
+.header_withClose {
+  padding-inline-end: 40px;
+}
+
+// Sem título, o conteúdo começa abaixo do X (que vai até 48 px do topo da folha).
+// Com a alça ocupando cerca de 36 px, faltam 16 px; sem a alça, 40 px.
+.content_belowClose {
+  padding-top: 16px;
+}
+
+.content_belowCloseNoHandle {
+  padding-top: 40px;
+}
+
+// X no canto superior direito (closeLabel).
+.close {
+  position: absolute;
+  z-index: 2;
+  top: 8px;
+  right: 8px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  color: var(--icon-primary);
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+
+  @include a11y.focusRing(2px);
+
+  @media (hover: hover) {
+    &:hover {
+      background-color: var(--states-nav-button-hover);
+    }
+  }
+
+  &:active {
+    background-color: var(--states-nav-button-pressed);
+  }
 }
 
 .footer {

@@ -1,6 +1,8 @@
 import { fireEvent, render, screen } from '@testing-library/react';
 import { describe, expect, it, vi } from 'vitest';
 
+import { icons } from '../../icons';
+import { Icon } from '../Icon';
 import { NavBar, NavBarBackButton, NavBarButton, NavBarPill } from './NavBar';
 
 describe('NavBar', () => {
@@ -30,6 +32,15 @@ describe('NavBar', () => {
     render(<NavBarButton label="Carrinho" variant="accent" icon={<svg />} />);
     const button = screen.getByRole('button', { name: 'Carrinho' });
     expect(button.className).toMatch(/NavBarButton_variant_accent/);
+  });
+
+  it('a variante ghost tem a classe sem fundo, o nome acessível e o ícone dos três pontos', () => {
+    render(<NavBarButton label="Mais opções" variant="ghost" icon={<Icon icon={icons.moreVertical} />} aria-disabled="true" />);
+    const button = screen.getByRole('button', { name: 'Mais opções' });
+    expect(button.className).toMatch(/NavBarButton_variant_ghost/);
+    expect(button.className).not.toMatch(/NavBarButton_variant_accent/);
+    expect(button.getAttribute('aria-disabled')).toBe('true');
+    expect(button.querySelector('svg')).toBeTruthy();
   });
 
   it('a pílula do chat fica no lugar do título, com o nome do estabelecimento', () => {

@@ -22,6 +22,7 @@ import Bookmark01Icon from '@hugeicons/core-free-icons/Bookmark01Icon';
 import BookmarkCheck01Icon from '@hugeicons/core-free-icons/BookmarkCheck01Icon';
 import CalendarClockIcon from '@hugeicons/core-free-icons/CalendarClockIcon';
 import CallIcon from '@hugeicons/core-free-icons/CallIcon';
+import Camera01Icon from '@hugeicons/core-free-icons/Camera01Icon';
 import Cancel01Icon from '@hugeicons/core-free-icons/Cancel01Icon';
 import CancelCircleIcon from '@hugeicons/core-free-icons/CancelCircleIcon';
 import Chat01Icon from '@hugeicons/core-free-icons/Chat01Icon';
@@ -34,6 +35,7 @@ import DeliveryBox01Icon from '@hugeicons/core-free-icons/DeliveryBox01Icon';
 import DeliveryTruck01Icon from '@hugeicons/core-free-icons/DeliveryTruck01Icon';
 import DiscoverSquareIcon from '@hugeicons/core-free-icons/DiscoverSquareIcon';
 import Dish01Icon from '@hugeicons/core-free-icons/Dish01Icon';
+import Doc01Icon from '@hugeicons/core-free-icons/Doc01Icon';
 import DrinkIcon from '@hugeicons/core-free-icons/DrinkIcon';
 import EyeIcon from '@hugeicons/core-free-icons/EyeIcon';
 import EyeOffIcon from '@hugeicons/core-free-icons/EyeOffIcon';
@@ -56,6 +58,7 @@ import MessageAdd01Icon from '@hugeicons/core-free-icons/MessageAdd01Icon';
 import Mic01Icon from '@hugeicons/core-free-icons/Mic01Icon';
 import MinusSignIcon from '@hugeicons/core-free-icons/MinusSignIcon';
 import MoreHorizontalIcon from '@hugeicons/core-free-icons/MoreHorizontalIcon';
+import MoreVerticalIcon from '@hugeicons/core-free-icons/MoreVerticalIcon';
 import Navigation03Icon from '@hugeicons/core-free-icons/Navigation03Icon';
 import NfcIcon from '@hugeicons/core-free-icons/NfcIcon';
 import NoteEditIcon from '@hugeicons/core-free-icons/NoteEditIcon';
@@ -122,6 +125,7 @@ export const icons = {
   call: CallIcon,
   mail: Mail01Icon,
   more: MoreHorizontalIcon,
+  moreVertical: MoreVerticalIcon,
   share: Share01Icon,
   // Caixa com seta para cima (desenho da oferta); o `share` acima continua o de sempre.
   shareUpload: Share03Icon,
@@ -131,6 +135,8 @@ export const icons = {
   clock: Clock01Icon,
   // Calendário com relógio (desenho dos pedidos em andamento)
   calendar: CalendarClockIcon,
+  camera: Camera01Icon,
+  document: Doc01Icon,
   image: Image01Icon,
   arrowForward: ArrowRight02Icon,
   thumbsUp: ThumbsUpIcon,

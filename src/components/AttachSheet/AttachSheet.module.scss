@@ -1,0 +1,15 @@
+// Classe dobrada: vence o fundo e o padding da folha base, qualquer que seja a ordem do CSS.
+// Embaixo: 20 px da folha base + 40 px (a folha base não tem safe-area; nada a somar).
+// Nas laterais, 12 px em vez de 16: os 4 px do respiro da grade (abaixo) compensam, e os quadros
+// mantêm a largura.
+.AttachSheet.AttachSheet {
+  padding-inline: 12px;
+  padding-bottom: 60px;
+  background-color: var(--attach-sheet-background);
+}
+
+// Respiro de 4 px (contorno de 2 px + offset de 2 px) para o anel de foco dos quadros não
+// ser cortado pelo overflow da área de conteúdo da folha.
+.AttachSheet__grid {
+  padding: 4px;
+}

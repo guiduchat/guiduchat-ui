@@ -3,7 +3,9 @@ import {CSSProperties, type ReactNode, type TransitionEvent, useEffect, useId, u
 
 import { hasReactNode } from '../../helpers';
 import { useDrag } from '../../hooks';
+import { icons } from '../../icons/catalog';
 import {InnerClassNamesProp} from "../../types";
+import { Icon } from '../Icon';
 import { Typography } from '../Typography';
 import styles from './BottomSheet.module.scss';
 
@@ -41,6 +43,10 @@ export type BottomSheetProps = {
    * o teclado fecha com Esc.
    */
   handleLabel?: string
+  /**
+   * Rótulo do botão X no canto superior direito (texto traduzido pelo app). Sem ele, não há X.
+   */
+  closeLabel?: string
 }
 
 type Status = 'closed' | 'open' | 'exiting';
@@ -107,7 +113,7 @@ const prefersReducedMotion = () =>
 
 export const BottomSheet = ({
   open, title, onClose, children, hero, footer, minHeight = 'auto', innerClassNames, enableDrag = true,
-  'aria-label': ariaLabel, handleLabel
+  'aria-label': ariaLabel, handleLabel, closeLabel
 }: BottomSheetProps) => {
   const [status, setStatus] = useState<Status>(open ? 'open' : 'closed');
   const titleId = useId();
@@ -365,15 +371,25 @@ export const BottomSheet = ({
             }}
           />
         )}
+        {closeLabel && (
+          <button type="button" className={styles.close} aria-label={closeLabel} onClick={onClose}>
+            <Icon icon={icons.close} size={24} />
+          </button>
+        )}
         {hasHero && <div className={styles.hero}>{hero}</div>}
         {title && (
-          <div className={clsx(styles.header, innerClassNames?.header)}>
+          <div className={clsx(styles.header, closeLabel && styles.header_withClose, innerClassNames?.header)}>
             <Typography.Title id={titleId} variant="medium-strong">
               {title}
             </Typography.Title>
           </div>
         )}
-        <div className={styles.content}>
+        <div
+          className={clsx(
+            styles.content,
+            closeLabel && !title && (enableDrag ? styles.content_belowClose : styles.content_belowCloseNoHandle)
+          )}
+        >
           {children}
         </div>
         {hasFooter && <div ref={footerRef} className={styles.footer}>{footer}</div>}

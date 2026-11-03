@@ -7,6 +7,7 @@ import {
   ActionInput,
   ActionTile,
   AddressPanel,
+  AttachSheet,
   Avatar,
   BentoGrid,
   BentoImage,
@@ -539,6 +540,22 @@ const cases: Array<[string, ReactNode]> = [
     <BottomSheet key="bs1" open title="Cupom" handleLabel="Arraste para baixo para fechar" onClose={() => {}}>
       <Button>Fechar</Button>
     </BottomSheet>
+  ],
+  [
+    'AttachSheet com X e três quadros',
+    <AttachSheet
+      key="as1"
+      open
+      label="Anexar"
+      closeLabel="Fechar"
+      handleLabel="Arraste para baixo para fechar"
+      onClose={() => {}}
+      items={[
+        { id: 'camera', label: 'Câmera', icon: <Icon icon={icons.camera} />, onClick: () => {} },
+        { id: 'photo', label: 'Foto', icon: <Icon icon={icons.image} />, onClick: () => {} },
+        { id: 'document', label: 'Documento', icon: <Icon icon={icons.document} />, onClick: () => {} }
+      ]}
+    />
   ],
   [
     'BottomSheet sem título, nomeado por aria-label',

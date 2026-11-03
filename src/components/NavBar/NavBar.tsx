@@ -43,14 +43,14 @@ export const NavBar = forwardRef<HTMLElement, NavBarProps>((props, ref) => {
 
 NavBar.displayName = 'NavBar';
 
-export type NavBarButtonVariant = 'neutral' | 'accent';
+export type NavBarButtonVariant = 'neutral' | 'accent' | 'ghost';
 
 interface NavBarButtonOwnProps extends AsChildProp {
   /** Nome para o leitor de tela, traduzido pelo app (ex.: "Carrinho"). */
   label: string
   /** O ícone (24 px, desenhado em 20 px). Com `asChild`, vai dentro do filho. */
   icon: ReactNode
-  /** `neutral`: fundo cinza (voltar, menu). `accent`: cor da marca (carrinho). */
+  /** `neutral`: fundo cinza (voltar, menu). `accent`: cor da marca (carrinho). `ghost`: sem fundo (três pontos). */
   variant?: NavBarButtonVariant
   children?: ReactNode
 }
