@@ -1,5 +1,12 @@
 # Changelog do @guiduchat/ui
 
+## 0.31.0 (abas e filtro de Meus Locais no escuro)
+
+Pedido do Marcelo (03/11/2026). Mexe em token: revisão da equipe console (regra U2).
+
+- **`MenuTabs`**: trilho de 52 px e abas de 44 px nos dois temas. Tokens novos `--menu-tabs-track` e `--menu-tabs-active`: no escuro, trilho #404040 e aba ativa #2d2d2d; no claro, os valores de antes.
+- **`HeaderCard`**: o botão de filtro sem filtro aplicado usa os tokens novos `--header-filter-background`, `--states-header-filter-hover` e `--states-header-filter-pressed`. No escuro, #2d2d2d, #363636 e #262626, como o botão do cabeçalho; no claro, o secundário de antes. Com filtro aplicado, nada muda.
+
 ## 0.30.0 (PlaceListCard, o cartão de Meus Locais)
 
 - **`PlaceListCard`** (novo): cartão de local da lista Meus Locais, no modelo do Marcelo (02/11/2026) e na identidade do Cliente Hub.

@@ -2,12 +2,14 @@
 
 // Full pill with equal tabs. The active tab is the card surface on the tinted track,
 // so it reads darker on the dark theme and lighter on the light theme.
+// Trilho de 52 px com abas de 44 px: 4 px em volta (Marcelo, 03/11/2026).
 .MenuTabs[role='tablist'] {
   gap: var(--spacing-size-xs);
+  height: 52px;
   padding: var(--spacing-size-xs);
   box-sizing: border-box;
-  // Tinted track over a solid surface, so the page never shows through.
-  background: linear-gradient(var(--background-tertiary), var(--background-tertiary)), var(--background-primary);
+  // Cor do trilho e da aba ativa nos tokens de appearance.scss (no escuro, #404040 e #2d2d2d).
+  background: var(--menu-tabs-track);
   border-radius: var(--size-border-radius-semantic-border-radius-rounded);
 }
 
@@ -16,8 +18,8 @@
   @include typography.detail;
   flex: 1 1 0;
   min-width: 0;
-  min-height: 40px;
-  padding: var(--spacing-size-m) var(--spacing-size-s);
+  height: 44px;
+  padding: 0 var(--spacing-size-s);
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -26,7 +28,7 @@
   transition: background-color 0.15s ease, color 0.15s ease;
 
   &[aria-selected='true'] {
-    background-color: var(--background-primary);
+    background-color: var(--menu-tabs-active);
     box-shadow: none;
     color: var(--text-primary);
   }

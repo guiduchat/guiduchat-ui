@@ -82,6 +82,19 @@
   height: 40px;
   border-radius: 50%;
 
+  // Sem filtro aplicado, o fundo vem do token do cabeçalho: no escuro, #2d2d2d (Marcelo, 03/11/2026).
+  // Com filtro (aria-pressed), fica a variante neutral do IconButton.
+  .HeaderCard &[aria-pressed='false'] {
+    --MaxUi-IconButton_background: var(--header-filter-background);
+    --MaxUi-IconButton_background-active: var(--states-header-filter-pressed);
+
+    @media (hover: hover) and (pointer: fine) {
+      &:hover {
+        --MaxUi-IconButton_background: var(--states-header-filter-hover);
+      }
+    }
+  }
+
   svg {
     width: 20px;
     height: 20px;
