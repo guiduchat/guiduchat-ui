@@ -1,0 +1,216 @@
+@use '../../styles/shared-mixins/typography';
+@use '../../styles/shared-mixins/reset-clickable';
+
+// Medidas do modelo do Marcelo (02/11/2026), na identidade do Cliente Hub: cartão de fora
+// (raio 24, margem 12) com o quadro de dentro (raio 20) e o rodapé na camada de fora.
+// Os botões redondos invertem as camadas: o salvar, sobre o quadro, usa a camada de fora;
+// o ligar e o calendário, no rodapé, usam a de dentro.
+.PlaceListCard {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-size-xl);
+  width: 100%;
+  min-width: 0;
+  padding: var(--spacing-size-xl);
+  box-sizing: border-box;
+  border-radius: var(--size-border-radius-semantic-border-radius-surface);
+  background-color: var(--surface-outer);
+  --field-background: var(--field-on-outer);
+  --field-background-contrast: var(--field-contrast-on-outer);
+  color: var(--text-primary);
+}
+
+.PlaceListCard__frame {
+  position: relative;
+  border-radius: var(--size-border-radius-semantic-border-radius-promo);
+  background-color: var(--surface-inner);
+  --field-background: var(--field-on-inner);
+  --field-background-contrast: var(--field-contrast-on-inner);
+}
+
+// O quadro inteiro abre o local; o salvar fica por cima, fora do botão.
+.PlaceListCard__open {
+  @include reset-clickable.resetClickable;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-size-xl);
+  width: 100%;
+  padding: var(--spacing-size-xl);
+  box-sizing: border-box;
+  border-radius: inherit;
+  color: inherit;
+  text-align: left;
+  text-decoration: none;
+}
+
+.PlaceListCard__open_interactive {
+  cursor: pointer;
+
+  &:focus-visible {
+    outline: 2px solid var(--icon-themed);
+    outline-offset: 2px;
+  }
+}
+
+// Avatar, nome e nota; à direita fica o espaço do salvar (44 px mais o vão).
+.PlaceListCard__head {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-size-xl);
+  min-width: 0;
+  padding-right: calc(44px + var(--spacing-size-m));
+}
+
+.PlaceListCard__avatar {
+  display: flex;
+  flex-shrink: 0;
+}
+
+.PlaceListCard__names {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-size2xs);
+  min-width: 0;
+}
+
+.PlaceListCard__title {
+  @include typography.title;
+  margin: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.PlaceListCard__rating {
+  @include typography.description;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-size-xs);
+  min-height: 20px;
+}
+
+.PlaceListCard__description {
+  @include typography.detail;
+  display: -webkit-box;
+  overflow: hidden;
+  overflow-wrap: anywhere;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  color: var(--text-secondary);
+}
+
+.PlaceListCard__address {
+  @include typography.description;
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-size-m);
+  min-width: 0;
+  color: var(--text-secondary);
+}
+
+.PlaceListCard__addressIcon {
+  display: flex;
+  flex-shrink: 0;
+  color: var(--icon-themed);
+}
+
+.PlaceListCard__addressText {
+  min-width: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+@mixin roundButton {
+  @include reset-clickable.resetClickable;
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  color: var(--icon-primary);
+  text-decoration: none;
+  cursor: pointer;
+
+  &:focus-visible {
+    outline: 2px solid var(--icon-themed);
+    outline-offset: 2px;
+  }
+}
+
+.PlaceListCard__save {
+  @include roundButton;
+  position: absolute;
+  top: var(--spacing-size-xl);
+  right: var(--spacing-size-xl);
+  background-color: var(--surface-outer);
+}
+
+.PlaceListCard__footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--spacing-size-xl);
+  padding: 0 var(--spacing-size-xs);
+}
+
+.PlaceListCard__hours {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-size-m);
+  min-width: 0;
+}
+
+.PlaceListCard__hoursIcon {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background-color: var(--surface-inner);
+  color: var(--icon-primary);
+}
+
+.PlaceListCard__hoursText {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.PlaceListCard__status {
+  @include typography.description;
+}
+
+.PlaceListCard__status_positive {
+  color: var(--text-positive);
+}
+
+.PlaceListCard__status_negative {
+  color: var(--text-negative);
+}
+
+.PlaceListCard__status_neutral {
+  color: var(--text-secondary);
+}
+
+.PlaceListCard__time {
+  @include typography.description;
+  overflow-wrap: anywhere;
+}
+
+.PlaceListCard__actions {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  gap: var(--spacing-size-m);
+}
+
+.PlaceListCard__call {
+  @include roundButton;
+  background-color: var(--surface-inner);
+}

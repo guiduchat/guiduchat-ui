@@ -45,6 +45,7 @@ export * from './PaymentPanel';
 export * from './PersonRow';
 export * from './PhoneInput';
 export * from './PlaceCard';
+export * from './PlaceListCard';
 export * from './PriceSummary';
 export * from './ProfileStats';
 export * from './QrCode';

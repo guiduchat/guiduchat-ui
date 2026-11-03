@@ -1,5 +1,14 @@
 # Changelog do @guiduchat/ui
 
+## 0.30.0 (PlaceListCard, o cartão de Meus Locais)
+
+- **`PlaceListCard`** (novo): cartão de local da lista Meus Locais, no modelo do Marcelo (02/11/2026) e na identidade do Cliente Hub.
+  - **Quadro de dentro**, que abre o local (`open`, com `asChild` para o link do app): avatar, nome em uma linha, nota, o marcador de salvar no canto, descrição em até duas linhas e o endereço em uma linha com o ícone de local.
+  - **Rodapé**: calendário com a situação (`statusTone`: `positive`, `negative` ou `neutral`) e o horário; à direita, o botão redondo de ligar (`call`, com `href` `tel:`) e o botão principal com o ícone do chat e o contador de não lidas (`chat`).
+  - Os botões redondos invertem as camadas do ator: o salvar usa a de fora e o ligar a de dentro.
+- **`PlaceListCardSkeleton`** (U10), com as classes do cartão.
+- O `PlaceCard` não muda.
+
 ## 0.29.0 (esqueletos com a forma dos cartões)
 
 Regra U10 do guidu.chat (Marcelo, 02/11/2026): o carregamento imita o cartão real. Mexe em token: revisão da equipe console (regra U2).
