@@ -115,6 +115,10 @@
   display: inline-flex;
   align-items: center;
   gap: 8px;
+  // Largura fixa de 160 px: com as colunas laterais iguais (1fr), a pílula fica
+  // centralizada na tela, não no espaço que sobra entre os botões.
+  flex: none;
+  width: 160px;
   max-width: 100%;
   min-width: 0;
   height: 40px;

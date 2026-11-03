@@ -64,6 +64,35 @@ export const Chat: Story = {
   )
 };
 
+export const ChatLongName: Story = {
+  name: 'Chat: nome e subtítulo longos',
+  render: () => (
+    <div style={{ width: 390, maxWidth: '100%' }}>
+      <NavBar
+        before={<NavBarBackButton label="Voltar" />}
+        center={(
+          <NavBarPill
+            avatar={(
+              <Avatar.Container size={32} form="circle">
+                <Avatar.Text gradient="orange">RB</Avatar.Text>
+              </Avatar.Container>
+            )}
+            subtitle="Restaurante Buzin Centro Histórico"
+          >
+            Atendimento do Restaurante Buzin
+          </NavBarPill>
+        )}
+        after={(
+          <>
+            <NavBarButton label="Carrinho" variant="accent" icon={<Icon icon={icons.cart} />} />
+            <NavBarButton label="Mais opções" variant="ghost" icon={<Icon icon={icons.moreVertical} />} />
+          </>
+        )}
+      />
+    </div>
+  )
+};
+
 export const OnlyTitle: Story = {
   name: 'Só o título',
   args: { title: 'Conversas' },
