@@ -60,3 +60,21 @@ export const Playground: Story = {
     );
   }
 };
+
+/** Aparência `button`: botão de 48 x 60 px com cantos de 12 px, usada na lista de Conversas. */
+export const Button: Story = {
+  args: { open: true, onOpenChange: () => {}, actions: [], children: null },
+  render: function Render () {
+    const [open, setOpen] = useState(true);
+    return (
+      <SwipeActions
+        appearance="button"
+        open={open}
+        onOpenChange={setOpen}
+        actions={[{ id: 'pin', label: 'Fixar', tone: 'primary', icon: <Icon icon={icons.pin} />, onClick: () => {} }]}
+      >
+        <CartItemCard name="Nome do produto ou oferta" detail="Variáveis: atributo" price="R$350,00" />
+      </SwipeActions>
+    );
+  }
+};

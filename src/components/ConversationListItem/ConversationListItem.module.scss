@@ -1,0 +1,99 @@
+@use '../../styles/shared-mixins/typography';
+@use '../../styles/shared-mixins/reset-clickable';
+
+// Linha do modelo do Marcelo (03/11/2026): avatar de 48 px, três linhas de texto no meio
+// (nome, última mensagem, endereço) e, à direita, o horário com o check ou o contador.
+.ConversationListItem {
+  @include reset-clickable.resetClickable;
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-size-xl);
+  width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+  color: var(--text-primary);
+  text-align: left;
+  text-decoration: none;
+  cursor: pointer;
+
+  &:focus-visible {
+    outline: 2px solid var(--icon-themed);
+    outline-offset: 2px;
+    border-radius: var(--size-border-radius-semantic-border-radius-promo);
+  }
+}
+
+.ConversationListItem__avatar {
+  display: flex;
+  flex-shrink: 0;
+}
+
+.ConversationListItem__body {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: var(--spacing-size2xs);
+  min-width: 0;
+}
+
+.ConversationListItem__title {
+  @include typography.bodyStrong;
+  margin: 0;
+  overflow: hidden;
+  color: var(--text-card-title);
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.ConversationListItem__message {
+  @include typography.detail;
+  overflow: hidden;
+  color: var(--text-secondary);
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.ConversationListItem__address {
+  @include typography.description;
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-size-xs);
+  min-width: 0;
+  color: var(--text-tertiary);
+}
+
+.ConversationListItem__addressIcon {
+  display: flex;
+  flex-shrink: 0;
+  color: var(--icon-themed);
+}
+
+.ConversationListItem__addressText {
+  min-width: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+// Horário em cima, check ou contador embaixo, alinhados à direita.
+.ConversationListItem__meta {
+  display: flex;
+  flex-shrink: 0;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: var(--spacing-size-xs);
+}
+
+.ConversationListItem__time {
+  @include typography.description;
+  color: var(--text-tertiary);
+}
+
+.ConversationListItem__status {
+  display: flex;
+  color: var(--text-tertiary);
+}
+
+.ConversationListItem__status_read {
+  color: var(--icon-themed);
+}

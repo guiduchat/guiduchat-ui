@@ -39,6 +39,36 @@ const setup = (over: Partial<SwipeActionsProps> = {}) => {
   return { row, move, onOpenChange, onSave };
 };
 
+describe('SwipeActions, aparência button', () => {
+  it('usa a classe da aparência e esconde o que a linha ainda não revelou', () => {
+    const { container } = render(
+      <SwipeActions
+        appearance="button"
+        open={false}
+        onOpenChange={() => {}}
+        actions={[{ id: 'pin', label: 'Fixar', icon: <i />, tone: 'primary', onClick: () => {} }]}
+      >
+        <div>Linha</div>
+      </SwipeActions>
+    );
+    expect((container.firstElementChild as HTMLElement).className).toMatch(/appearance_button/);
+    const actions = screen.getByRole('button', { name: 'Fixar' }).parentElement as HTMLElement;
+    // Fechada: tudo recortado na horizontal (WIDTH px à esquerda); na vertical sobra folga para o botão de 60 px
+    // passar de uma linha mais baixa. O jsdom não mede altura, então a folga é o que se confere aqui.
+    expect(actions.style.clipPath).toBe(`inset(-12px 0 -12px ${WIDTH}px)`);
+  });
+
+  it('o padrão continua sendo a faixa, sem recorte', () => {
+    const { container } = render(
+      <SwipeActions open={false} onOpenChange={() => {}} actions={[{ id: 'a', label: 'A', icon: <i />, onClick: () => {} }]}>
+        <div>Linha</div>
+      </SwipeActions>
+    );
+    expect((container.firstElementChild as HTMLElement).className).not.toMatch(/appearance_button/);
+    expect((screen.getByRole('button', { name: 'A' }).parentElement as HTMLElement).style.clipPath).toBe('');
+  });
+});
+
 describe('SwipeActions', () => {
   it('arrasto horizontal além do limiar abre a linha', () => {
     const { move, onOpenChange } = setup();

@@ -1,0 +1,29 @@
+// Pílula isolada de 48 px (modelo do Marcelo, 03/11/2026): 4 px em volta do campo de 40 px,
+// como a busca do HeaderCard, mas sem o botão de filtro.
+.SearchField {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 48px;
+  box-sizing: border-box;
+  padding: 4px;
+  border-radius: var(--size-border-radius-semantic-border-radius-rounded);
+  background-color: var(--field-background);
+}
+
+.SearchField__container {
+  flex-grow: 1;
+  min-width: 0;
+}
+
+.SearchField .SearchField__input {
+  height: 40px;
+  background-color: transparent;
+  border: none;
+  box-shadow: none;
+  border-radius: var(--size-border-radius-semantic-border-radius-rounded);
+
+  input::-webkit-search-cancel-button {
+    appearance: none;
+  }
+}

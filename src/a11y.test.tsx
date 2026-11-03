@@ -17,9 +17,11 @@ import {
   Checkbox,
   Composer,
   ContactCard,
+  ConversationListItem,
   Counter,
   EmptyState,
   ExpandablePanel,
+  FilterTags,
   FormField,
   GuiduUI,
   HeaderCard,
@@ -59,6 +61,7 @@ import {
   ReviewRail,
   ReviewSummary,
   ScoreBadge,
+  SearchField,
   Segmented,
   ShortcutCard,
   Skeleton,
@@ -351,6 +354,25 @@ const cases: Array<[string, ReactNode]> = [
     </label>
   ],
   ['Counter', <Counter key="c" value={3} />],
+  ['FilterTags', <FilterTags key="ft" label="Filtrar conversas" tags={[{ id: 'all', label: 'Todas' }, { id: 'unread', label: 'Não lidas' }]} value="all" onValueChange={() => {}} add={{ label: 'Nova lista', onClick: () => {} }} />],
+  ['SearchField', <SearchField key="sf" aria-label="Buscar conversas" placeholder="Buscar" />],
+  [
+    'ConversationListItem',
+    <ConversationListItem
+      key="cli"
+      href="#"
+      title="Padaria Flor de Geribá"
+      message="Seu pedido está pronto."
+      address="Av. Geribá, 236, Geribá"
+      time="09:34"
+      status="read"
+      statusLabel="Lida pela loja"
+    />
+  ],
+  [
+    'ConversationListItem com não lidas',
+    <ConversationListItem key="cliu" href="#" title="Padaria Flor de Geribá" message="Pedido pronto." time="09:34" unread={3} unreadLabel="3 mensagens não lidas" />
+  ],
   [
     'PlaceCard',
     <PlaceCard

@@ -20,11 +20,19 @@ import styles from './SwipeActions.module.scss';
 export const SWIPE_AXIS_THRESHOLD = 8;
 /** Fração da largura das ações que o arrasto precisa percorrer para abrir ou fechar a linha ao soltar. */
 export const SWIPE_OPEN_RATIO = 1 / 3;
+/** Folga (px) acima e abaixo da linha em que o botão de 60 px pode aparecer, em linha mais baixa que ele. */
+const BUTTON_OVERFLOW = 12;
 /** Tempo (ms) em que o clique que encerra o arrasto fica suprimido; depois disso o próximo toque vale. */
 const SUPPRESS_CLICK_MS = 300;
 
 export type SwipeActionTone = 'primary' | 'neutral';
 export type SwipeActionsElementKey = 'row' | 'actions' | 'action';
+
+/**
+ * `band`: faixa de ponta a ponta com curvas em camadas (padrão). `button`: cada ação é um botão
+ * solto de 48 x 60 px com cantos de 12 px; só aparece o que o arrasto já revelou.
+ */
+export type SwipeActionsAppearance = 'band' | 'button';
 
 export interface SwipeActionItem {
   id: string
@@ -42,6 +50,8 @@ interface SwipeActionsOwnProps {
   children: ReactNode
   /** Botões revelados atrás da linha, da esquerda para a direita. */
   actions: SwipeActionItem[]
+  /** Aparência das ações: faixa em camadas (`band`, o padrão) ou botões soltos (`button`). */
+  appearance?: SwipeActionsAppearance
   /** Linha aberta (ações à mostra). O app controla: assim só uma linha fica aberta. */
   open: boolean
   onOpenChange: (open: boolean) => void
@@ -63,7 +73,7 @@ const clamp = (value: number, min: number, max: number) => Math.min(max, Math.ma
  * abre, e fechada elas não recebem clique por engano.
  */
 export const SwipeActions = forwardRef<HTMLDivElement, SwipeActionsProps>((props, ref) => {
-  const { children, actions, open, onOpenChange, innerClassNames, className, onKeyDown, ...rest } = props;
+  const { children, actions, appearance = 'band', open, onOpenChange, innerClassNames, className, onKeyDown, ...rest } = props;
 
   const actionsRef = useRef<HTMLDivElement>(null);
   const rowRef = useRef<HTMLDivElement>(null);
@@ -219,13 +229,15 @@ export const SwipeActions = forwardRef<HTMLDivElement, SwipeActionsProps>((props
   return (
     <div
       ref={setRefs}
-      className={clsx(styles.SwipeActions, className)}
+      className={clsx(styles.SwipeActions, styles[`SwipeActions_appearance_${appearance}`], className)}
       onKeyDown={handleKeyDown}
       {...rest}
     >
       <div
         ref={actionsRef}
-        className={clsx(styles.SwipeActions__actions, { [styles.SwipeActions__actions_open]: open, [styles.SwipeActions__actions_visible]: open || dragging }, innerClassNames?.actions)}
+        className={clsx(styles.SwipeActions__actions, { [styles.SwipeActions__actions_dragging]: dragging, [styles.SwipeActions__actions_open]: open, [styles.SwipeActions__actions_visible]: open || dragging }, innerClassNames?.actions)}
+        // No modo botão, só a parte já revelada pela linha aparece: nada da cor fica por baixo dela.
+        style={appearance === 'button' ? { clipPath: `inset(-${BUTTON_OVERFLOW}px 0 -${BUTTON_OVERFLOW}px ${Math.max(0, width + offset)}px)` } : undefined}
         onFocus={handleActionsFocus}
         onBlur={handleActionsBlur}
       >

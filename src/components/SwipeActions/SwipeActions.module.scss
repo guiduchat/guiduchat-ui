@@ -109,3 +109,52 @@
     transition: none;
   }
 }
+
+// Aparência `button`: botões soltos de 48 x 60 px, cantos de 12 px, centralizados na vertical, sem a
+// extensão por box-shadow nem as curvas em camadas. 8 px de respiro à esquerda entram na largura medida
+// (a linha desloca 56 px com uma ação).
+.SwipeActions_appearance_button {
+  border-radius: 0;
+  // O botão de 60 px pode passar da linha (mais baixa que ele): recorta só na horizontal.
+  overflow-x: clip;
+  overflow-y: visible;
+
+  .SwipeActions__actions {
+    align-items: center;
+    box-sizing: border-box;
+    padding-left: var(--spacing-size-m);
+    // Entre botões, quando há mais de uma ação (o deslocamento vem do offsetWidth medido).
+    gap: var(--spacing-size-m);
+    // O recorte acompanha a linha: mesma curva e duração do deslize, e nenhuma durante o arrasto.
+    transition: clip-path 200ms ease-out, opacity 0s linear 200ms;
+  }
+
+  .SwipeActions__actions_visible {
+    transition: clip-path 200ms ease-out;
+  }
+
+  .SwipeActions__actions_dragging {
+    transition: none;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .SwipeActions__actions,
+    .SwipeActions__actions_visible {
+      transition: opacity 0s linear 200ms;
+    }
+
+    .SwipeActions__actions_visible {
+      transition: none;
+    }
+  }
+
+  .SwipeActions__action {
+    height: 60px;
+    border-radius: 12px;
+    box-shadow: none;
+  }
+
+  .SwipeActions__action:not(:last-child) {
+    border-radius: 12px;
+  }
+}

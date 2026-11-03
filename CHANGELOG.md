@@ -1,5 +1,17 @@
 # Changelog do @guiduchat/ui
 
+## 0.32.0 (lista de Conversas)
+
+Modelo do Marcelo (03/11/2026) para a página Conversas. Sem mudança de token: só tokens existentes.
+
+- **`ConversationListItem`** (novo): linha da lista de Conversas. Avatar de 48 px (slot `avatar`), nome da empresa, trecho da última mensagem e endereço curto com o ícone de local, cada um em uma linha com reticências; à direita, o horário (`time`) e, abaixo, o check de leitura. Com `status="sent"`, um check cinza; com `status="read"`, o duplo check na cor do tema; `statusLabel` é o texto do check para o leitor de tela. Com `unread` maior que 0, o contador ocupa o lugar do check; `unreadLabel` (traduzido pelo app, por exemplo "3 mensagens não lidas") vira texto só para o leitor de tela e o número fica escondido dele. A linha inteira é o link (`asChild` com o `Link` do app). O arrasto para fixar fica no `SwipeActions`, que envolve a linha.
+- **`ConversationListItemSkeleton`** (U10), com as classes da linha.
+- **`SearchField`** (novo): campo de busca isolado, pílula de 48 px com a lupa à esquerda e fundo `--field-background`. Repassa as props do input (`role`, `aria-controls`, `aria-activedescendant`), então o app monta o combobox da folha de novo chat.
+- **`SwipeActions`**: prop nova `appearance` (`band`, o padrão, com o comportamento de sempre; ou `button`). Em `button`, cada ação é um botão solto de 48 x 60 px com cantos de 12 px, centralizado na vertical, sem a extensão por sombra nem as curvas em camadas; 8 px de respiro à esquerda entram na largura medida (a linha desloca 56 px com uma ação) e só a parte já revelada pelo arrasto aparece, então a cor nunca fica por baixo da linha. Em linha mais baixa que 60 px (a conversa do guidu), o botão mantém o tamanho (com mais de uma ação, 8 px entre os botões; o recorte anima junto com a linha, 200 ms, e respeita `prefers-reduced-motion`) e pode passar até 12 px da linha, para cima e para baixo: o recorte é só na horizontal (`overflow-x: clip` e `clip-path` com folga vertical).
+- **`FilterTags`** (novo) e **`FilterTagsSkeleton`** (U10): fileira de tags que filtram uma lista, com seleção única. Cada tag tem 32 px de altura e raio de 12 px; a ativa usa `--button-primary` com `--text-on-accent`, as outras `--field-background` com `--text-primary`. O botão "+" no fim (`add`, com o nome acessível vindo do app) tem 32 x 32 px e o mesmo raio. A fileira rola na horizontal, sem barra. Acessível como grupo com nome (`label`) e `aria-pressed` em cada tag. Sem token novo.
+- Ícones novos: `chatAdd`, `readDouble`, `pin` e `unpin`.
+- `CellHeader`: sem mudança. O rótulo de seção em maiúsculas (`PINADAS`) já é o estilo padrão dele (`titleStyle="caps"`).
+
 ## 0.31.0 (abas e filtro de Meus Locais no escuro)
 
 Pedido do Marcelo (03/11/2026). Mexe em token: revisão da equipe console (regra U2).
