@@ -92,6 +92,13 @@
   --nav-button-background: var(--button-secondary);
   --states-nav-button-hover: var(--states-button-secondary-hover);
   --states-nav-button-pressed: var(--states-button-secondary-pressed);
+  // Botão de filtro do HeaderCard sem filtro aplicado: no claro, igual ao secundário.
+  --header-filter-background: var(--button-secondary-contrast);
+  --states-header-filter-hover: var(--states-button-secondary-contrast-hover);
+  --states-header-filter-pressed: var(--states-button-secondary-contrast-pressed);
+  // MenuTabs: trilho tingido sobre superfície sólida e aba ativa na superfície.
+  --menu-tabs-track: linear-gradient(var(--background-tertiary), var(--background-tertiary)), var(--background-primary);
+  --menu-tabs-active: var(--background-primary);
   --button-primary-contrast: rgb(255 255 255);
   --button-secondary-contrast: #c0c0c0;
   --button-negative: rgb(255 48 60);
@@ -274,6 +281,13 @@
   --nav-button-background: #2d2d2d;
   --states-nav-button-hover: #363636;
   --states-nav-button-pressed: #262626;
+  // Botão de filtro do HeaderCard no escuro: #2d2d2d, como o botão do cabeçalho (Marcelo, 03/11/2026).
+  --header-filter-background: #2d2d2d;
+  --states-header-filter-hover: #363636;
+  --states-header-filter-pressed: #262626;
+  // MenuTabs no escuro: trilho #404040 e aba ativa #2d2d2d (Marcelo, 03/11/2026).
+  --menu-tabs-track: #404040;
+  --menu-tabs-active: #2d2d2d;
   --button-primary-contrast: rgb(255 255 255);
   --button-secondary-contrast: #404040;
   --button-negative: rgb(206 66 87);
