@@ -4,3 +4,4 @@ export {
   type ListingCardImage,
   type ListingCardProps
 } from './ListingCard';
+export { ListingCardSkeleton, type ListingCardSkeletonProps } from './ListingCardSkeleton';
