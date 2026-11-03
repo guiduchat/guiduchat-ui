@@ -2,3 +2,9 @@
 .AttachSheet.AttachSheet {
   background-color: var(--attach-sheet-background);
 }
+
+// 40 px a mais embaixo (20 px da folha base + 40 px) para os quadros subirem.
+// A folha base não tem área segura (safe-area); nada a somar.
+.AttachSheet.AttachSheet {
+  padding-bottom: 60px;
+}
