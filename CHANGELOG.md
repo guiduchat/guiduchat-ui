@@ -1,5 +1,12 @@
 # Changelog do @guiduchat/ui
 
+## 0.28.0 (ListingCard e espaços do Para Você)
+
+- **`ListingCard`** (novo): cartão coringa de um item de catálogo — local, oferta, produto e, depois, serviço ou hospedagem. Foto à esquerda; tipo (`eyebrow`), título e apoio em uma linha com reticências; nota (`rating`) ou preço em destaque (`price` e `priceNote`); seta no canto. Camada de dentro do ator, para um `InfoCard plain` com `Carousel` (Visualizações Recentes do Para Você).
+- `Carousel`: 12 px entre as páginas, para os cartões não encostarem ao deslizar; as setas do teclado andam uma página por vez, contando o vão.
+- `StoreOfferCard`: 12 px entre o cartão da loja e a faixa da promoção (antes 8).
+- `OrderProgressCard`: a linha da atualização fica à direita, como as de cima (texto e depois o ícone).
+
 ## 0.27.0 (ajustes finos do escuro no Para Você)
 
 Só o tema escuro; decisão do Marcelo (02/11/2026, em teste): o título do `InfoCard` (por exemplo "Pedidos em andamento") fica em **#B1B1B1**, um tom abaixo do texto principal (#D1D1D1). O tamanho (20 px) e o peso seguem dando o destaque. Mexe em token: revisão da equipe console (regra U2).

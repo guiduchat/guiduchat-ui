@@ -1,0 +1,121 @@
+@use '../../styles/shared-mixins/typography';
+@use '../../styles/shared-mixins/reset-clickable';
+
+// Cartão do meio, como o StoreOfferCard: camada de dentro do ator, raio 20, foto e textos direto nele.
+.ListingCard {
+  position: relative;
+  display: flex;
+  align-items: stretch;
+  gap: var(--spacing-size-xl);
+  width: 100%;
+  min-width: 0;
+  padding: var(--spacing-size-xl);
+  box-sizing: border-box;
+  border-radius: var(--size-border-radius-semantic-border-radius-promo);
+  background-color: var(--surface-inner);
+  --field-background: var(--field-on-inner);
+  --field-background-contrast: var(--field-contrast-on-inner);
+  color: var(--text-primary);
+}
+
+.ListingCard__media {
+  display: flex;
+  flex: 0 0 34%;
+  align-items: center;
+  justify-content: center;
+  min-height: 96px;
+  overflow: hidden;
+  border-radius: var(--size-border-radius-semantic-border-radius-card);
+  background-color: var(--background-tertiary);
+  color: var(--text-secondary);
+}
+
+.ListingCard__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.ListingCard__info {
+  display: flex;
+  flex: 1 1 0;
+  flex-direction: column;
+  justify-content: center;
+  gap: var(--spacing-size-xs);
+  min-width: 0;
+}
+
+@mixin oneLine {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.ListingCard__eyebrow {
+  @include typography.description;
+  @include oneLine;
+  color: var(--text-secondary);
+}
+
+.ListingCard__title {
+  @include typography.title;
+  @include oneLine;
+  margin: 0;
+}
+
+// A seta fica no canto de baixo, fora do fluxo: apoio, nota e preço deixam os 44 px dela mais o espaço.
+.ListingCard__subtitle {
+  @include typography.description;
+  @include oneLine;
+  padding-right: calc(44px + var(--spacing-size-m));
+  color: var(--text-secondary);
+}
+
+.ListingCard__rating {
+  @include typography.description;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-size-xs);
+  padding-right: calc(44px + var(--spacing-size-m));
+}
+
+.ListingCard__price {
+  display: inline-flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: var(--spacing-size-xs);
+  padding-right: calc(44px + var(--spacing-size-m));
+}
+
+// Preço no verde da marca (limão no escuro, #5C6B02 no claro).
+.ListingCard__priceValue {
+  @include typography.title;
+  color: var(--text-themed);
+}
+
+.ListingCard__priceNote {
+  @include typography.description;
+  color: var(--text-secondary);
+}
+
+.ListingCard__action {
+  @include reset-clickable.resetClickable;
+  position: absolute;
+  right: var(--spacing-size-xl);
+  bottom: var(--spacing-size-xl);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background-color: var(--button-primary);
+  color: var(--text-on-accent);
+  text-decoration: none;
+  cursor: pointer;
+
+  &:focus-visible {
+    outline: 2px solid var(--icon-themed);
+    outline-offset: 2px;
+  }
+}

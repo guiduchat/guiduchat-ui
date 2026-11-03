@@ -77,10 +77,10 @@ export const Carousel = forwardRef<HTMLDivElement, CarouselProps>((props, forwar
     const track = trackRef.current;
     if (!track || (event.key !== 'ArrowRight' && event.key !== 'ArrowLeft')) return;
     event.preventDefault();
-    // Com `peek`, a página é menor que a trilha: anda de página em página, não de trilha em trilha.
+    // Anda de página em página (largura mais o vão de 12 px), não de trilha em trilha.
     const first = track.children[0] as HTMLElement | undefined;
     const second = track.children[1] as HTMLElement | undefined;
-    const pageStep = peek && first && second ? second.offsetLeft - first.offsetLeft : 0;
+    const pageStep = first && second ? second.offsetLeft - first.offsetLeft : 0;
     track.scrollBy({ left: (event.key === 'ArrowRight' ? 1 : -1) * (pageStep || track.clientWidth) });
   };
 

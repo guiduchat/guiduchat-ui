@@ -10,6 +10,8 @@
 
 .Carousel__track {
   display: flex;
+  // 12 px entre as páginas, para os cartões não encostarem ao deslizar (Marcelo, 02/11/2026).
+  gap: var(--spacing-size-xl);
   overflow-x: auto;
   scroll-snap-type: x mandatory;
   scrollbar-width: none;
