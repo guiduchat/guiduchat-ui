@@ -120,6 +120,13 @@
   // MenuTabs: trilho tingido sobre superfície sólida e aba ativa na superfície.
   --menu-tabs-track: linear-gradient(var(--background-tertiary), var(--background-tertiary)), var(--background-primary);
   --menu-tabs-active: var(--background-primary);
+  // Descubra (0.34.0): cartões de frase, iguais nos dois temas; o atalho de pesquisa segue o tema.
+  --prompt-card-lime: #c8e805;
+  --prompt-card-sky: #c4e9ee;
+  --prompt-card-lavender: #d3dae6;
+  --prompt-card-cream: #eef0e2;
+  --search-chip-background: var(--background-tertiary);
+  --search-chip-text: var(--text-primary);
   --button-primary-contrast: rgb(255 255 255);
   --button-secondary-contrast: #c0c0c0;
   --button-negative: rgb(255 48 60);
@@ -331,6 +338,13 @@
   // MenuTabs no escuro: trilho #404040 e aba ativa #2d2d2d (Marcelo, 03/11/2026).
   --menu-tabs-track: #404040;
   --menu-tabs-active: #2d2d2d;
+  // Descubra (0.34.0): cartões de frase, iguais nos dois temas; o atalho de pesquisa segue o tema.
+  --prompt-card-lime: #c8e805;
+  --prompt-card-sky: #c4e9ee;
+  --prompt-card-lavender: #d3dae6;
+  --prompt-card-cream: #eef0e2;
+  --search-chip-background: #404040;
+  --search-chip-text: var(--text-primary);
   --button-primary-contrast: rgb(255 255 255);
   --button-secondary-contrast: #404040;
   --button-negative: rgb(206 66 87);

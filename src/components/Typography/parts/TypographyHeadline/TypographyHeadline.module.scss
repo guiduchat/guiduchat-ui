@@ -12,3 +12,9 @@
 .TypographyHeadline_variant_small {
   @include typography.title;
 }
+.TypographyHeadline_variant_display {
+  @include typography.display;
+}
+.TypographyHeadline_variant_section {
+  @include typography.section;
+}

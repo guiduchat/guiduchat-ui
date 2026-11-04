@@ -53,6 +53,7 @@ import {
   PlaceCard,
   PlaceListCard,
   PriceSummary,
+  PromptCard,
   QrCode,
   QrPanel,
   QuantityStepper,
@@ -62,6 +63,8 @@ import {
   ReviewRail,
   ReviewSummary,
   ScoreBadge,
+  ScrollRail,
+  SearchChip,
   SearchField,
   Segmented,
   ShortcutCard,
@@ -355,6 +358,20 @@ const cases: Array<[string, ReactNode]> = [
     </label>
   ],
   ['Counter', <Counter key="c" value={3} />],
+  [
+    'PromptCard',
+    <ScrollRail key="pc" aria-label="Sugestões">
+      <PromptCard tone="lime" icon={<Icon icon={icons.mapSearch} size={24} />} title="Encontre novos locais" />
+      <PromptCard tone="sky" icon={<Icon icon={icons.bot} size={24} />} title="Converse com o Guidu" />
+    </ScrollRail>
+  ],
+  [
+    'SearchChip',
+    <ScrollRail key="sc" aria-label="Pesquisas em alta" rows={2}>
+      <SearchChip icon={<Icon icon={icons.food} size={20} />}>Chopp duplo</SearchChip>
+      <SearchChip icon={<Icon icon={icons.home} size={20} />}>Pousada pé na areia</SearchChip>
+    </ScrollRail>
+  ],
   ['FilterTags', <FilterTags key="ft" label="Filtrar conversas" tags={[{ id: 'all', label: 'Todas' }, { id: 'unread', label: 'Não lidas' }]} value="all" onValueChange={() => {}} add={{ label: 'Nova lista', onClick: () => {} }} />],
   ['SearchField', <SearchField key="sf" aria-label="Buscar conversas" placeholder="Buscar" />],
   [

@@ -1,0 +1,28 @@
+// Rola livre para o lado, sem barra. As fileiras ficam no mesmo contêiner, então rolam juntas;
+// o contêiner tem a largura da fileira mais larga (width: max-content).
+.ScrollRail {
+  width: 100%;
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.ScrollRail__content {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: max-content;
+  min-width: 100%;
+  padding: 0 16px;
+  box-sizing: border-box;
+}
+
+.ScrollRail__row {
+  display: flex;
+  align-items: stretch;
+  gap: 12px;
+}
