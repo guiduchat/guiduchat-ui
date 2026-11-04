@@ -23,8 +23,11 @@
   text-decoration: none;
   cursor: pointer;
 
-  &:hover:not(:disabled) {
-    background-color: var(--states-quick-action-hover);
+  // Hover só com ponteiro, para a cor não ficar presa depois do toque (padrão do kit).
+  @media (hover: hover) {
+    &:hover:not(:disabled) {
+      background-color: var(--states-quick-action-hover);
+    }
   }
 
   &:active:not(:disabled) {

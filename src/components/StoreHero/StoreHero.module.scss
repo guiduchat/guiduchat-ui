@@ -73,10 +73,14 @@
   > * {
     flex: 1 1 auto;
     min-width: 0;
-    // Seguir com 36 px, só aqui; o botão pequeno global continua com 44 px.
-    height: 36px;
-    min-height: 36px;
   }
+}
+
+// Seguir com 36 px, só aqui; o botão pequeno global continua com 44 px. Duas classes no seletor
+// para ficar acima de `.Button_size_small` sem depender da ordem do CSS no pacote.
+.StoreHero .StoreHero__action > * {
+  height: 36px;
+  min-height: 36px;
 }
 
 .StoreHero__stats {
