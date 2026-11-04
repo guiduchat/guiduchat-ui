@@ -120,6 +120,9 @@
   // MenuTabs: trilho tingido sobre superfície sólida e aba ativa na superfície.
   --menu-tabs-track: linear-gradient(var(--background-tertiary), var(--background-tertiary)), var(--background-primary);
   --menu-tabs-active: var(--background-primary);
+  // Selo da nota sobre a capa (0.35.0): #404040 com texto claro, igual nos dois temas.
+  --score-badge-background: #404040;
+  --score-badge-text: var(--text-primary-inverse-static);
   // Ações rápidas da loja (0.35.0): no claro, o secundário de sempre.
   --quick-action-background: var(--button-secondary);
   --states-quick-action-hover: var(--states-button-secondary-hover);
@@ -342,6 +345,8 @@
   // MenuTabs no escuro: trilho #404040 e aba ativa #2d2d2d (Marcelo, 03/11/2026).
   --menu-tabs-track: #404040;
   --menu-tabs-active: #2d2d2d;
+  --score-badge-background: #404040;
+  --score-badge-text: var(--text-primary-inverse-static);
   // Ações rápidas da loja (0.35.0) no escuro: #404040, hover e pressionado como a pílula do chat.
   --quick-action-background: #404040;
   --states-quick-action-hover: #4a4a4a;
