@@ -1,5 +1,23 @@
 # Changelog do @guiduchat/ui
 
+## 0.36.0 (Meus Pedidos e botão secundário no escuro)
+
+Pedido do Marcelo (04/11/2026) para `/orders` e `/orders/[id]`. Mexe em token: revisão da equipe console (regra U2).
+
+**Tokens**
+
+- `--button-secondary-contrast` no escuro passa de #404040 para #202020 (hover #2A2A2A e pressionado #1A1A1A, derivados, a confirmar; desativado acompanha), também em `@guiduchat/ui/tokens`. O texto continua `--text-primary` (#D1D1D1). **Vale para todo botão secundário no escuro**, inclusive nos mini-apps.
+- Novo `--order-summary-divider`: #2D2D2D nos dois temas.
+- Novo `--icon-tile-background`, por ator (`--icon-tile-background-hub` e `--icon-tile-background-guidu`): #2D2D2D no Hub escuro; nos demais casos, `--background-primary`, como antes. No guidu escuro a camada interna já é #2D2D2D, por isso ele não muda.
+
+**Componentes**
+
+- **`OrderSummaryCard`**: nome da loja em `--text-card-title`, código, data e itens em `--text-secondary`; a linha do resumo passa de tracejada a sólida.
+- **`AddressPanel` e `PersonRow`**: prop nova `textSize` (`regular` por padrão ou `large`, com nome de 20/26 px e texto de 16/22 px, como no `ContactCard`).
+- **`AddressPanel`**: o ícone da observação não encolhe mais quando o texto quebra.
+- **`OrderTimeline`**: 20 px entre os passos, com a ligação pontilhada acompanhando; a descrição passa a 16/22 px.
+- **`IconTile`**: fundo em `--icon-tile-background`.
+
 ## 0.35.0 (perfil da empresa)
 
 Pedido do Marcelo (03/11/2026) para `/places/[slug]`. Mexe em token: revisão da equipe console (regra U2).

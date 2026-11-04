@@ -36,6 +36,10 @@
   font-size: var(--font-size-label);
   line-height: 18px;
   color: var(--text-themed);
+
+  svg {
+    flex-shrink: 0;
+  }
 }
 
 // Nome e ação na mesma linha; se não couber (320 px), a ação desce inteira para a linha de baixo.
@@ -94,5 +98,19 @@
 
   .AddressPanel__title {
     font-size: var(--font-size-detail);
+  }
+}
+
+// `large`: mesmos tamanhos do ContactCard.
+.AddressPanel_large {
+  .AddressPanel__title {
+    font-size: 20px;
+    line-height: 26px;
+  }
+
+  .AddressPanel__address,
+  .AddressPanel__note {
+    font-size: var(--font-size-body);
+    line-height: 22px;
   }
 }
