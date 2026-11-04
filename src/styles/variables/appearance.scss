@@ -1,4 +1,34 @@
 @mixin lightPalette {
+  // Pares de estado (fundo e texto), iguais nos dois temas. Só funcionam juntos: o fundo some sobre o claro
+  // e o texto some sobre o escuro. Para texto solto, use --text-positive, --text-attention e --text-negative.
+  --status-mint: #aeeae2;
+  --status-mint-fg: #103c37;
+  --status-teal: #c8eae5;
+  --status-teal-fg: #153733;
+  --status-sky: #bde8fb;
+  --status-sky-fg: #01202c;
+  --status-dusty: #b1cedd;
+  --status-dusty-fg: #172b35;
+  --status-cyan: #a4c8da;
+  --status-cyan-fg: #162c36;
+  --status-sand: #fee4b4;
+  --status-sand-fg: #4b3101;
+  --status-amber: #fedb9a;
+  --status-amber-fg: #4c3101;
+  --status-peach: #f2dbcf;
+  --status-peach-fg: #3c1f11;
+  --status-coral: #ea9597;
+  --status-coral-fg: #400d0e;
+  --status-rose: #ffb3b3;
+  --status-rose-fg: #4d0000;
+  --status-cloud: #c9d4d9;
+  --status-cloud-fg: #1f292d;
+  --status-sage: #bbd3d2;
+  --status-sage-fg: #1e2e2d;
+  --states-status-coral-fg-disabled: rgb(64 13 14 / 0.48);
+  // Estrelas de avaliação: fora das cores de estado (Marcelo, 04/11/2026).
+  --rating-star: rgb(228 96 39);
+
   // Background
   --background-surface: rgb(237 238 242);
   --background-primary: rgb(255 255 255);
@@ -67,8 +97,8 @@
   --icon-primary-inverse: rgb(255 255 255);
   --icon-primary-inverse-static: rgb(255 255 255);
   --icon-themed: #5c6b02;
-  --icon-positive: rgb(26 190 67);
-  --icon-negative: rgb(255 48 60);
+  --icon-positive: var(--status-mint-fg);
+  --icon-negative: var(--status-rose-fg);
 
   // Text
   --text-primary: rgb(6 7 8);
@@ -80,9 +110,9 @@
   --text-primary-inverse: rgb(255 255 255);
   --text-primary-inverse-static: rgb(255 255 255);
   --text-themed: #5c6b02;
-  --text-negative: rgb(255 48 60);
-  --text-positive: rgba(26, 190, 67, 1);
-  --text-attention: rgb(228 96 39);
+  --text-negative: var(--status-rose-fg);
+  --text-positive: var(--status-mint-fg);
+  --text-attention: var(--status-amber-fg);
   // Texto e ícone sobre a cor da marca (botão principal, contador).
   --text-on-accent: #0b0c0d;
   --states-text-on-accent-disabled: rgb(11 12 13 / 0.48);
@@ -143,7 +173,7 @@
   --search-chip-text: var(--text-primary);
   --button-primary-contrast: rgb(255 255 255);
   --button-secondary-contrast: #c0c0c0;
-  --button-negative: rgb(255 48 60);
+  --button-negative: var(--status-coral);
   --button-ghost: rgb(0 0 0 / 0);
   --button-overlay: rgb(12 13 14 / 0.32);
   --button-neutral: rgb(12 13 14);
@@ -157,7 +187,7 @@
   --promo-text-step-1: rgb(104 19 255);
 
   // Counter
-  --counter-attention: rgb(255 48 60);
+  --counter-attention: var(--status-rose);
   --counter-mute: rgb(6 7 8 / 0.12);
   --counter-themed: #c8e805;
   --counter-default: rgb(23 24 28);
@@ -181,9 +211,9 @@
   --states-button-secondary-contrast-hover: #b5b5b5;
   --states-button-secondary-contrast-pressed: #a8a8a8;
   --states-button-secondary-contrast-disabled: rgb(192 192 192 / 0.5);
-  --states-button-negative-hover: rgb(255 75 85);
-  --states-button-negative-pressed: rgb(240 55 65);
-  --states-button-negative-disabled: rgb(247 96 105 / 0.48);
+  --states-button-negative-hover: #f0aeb0;
+  --states-button-negative-pressed: #e07f81;
+  --states-button-negative-disabled: rgb(234 149 151 / 0.48);
   --states-button-ghost-hover: rgb(13 13 13 / 0.04);
   --states-button-ghost-pressed: rgb(13 13 13 / 0.08);
   --states-button-overlay-hover: rgb(12 13 14 / 0.48);
@@ -198,7 +228,7 @@
   --states-text-primary-static-disabled: rgb(111 114 118 / 0.64);
   --states-text-primary-inverse-static-disabled: rgb(255 255 255 / 0.72);
   --states-text-themed-disabled: rgb(92 107 2 / 0.6);
-  --states-text-negative-disabled: rgb(229 77 86 / 0.64);
+  --states-text-negative-disabled: rgb(77 0 0 / 0.48);
   --states-controls-active-disabled: rgb(86 102 0 / 0.48);
   --states-controls-inactive-disabled: rgb(9 9 9 / 0.04);
   --states-counter-contrast-disabled: rgb(255 255 255 / 0.4);
@@ -208,8 +238,8 @@
   --gradients-loading-icon-contrast-transparent: rgb(255 255 255 / 0);
   --gradients-loading-icon-contrast-static-filled: rgb(255 255 255);
   --gradients-loading-icon-contrast-static-transparent: rgb(255 255 255 / 0);
-  --gradients-loading-icon-negative-filled: rgb(255 48 60);
-  --gradients-loading-icon-negative-transparent: rgb(255 48 60 / 0);
+  --gradients-loading-icon-negative-filled: var(--status-rose-fg);
+  --gradients-loading-icon-negative-transparent: rgb(77 0 0 / 0);
   --gradients-loading-icon-neutral-themed-filled: rgb(13 13 13);
   --gradients-loading-icon-neutral-themed-transparent: rgb(13 13 13 / 0);
   --gradients-loading-icon-primary-filled: rgb(6 7 8 / 0.84);
@@ -228,6 +258,36 @@
 }
 
 @mixin darkPalette {
+  // Pares de estado (fundo e texto), iguais nos dois temas. Só funcionam juntos: o fundo some sobre o claro
+  // e o texto some sobre o escuro. Para texto solto, use --text-positive, --text-attention e --text-negative.
+  --status-mint: #aeeae2;
+  --status-mint-fg: #103c37;
+  --status-teal: #c8eae5;
+  --status-teal-fg: #153733;
+  --status-sky: #bde8fb;
+  --status-sky-fg: #01202c;
+  --status-dusty: #b1cedd;
+  --status-dusty-fg: #172b35;
+  --status-cyan: #a4c8da;
+  --status-cyan-fg: #162c36;
+  --status-sand: #fee4b4;
+  --status-sand-fg: #4b3101;
+  --status-amber: #fedb9a;
+  --status-amber-fg: #4c3101;
+  --status-peach: #f2dbcf;
+  --status-peach-fg: #3c1f11;
+  --status-coral: #ea9597;
+  --status-coral-fg: #400d0e;
+  --status-rose: #ffb3b3;
+  --status-rose-fg: #4d0000;
+  --status-cloud: #c9d4d9;
+  --status-cloud-fg: #1f292d;
+  --status-sage: #bbd3d2;
+  --status-sage-fg: #1e2e2d;
+  --states-status-coral-fg-disabled: rgb(64 13 14 / 0.48);
+  // Estrelas de avaliação: fora das cores de estado (Marcelo, 04/11/2026).
+  --rating-star: rgb(228 96 39);
+
   // Background
   --background-surface: rgb(15 15 18);
   --background-primary: rgb(23 24 28);
@@ -295,8 +355,8 @@
   --icon-primary-inverse: rgb(6 7 8 / 0.84);
   --icon-primary-inverse-static: rgb(255 255 255);
   --icon-themed: #e1fb40;
-  --icon-positive: rgb(43 198 68);
-  --icon-negative: rgb(206 66 87);
+  --icon-positive: var(--status-mint);
+  --icon-negative: var(--status-rose);
 
   // Text
   // Títulos #d1d1d1 (200), texto corrido #b1b1b1 (300), apoio #a3a3a3, desativado #6c6c6c (500),
@@ -311,9 +371,9 @@
   --text-primary-inverse: rgb(6 7 8);
   --text-primary-inverse-static: rgb(255 255 255);
   --text-themed: #e1fb40;
-  --text-negative: rgb(206 66 87);
-  --text-positive: rgba(43, 198, 68, 1);
-  --text-attention: rgb(228 96 39);
+  --text-negative: var(--status-rose);
+  --text-positive: var(--status-mint);
+  --text-attention: var(--status-amber);
   // Texto e ícone sobre a cor da marca (botão principal, contador).
   --text-on-accent: #0b0c0d;
   --states-text-on-accent-disabled: rgb(11 12 13 / 0.48);
@@ -375,7 +435,7 @@
   --button-primary-contrast: rgb(255 255 255);
   // Botão secundário no escuro: #202020 com texto #d1d1d1 (Marcelo, 04/11/2026). Hover e pressionado derivados.
   --button-secondary-contrast: #202020;
-  --button-negative: rgb(206 66 87);
+  --button-negative: var(--status-coral);
   --button-ghost: rgb(0 0 0 / 0);
   --button-overlay: rgb(46 51 56 / 0.45);
   --button-neutral: rgb(255 255 255);
@@ -389,7 +449,7 @@
   --promo-text-step-1: rgb(164 115 255);
 
   // Counter
-  --counter-attention: rgb(206 66 87);
+  --counter-attention: var(--status-rose);
   --counter-mute: rgb(255 255 255 / 0.28);
   --counter-themed: #e1fb40;
   --counter-default: rgb(23 24 28);
@@ -413,9 +473,9 @@
   --states-button-secondary-contrast-hover: #2a2a2a;
   --states-button-secondary-contrast-pressed: #1a1a1a;
   --states-button-secondary-contrast-disabled: rgb(32 32 32 / 0.5);
-  --states-button-negative-hover: rgb(245 78 103);
-  --states-button-negative-pressed: rgb(156 50 66);
-  --states-button-negative-disabled: rgb(255 255 255 / 0.12);
+  --states-button-negative-hover: #f0aeb0;
+  --states-button-negative-pressed: #e07f81;
+  --states-button-negative-disabled: rgb(234 149 151 / 0.24);
   --states-button-ghost-hover: rgb(231 231 231 / 0.04);
   --states-button-ghost-pressed: rgb(231 231 231 / 0.08);
   --states-button-overlay-hover: rgb(46 51 56 / 0.64);
@@ -442,8 +502,8 @@
   --gradients-loading-icon-contrast-transparent: rgb(6 7 8 / 0);
   --gradients-loading-icon-contrast-static-filled: rgb(255 255 255);
   --gradients-loading-icon-contrast-static-transparent: rgb(255 255 255 / 0);
-  --gradients-loading-icon-negative-filled: rgb(206 66 87);
-  --gradients-loading-icon-negative-transparent: rgb(206 66 87 / 0);
+  --gradients-loading-icon-negative-filled: var(--status-rose);
+  --gradients-loading-icon-negative-transparent: rgb(255 179 179 / 0);
   --gradients-loading-icon-neutral-themed-filled: #e1fb40;
   --gradients-loading-icon-neutral-themed-transparent: rgb(225 251 64 / 0);
   --gradients-loading-icon-primary-filled: rgb(255 255 255);

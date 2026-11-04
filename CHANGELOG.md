@@ -1,5 +1,26 @@
 # Changelog do @guiduchat/ui
 
+## 0.38.0 (cores de estado)
+
+Pedido do Marcelo (04/11/2026): trocar verdes, amarelos e vermelhos de estado pelos pares `--status-*`. Mexe em token e muda a aparência em todos os apps, inclusive nos mini-apps: revisão da equipe console (regra U2).
+
+**Tokens**
+
+- 24 novos `--status-*` (`mint`, `teal`, `sky`, `dusty`, `cyan`, `sand`, `amber`, `peach`, `coral`, `rose`, `cloud`, `sage`, cada um com o seu `-fg`), iguais nos dois temas e também em `src/tokens`. Cada par só funciona junto: o fundo some sobre o claro e o texto some sobre o escuro.
+- `--text-positive`, `--icon-positive`, `--text-attention`, `--text-negative` e `--icon-negative` passam a valer o `-fg` no claro e o fundo pastel no escuro (`mint`, `amber` e `rose`).
+- `--counter-attention` passa a `--status-rose`, com texto `--status-rose-fg`.
+- `--button-negative` passa a `--status-coral`, com texto `--status-coral-fg`. Hover #F0AEB0, pressionado #E07F81 e desativado derivados do coral, a confirmar. Novo `--states-status-coral-fg-disabled`.
+- Novo `--rating-star`, com o laranja de antes: as estrelas não mudam.
+
+**Componentes**
+
+- Nova forma de pílula em `styles/shared-mixins/status-pill.scss`: 24 px de altura, texto de 13 px e 10 px de espaço lateral. Vale para `StatusBadge`, `OrderSummaryCard`, `OpeningHours` e a etiqueta do `PlaceCard`.
+- **`StatusBadge`**: novo `status="info"` (sky). A altura cai de 32 para 24 px em todos os status, inclusive `coupon` e `neutral`.
+- **`OrderSummaryCard`**: situação em pílula e novo tom `info`.
+- **`PlaceListCard`**: situação como texto com peso forte, sem pílula, em `--text-positive` e `--text-negative`.
+- **`Notice`**: `info`, `warning` e `danger` usam o par inteiro no fundo e no texto (`sky`, `amber` e `rose`).
+- **`Button`** e **`IconButton`**: spinner do destrutivo agora é escuro, para aparecer sobre o coral.
+
 ## 0.37.0 (menus da Conta)
 
 Pedido do Marcelo (04/11/2026) para `/account`. Mexe em token: revisão da equipe console (regra U2).

@@ -1,4 +1,5 @@
 @use '../../styles/shared-mixins/reset-clickable';
+@use '../../styles/shared-mixins/status-pill';
 
 .OpeningHours {
   display: flex;
@@ -46,15 +47,18 @@
 }
 
 .OpeningHours__status_positive {
-  color: var(--text-positive);
+  @include status-pill.shape;
+  @include status-pill.positive;
 }
 
 .OpeningHours__status_attention {
-  color: var(--text-attention);
+  @include status-pill.shape;
+  @include status-pill.attention;
 }
 
 .OpeningHours__status_negative {
-  color: var(--text-negative);
+  @include status-pill.shape;
+  @include status-pill.negative;
 }
 
 .OpeningHours__toggle {

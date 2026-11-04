@@ -5,7 +5,7 @@ import { hasReactNode } from '../../helpers';
 import { type MergeProps } from '../../types';
 import styles from './OrderSummaryCard.module.scss';
 
-export type OrderSummaryCardTone = 'positive' | 'negative' | 'attention' | 'neutral';
+export type OrderSummaryCardTone = 'positive' | 'negative' | 'attention' | 'info' | 'neutral';
 
 interface OrderSummaryCardOwnProps {
   /** Nome da loja. */

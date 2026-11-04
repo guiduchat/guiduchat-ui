@@ -8,4 +8,9 @@ describe('StatusBadge', () => {
     render(<StatusBadge text="uso individual" status="coupon" />);
     expect(screen.getByText('uso individual').className).toContain('coupon');
   });
+
+  it('status info usa a classe própria', () => {
+    render(<StatusBadge text="A caminho" status="info" />);
+    expect(screen.getByText('A caminho').className).toContain('info');
+  });
 });

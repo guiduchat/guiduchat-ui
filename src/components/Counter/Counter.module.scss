@@ -29,7 +29,7 @@
   color: var(--text-themed);
 }
 .Counter_variant_attention {
-  @include textColorPrimary;
+  color: var(--status-rose-fg);
   background-color: var(--counter-attention);
 }
 .Counter_variant_attention-contrast {

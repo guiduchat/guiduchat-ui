@@ -1,0 +1,33 @@
+@use 'typography';
+
+// Pílula de estado: o par `--status-*` completo, igual nos dois temas. Altura de 24 px e texto de 13 px.
+@mixin shape {
+  @include typography.description;
+  display: inline-flex;
+  width: fit-content;
+  min-height: 24px;
+  align-items: center;
+  padding: 0 10px;
+  border-radius: 999px;
+  box-sizing: border-box;
+}
+
+@mixin positive {
+  background-color: var(--status-mint);
+  color: var(--status-mint-fg);
+}
+
+@mixin attention {
+  background-color: var(--status-amber);
+  color: var(--status-amber-fg);
+}
+
+@mixin negative {
+  background-color: var(--status-rose);
+  color: var(--status-rose-fg);
+}
+
+@mixin info {
+  background-color: var(--status-sky);
+  color: var(--status-sky-fg);
+}

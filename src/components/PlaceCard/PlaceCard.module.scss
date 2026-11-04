@@ -1,5 +1,6 @@
 @use '../../styles/shared-mixins/typography';
 @use '../../styles/shared-mixins/reset-clickable';
+@use '../../styles/shared-mixins/status-pill';
 
 .PlaceCard {
   display: flex;
@@ -158,9 +159,9 @@
   }
 
   .PlaceCard__tag {
-    @include typography.detail;
+    @include status-pill.shape;
     flex-shrink: 0;
-    padding: var(--spacing-size-xs) var(--spacing-size-xl);
+    padding: 0 var(--spacing-size-xl);
     border-radius: var(--size-border-radius-semantic-border-radius-rounded);
     background-color: var(--background-tertiary);
     color: var(--text-primary);
@@ -168,8 +169,7 @@
   }
 
   .PlaceCard__tag_positive {
-    background-color: color-mix(in srgb, var(--icon-positive) 18%, transparent);
-    color: var(--text-positive);
+    @include status-pill.positive;
   }
 
   .PlaceCard__body {

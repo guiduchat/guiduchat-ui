@@ -1,3 +1,5 @@
+@use '../../styles/shared-mixins/status-pill';
+
 .Notice {
   display: flex;
   align-items: center;
@@ -20,16 +22,16 @@
   }
 }
 
-.Notice_tone_info .Notice__icon {
-  color: var(--icon-primary);
+.Notice_tone_info {
+  @include status-pill.info;
 }
 
-.Notice_tone_warning .Notice__icon {
-  color: var(--text-attention);
+.Notice_tone_warning {
+  @include status-pill.attention;
 }
 
-.Notice_tone_danger .Notice__icon {
-  color: var(--icon-negative);
+.Notice_tone_danger {
+  @include status-pill.negative;
 }
 
 .Notice__content {

@@ -13,7 +13,6 @@ export const getIconButtonSpinnerSize = (iconButtonSize: IconButtonSize): number
 export const getIconButtonSpinnerAppearance = (iconButtonVariant: IconButtonVariant): SpinnerAppearance => {
   switch (iconButtonVariant) {
     case 'primary':
-    case 'destructive':
     case 'overlay':
       return 'contrast-static';
     case 'secondary':
@@ -24,6 +23,7 @@ export const getIconButtonSpinnerAppearance = (iconButtonVariant: IconButtonVari
       return 'contrast';
     case 'primary-contrast':
     case 'secondary-contrast':
+    case 'destructive':
       return 'primary-static';
   }
 };
