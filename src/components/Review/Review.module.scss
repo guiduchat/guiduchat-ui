@@ -25,7 +25,7 @@
 // precisa contrastar com ela, no claro (#F7F7F7 guidu, #EDEDED hub) e no escuro (#404040 guidu, #2D2D2D hub).
 .StarRow {
   display: inline-flex;
-  gap: 4px;
+  gap: 2px;
 }
 
 .ReviewSummary {
@@ -34,8 +34,8 @@
   align-items: center;
   justify-content: space-between;
   gap: var(--spacing-size-m);
-  width: 128px;
-  min-height: 128px;
+  width: 131px;
+  height: 131px;
   padding: var(--spacing-size-xl) var(--spacing-size-m);
   box-sizing: border-box;
   border-radius: var(--size-border-radius-semantic-border-radius-surface);
@@ -58,7 +58,7 @@
   justify-content: space-between;
   gap: var(--spacing-size-xl);
   width: 260px;
-  min-height: 128px;
+  height: 131px;
   padding: var(--spacing-size-xl) var(--spacing-size2xl);
   box-sizing: border-box;
   border-radius: var(--size-border-radius-semantic-border-radius-surface);

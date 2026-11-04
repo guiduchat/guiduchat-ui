@@ -1,5 +1,13 @@
 # Changelog do @guiduchat/ui
 
+## 0.35.0 (perfil da empresa)
+
+Pedido do Marcelo (03/11/2026) para `/places/[slug]`. Mexe em token: revisão da equipe console (regra U2).
+
+- **`StoreHero`**: a moldura da logo passa a ser uma borda de 6 px na cor da página (`--page-background`), no lugar de padding de 4 px com fundo; a logo de 96 px ocupa 108 px e o encaixe sobre a capa foi ajustado (margem de -58 px) para ela ficar onde estava. O botão de ação (Seguir) fica com 36 px de altura, só ali; o botão pequeno global continua com 44 px.
+- **`QuickActions`**: tokens novos `--quick-action-background`, `--states-quick-action-hover` e `--states-quick-action-pressed`. No claro valem o secundário de sempre; no escuro, #404040 (hover #4A4A4A e pressionado #363636, derivados, a confirmar). O botão ganhou hover e pressionado.
+- **`ReviewSummary` e `ReviewCard`**: estrelas de 20 px nos dois, com 2 px entre elas; o resumo passa a 131 x 131 px e o cartão de comentário a 131 px de altura (fixa), alinhados na trilha. `ProviderLogo` com 44 px de altura. Na documentação, o avatar do `ReviewCard` é um `Avatar.Container` squircle de 40 px.
+
 ## 0.34.0 (página Descubra)
 
 Modelo do Marcelo (03/11/2026) para a página Descubra. Mexe em token: revisão da equipe console (regra U2).

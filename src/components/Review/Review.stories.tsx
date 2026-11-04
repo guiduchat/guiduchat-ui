@@ -33,7 +33,7 @@ const Block = ({ scheme }: { scheme: 'light' | 'dark' }) => (
             author="JoaquimJose235"
             rating={5}
             ratingLabel="Nota 5 de 5"
-            avatar={<Avatar.Container size={36} form="circle"><Avatar.Text gradient="blue">J</Avatar.Text></Avatar.Container>}
+            avatar={<Avatar.Container size={40} form="squircle"><Avatar.Text gradient="blue">J</Avatar.Text></Avatar.Container>}
           />
         </ReviewRail>
       </div>

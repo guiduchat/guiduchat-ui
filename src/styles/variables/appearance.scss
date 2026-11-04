@@ -120,6 +120,10 @@
   // MenuTabs: trilho tingido sobre superfície sólida e aba ativa na superfície.
   --menu-tabs-track: linear-gradient(var(--background-tertiary), var(--background-tertiary)), var(--background-primary);
   --menu-tabs-active: var(--background-primary);
+  // Ações rápidas da loja (0.35.0): no claro, o secundário de sempre.
+  --quick-action-background: var(--button-secondary);
+  --states-quick-action-hover: var(--states-button-secondary-hover);
+  --states-quick-action-pressed: var(--states-button-secondary-pressed);
   // Descubra (0.34.0): cartões de frase, iguais nos dois temas; o atalho de pesquisa segue o tema.
   --prompt-card-lime: #c8e805;
   --prompt-card-sky: #c4e9ee;
@@ -338,6 +342,10 @@
   // MenuTabs no escuro: trilho #404040 e aba ativa #2d2d2d (Marcelo, 03/11/2026).
   --menu-tabs-track: #404040;
   --menu-tabs-active: #2d2d2d;
+  // Ações rápidas da loja (0.35.0) no escuro: #404040, hover e pressionado como a pílula do chat.
+  --quick-action-background: #404040;
+  --states-quick-action-hover: #4a4a4a;
+  --states-quick-action-pressed: #363636;
   // Descubra (0.34.0): cartões de frase, iguais nos dois temas; o atalho de pesquisa segue o tema.
   --prompt-card-lime: #c8e805;
   --prompt-card-sky: #c4e9ee;

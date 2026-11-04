@@ -122,7 +122,7 @@ const StoreProfileDemo = () => {
           author="JoaquimJose235"
           rating={4}
           ratingLabel="Nota 4 de 5"
-          avatar={<Avatar.Container size={36} form="circle"><Avatar.Text gradient="blue">J</Avatar.Text></Avatar.Container>}
+          avatar={<Avatar.Container size={40} form="squircle"><Avatar.Text gradient="blue">J</Avatar.Text></Avatar.Container>}
         />
       </ReviewRail>
       <RecommendationCard

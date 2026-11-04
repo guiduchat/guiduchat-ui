@@ -18,10 +18,18 @@
   padding: var(--spacing-size-m) var(--spacing-size-xs);
   box-sizing: border-box;
   border-radius: 20px;
-  background-color: var(--button-secondary);
+  background-color: var(--quick-action-background);
   color: var(--text-primary);
   text-decoration: none;
   cursor: pointer;
+
+  &:hover:not(:disabled) {
+    background-color: var(--states-quick-action-hover);
+  }
+
+  &:active:not(:disabled) {
+    background-color: var(--states-quick-action-pressed);
+  }
 
   &:disabled {
     color: var(--states-text-primary-disabled);

@@ -58,19 +58,23 @@
   display: flex;
   justify-content: center;
   width: 100%;
-  margin-top: -56px;
+  // -58 px (e não -56): a moldura de 6 px empurra a logo 2 px para baixo, e ela fica onde sempre esteve.
+  margin-top: -58px;
 }
 
 .StoreHero__action {
   position: absolute;
   left: calc(50% + 60px);
   right: var(--spacing-size-xl);
-  top: calc(56px + var(--spacing-size-m));
+  top: calc(58px + var(--spacing-size-m));
   display: flex;
 
   > * {
     flex: 1 1 auto;
     min-width: 0;
+    // Seguir com 36 px, só aqui; o botão pequeno global continua com 44 px.
+    height: 36px;
+    min-height: 36px;
   }
 }
 
@@ -82,9 +86,9 @@
 // Contorno da cor da página em volta da logo.
 .StoreHero__avatar {
   display: flex;
-  padding: 4px;
+  // Moldura de 6 px na cor da página (logo de 96 px = 108 px no total).
+  border: 6px solid var(--page-background);
   border-radius: 28px;
-  background-color: var(--page-background);
   position: relative;
 }
 
