@@ -1,4 +1,5 @@
 @use '../../styles/shared-mixins/reset-clickable';
+@use '../../styles/shared-mixins/squircle';
 
 .StoreHero {
   display: flex;
@@ -86,9 +87,10 @@
 // Contorno da cor da página em volta da logo.
 .StoreHero__avatar {
   display: flex;
-  // Moldura de 6 px na cor da página (logo de 96 px = 108 px no total).
-  border: 6px solid var(--page-background);
-  border-radius: 28px;
+  // Moldura de 6 px na cor da página, com a mesma forma squircle do Avatar (logo de 96 px = 108 px no total).
+  padding: 6px;
+  background-color: var(--page-background);
+  @include squircle.squircleMask;
   position: relative;
 }
 

@@ -1,0 +1,9 @@
+// Máscara squircle (superelipse) do Avatar, compartilhada com a moldura da logo do StoreHero.
+$mask-url: 'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI1NiIgaGVpZ2h0PSI1NiIgZmlsbD0ibm9uZSI+PHBhdGggZmlsbD0iIzAwMCIgZD0iTTI4IDBDNC45NDIgMCAwIDQuOTQyIDAgMjhjMCAyMy4wNDYgNC45MzcgMjcuOTk1IDI3Ljk2NSAyOGguMDdjMjMuMDE2LS4wMDUgMjcuOTYtNC45NDkgMjcuOTY1LTI3Ljk2NXYtLjA3QzU1Ljk5NSA0LjkzNyA1MS4wNDYgMCAyOCAwIi8+PHBhdGggZmlsbD0iIzAwMCIgZD0iTTAgMjhDMCA0Ljk0MiA0Ljk0MiAwIDI4IDBzMjggNC45NDIgMjggMjgtNC45NDIgMjgtMjggMjhTMCA1MS4wNTggMCAyOCIvPjwvc3ZnPg==';
+
+@mixin squircleMask {
+  mask-image: url($mask-url);
+  mask-size: contain;
+  mask-repeat: no-repeat;
+  mask-position: center;
+}

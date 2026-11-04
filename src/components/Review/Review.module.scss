@@ -1,3 +1,5 @@
+@use '../../styles/shared-mixins/typography';
+
 .ReviewRail {
   display: flex;
   gap: var(--spacing-size-xl);
@@ -72,8 +74,8 @@
   display: -webkit-box;
   margin: 0;
   overflow: hidden;
-  font-size: var(--font-size-description);
-  line-height: 20px;
+  @include typography.body;
+  line-height: 22px;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;
 }
