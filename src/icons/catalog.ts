@@ -20,6 +20,7 @@ import Attachment01Icon from '@hugeicons/core-free-icons/Attachment01Icon';
 import Baby01Icon from '@hugeicons/core-free-icons/Baby01Icon';
 import Bookmark01Icon from '@hugeicons/core-free-icons/Bookmark01Icon';
 import BookmarkCheck01Icon from '@hugeicons/core-free-icons/BookmarkCheck01Icon';
+import BotIcon from '@hugeicons/core-free-icons/BotIcon';
 import CalendarClockIcon from '@hugeicons/core-free-icons/CalendarClockIcon';
 import CallIcon from '@hugeicons/core-free-icons/CallIcon';
 import Camera01Icon from '@hugeicons/core-free-icons/Camera01Icon';
@@ -52,6 +53,7 @@ import InstagramIcon from '@hugeicons/core-free-icons/InstagramIcon';
 import Location01Icon from '@hugeicons/core-free-icons/Location01Icon';
 import Mail01Icon from '@hugeicons/core-free-icons/Mail01Icon';
 import MapsIcon from '@hugeicons/core-free-icons/MapsIcon';
+import MapsSearchIcon from '@hugeicons/core-free-icons/MapsSearchIcon';
 import Medal01Icon from '@hugeicons/core-free-icons/Medal01Icon';
 import Menu01Icon from '@hugeicons/core-free-icons/Menu01Icon';
 import MessageAdd01Icon from '@hugeicons/core-free-icons/MessageAdd01Icon';
@@ -181,6 +183,10 @@ export const icons = {
   // Cupom
   copy: Copy01Icon,
   print: PrinterIcon,
+  // Descubra: cartões de frase e atalhos de pesquisa
+  mapSearch: MapsSearchIcon,
+  bot: BotIcon,
+  sparkles: SparklesIcon,
   // Carrinho
   minus: MinusSignIcon,
   trash: Delete02Icon,

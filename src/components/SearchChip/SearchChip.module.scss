@@ -1,0 +1,38 @@
+@use '../../styles/shared-mixins/typography';
+@use '../../styles/shared-mixins/reset-clickable';
+
+.SearchChip {
+  @include reset-clickable.resetClickable;
+  @include typography.labelStrong;
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  gap: 8px;
+  height: 40px;
+  padding: 8px 12px;
+  box-sizing: border-box;
+  border-radius: 12px;
+  background-color: var(--search-chip-background);
+  color: var(--search-chip-text);
+  text-decoration: none;
+  white-space: nowrap;
+  cursor: pointer;
+
+  &:hover {
+    filter: brightness(1.08);
+  }
+
+  &:active {
+    filter: brightness(0.92);
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--icon-themed);
+    outline-offset: 2px;
+  }
+}
+
+.SearchChip__icon {
+  display: flex;
+  flex-shrink: 0;
+}

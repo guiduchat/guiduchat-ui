@@ -35,12 +35,12 @@ describe('catálogo de ícones', () => {
   it('tem os nomes por função que o kit e os apps usam', () => {
     expect(Object.keys(icons).sort()).toEqual([
       'accessible', 'account', 'add', 'apple', 'arrowForward', 'arrowUpRight', 'attach', 'back',
-      'basket', 'calendar', 'call', 'camera', 'card', 'cart', 'chatAdd', 'chats', 'check', 'chevronDown', 'chevronRight', 'clock',
+      'basket', 'bot', 'calendar', 'call', 'camera', 'card', 'cart', 'chatAdd', 'chats', 'check', 'chevronDown', 'chevronRight', 'clock',
       'close', 'closeCircle', 'contactless', 'copy', 'coupon', 'delivery', 'discover', 'document', 'drink', 'eye', 'eyeOff',
       'facebook', 'fashion', 'filter', 'food', 'forYou', 'google', 'health', 'heart', 'home', 'image', 'info',
-      'instagram', 'kids', 'location', 'mail', 'map', 'menu', 'mic', 'minus', 'more', 'moreVertical', 'navigation', 'note',
+      'instagram', 'kids', 'location', 'mail', 'map', 'mapSearch', 'menu', 'mic', 'minus', 'more', 'moreVertical', 'navigation', 'note',
       'offline', 'orders', 'otherCategory', 'parking', 'pickup', 'pin', 'places', 'priceLevel', 'print', 'readDouble', 'save', 'saved', 'search', 'send',
-      'share', 'shareUpload', 'smartphone', 'star', 'thumbsDown', 'thumbsUp', 'tiktok', 'timer', 'trash', 'travel', 'unpin', 'wallet',
+      'share', 'shareUpload', 'smartphone', 'sparkles', 'star', 'thumbsDown', 'thumbsUp', 'tiktok', 'timer', 'trash', 'travel', 'unpin', 'wallet',
       'warning', 'website', 'whatsapp'
     ]);
   });
