@@ -74,7 +74,7 @@ const StoreProfileDemo = () => {
           </ProfileStats>
         )}
         save={{ label: 'Salvar', pressed: saved, onPressedChange: setSaved }}
-        badge={<ScoreBadge value="4,6" logo={<Icon icon={icons.google} size={20} />} label="Nota 4,6 no Google" />}
+        badge={<ScoreBadge value="4,6" provider="tripadvisor" label="Nota 4,6 no Tripadvisor" />}
       />
       <QuickActions aria-label="Ações da loja">
         <QuickAction asChild icon={<Icon icon={icons.call} />} label="Ligar"><a href="tel:+5522999998884" /></QuickAction>
@@ -122,7 +122,7 @@ const StoreProfileDemo = () => {
           author="JoaquimJose235"
           rating={4}
           ratingLabel="Nota 4 de 5"
-          avatar={<Avatar.Container size={36} form="circle"><Avatar.Text gradient="blue">J</Avatar.Text></Avatar.Container>}
+          avatar={<Avatar.Container size={40} form="squircle"><Avatar.Text gradient="blue">J</Avatar.Text></Avatar.Container>}
         />
       </ReviewRail>
       <RecommendationCard
@@ -139,7 +139,7 @@ const StoreProfileDemo = () => {
         )}
         action={{ label: 'Abrir Padaria Flor de Geribá', onClick: () => {} }}
         avatars={['B', 'M', 'C'].map((t) => (
-          <Avatar.Container key={t} size={28} form="circle"><Avatar.Text gradient="blue">{t}</Avatar.Text></Avatar.Container>
+          <Avatar.Container key={t} size={28} form="squircle"><Avatar.Text gradient="blue">{t}</Avatar.Text></Avatar.Container>
         ))}
         note={(
           <>

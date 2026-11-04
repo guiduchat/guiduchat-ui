@@ -5,7 +5,7 @@ import { StarTile } from '../StarTile';
 import { RecommendationCard, type RecommendationCardProps } from './RecommendationCard';
 
 const avatar = (gradient: 'blue' | 'orange' | 'green', text: string) => (
-  <Avatar.Container key={text} size={28} form="circle">
+  <Avatar.Container key={text} size={28} form="squircle">
     <Avatar.Text gradient={gradient}>{text}</Avatar.Text>
   </Avatar.Container>
 );

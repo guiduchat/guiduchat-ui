@@ -1,5 +1,6 @@
 @use '../../styles/shared-mixins/typography';
 @use '../../styles/shared-mixins/reset-clickable';
+@use '../../styles/shared-mixins/squircle';
 
 // Medidas do desenho: raio 24 no externo, margem 12, quadro interno com raio 20.
 .RecommendationCard {
@@ -147,15 +148,18 @@
   flex-shrink: 0;
 }
 
-// Sobrepostos, com um contorno da cor do cartão para separar.
+// Sobrepostos, com um contorno de 2 px da cor do cartão para separar. O contorno tem a forma squircle
+// do Avatar (padrão do projeto): padding com fundo e a mesma máscara. Avatar de 28 px = 32 px no total;
+// a sobreposição de -14 px mantém o mesmo passo de antes (18 px).
 .RecommendationCard__avatar {
   position: relative;
   display: flex;
-  border-radius: 50%;
-  box-shadow: 0 0 0 2px var(--surface-outer);
+  padding: 2px;
+  background-color: var(--surface-outer);
+  @include squircle.squircleMask;
 
   & + & {
-    margin-left: -10px;
+    margin-left: -14px;
   }
 }
 

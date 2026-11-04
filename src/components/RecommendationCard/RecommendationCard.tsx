@@ -41,7 +41,7 @@ interface RecommendationCardOwnProps {
   rating?: ReactNode
   /** Botão redondo de seta, na cor de destaque. */
   action?: RecommendationCardAction
-  /** Quem indica, em geral `Avatar.Container` de 28 px em círculo. Aparecem sobrepostos. */
+  /** Quem indica, em geral `Avatar.Container` squircle de 28 px. Aparecem sobrepostos. */
   avatars?: ReactNode[]
   /** Linha "Indicado por ...". Use `<strong>` para o destaque em parte do texto. */
   note?: ReactNode

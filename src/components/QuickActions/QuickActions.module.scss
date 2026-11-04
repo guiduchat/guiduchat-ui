@@ -18,10 +18,21 @@
   padding: var(--spacing-size-m) var(--spacing-size-xs);
   box-sizing: border-box;
   border-radius: 20px;
-  background-color: var(--button-secondary);
+  background-color: var(--quick-action-background);
   color: var(--text-primary);
   text-decoration: none;
   cursor: pointer;
+
+  // Hover só com ponteiro, para a cor não ficar presa depois do toque (padrão do kit).
+  @media (hover: hover) {
+    &:hover:not(:disabled) {
+      background-color: var(--states-quick-action-hover);
+    }
+  }
+
+  &:active:not(:disabled) {
+    background-color: var(--states-quick-action-pressed);
+  }
 
   &:disabled {
     color: var(--states-text-primary-disabled);

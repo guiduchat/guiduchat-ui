@@ -1,5 +1,16 @@
 # Changelog do @guiduchat/ui
 
+## 0.35.0 (perfil da empresa)
+
+Pedido do Marcelo (03/11/2026) para `/places/[slug]`. Mexe em token: revisão da equipe console (regra U2).
+
+- **`StoreHero`**: a moldura da logo passa a ter 6 px de padding na cor da página (`--page-background`), no lugar de 4 px, e a mesma forma squircle do `Avatar` (a máscara agora fica em `styles/shared-mixins/squircle.scss`, usada pelos dois); a logo de 96 px ocupa 108 px e o encaixe sobre a capa foi ajustado (margem de -58 px) para ela ficar onde estava. O botão de ação (Seguir) fica com 36 px de altura, só ali; o botão pequeno global continua com 44 px.
+- **`QuickActions`**: tokens novos `--quick-action-background`, `--states-quick-action-hover` e `--states-quick-action-pressed`. No claro valem o secundário de sempre; no escuro, #404040 (hover #4A4A4A e pressionado #363636, derivados, a confirmar). O botão ganhou hover e pressionado.
+- **`ReviewSummary` e `ReviewCard`**: estrelas de 20 px nos dois, com 2 px entre elas; o resumo passa a 131 x 131 px e o cartão de comentário a 131 px de altura (fixa), alinhados na trilha. O texto do `ReviewCard` passa para a tipografia de corpo (16 px, linha de 22 px), ainda em 2 linhas com reticências. `ProviderLogo` com 44 px de altura. Na documentação, o avatar do `ReviewCard` é um `Avatar.Container` squircle de 40 px.
+- **`RecommendationCard`**: os avatares de quem indica passam ao padrão squircle; o contorno de 2 px na cor do cartão segue a mesma forma (padding com fundo e a máscara do `Avatar`), com sobreposição de -14 px.
+- **`ScoreBadge`**: vira selo vertical de 44 px de largura, com a nota em cima e o logo oficial do provedor (36 px) embaixo; cantos de 14 px em cima e 22 px embaixo. Fundo #404040 com texto claro nos dois temas (tokens novos `--score-badge-background` e `--score-badge-text`). Prop nova `provider` (`google` ou `tripadvisor`), que usa os mesmos logos das avaliações; `logo` fica opcional, para marca livre.
+- **`StatStrip`**: o rodapé (link do site) passa a 1.3rem, semibold (`--font-weight-title`) e sem sublinhado.
+
 ## 0.34.0 (página Descubra)
 
 Modelo do Marcelo (03/11/2026) para a página Descubra. Mexe em token: revisão da equipe console (regra U2).

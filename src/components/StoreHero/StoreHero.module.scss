@@ -1,4 +1,5 @@
 @use '../../styles/shared-mixins/reset-clickable';
+@use '../../styles/shared-mixins/squircle';
 
 .StoreHero {
   display: flex;
@@ -58,20 +59,28 @@
   display: flex;
   justify-content: center;
   width: 100%;
-  margin-top: -56px;
+  // -58 px (e não -56): a moldura de 6 px empurra a logo 2 px para baixo, e ela fica onde sempre esteve.
+  margin-top: -58px;
 }
 
 .StoreHero__action {
   position: absolute;
   left: calc(50% + 60px);
   right: var(--spacing-size-xl);
-  top: calc(56px + var(--spacing-size-m));
+  top: calc(58px + var(--spacing-size-m));
   display: flex;
 
   > * {
     flex: 1 1 auto;
     min-width: 0;
   }
+}
+
+// Seguir com 36 px, só aqui; o botão pequeno global continua com 44 px. Duas classes no seletor
+// para ficar acima de `.Button_size_small` sem depender da ordem do CSS no pacote.
+.StoreHero .StoreHero__action > * {
+  height: 36px;
+  min-height: 36px;
 }
 
 .StoreHero__stats {
@@ -82,9 +91,10 @@
 // Contorno da cor da página em volta da logo.
 .StoreHero__avatar {
   display: flex;
-  padding: 4px;
-  border-radius: 28px;
+  // Moldura de 6 px na cor da página, com a mesma forma squircle do Avatar (logo de 96 px = 108 px no total).
+  padding: 6px;
   background-color: var(--page-background);
+  @include squircle.squircleMask;
   position: relative;
 }
 

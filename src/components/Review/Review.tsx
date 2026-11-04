@@ -67,7 +67,7 @@ export const ReviewSummary = forwardRef<HTMLElement, ReviewSummaryProps>((props,
     <article ref={ref} className={clsx(styles.ReviewSummary, className)} {...rest}>
       <ProviderLogo provider={provider} label={providerLabel} />
       <span className={styles.ReviewSummary__score}>{score}</span>
-      <StarRow rating={rating} label={ratingLabel} size={16} />
+      <StarRow rating={rating} label={ratingLabel} size={20} />
     </article>
   );
 });
@@ -79,7 +79,7 @@ interface ReviewCardOwnProps {
   text: ReactNode
   /** Quem avaliou. */
   author: ReactNode
-  /** Foto de quem avaliou, em geral `Avatar.Container` redondo de 36 px. */
+  /** Foto de quem avaliou, `Avatar.Container` squircle de 40 px. */
   avatar?: ReactNode
   /** Nota de 0 a 5; as estrelas cheias são a nota arredondada. */
   rating?: number
@@ -98,7 +98,7 @@ export const ReviewCard = forwardRef<HTMLElement, ReviewCardProps>((props, ref) 
       <div className={styles.ReviewCard__footer}>
         {hasReactNode(avatar) && <span className={styles.ReviewCard__avatar}>{avatar}</span>}
         <span className={styles.ReviewCard__meta}>
-          {rating !== undefined && <StarRow rating={rating} label={ratingLabel ?? ''} size={14} />}
+          {rating !== undefined && <StarRow rating={rating} label={ratingLabel ?? ''} size={20} />}
           <span className={styles.ReviewCard__author}>{author}</span>
         </span>
       </div>
