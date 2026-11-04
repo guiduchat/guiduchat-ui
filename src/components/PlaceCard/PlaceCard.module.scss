@@ -161,8 +161,6 @@
   .PlaceCard__tag {
     @include status-pill.shape;
     flex-shrink: 0;
-    padding: 0 var(--spacing-size-xl);
-    border-radius: var(--size-border-radius-semantic-border-radius-rounded);
     background-color: var(--background-tertiary);
     color: var(--text-primary);
     white-space: nowrap;

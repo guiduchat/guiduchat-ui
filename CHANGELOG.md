@@ -9,16 +9,18 @@ Pedido do Marcelo (04/11/2026): trocar verdes, amarelos e vermelhos de estado pe
 - 24 novos `--status-*` (`mint`, `teal`, `sky`, `dusty`, `cyan`, `sand`, `amber`, `peach`, `coral`, `rose`, `cloud`, `sage`, cada um com o seu `-fg`), iguais nos dois temas e também em `src/tokens`. Cada par só funciona junto: o fundo some sobre o claro e o texto some sobre o escuro.
 - `--text-positive`, `--icon-positive`, `--text-attention`, `--text-negative` e `--icon-negative` passam a valer o `-fg` no claro e o fundo pastel no escuro (`mint`, `amber` e `rose`).
 - `--counter-attention` passa a `--status-rose`, com texto `--status-rose-fg`.
-- `--button-negative` passa a `--status-coral`, com texto `--status-coral-fg`. Hover #F0AEB0, pressionado #E07F81 e desativado derivados do coral, a confirmar. Novo `--states-status-coral-fg-disabled`.
+- `--button-negative` passa a `--status-coral`, com texto `--status-coral-fg`. Hover #F0AEB0, pressionado #E07F81 e desativado derivados do coral, a confirmar. Novo `--states-status-coral-fg-disabled`: texto escuro a 48% no claro e coral a 72% no escuro.
+- `--states-text-negative-disabled` no claro e `--gradients-loading-icon-negative-*` nos dois temas acompanham o rose.
 - Novo `--rating-star`, com o laranja de antes: as estrelas não mudam.
 
 **Componentes**
 
 - Nova forma de pílula em `styles/shared-mixins/status-pill.scss`: 24 px de altura, texto de 13 px e 10 px de espaço lateral. Vale para `StatusBadge`, `OrderSummaryCard`, `OpeningHours` e a etiqueta do `PlaceCard`.
-- **`StatusBadge`**: novo `status="info"` (sky). A altura cai de 32 para 24 px em todos os status, inclusive `coupon` e `neutral`.
+- **`StatusBadge`**: novo `status="info"` (sky). A altura cai de 32 para 24 px em todos os status, inclusive `coupon` e `neutral`. Em coluna flex, o selo deixa de esticar (`width: fit-content`).
 - **`OrderSummaryCard`**: situação em pílula e novo tom `info`.
 - **`PlaceListCard`**: situação como texto com peso forte, sem pílula, em `--text-positive` e `--text-negative`.
 - **`Notice`**: `info`, `warning` e `danger` usam o par inteiro no fundo e no texto (`sky`, `amber` e `rose`).
+- **`Counter`**: `attention-contrast` usa `--status-rose-fg` nos dois temas, porque o fundo é sempre branco.
 - **`Button`** e **`IconButton`**: spinner do destrutivo agora é escuro, para aparecer sobre o coral.
 
 ## 0.37.0 (menus da Conta)

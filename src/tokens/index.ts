@@ -102,7 +102,6 @@ const fieldOnLayers = {
   '--field-on-band-hub': surfaces.fieldLight.hub.band
 } as const;
 
-// Tokens do tema que dependem da marca, com o nome da variável CSS do kit.
 // Pares de estado (fundo e texto), iguais nos dois temas (Marcelo, 04/11/2026).
 const statusTokens = {
   '--status-mint': '#aeeae2',
@@ -131,6 +130,7 @@ const statusTokens = {
   '--status-sage-fg': '#1e2e2d'
 } as const;
 
+// Tokens do tema que dependem da marca, com o nome da variável CSS do kit.
 export const palette = {
   light: {
     ...surfaceTokens('light'),
