@@ -124,3 +124,14 @@
   white-space: nowrap;
   width: 100%;
 }
+
+// [Property] Menu: linha com ícone, texto mais perto dele e sem negrito.
+.CellSimple_menu {
+  .CellSimple__before {
+    margin-right: 0;
+  }
+
+  .CellSimple__title {
+    font-weight: var(--font-weight-body);
+  }
+}

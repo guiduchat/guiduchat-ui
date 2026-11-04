@@ -59,6 +59,7 @@
   --MaxUi-Switch__thumb_background: var(--icon-primary-inverse-static);
 }
 .Switch_platform_ios .Switch__input:checked + .Switch__toggle {
+  --MaxUi-Switch__thumb_background: var(--switch-thumb-active);
   --MaxUi-Switch__toggle_background: var(--controls-active);
   --MaxUi-Switch__thumb_offset: 20px;
 }
@@ -83,7 +84,7 @@
 }
 .Switch_platform_android .Switch__input:checked + .Switch__toggle {
   --MaxUi-Switch__toggle_background: var(--controls-active);
-  --MaxUi-Switch__thumb_background: var(--icon-primary-inverse-static);
+  --MaxUi-Switch__thumb_background: var(--switch-thumb-active);
   --MaxUi-Switch__toggle_borderColor: var(--controls-active);
   --MaxUi-Switch__thumb_scale: 1.2;
   --MaxUi-Switch__thumb_offset: 20px;

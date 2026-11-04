@@ -35,6 +35,8 @@
   // Quadro do ícone nos painéis internos, por ator (IconTile).
   --icon-tile-background-guidu: var(--background-primary);
   --icon-tile-background-hub: var(--background-primary);
+  // Bolinha do Switch ativo.
+  --switch-thumb-active: var(--icon-primary-inverse-static);
   --star-tile-background: #2d2d2d;
   // Linha do resumo do pedido: sólida e igual nos dois temas (Marcelo, 04/11/2026).
   --order-summary-divider: #2d2d2d;
@@ -261,6 +263,8 @@
   // Quadro do ícone no Hub: #2d2d2d (Marcelo, 04/11/2026). No guidu a camada interna já é #2d2d2d, por isso fica como estava.
   --icon-tile-background-guidu: var(--background-primary);
   --icon-tile-background-hub: #2d2d2d;
+  // Bolinha do Switch ativo no escuro: #3f3f3f (Marcelo, 04/11/2026).
+  --switch-thumb-active: #3f3f3f;
   --star-tile-background: #2d2d2d;
   // Linha do resumo do pedido: sólida e igual nos dois temas (Marcelo, 04/11/2026).
   --order-summary-divider: #2d2d2d;

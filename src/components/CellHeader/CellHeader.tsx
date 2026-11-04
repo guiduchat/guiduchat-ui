@@ -5,7 +5,7 @@ import { hasReactNode } from '../../helpers';
 import type { InnerClassNamesProp } from '../../types';
 import styles from './CellHeader.module.scss';
 
-export type CellHeaderTitleStyle = 'caps' | 'normal';
+export type CellHeaderTitleStyle = 'caps' | 'normal' | 'large';
 export type CellHeaderInnerElementKey = 'content' | 'after';
 
 export interface CellHeaderProps extends ComponentProps<'div'> {

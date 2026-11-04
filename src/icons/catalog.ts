@@ -9,6 +9,7 @@
 // - Nomes por função, não pelo desenho: trocar de ícone, de coleção ou para a
 //   Hugeicons Pro muda só este arquivo.
 import Airplane01Icon from '@hugeicons/core-free-icons/Airplane01Icon';
+import AiSearch01Icon from '@hugeicons/core-free-icons/AiSearch01Icon';
 import Alert02Icon from '@hugeicons/core-free-icons/Alert02Icon';
 import AppleIcon from '@hugeicons/core-free-icons/AppleIcon';
 import ArrowDown01Icon from '@hugeicons/core-free-icons/ArrowDown01Icon';
@@ -31,26 +32,32 @@ import Clock01Icon from '@hugeicons/core-free-icons/Clock01Icon';
 import Copy01Icon from '@hugeicons/core-free-icons/Copy01Icon';
 import Coupon01Icon from '@hugeicons/core-free-icons/Coupon01Icon';
 import CreditCardIcon from '@hugeicons/core-free-icons/CreditCardIcon';
+import CustomerSupportIcon from '@hugeicons/core-free-icons/CustomerSupportIcon';
 import Delete02Icon from '@hugeicons/core-free-icons/Delete02Icon';
 import DeliveryBox01Icon from '@hugeicons/core-free-icons/DeliveryBox01Icon';
 import DeliveryTruck01Icon from '@hugeicons/core-free-icons/DeliveryTruck01Icon';
 import DiscoverSquareIcon from '@hugeicons/core-free-icons/DiscoverSquareIcon';
 import Dish01Icon from '@hugeicons/core-free-icons/Dish01Icon';
 import Doc01Icon from '@hugeicons/core-free-icons/Doc01Icon';
+import DocumentAttachmentIcon from '@hugeicons/core-free-icons/DocumentAttachmentIcon';
 import DrinkIcon from '@hugeicons/core-free-icons/DrinkIcon';
 import EyeIcon from '@hugeicons/core-free-icons/EyeIcon';
 import EyeOffIcon from '@hugeicons/core-free-icons/EyeOffIcon';
 import Facebook01Icon from '@hugeicons/core-free-icons/Facebook01Icon';
 import FavouriteIcon from '@hugeicons/core-free-icons/FavouriteIcon';
+import FileTextIcon from '@hugeicons/core-free-icons/FileTextIcon';
 import FilterHorizontalIcon from '@hugeicons/core-free-icons/FilterHorizontalIcon';
 import Globe02Icon from '@hugeicons/core-free-icons/Globe02Icon';
 import GoogleIcon from '@hugeicons/core-free-icons/GoogleIcon';
 import GridViewIcon from '@hugeicons/core-free-icons/GridViewIcon';
+import HelpSquareIcon from '@hugeicons/core-free-icons/HelpSquareIcon';
 import Home01Icon from '@hugeicons/core-free-icons/Home01Icon';
 import Image01Icon from '@hugeicons/core-free-icons/Image01Icon';
 import InformationCircleIcon from '@hugeicons/core-free-icons/InformationCircleIcon';
 import InstagramIcon from '@hugeicons/core-free-icons/InstagramIcon';
+import LanguagesIcon from '@hugeicons/core-free-icons/LanguagesIcon';
 import Location01Icon from '@hugeicons/core-free-icons/Location01Icon';
+import LogoutSquare01Icon from '@hugeicons/core-free-icons/LogoutSquare01Icon';
 import Mail01Icon from '@hugeicons/core-free-icons/Mail01Icon';
 import MapsIcon from '@hugeicons/core-free-icons/MapsIcon';
 import MapsSearchIcon from '@hugeicons/core-free-icons/MapsSearchIcon';
@@ -59,20 +66,24 @@ import Menu01Icon from '@hugeicons/core-free-icons/Menu01Icon';
 import MessageAdd01Icon from '@hugeicons/core-free-icons/MessageAdd01Icon';
 import Mic01Icon from '@hugeicons/core-free-icons/Mic01Icon';
 import MinusSignIcon from '@hugeicons/core-free-icons/MinusSignIcon';
+import Moon02Icon from '@hugeicons/core-free-icons/Moon02Icon';
 import MoreHorizontalIcon from '@hugeicons/core-free-icons/MoreHorizontalIcon';
 import MoreVerticalIcon from '@hugeicons/core-free-icons/MoreVerticalIcon';
 import Navigation03Icon from '@hugeicons/core-free-icons/Navigation03Icon';
 import NfcIcon from '@hugeicons/core-free-icons/NfcIcon';
 import NoteEditIcon from '@hugeicons/core-free-icons/NoteEditIcon';
+import Notification01Icon from '@hugeicons/core-free-icons/Notification01Icon';
 import ParkingAreaCircleIcon from '@hugeicons/core-free-icons/ParkingAreaCircleIcon';
 import PinIcon from '@hugeicons/core-free-icons/PinIcon';
 import PinOffIcon from '@hugeicons/core-free-icons/PinOffIcon';
 import PlusSignIcon from '@hugeicons/core-free-icons/PlusSignIcon';
 import PrinterIcon from '@hugeicons/core-free-icons/PrinterIcon';
 import Search01Icon from '@hugeicons/core-free-icons/Search01Icon';
+import SecurityLockIcon from '@hugeicons/core-free-icons/SecurityLockIcon';
 import SentIcon from '@hugeicons/core-free-icons/SentIcon';
 import Share01Icon from '@hugeicons/core-free-icons/Share01Icon';
 import Share03Icon from '@hugeicons/core-free-icons/Share03Icon';
+import ShieldUserIcon from '@hugeicons/core-free-icons/ShieldUserIcon';
 import Shirt01Icon from '@hugeicons/core-free-icons/Shirt01Icon';
 import ShoppingBasket01Icon from '@hugeicons/core-free-icons/ShoppingBasket01Icon';
 import ShoppingCart01Icon from '@hugeicons/core-free-icons/ShoppingCart01Icon';
@@ -168,6 +179,18 @@ export const icons = {
   arrowUpRight: ArrowUpRight01Icon,
   orders: DeliveryBox01Icon,
   heart: FavouriteIcon,
+  // Configurações: menus da Conta
+  language: LanguagesIcon,
+  notification: Notification01Icon,
+  darkMode: Moon02Icon,
+  aiSearch: AiSearch01Icon,
+  security: SecurityLockIcon,
+  privacy: ShieldUserIcon,
+  support: CustomerSupportIcon,
+  faq: HelpSquareIcon,
+  privacyPolicy: DocumentAttachmentIcon,
+  terms: FileTextIcon,
+  signOut: LogoutSquare01Icon,
   // Pedido
   basket: ShoppingBasket01Icon,
   wallet: Wallet01Icon,
