@@ -11,6 +11,14 @@
   @include style(--family-headers, --font-size-hero, --line-height-hero, --letter-spacing-hero, --font-weight-hero);
 }
 
+@mixin display {
+  @include style(--family-headers, --font-size-display, --line-height-display, --letter-spacing-display, --font-weight-display);
+}
+
+@mixin section {
+  @include style(--family-headers, --font-size-section, --line-height-section, --letter-spacing-section, --font-weight-section);
+}
+
 @mixin header {
   @include style(--family-headers, --font-size-header, --line-height-header, --letter-spacing-header, --font-weight-header);
 }

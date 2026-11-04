@@ -4,6 +4,16 @@
   --line-height-hero: 2rem;
   --font-weight-hero: 600;
 
+  // Display (0.34.0): pergunta da página Descubra, 32/40 em peso normal
+  --font-size-display: 2rem;
+  --line-height-display: 2.5rem;
+  --font-weight-display: 400;
+
+  // Section (0.34.0): título de seção grande, 24/32 em peso normal
+  --font-size-section: 1.5rem;
+  --line-height-section: 2rem;
+  --font-weight-section: 400;
+
   // Header
   --font-size-header: 1.5rem;
   --line-height-header: 1.75rem;
@@ -82,6 +92,8 @@
   // Platform / iOS, Font.Dynamic / Default
   --letter-spacing-hero: 0.02375rem;
   --letter-spacing-header: 0.004375rem;
+  --letter-spacing-display: 0rem;
+  --letter-spacing-section: 0rem;
   --letter-spacing-subheader: -0.028125rem;
   --letter-spacing-title: -0.026875rem;
   --letter-spacing-body: -0.019375rem;
@@ -105,6 +117,8 @@
   // Platform / Android, Font.Dynamic / Default
   --letter-spacing-hero: 0rem;
   --letter-spacing-header: 0rem;
+  --letter-spacing-display: 0rem;
+  --letter-spacing-section: 0rem;
   --letter-spacing-subheader: 0rem;
   --letter-spacing-title: 0rem;
   --letter-spacing-body: 0.009375rem;

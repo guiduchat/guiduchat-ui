@@ -9,6 +9,10 @@ Modelo do Marcelo (03/11/2026) para a página Descubra. Mexe em token: revisão 
 - `--prompt-card-lime` (#C8E805, igual ao `--button-primary` do claro), `--prompt-card-sky` (#C4E9EE), `--prompt-card-lavender` (#D3DAE6) e `--prompt-card-cream` (#EEF0E2): iguais nos dois temas; os três tons pastel foram estimados do desenho e ficam a confirmar no celular.
 - `--search-chip-background` (#404040 no escuro; no claro, `--background-tertiary`) e `--search-chip-text`.
 
+**Tipografia**
+
+- `Typography.Headline` ganha as variantes `display` (32/40 px, peso 400, para a pergunta da Descubra) e `section` (24/32 px, peso 400, para títulos de seção grandes). Tokens novos `--font-size-display`, `--line-height-display`, `--font-weight-display` e os três de `section`.
+
 **Componentes**
 
 - **`PromptCard`** (novo): cartão colorido de 144 x 144 px, raio de 24 px e padding de 12 px, com um círculo de 40 px com o ícone à esquerda, outro com a seta (`arrowUpRight`) à direita e o título embaixo, em até 2 linhas. Prop `tone` (`lime`, `sky`, `lavender` ou `cream`). É um `button`; com `asChild`, vira o link do app. O texto é sempre escuro. Hover e pressionado por camada translúcida, e foco visível.
