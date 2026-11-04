@@ -1,3 +1,5 @@
+@use '../../styles/shared-mixins/status-pill';
+
 .OrderSummaryCard {
   display: flex;
   flex-direction: column;
@@ -47,15 +49,23 @@
 }
 
 .OrderSummaryCard__status_positive {
-  color: var(--text-positive);
+  @include status-pill.shape;
+  @include status-pill.positive;
 }
 
 .OrderSummaryCard__status_negative {
-  color: var(--text-negative);
+  @include status-pill.shape;
+  @include status-pill.negative;
 }
 
 .OrderSummaryCard__status_attention {
-  color: var(--text-attention);
+  @include status-pill.shape;
+  @include status-pill.attention;
+}
+
+.OrderSummaryCard__status_info {
+  @include status-pill.shape;
+  @include status-pill.info;
 }
 
 .OrderSummaryCard__status_neutral {

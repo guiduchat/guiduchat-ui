@@ -183,7 +183,7 @@
 }
 
 .PlaceListCard__status {
-  @include typography.description;
+  @include typography.descriptionStrong;
 }
 
 .PlaceListCard__status_positive {

@@ -102,10 +102,39 @@ const fieldOnLayers = {
   '--field-on-band-hub': surfaces.fieldLight.hub.band
 } as const;
 
+// Pares de estado (fundo e texto), iguais nos dois temas (Marcelo, 04/11/2026).
+const statusTokens = {
+  '--status-mint': '#aeeae2',
+  '--status-mint-fg': '#103c37',
+  '--status-teal': '#c8eae5',
+  '--status-teal-fg': '#153733',
+  '--status-sky': '#bde8fb',
+  '--status-sky-fg': '#01202c',
+  '--status-dusty': '#b1cedd',
+  '--status-dusty-fg': '#172b35',
+  '--status-cyan': '#a4c8da',
+  '--status-cyan-fg': '#162c36',
+  '--status-sand': '#fee4b4',
+  '--status-sand-fg': '#4b3101',
+  '--status-amber': '#fedb9a',
+  '--status-amber-fg': '#4c3101',
+  '--status-peach': '#f2dbcf',
+  '--status-peach-fg': '#3c1f11',
+  '--status-coral': '#ea9597',
+  '--status-coral-fg': '#400d0e',
+  '--status-rose': '#ffb3b3',
+  '--status-rose-fg': '#4d0000',
+  '--status-cloud': '#c9d4d9',
+  '--status-cloud-fg': '#1f292d',
+  '--status-sage': '#bbd3d2',
+  '--status-sage-fg': '#1e2e2d'
+} as const;
+
 // Tokens do tema que dependem da marca, com o nome da variável CSS do kit.
 export const palette = {
   light: {
     ...surfaceTokens('light'),
+    ...statusTokens,
     '--text-themed': brand.accentLight,
     '--icon-themed': brand.accentLight,
     '--controls-active': brand.accentStrong,
@@ -125,6 +154,7 @@ export const palette = {
   },
   dark: {
     ...surfaceTokens('dark'),
+    ...statusTokens,
     '--text-themed': brand.accent,
     '--icon-themed': brand.accent,
     '--controls-active': brand.accent,

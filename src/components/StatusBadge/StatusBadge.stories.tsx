@@ -11,7 +11,7 @@ const meta = {
     status: 'neutral'
   },
   argTypes: {
-    status: selectControl(['positive', 'negative', 'warning', 'neutral', 'coupon']),
+    status: selectControl(['positive', 'negative', 'warning', 'info', 'neutral', 'coupon']),
   }
 } satisfies Meta<StatusBadgeProps>;
 

@@ -29,12 +29,13 @@
   color: var(--text-themed);
 }
 .Counter_variant_attention {
-  @include textColorPrimary;
+  color: var(--status-rose-fg);
   background-color: var(--counter-attention);
 }
+// O fundo --counter-contrast é branco nos dois temas: a cor não pode acompanhar o tema.
 .Counter_variant_attention-contrast {
   @include withoutBackgroundColor;
-  color: var(--text-negative);
+  color: var(--status-rose-fg);
 }
 .Counter_variant_promo {
   @include withoutBackgroundColor;
