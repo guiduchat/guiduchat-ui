@@ -32,7 +32,12 @@
   --pager-inactive-hub: #acacac;
   --pager-active-guidu: #5c6b02;
   --pager-active-hub: #c8e805;
+  // Quadro do ícone nos painéis internos, por ator (IconTile).
+  --icon-tile-background-guidu: var(--background-primary);
+  --icon-tile-background-hub: var(--background-primary);
   --star-tile-background: #2d2d2d;
+  // Linha do resumo do pedido: sólida e igual nos dois temas (Marcelo, 04/11/2026).
+  --order-summary-divider: #2d2d2d;
   --star-tile-star: #c8e805;
   --star-tile-empty-star: rgb(255 255 255 / 0.24);
   // Fundo de campo de formulário (Marcelo): #ededed no claro; no escuro, o valor de antes de cada campo.
@@ -253,7 +258,12 @@
   --pager-inactive-hub: #858585;
   --pager-active-guidu: #e1fb40;
   --pager-active-hub: #e1fb40;
+  // Quadro do ícone no Hub: #2d2d2d (Marcelo, 04/11/2026). No guidu a camada interna já é #2d2d2d, por isso fica como estava.
+  --icon-tile-background-guidu: var(--background-primary);
+  --icon-tile-background-hub: #2d2d2d;
   --star-tile-background: #2d2d2d;
+  // Linha do resumo do pedido: sólida e igual nos dois temas (Marcelo, 04/11/2026).
+  --order-summary-divider: #2d2d2d;
   --star-tile-star: #e1fb40;
   --star-tile-empty-star: rgb(255 255 255 / 0.24);
   --field-background: var(--background-tertiary);
@@ -359,7 +369,8 @@
   --search-chip-background: #404040;
   --search-chip-text: var(--text-primary);
   --button-primary-contrast: rgb(255 255 255);
-  --button-secondary-contrast: #404040;
+  // Botão secundário no escuro: #202020 com texto #d1d1d1 (Marcelo, 04/11/2026). Hover e pressionado derivados.
+  --button-secondary-contrast: #202020;
   --button-negative: rgb(206 66 87);
   --button-ghost: rgb(0 0 0 / 0);
   --button-overlay: rgb(46 51 56 / 0.45);
@@ -395,9 +406,9 @@
   --states-button-primary-contrast-hover: rgb(246 246 246);
   --states-button-primary-contrast-pressed: rgb(235 235 235);
   --states-button-primary-contrast-disabled: rgb(255 255 255 / 0.12);
-  --states-button-secondary-contrast-hover: #4a4a4a;
-  --states-button-secondary-contrast-pressed: #373737;
-  --states-button-secondary-contrast-disabled: rgb(64 64 64 / 0.5);
+  --states-button-secondary-contrast-hover: #2a2a2a;
+  --states-button-secondary-contrast-pressed: #1a1a1a;
+  --states-button-secondary-contrast-disabled: rgb(32 32 32 / 0.5);
   --states-button-negative-hover: rgb(245 78 103);
   --states-button-negative-pressed: rgb(156 50 66);
   --states-button-negative-disabled: rgb(255 255 255 / 0.12);

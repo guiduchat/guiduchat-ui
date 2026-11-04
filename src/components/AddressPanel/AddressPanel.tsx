@@ -21,13 +21,16 @@ interface AddressPanelOwnProps {
    * (e o restante) alinha à esquerda, sob o pino. Falso por padrão.
    */
   plainIcon?: boolean
+  /** `large`: nome de 20 px e texto de 16 px, como no ContactCard. `regular` por padrão. */
+  textSize?: 'regular' | 'large'
 }
 
 export type AddressPanelProps = MergeProps<ComponentProps<'div'>, AddressPanelOwnProps>;
 
 /** Quadro interno com o endereço de entrega ou de retirada. */
 export const AddressPanel = forwardRef<HTMLDivElement, AddressPanelProps>((props, ref) => {
-  const { title, titleAction, address, note, plainIcon = false, children, className, ...rest } = props;
+  const { title, titleAction, address, note, plainIcon = false, textSize = 'regular', children, className, ...rest } = props;
+  const rootClassName = clsx(styles.AddressPanel, textSize === 'large' && styles.AddressPanel_large, className);
 
   const name = <p className={styles.AddressPanel__title}>{title}</p>;
   const heading = hasReactNode(titleAction)
@@ -54,7 +57,7 @@ export const AddressPanel = forwardRef<HTMLDivElement, AddressPanelProps>((props
 
   if (plainIcon) {
     return (
-      <div ref={ref} className={clsx(styles.AddressPanel, styles.AddressPanel_plainIcon, className)} {...rest}>
+      <div ref={ref} className={clsx(rootClassName, styles.AddressPanel_plainIcon)} {...rest}>
         <div className={styles.AddressPanel__header}>
           <span className={styles.AddressPanel__pin}><Icon icon={icons.location} /></span>
           {heading}
@@ -65,7 +68,7 @@ export const AddressPanel = forwardRef<HTMLDivElement, AddressPanelProps>((props
   }
 
   return (
-    <div ref={ref} className={clsx(styles.AddressPanel, className)} {...rest}>
+    <div ref={ref} className={rootClassName} {...rest}>
       <IconTile><Icon icon={icons.location} /></IconTile>
       <div className={styles.AddressPanel__text}>
         {heading}

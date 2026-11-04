@@ -69,7 +69,7 @@ export const surfaces = {
 // (--text-primary). Hover, pressionado e desativado são derivados do fundo, a confirmar.
 const secondaryButton = {
   light: { background: '#c0c0c0', hover: '#b5b5b5', pressed: '#a8a8a8', disabled: 'rgb(192 192 192 / 0.5)' },
-  dark: { background: '#404040', hover: '#4a4a4a', pressed: '#373737', disabled: 'rgb(64 64 64 / 0.5)' }
+  dark: { background: '#202020', hover: '#2a2a2a', pressed: '#1a1a1a', disabled: 'rgb(32 32 32 / 0.5)' }
 } as const;
 
 const surfaceTokens = (scheme: 'light' | 'dark') => ({

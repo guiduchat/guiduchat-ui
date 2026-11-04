@@ -32,3 +32,16 @@
   flex-shrink: 0;
   gap: var(--spacing-size-m);
 }
+
+// `large`: mesmos tamanhos do ContactCard.
+.PersonRow_large {
+  .PersonRow__name {
+    font-size: 20px;
+    line-height: 26px;
+  }
+
+  .PersonRow__detail {
+    font-size: var(--font-size-body);
+    line-height: 22px;
+  }
+}

@@ -36,6 +36,7 @@
   font-size: 20px;
   font-weight: var(--font-weight-body-strong);
   line-height: 26px;
+  color: var(--text-card-title);
   overflow-wrap: anywhere;
 }
 
@@ -65,12 +66,13 @@
   margin: 0;
   font-size: var(--font-size-body);
   line-height: 22px;
+  color: var(--text-secondary);
 }
 
 .OrderSummaryCard__summary {
   margin-top: var(--spacing-size-xs);
   padding-top: var(--spacing-size-m);
-  border-top: 1px dashed var(--text-secondary);
+  border-top: 1px solid var(--order-summary-divider);
 }
 
 .OrderSummaryCard__footer {
