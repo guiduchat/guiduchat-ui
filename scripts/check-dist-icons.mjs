@@ -20,7 +20,8 @@ const embedded = (code.match(/\[\["(path|circle|rect|line|polyline|polygon|ellip
 
 // Teto contra importar a biblioteca inteira (passaria de 1 MB), com folga para o catálogo crescer.
 // Subiu de 64 para 72 KB no kit 0.33.0 (camera, document e moreVertical).
-const MAX_ICONS_KB = 72;
+// Subiu de 72 para 88 KB no kit 0.37.0 (11 ícones dos menus da Conta).
+const MAX_ICONS_KB = 88;
 const iconsKb = statSync(new URL('icons/index.js', dist)).size / 1024;
 
 const errors = collisions.map((entry) => `dist/${entry.name} tem o nome da pasta dist/${entry.name.slice(0, -3)}/: o TypeScript resolve para o .js, sem tipos.`);

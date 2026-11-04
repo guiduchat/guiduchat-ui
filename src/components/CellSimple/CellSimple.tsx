@@ -38,6 +38,8 @@ interface CellSimpleOwnProps extends AsChildProp {
   disabled?: boolean
   separator?: boolean
   link?: string
+  /** Linha de menu com ícone: título com peso normal e sem margem à direita do `before`. */
+  menu?: boolean
 }
 
 export type CellSimpleProps = MergeProps<ComponentProps<'div'>, CellSimpleOwnProps>;
@@ -59,6 +61,7 @@ export const CellSimple = forwardRef<HTMLDivElement, CellSimpleProps>((props, fo
     height = 'normal',
     asChild = false,
     disabled = false,
+    menu = false,
     showChevron = false,
     subtitleMode = 'secondary',
     ...rest
@@ -71,7 +74,8 @@ export const CellSimple = forwardRef<HTMLDivElement, CellSimpleProps>((props, fo
     {
       [styles.CellSimple_surface_island]: surface === 'island',
       [styles.CellSimple_disabled]: disabled,
-      [styles.CellSimple_separator]: separator
+      [styles.CellSimple_separator]: separator,
+      [styles.CellSimple_menu]: menu
     },
     className
   );

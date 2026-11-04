@@ -24,6 +24,17 @@
   }
 }
 
+// Título de grupo de 16 px, peso normal, na cor do título dos cartões.
+.CellHeader_titleStyle_large {
+  color: var(--text-card-title);
+
+  .CellHeader__content {
+    font-size: var(--font-size-body);
+    font-weight: var(--font-weight-body);
+    line-height: 22px;
+  }
+}
+
 // [Property] Fullwidth
 .CellHeader:not(.CellHeader_fullWidth) {
   padding: var(--spacing-size-xs) var(--spacing-size-xl);

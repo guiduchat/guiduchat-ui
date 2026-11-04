@@ -34,13 +34,13 @@ describe('Icon', () => {
 describe('catálogo de ícones', () => {
   it('tem os nomes por função que o kit e os apps usam', () => {
     expect(Object.keys(icons).sort()).toEqual([
-      'accessible', 'account', 'add', 'apple', 'arrowForward', 'arrowUpRight', 'attach', 'back',
+      'accessible', 'account', 'add', 'aiSearch', 'apple', 'arrowForward', 'arrowUpRight', 'attach', 'back',
       'basket', 'bot', 'calendar', 'call', 'camera', 'card', 'cart', 'chatAdd', 'chats', 'check', 'chevronDown', 'chevronRight', 'clock',
-      'close', 'closeCircle', 'contactless', 'copy', 'coupon', 'delivery', 'discover', 'document', 'drink', 'eye', 'eyeOff',
-      'facebook', 'fashion', 'filter', 'food', 'forYou', 'google', 'health', 'heart', 'home', 'image', 'info',
-      'instagram', 'kids', 'location', 'mail', 'map', 'mapSearch', 'menu', 'mic', 'minus', 'more', 'moreVertical', 'navigation', 'note',
-      'offline', 'orders', 'otherCategory', 'parking', 'pickup', 'pin', 'places', 'priceLevel', 'print', 'readDouble', 'save', 'saved', 'search', 'send',
-      'share', 'shareUpload', 'smartphone', 'sparkles', 'star', 'thumbsDown', 'thumbsUp', 'tiktok', 'timer', 'trash', 'travel', 'unpin', 'wallet',
+      'close', 'closeCircle', 'contactless', 'copy', 'coupon', 'darkMode', 'delivery', 'discover', 'document', 'drink', 'eye', 'eyeOff',
+      'facebook', 'faq', 'fashion', 'filter', 'food', 'forYou', 'google', 'health', 'heart', 'home', 'image', 'info',
+      'instagram', 'kids', 'language', 'location', 'mail', 'map', 'mapSearch', 'menu', 'mic', 'minus', 'more', 'moreVertical', 'navigation', 'note', 'notification',
+      'offline', 'orders', 'otherCategory', 'parking', 'pickup', 'pin', 'places', 'priceLevel', 'print', 'privacy', 'privacyPolicy', 'readDouble', 'save', 'saved', 'search', 'security', 'send',
+      'share', 'shareUpload', 'signOut', 'smartphone', 'sparkles', 'star', 'support', 'terms', 'thumbsDown', 'thumbsUp', 'tiktok', 'timer', 'trash', 'travel', 'unpin', 'wallet',
       'warning', 'website', 'whatsapp'
     ]);
   });

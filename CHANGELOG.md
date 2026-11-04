@@ -1,5 +1,23 @@
 # Changelog do @guiduchat/ui
 
+## 0.37.0 (menus da Conta)
+
+Pedido do Marcelo (04/11/2026) para `/account`. Mexe em token: revisão da equipe console (regra U2).
+
+**Tokens**
+
+- Novo `--switch-thumb-active`: bolinha do `Switch` ativo. #3F3F3F no escuro; no claro, a mesma cor de antes (`--icon-primary-inverse-static`). **Vale para todo `Switch` ativo no escuro**, em iOS e Android.
+
+**Ícones**
+
+- 11 nomes novos no catálogo: `language`, `notification`, `darkMode`, `aiSearch`, `security`, `privacy`, `support`, `faq`, `privacyPolicy`, `terms` e `signOut`. O teto de `dist/icons/index.js` no `check:icons` sobe de 72 para 88 KB.
+
+**Componentes**
+
+- **`CellSimple`**: prop nova `menu`, para linha de menu com ícone: título com peso normal e sem margem à direita do `before`.
+- **`CellHeader`**: novo `titleStyle="large"`, com 16/22 px, peso normal e cor `--text-card-title`.
+- **`ShortcutCard`**: título em 20/26 px semibold e texto em 16/22 px, limitado a 2 linhas com reticências.
+
 ## 0.36.0 (Meus Pedidos e botão secundário no escuro)
 
 Pedido do Marcelo (04/11/2026) para `/orders` e `/orders/[id]`. Mexe em token: revisão da equipe console (regra U2).
