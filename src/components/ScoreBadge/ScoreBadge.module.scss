@@ -1,26 +1,45 @@
+// Selo vertical do desenho: 44 px de largura, nota em cima e o logo de 36 px embaixo. O fundo
+// arredonda 22 px embaixo (concêntrico ao logo, com 4 px de folga) e menos em cima.
 .ScoreBadge {
   display: inline-flex;
   flex-direction: column;
   align-items: center;
   gap: var(--spacing-size-xs);
-  min-width: 44px;
-  padding: var(--spacing-size-s);
+  width: 44px;
+  padding: 6px 4px 4px;
   box-sizing: border-box;
-  border-radius: 16px;
+  border-radius: 14px 14px 22px 22px;
   background-color: var(--background-card);
   color: var(--text-primary);
 }
 
 .ScoreBadge__value {
   font-size: var(--font-size-body);
-  font-weight: var(--font-weight-body-strong);
+  font-weight: var(--font-weight-title);
   line-height: 20px;
+}
+
+.ScoreBadge__mark {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+
+  svg {
+    display: block;
+    width: auto;
+    max-width: 36px;
+    height: 36px;
+  }
 }
 
 .ScoreBadge__logo {
   display: flex;
   align-items: center;
   justify-content: center;
+  max-width: 100%;
+  overflow: hidden;
   font-size: var(--font-size-label);
   line-height: 14px;
 }

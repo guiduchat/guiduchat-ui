@@ -114,6 +114,10 @@ interface ProviderLogoProps {
   label: string
 }
 
+/** Só o desenho do logo, decorativo (o nome fica com quem usa, como o `ScoreBadge`). */
+export const ProviderMark = ({ provider }: { provider: ReviewProviderName }) =>
+  provider === 'google' ? <GoogleSvg /> : <TripadvisorSvg />;
+
 /** Logo do provedor das avaliações, com nome acessível. */
 export const ProviderLogo = ({ provider, label }: ProviderLogoProps) => (
   <span className={styles.ProviderLogo} role="img" aria-label={label}>

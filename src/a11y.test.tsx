@@ -225,7 +225,7 @@ const cases: Array<[string, ReactNode]> = [
       title="Restaurante Buzin"
       subtitle="Restaurante"
       save={{ label: 'Salvar', pressed: false, onPressedChange: () => {} }}
-      badge={<ScoreBadge value="4,6" logo="Google" label="Nota 4,6 no Google" />}
+      badge={<ScoreBadge value="4,6" provider="google" label="Nota 4,6 no Google" />}
     />
   ],
   [
