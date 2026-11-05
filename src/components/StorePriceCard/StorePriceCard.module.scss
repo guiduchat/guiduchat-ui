@@ -110,10 +110,10 @@
 
 .StorePriceCard__media {
   display: flex;
-  flex: 0 0 30%;
+  flex: 0 0 100px;
   align-items: center;
   justify-content: center;
-  min-height: 128px;
+  height: 175px;
   overflow: hidden;
   border-radius: var(--size-border-radius-semantic-border-radius-card);
   background-color: var(--product-photo-background);

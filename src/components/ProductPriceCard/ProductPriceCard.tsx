@@ -32,7 +32,7 @@ export interface ProductPriceCardAction extends AsChildProp {
 interface ProductPriceCardOwnProps {
   /** Foto do produto, em fundo branco. Sem ela, fica uma reserva com ícone. */
   image?: PriceCardImage
-  /** Nome do produto. Duas linhas no máximo. */
+  /** Nome do produto. Três linhas no máximo. */
   name: ReactNode
   /** Elemento do nome. `h3` por padrão. */
   nameAs?: ElementType
