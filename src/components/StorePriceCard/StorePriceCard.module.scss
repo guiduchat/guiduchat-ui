@@ -87,7 +87,7 @@
   justify-content: center;
   width: 44px;
   height: 44px;
-  border-radius: var(--size-border-radius-semantic-border-radius-paper);
+  border-radius: var(--border-radius-circle);
   background-color: var(--button-primary);
   color: var(--text-on-accent);
 }
@@ -171,7 +171,7 @@
   justify-content: center;
   width: 44px;
   height: 44px;
-  border-radius: var(--size-border-radius-semantic-border-radius-paper);
+  border-radius: var(--border-radius-circle);
   background-color: var(--button-primary);
   color: var(--text-on-accent);
   cursor: pointer;

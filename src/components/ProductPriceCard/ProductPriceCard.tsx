@@ -92,17 +92,17 @@ export const ProductPriceCard = forwardRef<HTMLElement, ProductPriceCardProps>((
               )}
             </div>
             {hasReactNode(brand) && <span className={styles.ProductPriceCard__brand}>{brand}</span>}
-            {hasReactNode(offers) && <p className={styles.ProductPriceCard__offers}>{offers}</p>}
+            <div className={styles.ProductPriceCard__priceRow}>
+              {hasReactNode(offers) && <p className={styles.ProductPriceCard__offers}>{offers}</p>}
+              <p className={styles.ProductPriceCard__price}>
+                <span className={styles.ProductPriceCard__amount}>
+                  {hasReactNode(currency) && <span className={styles.ProductPriceCard__currency}>{currency}</span>}
+                  {price}
+                </span>
+                {hasReactNode(unit) && <span className={styles.ProductPriceCard__unit}>{unit}</span>}
+              </p>
+            </div>
           </div>
-        </div>
-        <div className={styles.ProductPriceCard__priceRow}>
-          <p className={styles.ProductPriceCard__price}>
-            <span className={styles.ProductPriceCard__amount}>
-              {hasReactNode(currency) && <span className={styles.ProductPriceCard__currency}>{currency}</span>}
-              {price}
-            </span>
-            {hasReactNode(unit) && <span className={styles.ProductPriceCard__unit}>{unit}</span>}
-          </p>
         </div>
       </div>
       {(hasReactNode(delivery) || action) && (

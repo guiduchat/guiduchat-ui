@@ -26,17 +26,17 @@ export const ProductPriceCardSkeleton = forwardRef<HTMLDivElement, ProductPriceC
               <Skeleton shape="line" width="70%" />
             </span>
             <span className={styles.ProductPriceCard__brand}><Skeleton shape="line" width="45%" /></span>
-            <span className={styles.ProductPriceCard__offers}>
-              <Skeleton shape="line" width="60%" />
-              <br />
-              <Skeleton shape="line" width="70%" />
-              <br />
-              <Skeleton shape="line" width="55%" />
-            </span>
+            <div className={styles.ProductPriceCard__priceRow}>
+              <span className={styles.ProductPriceCard__offers} style={{ flex: 1 }}>
+                <Skeleton shape="line" width="60%" />
+                <br />
+                <Skeleton shape="line" width="70%" />
+                <br />
+                <Skeleton shape="line" width="55%" />
+              </span>
+              <Skeleton width={96} height={40} />
+            </div>
           </div>
-        </div>
-        <div className={styles.ProductPriceCard__priceRow}>
-          <Skeleton width={110} height={40} />
         </div>
       </div>
       <div className={styles.ProductPriceCard__footer}>
