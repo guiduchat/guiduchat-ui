@@ -1,0 +1,194 @@
+@use '../../styles/shared-mixins/typography';
+@use '../../styles/shared-mixins/reset-clickable';
+
+// Medidas do desenho do Marcelo: cartão de fora (raio 24, margem 12) com o cartão de dentro (raio 20),
+// mais claro no hub escuro, e a faixa de baixo no fundo do cartão de fora.
+.ProductPriceCard {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-size-xl);
+  width: 100%;
+  min-width: 0;
+  padding: var(--spacing-size-xl);
+  box-sizing: border-box;
+  border-radius: var(--size-border-radius-semantic-border-radius-surface);
+  background-color: var(--surface-outer);
+  --field-background: var(--field-on-outer);
+  --field-background-contrast: var(--field-contrast-on-outer);
+  color: var(--text-primary);
+}
+
+.ProductPriceCard__body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-size-xl);
+  padding: var(--spacing-size-xl);
+  border-radius: var(--size-border-radius-semantic-border-radius-promo);
+  background-color: var(--surface-inner);
+  --field-background: var(--field-on-inner);
+  --field-background-contrast: var(--field-contrast-on-inner);
+}
+
+.ProductPriceCard__top {
+  display: flex;
+  align-items: stretch;
+  gap: var(--spacing-size-xl);
+}
+
+.ProductPriceCard__media {
+  display: flex;
+  flex: 0 0 26%;
+  align-items: center;
+  justify-content: center;
+  min-height: 128px;
+  overflow: hidden;
+  border-radius: var(--size-border-radius-semantic-border-radius-card);
+  background-color: var(--product-photo-background);
+  color: var(--text-secondary);
+}
+
+.ProductPriceCard__image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.ProductPriceCard__info {
+  display: flex;
+  flex: 1 1 0;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: var(--spacing-size-m);
+  min-width: 0;
+}
+
+.ProductPriceCard__heading {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--spacing-size-m);
+}
+
+.ProductPriceCard__name {
+  @include typography.title;
+  display: -webkit-box;
+  flex: 1 1 0;
+  min-width: 0;
+  margin: 0;
+  overflow: hidden;
+  overflow-wrap: anywhere;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+}
+
+.ProductPriceCard__save {
+  @include reset-clickable.resetClickable;
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  margin: calc(var(--spacing-size-xs) * -1) calc(var(--spacing-size-xs) * -1) 0 0;
+  border-radius: var(--size-border-radius-semantic-border-radius-paper);
+  color: var(--icon-themed);
+  cursor: pointer;
+
+  &:focus-visible {
+    outline: 2px solid var(--icon-themed);
+    outline-offset: 2px;
+  }
+}
+
+.ProductPriceCard__brand {
+  @include typography.description;
+  color: var(--text-themed);
+}
+
+.ProductPriceCard__rating {
+  @include typography.description;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-size-xs);
+}
+
+.ProductPriceCard__priceRow {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: var(--spacing-size-xl);
+}
+
+.ProductPriceCard__offers {
+  @include typography.detail;
+  flex: 0 1 50%;
+  min-width: 0;
+  margin: 0;
+
+  strong {
+    font-weight: var(--font-weight-body-strong);
+  }
+
+  em {
+    font-style: normal;
+    color: var(--text-themed);
+  }
+}
+
+.ProductPriceCard__price {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  align-items: flex-end;
+  min-width: 0;
+  margin: 0;
+}
+
+.ProductPriceCard__amount {
+  @include typography.display;
+  display: inline-flex;
+  align-items: baseline;
+  gap: var(--spacing-size2xs);
+  color: var(--text-themed);
+  font-weight: var(--font-weight-body-strong);
+  white-space: nowrap;
+}
+
+.ProductPriceCard__currency {
+  @include typography.subheader;
+  font-weight: var(--font-weight-body-strong);
+}
+
+.ProductPriceCard__unit {
+  @include typography.description;
+  color: var(--text-secondary);
+  text-align: right;
+}
+
+.ProductPriceCard__footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--spacing-size-xl);
+}
+
+.ProductPriceCard__delivery {
+  @include typography.description;
+  display: flex;
+  flex: 1 1 0;
+  align-items: center;
+  gap: var(--spacing-size-m);
+  min-width: 0;
+  margin: 0;
+  padding-left: var(--spacing-size-xs);
+  color: var(--text-themed);
+
+  svg {
+    flex-shrink: 0;
+    color: var(--icon-themed);
+  }
+}
+
+.ProductPriceCard__action {
+  flex-shrink: 0;
+}

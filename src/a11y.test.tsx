@@ -53,6 +53,7 @@ import {
   PlaceCard,
   PlaceListCard,
   PriceSummary,
+  ProductPriceCard,
   PromptCard,
   QrCode,
   QrPanel,
@@ -77,6 +78,7 @@ import {
   StoreHero,
   StoreOfferCard,
   StorePhotoCard,
+  StorePriceCard,
   SwipeActions,
   Switch,
   TabBar,
@@ -579,6 +581,53 @@ const cases: Array<[string, ReactNode]> = [
     <BottomSheet key="bs2" open aria-label="Detalhes" onClose={() => {}}>
       <Button>Fechar</Button>
     </BottomSheet>
+  ],
+  [
+    'Cartões de preço',
+    <div key="prices">
+      <ProductPriceCard
+        name="Cerveja Corona Extra Long Neck 330ml"
+        brand="Marca: Corona"
+        save={{ label: 'Salvar produto', pressed: false, onPressedChange: () => {} }}
+        offers={(
+          <>
+            <strong>64</strong>
+            {' '}
+            ofertas em 
+            {' '}
+            <em>cervejas</em>
+            {' '}
+            a partir de:
+          </>
+        )}
+        currency="R$"
+        price="7,49"
+        unit="(unidade de 330ml)"
+        delivery="Retirada ou entrega disponíveis"
+        action={{ label: 'Comparar Ofertas', onClick: () => {} }}
+      />
+      <StorePriceCard
+        currency="R$"
+        price="7,80"
+        priceNote="Preços em BRL"
+        fulfillment="Retirada ou entrega disponíveis"
+        notice="Preço não inclui frete."
+        storeName="Budega - Emporio de Bebidas"
+        address="Rua das Flores, 123, Ferradura"
+        status="Aberto até 20h."
+        toggleLabel="Mostrar detalhes da oferta"
+        open
+        onOpenChange={() => {}}
+        image={{ src: 'garrafa.jpg', alt: 'Garrafa' }}
+        category="Cervejas"
+        productName="Cerveja Corona Extra Long Neck 330ml"
+        save={{ label: 'Salvar produto', pressed: false, onPressedChange: () => {} }}
+        brand="Marca: Corona"
+        description="Unidade de 330ml."
+        payment={{ title: 'Opções de Pagamento', text: 'Dinheiro, Cartão de Crédito e PIX.' }}
+        orderAction={{ label: 'Enviar pedido para loja' }}
+      />
+    </div>
   ]
 ];
 

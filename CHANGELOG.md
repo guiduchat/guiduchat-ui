@@ -1,5 +1,23 @@
 # Changelog do @guiduchat/ui
 
+## 0.39.0 (cartões da pesquisa de preços)
+
+Pedido do Marcelo (05/11/2026) para a pesquisa de preços e produtos sem IA, a partir de dois desenhos. Só acrescenta: nenhum componente existente muda. Tem um token novo (revisão da equipe console, regra U2).
+
+**Componentes**
+
+- **`ProductPriceCard` (novo):** cartão do produto. Cartão de fora com cartão de dentro (mais claro no hub escuro) e faixa de baixo. Foto em fundo branco, nome em duas linhas, marca, nota (slot), salvar (`save`, com `aria-pressed`), frase das ofertas (`offers`, slot: `<strong>` em destaque e `<em>` na cor do tema), moeda, preço e unidade, e na faixa o ícone de entrega com o texto e o botão (`action`, com `asChild` para link). O preço vem formatado do app; o kit não calcula.
+- **`StorePriceCard` (novo):** oferta de uma loja. Fechado: preço, "Preços em BRL", ícone e texto de retirada ou entrega, pílula de aviso (camada `band`) e a faixa da loja (logo em squircle como slot, nome, endereço, situação e o botão redondo de seta). Aberto: acrescenta foto, categoria, nome, salvar, marca, descrição, pagamento e o botão largo de pedido, e a seta aponta para cima. O estado é **controlado** (`open` e `onOpenChange`): o app garante um aberto por vez. O botão de seta leva `aria-expanded` e `aria-controls`.
+- **`ProductPriceCardSkeleton` e `StorePriceCardSkeleton` (novos):** esqueletos com as classes do cartão (regra U10); o da loja é do cartão fechado.
+
+**Ícones**
+
+- `receipt` (recibo, Opções de Pagamento), `clipboard` (prancheta, Enviar pedido) e `chevronUp` (seta para cima).
+
+**Tokens**
+
+- `--product-photo-background`: #FFFFFF nos dois temas (foto de produto em fundo branco), também em `src/tokens`.
+
 ## 0.38.0 (cores de estado)
 
 Pedido do Marcelo (04/11/2026): trocar verdes, amarelos e vermelhos de estado pelos pares `--status-*`. Mexe em token e muda a aparência em todos os apps, inclusive nos mini-apps: revisão da equipe console (regra U2).

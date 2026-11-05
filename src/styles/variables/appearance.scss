@@ -68,6 +68,8 @@
   // Bolinha do Switch ativo.
   --switch-thumb-active: var(--icon-primary-inverse-static);
   --star-tile-background: #2d2d2d;
+  // Fundo da foto do produto nos cartões de preço: branco nos dois temas.
+  --product-photo-background: #ffffff;
   // Linha do resumo do pedido: sólida e igual nos dois temas (Marcelo, 04/11/2026).
   --order-summary-divider: #2d2d2d;
   --star-tile-star: #c8e805;
@@ -326,6 +328,8 @@
   // Bolinha do Switch ativo no escuro: #3f3f3f (Marcelo, 04/11/2026).
   --switch-thumb-active: #3f3f3f;
   --star-tile-background: #2d2d2d;
+  // Fundo da foto do produto nos cartões de preço: branco nos dois temas.
+  --product-photo-background: #ffffff;
   // Linha do resumo do pedido: sólida e igual nos dois temas (Marcelo, 04/11/2026).
   --order-summary-divider: #2d2d2d;
   --star-tile-star: #e1fb40;
