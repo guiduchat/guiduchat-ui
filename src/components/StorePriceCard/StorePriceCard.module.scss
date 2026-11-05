@@ -93,9 +93,9 @@
 }
 
 .StorePriceCard__notice {
-  @include typography.description;
+  @include typography.tag;
   margin: 0;
-  padding: var(--spacing-size-s) var(--spacing-size-xl);
+  padding: var(--spacing-size-s) var(--spacing-size-m);
   border-radius: var(--border-radius-circle);
   background-color: var(--surface-band);
   color: var(--text-secondary);

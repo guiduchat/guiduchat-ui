@@ -89,7 +89,7 @@ export const ProductPriceCard = forwardRef<HTMLElement, ProductPriceCardProps>((
                   aria-pressed={save.pressed}
                   onClick={() => { save.onPressedChange(!save.pressed); }}
                 >
-                  <Icon icon={save.pressed ? icons.saved : icons.save} size={28} />
+                  <Icon icon={save.pressed ? icons.saved : icons.save} size={24} />
                 </button>
               )}
             </div>
@@ -112,7 +112,7 @@ export const ProductPriceCard = forwardRef<HTMLElement, ProductPriceCardProps>((
         <div className={styles.ProductPriceCard__footer}>
           {hasReactNode(delivery) && (
             <p className={styles.ProductPriceCard__delivery}>
-              <Icon icon={icons.delivery} size={32} />
+              <span className={styles.ProductPriceCard__deliveryIcon}><Icon icon={icons.delivery} size={28} /></span>
               <span>{delivery}</span>
             </p>
           )}

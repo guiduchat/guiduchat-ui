@@ -57,8 +57,7 @@
   display: flex;
   flex: 1 1 0;
   flex-direction: column;
-  justify-content: space-between;
-  gap: var(--spacing-size-m);
+  gap: var(--spacing-size-xl);
   min-width: 0;
 }
 
@@ -87,11 +86,11 @@
   flex-shrink: 0;
   align-items: center;
   justify-content: center;
-  width: 36px;
-  height: 36px;
-  margin: calc(var(--spacing-size-xs) * -1) calc(var(--spacing-size-xs) * -1) 0 0;
+  width: 44px;
+  height: 44px;
   border-radius: var(--size-border-radius-semantic-border-radius-paper);
-  color: var(--icon-themed);
+  background-color: var(--button-primary);
+  color: var(--text-on-accent);
   cursor: pointer;
 
   &:focus-visible {
@@ -180,13 +179,19 @@
   gap: var(--spacing-size-m);
   min-width: 0;
   margin: 0;
-  padding-left: var(--spacing-size-xs);
   color: var(--text-themed);
+}
 
-  svg {
-    flex-shrink: 0;
-    color: var(--icon-themed);
-  }
+.ProductPriceCard__deliveryIcon {
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: var(--size-border-radius-semantic-border-radius-paper);
+  background-color: var(--button-primary);
+  color: var(--text-on-accent);
 }
 
 .ProductPriceCard__action {
