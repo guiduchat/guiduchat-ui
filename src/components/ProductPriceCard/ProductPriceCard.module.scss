@@ -104,24 +104,15 @@
   color: var(--text-themed);
 }
 
-.ProductPriceCard__rating {
-  @include typography.description;
-  display: inline-flex;
-  align-items: center;
-  gap: var(--spacing-size-xs);
-}
-
 .ProductPriceCard__priceRow {
   display: flex;
   align-items: flex-end;
-  justify-content: space-between;
-  gap: var(--spacing-size-xl);
+  justify-content: flex-end;
 }
 
 .ProductPriceCard__offers {
   @include typography.detail;
-  flex: 0 1 50%;
-  min-width: 0;
+  white-space: pre-line;
   margin: 0;
 
   strong {

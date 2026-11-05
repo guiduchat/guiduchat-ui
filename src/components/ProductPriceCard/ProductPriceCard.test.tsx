@@ -18,7 +18,6 @@ const offersText = (
 const base = {
   name: 'Cerveja Corona Extra Long Neck 330ml',
   brand: 'Marca: Corona',
-  rating: '4,8 (235)',
   offers: offersText,
   currency: 'R$',
   price: '7,49',
@@ -27,10 +26,10 @@ const base = {
 };
 
 describe('ProductPriceCard', () => {
-  it('mostra nome, marca, nota, ofertas, preço, unidade e entrega', () => {
+  it('mostra nome, marca, ofertas, preço, unidade e entrega', () => {
     render(<ProductPriceCard {...base} />);
     expect(screen.getByRole('heading', { name: base.name })).toBeTruthy();
-    for (const text of ['Marca: Corona', '4,8 (235)', 'R$', '7,49', '(unidade de 330ml)', 'Retirada ou entrega disponíveis', 'cervejas']) {
+    for (const text of ['Marca: Corona', 'R$', '7,49', '(unidade de 330ml)', 'Retirada ou entrega disponíveis', 'cervejas']) {
       expect(screen.getByText(text)).toBeTruthy();
     }
   });

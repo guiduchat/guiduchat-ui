@@ -38,12 +38,10 @@ interface ProductPriceCardOwnProps {
   nameAs?: ElementType
   /** Marca, como "Marca: Corona". Slot do app. */
   brand?: ReactNode
-  /** Nota, em geral `StarTile` e número. Slot do app. */
-  rating?: ReactNode
   /** Botão de salvar, à direita do nome. */
   save?: PriceCardSave
   /**
-   * Frase "N ofertas em <categoria> a partir de:", já pronta do app. Dentro dela, `<strong>` fica em
+   * Frase "N ofertas em <categoria> a partir de:", ao lado da foto, já pronta do app. Quebras de linha do texto são mantidas. Dentro dela, `<strong>` fica em
    * destaque e `<em>` na cor do tema (sem itálico).
    */
   offers?: ReactNode
@@ -62,12 +60,12 @@ interface ProductPriceCardOwnProps {
 export type ProductPriceCardProps = MergeProps<ComponentProps<'article'>, ProductPriceCardOwnProps>;
 
 /**
- * Cartão do produto na pesquisa de preços: foto, nome, marca, nota, o menor preço e, na faixa de baixo,
+ * Cartão do produto na pesquisa de preços: foto, nome, marca, ofertas, o menor preço e, na faixa de baixo,
  * a entrega e o botão para comparar as lojas. Cartão de fora com cartão de dentro (mais claro no hub escuro).
  * Só apresentação: textos, números e ações vêm do app.
  */
 export const ProductPriceCard = forwardRef<HTMLElement, ProductPriceCardProps>((props, ref) => {
-  const { image, name, nameAs: Name = 'h3', brand, rating, save, offers, currency, price, unit, delivery, action, className, ...rest } = props;
+  const { image, name, nameAs: Name = 'h3', brand, save, offers, currency, price, unit, delivery, action, className, ...rest } = props;
 
   return (
     <article ref={ref} className={clsx(styles.ProductPriceCard, className)} {...rest}>
@@ -94,11 +92,10 @@ export const ProductPriceCard = forwardRef<HTMLElement, ProductPriceCardProps>((
               )}
             </div>
             {hasReactNode(brand) && <span className={styles.ProductPriceCard__brand}>{brand}</span>}
-            {hasReactNode(rating) && <span className={styles.ProductPriceCard__rating}>{rating}</span>}
+            {hasReactNode(offers) && <p className={styles.ProductPriceCard__offers}>{offers}</p>}
           </div>
         </div>
         <div className={styles.ProductPriceCard__priceRow}>
-          {hasReactNode(offers) && <p className={styles.ProductPriceCard__offers}>{offers}</p>}
           <p className={styles.ProductPriceCard__price}>
             <span className={styles.ProductPriceCard__amount}>
               {hasReactNode(currency) && <span className={styles.ProductPriceCard__currency}>{currency}</span>}

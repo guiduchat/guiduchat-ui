@@ -1,6 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
-import { StarTile } from '../StarTile';
 import { ProductPriceCard, type ProductPriceCardProps } from './ProductPriceCard';
 import { ProductPriceCardSkeleton } from './ProductPriceCardSkeleton';
 
@@ -30,12 +29,6 @@ const meta = {
     image,
     name: 'Cerveja Corona Extra Long Neck 330ml',
     brand: 'Marca: Corona',
-    rating: (
-      <>
-        <StarTile size={20} />
-        4,8 (235)
-      </>
-    ),
     save: { label: 'Salvar produto', pressed: false, onPressedChange: () => {} },
     offers: offersText,
     currency: 'R$',
