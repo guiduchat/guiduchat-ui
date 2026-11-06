@@ -9,12 +9,13 @@ export type ProductHeroSkeletonProps = MergeProps<ComponentProps<'div'>, { actio
 
 /**
  * Esqueleto do `ProductHero` (regra U10): o quadro da imagem e a coluna de ações. Usa as classes do
- * componente, então a página não pula quando a imagem chega. Só visual.
+ * componente, então a página não pula quando a imagem chega. Só visual. Sem o fundo branco da foto:
+ * no escuro, a barra do esqueleto sumiria sobre ele.
  */
 export const ProductHeroSkeleton = forwardRef<HTMLDivElement, ProductHeroSkeletonProps>((props, ref) => {
-  const { actions = 4, className, ...rest } = props;
+  const { actions = 4, className, style, ...rest } = props;
   return (
-    <div ref={ref} className={clsx(styles.ProductHero, className)} aria-hidden {...rest}>
+    <div ref={ref} className={clsx(styles.ProductHero, className)} style={{ background: 'none', ...style }} aria-hidden {...rest}>
       <Skeleton width="100%" height="100%" />
       <div className={styles.ProductHero__actions}>
         {Array.from({ length: actions }, (_, index) => (
