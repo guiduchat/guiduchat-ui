@@ -1,5 +1,5 @@
 import {clsx} from "clsx";
-import {KeyboardEventHandler, MouseEventHandler} from "react";
+import {KeyboardEventHandler, MouseEventHandler, ReactNode} from "react";
 
 import { icons } from '../../icons/catalog';
 import {SvgButton} from "../../internal";
@@ -13,16 +13,21 @@ export interface TabsItem {
   id: string;
   title: string;
   indicator?: number,
+  /** Ícone acima do texto. Com ele, as abas dividem a largura e a linha fica colada embaixo. */
+  icon?: ReactNode;
 }
 export interface TabsProps {
   items: TabsItem[],
   activeItem: string,
   onClick: (id: string) => void,
   onCancel?: (id: string) => void,
+  /** Nome da lista de abas para o leitor de tela. */
+  'aria-label'?: string,
   innerClassNames?: InnerClassNamesProp<TabsElementKey>
 }
 
-export const Tabs = ({items, activeItem, onCancel, onClick, innerClassNames}: TabsProps) => {
+export const Tabs = ({items, activeItem, onCancel, onClick, innerClassNames, 'aria-label': ariaLabel}: TabsProps) => {
+  const stacked = items.some((item) => item.icon !== undefined);
   const handleClose = (itemId: string): MouseEventHandler<HTMLButtonElement> => (event) => {
     event.stopPropagation();
     onCancel?.(itemId);
@@ -67,7 +72,7 @@ export const Tabs = ({items, activeItem, onCancel, onClick, innerClassNames}: Ta
   const isActive = (id: string): boolean => id === activeItem;
 
   return (
-    <div className={clsx(styles.tabs, innerClassNames?.list)} role="tablist">
+    <div className={clsx(styles.tabs, stacked && styles.tabs_stacked, innerClassNames?.list)} role="tablist" aria-label={ariaLabel}>
       {items.map((item, index) => (
         <div
           key={item.id}
@@ -83,6 +88,7 @@ export const Tabs = ({items, activeItem, onCancel, onClick, innerClassNames}: Ta
             tabIndex={-1}
             className={styles.tab__label}
           >
+            {item.icon}
             {item.title}
             {item.indicator && <Counter variant={isActive(item.id) ? 'primary' : 'mute'} value={item.indicator} className={clsx(innerClassNames?.indicator)} />}
           </button>

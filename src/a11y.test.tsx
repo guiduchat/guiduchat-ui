@@ -53,7 +53,9 @@ import {
   PlaceCard,
   PlaceListCard,
   PriceSummary,
+  ProductHero,
   ProductPriceCard,
+  ProductSummary,
   PromptCard,
   QrCode,
   QrPanel,
@@ -659,6 +661,31 @@ const cases: Array<[string, ReactNode]> = [
         open
         onOpenChange={() => {}}
         toggleLabel="Mostrar detalhes do item"
+      />
+    </div>
+  ],
+  [
+    'Página do produto',
+    <div key="product-page">
+      <ProductHero
+        image={{ src: 'garrafa.jpg', alt: 'Garrafa' }}
+        actions={[
+          { label: 'Compartilhar', icon: <Icon icon={icons.share} /> },
+          { label: 'Copiar link', icon: <Icon icon={icons.link} /> }
+        ]}
+      />
+      <ProductSummary
+        category="Cervejas"
+        name="Cerveja Corona Extra Long Neck 330ml"
+        discount={(
+          <>
+            {'Descontos de até '}
+            <strong>35%</strong>
+          </>
+        )}
+        priceLabel="A partir de:"
+        currency="R$"
+        price="7,80"
       />
     </div>
   ]

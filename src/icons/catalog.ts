@@ -10,6 +10,7 @@
 //   Hugeicons Pro muda só este arquivo.
 import Airplane01Icon from '@hugeicons/core-free-icons/Airplane01Icon';
 import AiSearch01Icon from '@hugeicons/core-free-icons/AiSearch01Icon';
+import AlarmClockIcon from '@hugeicons/core-free-icons/AlarmClockIcon';
 import Alert02Icon from '@hugeicons/core-free-icons/Alert02Icon';
 import AppleIcon from '@hugeicons/core-free-icons/AppleIcon';
 import ArrowDown01Icon from '@hugeicons/core-free-icons/ArrowDown01Icon';
@@ -17,10 +18,12 @@ import ArrowLeft02Icon from '@hugeicons/core-free-icons/ArrowLeft02Icon';
 import ArrowRight01Icon from '@hugeicons/core-free-icons/ArrowRight01Icon';
 import ArrowRight02Icon from '@hugeicons/core-free-icons/ArrowRight02Icon';
 import ArrowUp01Icon from '@hugeicons/core-free-icons/ArrowUp01Icon';
+import ArrowUpDownIcon from '@hugeicons/core-free-icons/ArrowUpDownIcon';
 import ArrowUpRight01Icon from '@hugeicons/core-free-icons/ArrowUpRight01Icon';
 import Attachment01Icon from '@hugeicons/core-free-icons/Attachment01Icon';
 import Baby01Icon from '@hugeicons/core-free-icons/Baby01Icon';
 import Bookmark01Icon from '@hugeicons/core-free-icons/Bookmark01Icon';
+import BookmarkAdd01Icon from '@hugeicons/core-free-icons/BookmarkAdd01Icon';
 import BookmarkCheck01Icon from '@hugeicons/core-free-icons/BookmarkCheck01Icon';
 import BotIcon from '@hugeicons/core-free-icons/BotIcon';
 import CalendarClockIcon from '@hugeicons/core-free-icons/CalendarClockIcon';
@@ -28,6 +31,7 @@ import CallIcon from '@hugeicons/core-free-icons/CallIcon';
 import Camera01Icon from '@hugeicons/core-free-icons/Camera01Icon';
 import Cancel01Icon from '@hugeicons/core-free-icons/Cancel01Icon';
 import CancelCircleIcon from '@hugeicons/core-free-icons/CancelCircleIcon';
+import ChartLineData01Icon from '@hugeicons/core-free-icons/ChartLineData01Icon';
 import Chat01Icon from '@hugeicons/core-free-icons/Chat01Icon';
 import ClipboardListIcon from '@hugeicons/core-free-icons/ClipboardListIcon';
 import Clock01Icon from '@hugeicons/core-free-icons/Clock01Icon';
@@ -47,6 +51,7 @@ import EyeIcon from '@hugeicons/core-free-icons/EyeIcon';
 import EyeOffIcon from '@hugeicons/core-free-icons/EyeOffIcon';
 import Facebook01Icon from '@hugeicons/core-free-icons/Facebook01Icon';
 import FavouriteIcon from '@hugeicons/core-free-icons/FavouriteIcon';
+import File02Icon from '@hugeicons/core-free-icons/File02Icon';
 import FileTextIcon from '@hugeicons/core-free-icons/FileTextIcon';
 import FilterHorizontalIcon from '@hugeicons/core-free-icons/FilterHorizontalIcon';
 import Globe02Icon from '@hugeicons/core-free-icons/Globe02Icon';
@@ -59,6 +64,7 @@ import InformationCircleIcon from '@hugeicons/core-free-icons/InformationCircleI
 import InstagramIcon from '@hugeicons/core-free-icons/InstagramIcon';
 import Invoice01Icon from '@hugeicons/core-free-icons/Invoice01Icon';
 import LanguagesIcon from '@hugeicons/core-free-icons/LanguagesIcon';
+import Link01Icon from '@hugeicons/core-free-icons/Link01Icon';
 import Location01Icon from '@hugeicons/core-free-icons/Location01Icon';
 import LogoutSquare01Icon from '@hugeicons/core-free-icons/LogoutSquare01Icon';
 import Mail01Icon from '@hugeicons/core-free-icons/Mail01Icon';
@@ -77,6 +83,7 @@ import NfcIcon from '@hugeicons/core-free-icons/NfcIcon';
 import NoteEditIcon from '@hugeicons/core-free-icons/NoteEditIcon';
 import Notification01Icon from '@hugeicons/core-free-icons/Notification01Icon';
 import ParkingAreaCircleIcon from '@hugeicons/core-free-icons/ParkingAreaCircleIcon';
+import PercentCircleIcon from '@hugeicons/core-free-icons/PercentCircleIcon';
 import PinIcon from '@hugeicons/core-free-icons/PinIcon';
 import PinOffIcon from '@hugeicons/core-free-icons/PinOffIcon';
 import PlusSignIcon from '@hugeicons/core-free-icons/PlusSignIcon';
@@ -86,6 +93,7 @@ import SecurityLockIcon from '@hugeicons/core-free-icons/SecurityLockIcon';
 import SentIcon from '@hugeicons/core-free-icons/SentIcon';
 import Share01Icon from '@hugeicons/core-free-icons/Share01Icon';
 import Share03Icon from '@hugeicons/core-free-icons/Share03Icon';
+import Share08Icon from '@hugeicons/core-free-icons/Share08Icon';
 import ShieldUserIcon from '@hugeicons/core-free-icons/ShieldUserIcon';
 import Shirt01Icon from '@hugeicons/core-free-icons/Shirt01Icon';
 import ShoppingBasket01Icon from '@hugeicons/core-free-icons/ShoppingBasket01Icon';
@@ -145,6 +153,7 @@ export const icons = {
   share: Share01Icon,
   // Caixa com seta para cima (desenho da oferta); o `share` acima continua o de sempre.
   shareUpload: Share03Icon,
+  shareNodes: Share08Icon,
   map: MapsIcon,
   location: Location01Icon,
   website: Globe02Icon,
@@ -153,6 +162,7 @@ export const icons = {
   calendar: CalendarClockIcon,
   camera: Camera01Icon,
   document: Doc01Icon,
+  textFile: File02Icon,
   image: Image01Icon,
   arrowForward: ArrowRight02Icon,
   thumbsUp: ThumbsUpIcon,
@@ -225,6 +235,13 @@ export const icons = {
   // Cartões de preço: opções de pagamento (recibo) e enviar pedido (prancheta)
   receipt: Invoice01Icon,
   clipboard: ClipboardListIcon,
+  // Página do produto: alerta de preço, salvar com mais, copiar link, histórico, ofertas e ordenar
+  priceAlert: AlarmClockIcon,
+  saveAdd: BookmarkAdd01Icon,
+  link: Link01Icon,
+  history: ChartLineData01Icon,
+  offerTag: PercentCircleIcon,
+  sort: ArrowUpDownIcon,
   // Controles
   close: Cancel01Icon,
   closeCircle: CancelCircleIcon,

@@ -1,0 +1,100 @@
+@use '../../styles/shared-mixins/typography';
+@use '../../styles/shared-mixins/reset-clickable';
+
+// Sem fundo próprio: quem o prende no alto dá o fundo da página. Foto de 80x80, nome em até duas linhas e,
+// embaixo dele, o botão das ofertas e as ações de 36 px (desenho do Marcelo, 06/11/2026).
+.ProductPinnedHeader {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-size-xl);
+  width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+  color: var(--text-primary);
+}
+
+.ProductPinnedHeader__media {
+  display: flex;
+  flex: 0 0 80px;
+  align-items: center;
+  justify-content: center;
+  width: 80px;
+  height: 80px;
+  overflow: hidden;
+  border-radius: var(--size-border-radius-semantic-border-radius-card);
+  background-color: var(--product-photo-background);
+  color: var(--text-secondary);
+}
+
+.ProductPinnedHeader__image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.ProductPinnedHeader__info {
+  display: flex;
+  flex: 1 1 0;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: var(--spacing-size-xs);
+  min-width: 0;
+  height: 80px;
+}
+
+.ProductPinnedHeader__name {
+  @include typography.bodyStrong;
+  display: -webkit-box;
+  margin: 0;
+  overflow: hidden;
+  overflow-wrap: anywhere;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+}
+
+.ProductPinnedHeader__row {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-size-m);
+  min-width: 0;
+}
+
+// O botão cede espaço às ações: em telas estreitas o texto corta, nada sai da tela.
+.ProductPinnedHeader__offers {
+  flex: 0 1 auto;
+  min-width: 0;
+  height: 36px;
+  margin: 0 auto 0 0;
+  padding-block: 0;
+  padding-inline: var(--spacing-size-m);
+}
+
+.ProductPinnedHeader__actions {
+  display: flex;
+  flex-shrink: 0;
+  gap: var(--spacing-size-xl);
+}
+
+.ProductPinnedHeader__action {
+  @include reset-clickable.resetClickable;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: var(--border-radius-circle);
+  background-color: var(--button-primary);
+  color: var(--text-on-accent);
+  cursor: pointer;
+
+  svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--icon-themed);
+    outline-offset: 2px;
+  }
+}

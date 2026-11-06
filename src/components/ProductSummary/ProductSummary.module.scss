@@ -1,0 +1,77 @@
+@use '../../styles/shared-mixins/typography';
+
+.ProductSummary {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-size-m);
+  min-width: 0;
+  text-align: center;
+  color: var(--text-primary);
+}
+
+.ProductSummary__titles {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 0;
+}
+
+.ProductSummary__category {
+  @include typography.detail;
+  color: var(--text-themed);
+}
+
+.ProductSummary__name {
+  @include typography.section;
+  font-weight: var(--font-weight-body-strong);
+  margin: 0;
+  overflow-wrap: anywhere;
+  text-wrap: balance;
+}
+
+// Selo com o par de estado do kit (mint), igual nos dois temas.
+.ProductSummary__badge {
+  @include typography.description;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-size-xs);
+  margin: 0;
+  padding: var(--spacing-size-xs) var(--spacing-size2xl);
+  border-radius: var(--border-radius-circle);
+  background-color: var(--status-mint);
+  color: var(--status-mint-fg);
+
+  strong {
+    font-weight: var(--font-weight-body-strong);
+  }
+}
+
+.ProductSummary__price {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: var(--spacing-size-m);
+  margin: 0;
+}
+
+.ProductSummary__priceLabel {
+  @include typography.labelStrong;
+  text-transform: uppercase;
+  color: var(--text-primary);
+}
+
+.ProductSummary__amount {
+  @include typography.display;
+  display: inline-flex;
+  align-items: baseline;
+  gap: var(--spacing-size2xs);
+  color: var(--text-themed);
+  font-weight: var(--font-weight-body-strong);
+  white-space: nowrap;
+}
+
+.ProductSummary__currency {
+  @include typography.subheader;
+  font-weight: var(--font-weight-body-strong);
+}

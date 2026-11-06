@@ -37,10 +37,10 @@ describe('catálogo de ícones', () => {
       'accessible', 'account', 'add', 'aiSearch', 'apple', 'arrowForward', 'arrowUpRight', 'attach', 'back',
       'basket', 'bot', 'calendar', 'call', 'camera', 'card', 'cart', 'chatAdd', 'chats', 'check', 'chevronDown', 'chevronRight', 'chevronUp', 'clipboard', 'clock',
       'close', 'closeCircle', 'contactless', 'copy', 'coupon', 'darkMode', 'delivery', 'discover', 'document', 'drink', 'eye', 'eyeOff',
-      'facebook', 'faq', 'fashion', 'filter', 'food', 'forYou', 'google', 'health', 'heart', 'home', 'image', 'info',
-      'instagram', 'kids', 'language', 'location', 'mail', 'map', 'mapSearch', 'menu', 'mic', 'minus', 'more', 'moreVertical', 'navigation', 'note', 'notification',
-      'offline', 'orders', 'otherCategory', 'parking', 'pickup', 'pin', 'places', 'priceLevel', 'print', 'privacy', 'privacyPolicy', 'readDouble', 'receipt', 'save', 'saved', 'search', 'security', 'send',
-      'share', 'shareUpload', 'signOut', 'smartphone', 'sparkles', 'star', 'support', 'terms', 'thumbsDown', 'thumbsUp', 'tiktok', 'timer', 'trash', 'travel', 'unpin', 'wallet',
+      'facebook', 'faq', 'fashion', 'filter', 'food', 'forYou', 'google', 'health', 'heart', 'history', 'home', 'image', 'info',
+      'instagram', 'kids', 'language', 'link', 'location', 'mail', 'map', 'mapSearch', 'menu', 'mic', 'minus', 'more', 'moreVertical', 'navigation', 'note', 'notification',
+      'offerTag', 'offline', 'orders', 'otherCategory', 'parking', 'pickup', 'pin', 'places', 'priceAlert', 'priceLevel', 'print', 'privacy', 'privacyPolicy', 'readDouble', 'receipt', 'save', 'saveAdd', 'saved', 'search', 'security', 'send',
+      'share', 'shareNodes', 'shareUpload', 'signOut', 'smartphone', 'sort', 'sparkles', 'star', 'support', 'terms', 'textFile', 'thumbsDown', 'thumbsUp', 'tiktok', 'timer', 'trash', 'travel', 'unpin', 'wallet',
       'warning', 'website', 'whatsapp'
     ]);
   });
