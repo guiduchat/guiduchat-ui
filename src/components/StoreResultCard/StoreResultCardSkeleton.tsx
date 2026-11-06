@@ -34,14 +34,14 @@ export const StoreResultCardSkeleton = forwardRef<HTMLDivElement, StoreResultCar
               </span>
               <Skeleton width={96} height={40} />
             </div>
+            <div className={styles.StoreResultCard__store}>
+              <span className={styles.StoreResultCard__avatar}><Skeleton shape="avatar" width={40} height={40} /></span>
+              <span className={styles.StoreResultCard__names}>
+                <span className={styles.StoreResultCard__storeName}><Skeleton shape="line" width="70%" /></span>
+                <span className={styles.StoreResultCard__address}><Skeleton shape="line" width="50%" /></span>
+              </span>
+            </div>
           </div>
-        </div>
-        <div className={styles.StoreResultCard__store}>
-          <span className={styles.StoreResultCard__avatar}><Skeleton shape="avatar" width={48} height={48} /></span>
-          <span className={styles.StoreResultCard__names}>
-            <span className={styles.StoreResultCard__storeName}><Skeleton shape="line" width="70%" /></span>
-            <span className={styles.StoreResultCard__address}><Skeleton shape="line" width="50%" /></span>
-          </span>
         </div>
       </div>
       <div className={styles.StoreResultCard__footer}>

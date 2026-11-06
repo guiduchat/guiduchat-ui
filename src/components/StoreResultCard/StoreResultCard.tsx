@@ -12,7 +12,7 @@ import styles from './StoreResultCard.module.scss';
 interface StoreResultCardOwnProps {
   /** Foto do item, em moldura fixa de 100x175 (corta para preencher). Sem ela, fica uma reserva com ícone. */
   image?: PriceCardImage
-  /** Nome do item. Três linhas no máximo. */
+  /** Nome do item. Duas linhas no máximo. */
   name: ReactNode
   /** Elemento do nome. `h3` por padrão. */
   nameAs?: ElementType
@@ -87,13 +87,13 @@ export const StoreResultCard = forwardRef<HTMLElement, StoreResultCardProps>((pr
                 {price}
               </p>
             </div>
-          </div>
-        </div>
-        <div className={styles.StoreResultCard__store}>
-          {hasReactNode(avatar) && <span className={styles.StoreResultCard__avatar}>{avatar}</span>}
-          <div className={styles.StoreResultCard__names}>
-            <span className={styles.StoreResultCard__storeName}>{storeName}</span>
-            {hasReactNode(address) && <span className={styles.StoreResultCard__address}>{address}</span>}
+            <div className={styles.StoreResultCard__store}>
+              {hasReactNode(avatar) && <span className={styles.StoreResultCard__avatar}>{avatar}</span>}
+              <div className={styles.StoreResultCard__names}>
+                <span className={styles.StoreResultCard__storeName}>{storeName}</span>
+                {hasReactNode(address) && <span className={styles.StoreResultCard__address}>{address}</span>}
+              </div>
+            </div>
           </div>
         </div>
       </div>
