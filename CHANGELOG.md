@@ -1,5 +1,19 @@
 # Changelog do @guiduchat/ui
 
+## 0.40.0 (página do produto)
+
+Pedido do Marcelo (05/11/2026) para a página do produto padronizado. Só acrescenta: nenhum componente existente muda.
+
+**Componentes**
+
+- **`ProductHero` (novo):** imagem quadrada de borda a borda em fundo branco (`--product-photo-background`), cantos de 24 px, e coluna de ações redondas de 44 px sobre ela (`actions`: nome, ícone e clique do app). Com `ProductHeroSkeleton`, que reserva o quadro e a coluna.
+- **`ProductSummary` (novo):** categoria, nome centralizado, selo de desconto no par `--status-mint` (o `<strong>` da frase fica em negrito), legenda em maiúsculas e o preço grande na mesma linha. Com `ProductSummarySkeleton`.
+- O menu em pílulas é o `Segmented` (variante `pill`, com ícone): nenhum componente novo.
+
+**Ícones**
+
+- `priceAlert`, `saveAdd`, `link`, `history`, `offerTag` e `sort`.
+
 ## 0.39.0 (cartões da pesquisa de preços)
 
 Pedido do Marcelo (05/11/2026) para a pesquisa de preços e produtos sem IA, a partir de dois desenhos. Só acrescenta: nenhum componente existente muda. Tem um token novo (revisão da equipe console, regra U2).
