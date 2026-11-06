@@ -1,0 +1,234 @@
+@use '../../styles/shared-mixins/typography';
+@use '../../styles/shared-mixins/reset-clickable';
+
+// Medidas do desenho do Marcelo: cartão de fora (raio 24, margem 12) com o cartão de dentro (raio 20),
+// mais claro no hub escuro, e a faixa de baixo no fundo do cartão de fora.
+.StoreResultCard {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-size-xl);
+  width: 100%;
+  min-width: 0;
+  padding: var(--spacing-size-xl);
+  box-sizing: border-box;
+  border-radius: var(--size-border-radius-semantic-border-radius-surface);
+  background-color: var(--surface-outer);
+  --field-background: var(--field-on-outer);
+  --field-background-contrast: var(--field-contrast-on-outer);
+  color: var(--text-primary);
+}
+
+.StoreResultCard__body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-size-xl);
+  padding: var(--spacing-size-xl);
+  border-radius: var(--size-border-radius-semantic-border-radius-promo);
+  background-color: var(--surface-inner);
+  --field-background: var(--field-on-inner);
+  --field-background-contrast: var(--field-contrast-on-inner);
+}
+
+.StoreResultCard__top {
+  display: flex;
+  align-items: stretch;
+  gap: var(--spacing-size-xl);
+}
+
+.StoreResultCard__media {
+  display: flex;
+  flex: 0 0 100px;
+  align-items: center;
+  justify-content: center;
+  height: 175px;
+  overflow: hidden;
+  border-radius: var(--size-border-radius-semantic-border-radius-card);
+  background-color: var(--background-tertiary);
+  color: var(--text-secondary);
+}
+
+.StoreResultCard__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.StoreResultCard__info {
+  display: flex;
+  flex: 1 1 0;
+  flex-direction: column;
+  gap: var(--spacing-size-m);
+  min-width: 0;
+}
+
+.StoreResultCard__heading {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--spacing-size-m);
+}
+
+.StoreResultCard__name {
+  @include typography.bodyStrong;
+  display: -webkit-box;
+  flex: 1 1 0;
+  min-width: 0;
+  margin: 0;
+  overflow: hidden;
+  overflow-wrap: anywhere;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+}
+
+.StoreResultCard__save {
+  @include reset-clickable.resetClickable;
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: var(--border-radius-circle);
+  background-color: var(--button-primary);
+  color: var(--text-on-accent);
+  cursor: pointer;
+
+  &:focus-visible {
+    outline: 2px solid var(--icon-themed);
+    outline-offset: 2px;
+  }
+}
+
+.StoreResultCard__priceRow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: var(--spacing-size-xs);
+  margin-top: auto;
+}
+
+.StoreResultCard__offers {
+  @include typography.detail;
+  line-height: 1.15rem;
+  white-space: pre-line;
+  margin: 0;
+
+  strong {
+    font-weight: var(--font-weight-body-strong);
+  }
+
+  em {
+    font-style: normal;
+    color: var(--text-themed);
+  }
+}
+
+// Preço grande na frente do texto das ofertas, com a moeda menor (desenho 3).
+.StoreResultCard__price {
+  @include typography.display;
+  display: inline-flex;
+  flex: 1 1 min-content;
+  align-items: baseline;
+  justify-content: flex-end;
+  gap: var(--spacing-size2xs);
+  margin: 0 0 0 auto;
+  color: var(--text-themed);
+  font-weight: var(--font-weight-body-strong);
+  white-space: nowrap;
+}
+
+.StoreResultCard__currency {
+  @include typography.subheader;
+  font-weight: var(--font-weight-body-strong);
+}
+
+.StoreResultCard__store {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-size-m);
+}
+
+.StoreResultCard__avatar {
+  display: flex;
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  // Sem recorte redondo: o formato vem do próprio avatar (squircle).
+  overflow: hidden;
+
+  > * {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.StoreResultCard__names {
+  display: flex;
+  flex: 1 1 0;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.StoreResultCard__storeName {
+  @include typography.bodyStrong;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.StoreResultCard__address {
+  @include typography.description;
+  overflow: hidden;
+  color: var(--text-primary);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.StoreResultCard__footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--spacing-size-xl);
+}
+
+.StoreResultCard__delivery {
+  display: flex;
+  flex: 1 1 0;
+  align-items: center;
+  gap: var(--spacing-size-m);
+  min-width: 0;
+}
+
+.StoreResultCard__deliveryIcon {
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: var(--border-radius-circle);
+  background-color: var(--button-primary);
+  color: var(--text-on-accent);
+}
+
+.StoreResultCard__deliveryText {
+  @include typography.description;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  margin: 0;
+  color: var(--text-secondary);
+}
+
+.StoreResultCard__status {
+  color: var(--text-positive);
+}
+
+.StoreResultCard__status_negative {
+  color: var(--text-negative);
+}
+
+.StoreResultCard__action {
+  flex-shrink: 0;
+}

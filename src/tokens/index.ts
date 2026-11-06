@@ -49,6 +49,7 @@ export const surfaces = {
   },
   // Estrela de nota (StarTile): o quadrado é o mesmo nos dois temas.
   starTileBackground: '#2d2d2d',
+  productPhotoBackground: '#ffffff',
   // Estrela apagada (nota abaixo de 5): branco a 24% sobre o quadrado, igual nos dois temas.
   starTileEmptyStar: 'rgb(255 255 255 / 0.24)',
   // Fundo de campo de formulário no claro: #ededed, ou #ffffff sobre uma camada que também é #ededed.
@@ -85,6 +86,7 @@ const surfaceTokens = (scheme: 'light' | 'dark') => ({
   '--pager-active-guidu': surfaces.pagerActive[scheme].guidu,
   '--pager-active-hub': surfaces.pagerActive[scheme].hub,
   '--star-tile-background': surfaces.starTileBackground,
+  '--product-photo-background': surfaces.productPhotoBackground,
   '--star-tile-star': scheme === 'light' ? brand.accentFill : brand.accent,
   '--star-tile-empty-star': surfaces.starTileEmptyStar,
   '--button-secondary-contrast': secondaryButton[scheme].background,

@@ -16,6 +16,7 @@ import ArrowDown01Icon from '@hugeicons/core-free-icons/ArrowDown01Icon';
 import ArrowLeft02Icon from '@hugeicons/core-free-icons/ArrowLeft02Icon';
 import ArrowRight01Icon from '@hugeicons/core-free-icons/ArrowRight01Icon';
 import ArrowRight02Icon from '@hugeicons/core-free-icons/ArrowRight02Icon';
+import ArrowUp01Icon from '@hugeicons/core-free-icons/ArrowUp01Icon';
 import ArrowUpRight01Icon from '@hugeicons/core-free-icons/ArrowUpRight01Icon';
 import Attachment01Icon from '@hugeicons/core-free-icons/Attachment01Icon';
 import Baby01Icon from '@hugeicons/core-free-icons/Baby01Icon';
@@ -28,6 +29,7 @@ import Camera01Icon from '@hugeicons/core-free-icons/Camera01Icon';
 import Cancel01Icon from '@hugeicons/core-free-icons/Cancel01Icon';
 import CancelCircleIcon from '@hugeicons/core-free-icons/CancelCircleIcon';
 import Chat01Icon from '@hugeicons/core-free-icons/Chat01Icon';
+import ClipboardListIcon from '@hugeicons/core-free-icons/ClipboardListIcon';
 import Clock01Icon from '@hugeicons/core-free-icons/Clock01Icon';
 import Copy01Icon from '@hugeicons/core-free-icons/Copy01Icon';
 import Coupon01Icon from '@hugeicons/core-free-icons/Coupon01Icon';
@@ -55,6 +57,7 @@ import Home01Icon from '@hugeicons/core-free-icons/Home01Icon';
 import Image01Icon from '@hugeicons/core-free-icons/Image01Icon';
 import InformationCircleIcon from '@hugeicons/core-free-icons/InformationCircleIcon';
 import InstagramIcon from '@hugeicons/core-free-icons/InstagramIcon';
+import Invoice01Icon from '@hugeicons/core-free-icons/Invoice01Icon';
 import LanguagesIcon from '@hugeicons/core-free-icons/LanguagesIcon';
 import Location01Icon from '@hugeicons/core-free-icons/Location01Icon';
 import LogoutSquare01Icon from '@hugeicons/core-free-icons/LogoutSquare01Icon';
@@ -219,12 +222,16 @@ export const icons = {
   offline: WifiOff01Icon,
   warning: Alert02Icon,
   info: InformationCircleIcon,
+  // Cartões de preço: opções de pagamento (recibo) e enviar pedido (prancheta)
+  receipt: Invoice01Icon,
+  clipboard: ClipboardListIcon,
   // Controles
   close: Cancel01Icon,
   closeCircle: CancelCircleIcon,
   check: Tick02Icon,
   chevronRight: ArrowRight01Icon,
-  chevronDown: ArrowDown01Icon
+  chevronDown: ArrowDown01Icon,
+  chevronUp: ArrowUp01Icon
 } satisfies Record<string, IconData>;
 
 export type IconName = keyof typeof icons;
