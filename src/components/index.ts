@@ -52,6 +52,7 @@ export * from './PlaceCard';
 export * from './PlaceListCard';
 export * from './PriceSummary';
 export * from './ProductHero';
+export * from './ProductPinnedHeader';
 export * from './ProductPriceCard';
 export * from './ProductSummary';
 export * from './ProfileStats';
