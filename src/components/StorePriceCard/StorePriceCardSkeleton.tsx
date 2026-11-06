@@ -27,7 +27,7 @@ export const StorePriceCardSkeleton = forwardRef<HTMLDivElement, StorePriceCardS
               <br />
               <Skeleton shape="line" width="55%" />
             </span>
-            <Skeleton width={44} height={44} style={{ flexShrink: 0 }} />
+            <Skeleton shape="circle" width={44} height={44} style={{ flexShrink: 0 }} />
           </span>
         </div>
         <p className={styles.StorePriceCard__notice}><Skeleton shape="line" width="85%" /></p>
@@ -39,7 +39,7 @@ export const StorePriceCardSkeleton = forwardRef<HTMLDivElement, StorePriceCardS
           <span className={styles.StorePriceCard__address}><Skeleton shape="line" width="85%" /></span>
           <span className={styles.StorePriceCard__status}><Skeleton shape="line" width="40%" /></span>
         </span>
-        <Skeleton shape="circle" width={48} height={48} style={{ flexShrink: 0 }} />
+        <Skeleton shape="circle" width={44} height={44} style={{ flexShrink: 0 }} />
       </div>
     </div>
   );

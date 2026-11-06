@@ -115,7 +115,7 @@ export const ProductPriceCard = forwardRef<HTMLElement, ProductPriceCardProps>((
           )}
           {action && (
             <Button
-              size="large"
+              size="small"
               className={styles.ProductPriceCard__action}
               asChild={action.asChild}
               onClick={action.onClick}

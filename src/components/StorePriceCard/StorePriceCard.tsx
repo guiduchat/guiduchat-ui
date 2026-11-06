@@ -146,7 +146,7 @@ export const StorePriceCard = forwardRef<HTMLElement, StorePriceCardProps>((prop
       {open && orderAction && (
         <Button
           id={`${detailsId}-order`}
-          size="large"
+          size="small"
           stretched
           iconBefore={<Icon icon={icons.clipboard} size={24} />}
           onClick={orderAction.onClick}

@@ -41,10 +41,10 @@ export const ProductPriceCardSkeleton = forwardRef<HTMLDivElement, ProductPriceC
       </div>
       <div className={styles.ProductPriceCard__footer}>
         <span className={styles.ProductPriceCard__delivery}>
-          <Skeleton width={44} height={44} />
+          <Skeleton shape="circle" width={44} height={44} />
           <span style={{ flex: 1 }}><Skeleton shape="line" width="80%" /></span>
         </span>
-        <Skeleton width={160} height={56} style={{ borderRadius: 20, flexShrink: 0 }} />
+        <Skeleton width={150} height={44} style={{ borderRadius: 16, flexShrink: 0 }} />
       </div>
     </div>
   );
