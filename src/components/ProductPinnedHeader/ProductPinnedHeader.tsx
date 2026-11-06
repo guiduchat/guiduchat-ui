@@ -47,7 +47,7 @@ export const ProductPinnedHeader = forwardRef<HTMLDivElement, ProductPinnedHeade
         <Name className={styles.ProductPinnedHeader__name}>{name}</Name>
         <div className={styles.ProductPinnedHeader__row}>
           {offers && (
-            <Button size="xsmall" className={styles.ProductPinnedHeader__offers} onClick={offers.onClick}>
+            <Button size="small" className={styles.ProductPinnedHeader__offers} onClick={offers.onClick}>
               {offers.label}
             </Button>
           )}

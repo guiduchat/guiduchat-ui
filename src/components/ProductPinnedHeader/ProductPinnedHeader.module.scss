@@ -43,7 +43,7 @@
 }
 
 .ProductPinnedHeader__name {
-  @include typography.title;
+  @include typography.bodyStrong;
   display: -webkit-box;
   margin: 0;
   overflow: hidden;
@@ -64,7 +64,8 @@
 .ProductPinnedHeader__offers {
   flex: 0 1 auto;
   min-width: 0;
-  margin-right: auto;
+  margin: -6px auto -6px 0;
+  padding-inline: var(--spacing-size-m);
 }
 
 .ProductPinnedHeader__actions {
