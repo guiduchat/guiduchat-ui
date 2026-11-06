@@ -23,7 +23,7 @@ interface ProductPinnedHeaderOwnProps {
   nameAs?: ElementType
   /** Botão com o total de ofertas. */
   offers?: ProductPinnedHeaderOffers
-  /** Ações redondas de 44 px, à direita do botão (favoritos, alerta de preço, compartilhar). */
+  /** Ações redondas de 36 px, à direita do botão (favoritos, alerta de preço, compartilhar). */
   actions?: ProductHeroAction[]
 }
 
