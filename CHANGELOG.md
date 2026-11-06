@@ -12,7 +12,7 @@ Pedido do Marcelo (05/11/2026) para a página do produto padronizado. Só acresc
 
 **Ícones**
 
-- `priceAlert`, `saveAdd`, `link`, `history`, `offerTag` e `sort`.
+- `priceAlert`, `saveAdd`, `link`, `history`, `offerTag`, `textFile` e `sort`.
 
 ## 0.39.0 (cartões da pesquisa de preços)
 

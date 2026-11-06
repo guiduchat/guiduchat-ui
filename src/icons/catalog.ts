@@ -51,6 +51,7 @@ import EyeIcon from '@hugeicons/core-free-icons/EyeIcon';
 import EyeOffIcon from '@hugeicons/core-free-icons/EyeOffIcon';
 import Facebook01Icon from '@hugeicons/core-free-icons/Facebook01Icon';
 import FavouriteIcon from '@hugeicons/core-free-icons/FavouriteIcon';
+import File02Icon from '@hugeicons/core-free-icons/File02Icon';
 import FileTextIcon from '@hugeicons/core-free-icons/FileTextIcon';
 import FilterHorizontalIcon from '@hugeicons/core-free-icons/FilterHorizontalIcon';
 import Globe02Icon from '@hugeicons/core-free-icons/Globe02Icon';
@@ -159,6 +160,7 @@ export const icons = {
   calendar: CalendarClockIcon,
   camera: Camera01Icon,
   document: Doc01Icon,
+  textFile: File02Icon,
   image: Image01Icon,
   arrowForward: ArrowRight02Icon,
   thumbsUp: ThumbsUpIcon,
