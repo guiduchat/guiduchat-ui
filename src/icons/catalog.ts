@@ -93,6 +93,7 @@ import SecurityLockIcon from '@hugeicons/core-free-icons/SecurityLockIcon';
 import SentIcon from '@hugeicons/core-free-icons/SentIcon';
 import Share01Icon from '@hugeicons/core-free-icons/Share01Icon';
 import Share03Icon from '@hugeicons/core-free-icons/Share03Icon';
+import Share08Icon from '@hugeicons/core-free-icons/Share08Icon';
 import ShieldUserIcon from '@hugeicons/core-free-icons/ShieldUserIcon';
 import Shirt01Icon from '@hugeicons/core-free-icons/Shirt01Icon';
 import ShoppingBasket01Icon from '@hugeicons/core-free-icons/ShoppingBasket01Icon';
@@ -152,6 +153,7 @@ export const icons = {
   share: Share01Icon,
   // Caixa com seta para cima (desenho da oferta); o `share` acima continua o de sempre.
   shareUpload: Share03Icon,
+  shareNodes: Share08Icon,
   map: MapsIcon,
   location: Location01Icon,
   website: Globe02Icon,
