@@ -55,6 +55,8 @@ describe('StoreResultCard', () => {
     const { container } = render(<StoreResultCardSkeleton />);
     expect(container.innerHTML).toMatch(/StoreResultCard__store/);
     expect(container.innerHTML).toMatch(/StoreResultCard__footer/);
+    expect(container.innerHTML).toMatch(/StoreResultCard__heading/);
+    expect(container.innerHTML).toMatch(/StoreResultCard__save/);
     expect(container.firstElementChild?.getAttribute('aria-hidden')).toBe('true');
   });
 });

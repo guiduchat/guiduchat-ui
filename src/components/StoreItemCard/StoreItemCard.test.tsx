@@ -99,6 +99,8 @@ describe('StoreItemCard', () => {
   it('o esqueleto usa as classes do cartão', () => {
     const { container } = render(<StoreItemCardSkeleton />);
     expect(container.innerHTML).toMatch(/StoreItemCard__store/);
+    expect(container.innerHTML).toMatch(/StoreItemCard__heading/);
+    expect(container.innerHTML).toMatch(/StoreItemCard__save/);
     expect(container.firstElementChild?.getAttribute('aria-hidden')).toBe('true');
   });
 });

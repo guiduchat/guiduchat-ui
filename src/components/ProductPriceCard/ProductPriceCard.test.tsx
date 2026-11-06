@@ -65,6 +65,8 @@ describe('ProductPriceCard', () => {
     const { container } = render(<ProductPriceCardSkeleton />);
     expect(container.innerHTML).toMatch(/ProductPriceCard__media/);
     expect(container.innerHTML).toMatch(/ProductPriceCard__footer/);
+    expect(container.innerHTML).toMatch(/ProductPriceCard__heading/);
+    expect(container.innerHTML).toMatch(/ProductPriceCard__save/);
     expect(container.firstElementChild?.getAttribute('aria-hidden')).toBe('true');
   });
 });

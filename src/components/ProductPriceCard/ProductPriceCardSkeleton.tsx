@@ -20,11 +20,16 @@ export const ProductPriceCardSkeleton = forwardRef<HTMLDivElement, ProductPriceC
         <div className={styles.ProductPriceCard__top}>
           <div className={styles.ProductPriceCard__media}><Skeleton width="100%" height="100%" /></div>
           <div className={styles.ProductPriceCard__info}>
-            <span className={styles.ProductPriceCard__name}>
-              <Skeleton shape="line" width="95%" />
-              <br />
-              <Skeleton shape="line" width="70%" />
-            </span>
+            <div className={styles.ProductPriceCard__heading}>
+              <span className={styles.ProductPriceCard__name}>
+                <Skeleton shape="line" width="95%" />
+                <br />
+                <Skeleton shape="line" width="70%" />
+              </span>
+              <span className={styles.ProductPriceCard__save} style={{ background: 'none' }}>
+                <Skeleton shape="circle" width={44} height={44} />
+              </span>
+            </div>
             <span className={styles.ProductPriceCard__brand}><Skeleton shape="line" width="45%" /></span>
             <div className={styles.ProductPriceCard__priceRow}>
               <span className={styles.ProductPriceCard__offers} style={{ flex: 1 }}>
@@ -44,7 +49,7 @@ export const ProductPriceCardSkeleton = forwardRef<HTMLDivElement, ProductPriceC
           <Skeleton shape="circle" width={44} height={44} />
           <span style={{ flex: 1 }}><Skeleton shape="line" width="80%" /></span>
         </span>
-        <Skeleton width={150} height={44} style={{ borderRadius: 16, flexShrink: 0 }} />
+        <Skeleton width={150} height={44} style={{ borderRadius: 'var(--size-border-radius-button-small)', flexShrink: 0 }} />
       </div>
     </div>
   );

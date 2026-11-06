@@ -19,12 +19,17 @@ export const StoreItemCardSkeleton = forwardRef<HTMLDivElement, StoreItemCardSke
         <div className={styles.StoreItemCard__top}>
           <div className={styles.StoreItemCard__media}><Skeleton width="100%" height="100%" /></div>
           <div className={styles.StoreItemCard__info}>
-            <div className={styles.StoreItemCard__titles}>
-              <span className={styles.StoreItemCard__category}><Skeleton shape="line" width="40%" /></span>
-              <span className={styles.StoreItemCard__name}>
-                <Skeleton shape="line" width="95%" />
-                <br />
-                <Skeleton shape="line" width="70%" />
+            <div className={styles.StoreItemCard__heading}>
+              <div className={styles.StoreItemCard__titles}>
+                <span className={styles.StoreItemCard__category}><Skeleton shape="line" width="40%" /></span>
+                <span className={styles.StoreItemCard__name}>
+                  <Skeleton shape="line" width="95%" />
+                  <br />
+                  <Skeleton shape="line" width="70%" />
+                </span>
+              </div>
+              <span className={styles.StoreItemCard__save} style={{ background: 'none' }}>
+                <Skeleton shape="circle" width={44} height={44} />
               </span>
             </div>
             <span className={styles.StoreItemCard__description}>

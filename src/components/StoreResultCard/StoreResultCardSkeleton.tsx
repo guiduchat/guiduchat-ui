@@ -19,11 +19,16 @@ export const StoreResultCardSkeleton = forwardRef<HTMLDivElement, StoreResultCar
         <div className={styles.StoreResultCard__top}>
           <div className={styles.StoreResultCard__media}><Skeleton width="100%" height="100%" /></div>
           <div className={styles.StoreResultCard__info}>
-            <span className={styles.StoreResultCard__name}>
-              <Skeleton shape="line" width="95%" />
-              <br />
-              <Skeleton shape="line" width="70%" />
-            </span>
+            <div className={styles.StoreResultCard__heading}>
+              <span className={styles.StoreResultCard__name}>
+                <Skeleton shape="line" width="95%" />
+                <br />
+                <Skeleton shape="line" width="70%" />
+              </span>
+              <span className={styles.StoreResultCard__save} style={{ background: 'none' }}>
+                <Skeleton shape="circle" width={44} height={44} />
+              </span>
+            </div>
             <div className={styles.StoreResultCard__priceRow}>
               <span className={styles.StoreResultCard__offers} style={{ flex: 1 }}>
                 <Skeleton shape="line" width="60%" />
@@ -49,7 +54,7 @@ export const StoreResultCardSkeleton = forwardRef<HTMLDivElement, StoreResultCar
           <Skeleton shape="circle" width={44} height={44} />
           <span style={{ flex: 1 }}><Skeleton shape="line" width="80%" /></span>
         </span>
-        <Skeleton width={120} height={44} style={{ borderRadius: 16, flexShrink: 0 }} />
+        <Skeleton width={120} height={44} style={{ borderRadius: 'var(--size-border-radius-button-small)', flexShrink: 0 }} />
       </div>
     </div>
   );
