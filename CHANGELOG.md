@@ -2,14 +2,14 @@
 
 ## 0.40.0 (página do produto)
 
-Pedido do Marcelo (05/11/2026) para a página do produto padronizado. Só acrescenta: nenhum componente existente muda.
+Pedido do Marcelo (05/11/2026) para a página do produto padronizado. Só acrescenta: quem já usa os componentes do kit não muda.
 
 **Componentes**
 
 - **`ProductHero` (novo):** imagem quadrada de borda a borda em fundo branco (`--product-photo-background`), cantos de 24 px, e coluna de ações redondas de 44 px sobre ela (`actions`: nome, ícone e clique do app). Com `ProductHeroSkeleton`, que reserva o quadro e a coluna.
 - **`ProductSummary` (novo):** categoria, nome centralizado, selo de desconto no par `--status-mint` (o `<strong>` da frase fica em negrito), legenda em maiúsculas e o preço grande na mesma linha. Com `ProductSummarySkeleton`.
 - **`ProductPinnedHeader` (novo):** complemento das abas grudadas, sem cartão e sem fundo próprio: foto de 80x80 em fundo branco, nome em até duas linhas, o botão das ofertas (`offers`) e as ações redondas de 36 px (`actions`, as mesmas do `ProductHero`). O app o prende no alto, com o fundo da página, acima das abas. Sem esqueleto: só aparece com a página carregada.
-- O menu em pílulas é o `Segmented` (variante `pill`, com ícone): nenhum componente novo.
+- **`Tabs`:** nova opção `icon` em cada aba (ícone em cima, texto embaixo, linha colada embaixo, abas dividindo a largura) e prop `aria-label`. Sem ícone, nada muda.
 
 **Ícones**
 
