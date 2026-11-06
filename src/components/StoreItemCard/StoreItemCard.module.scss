@@ -1,0 +1,282 @@
+@use '../../styles/shared-mixins/typography';
+@use '../../styles/shared-mixins/reset-clickable';
+
+// Medidas do desenho do Marcelo: cartão de fora (raio 24, margem 12); dentro, o cartão do item (raio 20,
+// mais claro no hub escuro) e a pílula de aviso na camada `band`; a faixa da loja fica no fundo do cartão de fora.
+.StoreItemCard {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-size-xl);
+  width: 100%;
+  min-width: 0;
+  padding: var(--spacing-size-xl);
+  box-sizing: border-box;
+  border-radius: var(--size-border-radius-semantic-border-radius-surface);
+  background-color: var(--surface-outer);
+  --field-background: var(--field-on-outer);
+  --field-background-contrast: var(--field-contrast-on-outer);
+  color: var(--text-primary);
+}
+
+.StoreItemCard__body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-size-xl);
+  padding: var(--spacing-size-xl);
+  border-radius: var(--size-border-radius-semantic-border-radius-promo);
+  background-color: var(--surface-inner);
+  --field-background: var(--field-on-inner);
+  --field-background-contrast: var(--field-contrast-on-inner);
+}
+
+.StoreItemCard__top {
+  display: flex;
+  align-items: stretch;
+  gap: var(--spacing-size-xl);
+}
+
+.StoreItemCard__media {
+  display: flex;
+  flex: 0 0 100px;
+  align-items: center;
+  justify-content: center;
+  height: 175px;
+  overflow: hidden;
+  border-radius: var(--size-border-radius-semantic-border-radius-card);
+  background-color: var(--background-tertiary);
+  color: var(--text-secondary);
+}
+
+.StoreItemCard__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.StoreItemCard__info {
+  display: flex;
+  flex: 1 1 0;
+  flex-direction: column;
+  gap: var(--spacing-size-m);
+  min-width: 0;
+}
+
+.StoreItemCard__heading {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--spacing-size-m);
+}
+
+.StoreItemCard__titles {
+  display: flex;
+  flex: 1 1 0;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.StoreItemCard__category {
+  @include typography.description;
+  color: var(--text-themed);
+}
+
+.StoreItemCard__name {
+  @include typography.title;
+  display: -webkit-box;
+  margin: 0;
+  overflow: hidden;
+  overflow-wrap: anywhere;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+}
+
+.StoreItemCard__save {
+  @include reset-clickable.resetClickable;
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: var(--border-radius-circle);
+  background-color: var(--button-primary);
+  color: var(--text-on-accent);
+  cursor: pointer;
+
+  &:focus-visible {
+    outline: 2px solid var(--icon-themed);
+    outline-offset: 2px;
+  }
+}
+
+.StoreItemCard__description {
+  @include typography.description;
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+
+.StoreItemCard__priceRow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: var(--spacing-size-xs);
+  margin-top: auto;
+}
+
+.StoreItemCard__fulfillment {
+  display: flex;
+  flex: 1 1 0;
+  align-items: center;
+  gap: var(--spacing-size-m);
+  min-width: 0;
+  margin: 0;
+}
+
+.StoreItemCard__fulfillmentIcon {
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: var(--border-radius-circle);
+  background-color: var(--button-primary);
+  color: var(--text-on-accent);
+}
+
+.StoreItemCard__fulfillmentText {
+  @include typography.description;
+  white-space: pre-line;
+  color: var(--text-themed);
+}
+
+.StoreItemCard__price {
+  display: flex;
+  flex: 1 1 min-content;
+  flex-direction: column;
+  align-items: flex-end;
+  margin: 0 0 0 auto;
+}
+
+.StoreItemCard__priceLabel {
+  @include typography.description;
+  color: var(--text-primary);
+}
+
+.StoreItemCard__amount {
+  @include typography.display;
+  display: inline-flex;
+  align-items: baseline;
+  gap: var(--spacing-size2xs);
+  color: var(--text-themed);
+  font-weight: var(--font-weight-body-strong);
+  white-space: nowrap;
+}
+
+.StoreItemCard__currency {
+  @include typography.subheader;
+  font-weight: var(--font-weight-body-strong);
+}
+
+.StoreItemCard__more {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-size-xl);
+}
+
+.StoreItemCard__notice {
+  @include typography.tag;
+  margin: 0;
+  padding: var(--spacing-size-s) var(--spacing-size-m);
+  border-radius: var(--border-radius-circle);
+  background-color: var(--surface-band);
+  color: var(--text-secondary);
+  text-align: center;
+}
+
+.StoreItemCard__payment {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--spacing-size-m);
+
+  svg {
+    flex-shrink: 0;
+    color: var(--icon-themed);
+  }
+}
+
+.StoreItemCard__paymentText {
+  @include typography.description;
+  margin: 0;
+  min-width: 0;
+
+  strong {
+    font-weight: var(--font-weight-body-strong);
+  }
+}
+
+.StoreItemCard__store {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-size-xl);
+}
+
+.StoreItemCard__avatar {
+  display: flex;
+  flex-shrink: 0;
+  width: 48px;
+  height: 48px;
+  // Sem recorte redondo: o formato vem do próprio avatar (squircle).
+  overflow: hidden;
+
+  > * {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.StoreItemCard__names {
+  display: flex;
+  flex: 1 1 0;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.StoreItemCard__storeName {
+  @include typography.bodyStrong;
+  overflow-wrap: anywhere;
+}
+
+.StoreItemCard__address {
+  @include typography.description;
+  color: var(--text-primary);
+}
+
+.StoreItemCard__status {
+  @include typography.description;
+  color: var(--text-positive);
+}
+
+.StoreItemCard__status_negative {
+  color: var(--text-negative);
+}
+
+.StoreItemCard__toggle {
+  @include reset-clickable.resetClickable;
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: var(--border-radius-circle);
+  background-color: var(--button-primary);
+  color: var(--text-on-accent);
+  cursor: pointer;
+
+  &:focus-visible {
+    outline: 2px solid var(--icon-themed);
+    outline-offset: 2px;
+  }
+}

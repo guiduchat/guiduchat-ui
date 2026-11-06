@@ -76,9 +76,11 @@ import {
   StatStripItem,
   Steps,
   StoreHero,
+  StoreItemCard,
   StoreOfferCard,
   StorePhotoCard,
   StorePriceCard,
+  StoreResultCard,
   SwipeActions,
   Switch,
   TabBar,
@@ -626,6 +628,37 @@ const cases: Array<[string, ReactNode]> = [
         description="Unidade de 330ml."
         payment={{ title: 'Opções de Pagamento', text: 'Dinheiro, Cartão de Crédito e PIX.' }}
         orderAction={{ label: 'Enviar pedido para loja' }}
+      />
+      <StoreResultCard
+        name="Biquíni Floral Maria Bonita"
+        save={{ label: 'Salvar item', pressed: false, onPressedChange: () => {} }}
+        offers="64 ofertas em moda praia a partir de:"
+        currency="R$"
+        price="240"
+        storeName="Sunset Alternative"
+        address="Rua das Pedras, 34"
+        delivery="Retirada ou entrega"
+        status="Aberto até 20h"
+        action={{ label: 'Ver Opções', onClick: () => {} }}
+      />
+      <StoreItemCard
+        category="Moda Praia"
+        name="Biquíni Floral Maria Bonita"
+        save={{ label: 'Salvar item', pressed: false, onPressedChange: () => {} }}
+        description="Tamanhos disponíveis P, M e G."
+        fulfillment="Retirada ou entrega"
+        priceLabel="a partir de:"
+        currency="R$"
+        price="240"
+        notice="Preço não inclui frete."
+        payment={{ title: 'Opções de Pagamento', text: 'Dinheiro e PIX.' }}
+        orderAction={{ label: 'Enviar pedido para loja' }}
+        storeName="Sunset Alternative"
+        address="Rua das Pedras, 34"
+        status="Aberto até 22h."
+        open
+        onOpenChange={() => {}}
+        toggleLabel="Mostrar detalhes do item"
       />
     </div>
   ]
